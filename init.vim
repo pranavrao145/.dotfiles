@@ -26,6 +26,7 @@ set lazyredraw
 set regexpengine=1        
 set ignorecase smartcase  
 set diffopt+=vertical
+set bg=dark
 
 filetype plugin on
 filetype indent on
@@ -47,7 +48,6 @@ Plug 'tpope/vim-rails'
 call plug#end()
 
 colorscheme gruvbox
-source $HOME/.config/nvim/plug-config/coc.vim 
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -76,4 +76,6 @@ vnoremap <silent> <Replace-Shortcut>  :Farr<cr>
 
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gy <Plug>(coc-type-definition)
 nmap <C-p> :GFiles<CR>
