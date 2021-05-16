@@ -65,6 +65,8 @@ nmap <leader>gf :diffget //2<CR>
 nmap <leader>s :w<CR>
 nmap <leader>ss :w <bar> :bd<CR>
 :imap kj <Esc>
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " shortcut for far.vim find
