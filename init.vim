@@ -45,6 +45,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-rails'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 colorscheme gruvbox
