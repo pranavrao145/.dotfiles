@@ -1,4 +1,4 @@
-# Vim Config Repository
+# Vim Config
 
 A repository to hold my vim config file(s).
 
