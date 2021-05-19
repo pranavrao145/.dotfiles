@@ -26,12 +26,12 @@ set lazyredraw
 set regexpengine=1        
 set ignorecase smartcase  
 set diffopt+=vertical
-set bg=dark
 
 filetype plugin on
 filetype indent on
 
-call plug#begin('~/.config/nvim')
+call plug#begin('~/.vim/vim-plugins')
+Plug 'ayu-theme/ayu-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline' 
@@ -46,9 +46,13 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-rails'
 Plug 'jiangmiao/auto-pairs'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-bundler'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme ayu
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -57,6 +61,8 @@ let g:airline#extensions#branch#enabled=1
 let g:user_emmet_mode='a'
 let g:far#enable_undo=1
 let g:user_emmet_leader_key=','
+let g:VM_show_warnings = 0
+let ayucolor="mirage"
 let mapleader=' ' 
 
 nmap <leader>gs :G<CR>
@@ -64,6 +70,7 @@ nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>s :w<CR>
 nmap <leader>ss :w <bar> :bd<CR>
+nmap <leader>gp :Git push<CR>
 :imap kj <Esc>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
