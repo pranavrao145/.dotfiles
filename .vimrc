@@ -71,6 +71,7 @@ nmap <leader>gf :diffget //2<CR>
 nmap <leader>s :w<CR>
 nmap <leader>ss :w <bar> :bd<CR>
 nmap <leader>gp :Git push<CR>
+nmap <leader>e :Explore<CR>
 :imap kj <Esc>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -88,4 +89,5 @@ nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <C-p> :GFiles<CR>
+
+nmap <C-p> :Files<CR>
