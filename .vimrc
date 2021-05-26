@@ -46,13 +46,14 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-rails'
 Plug 'jiangmiao/auto-pairs'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-bundler'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'szw/vim-maximizer'
+Plug 'tpope/vim-surround'
 call plug#end()
 
-colorscheme ayu
+colorscheme palenight
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -64,15 +65,24 @@ let g:user_emmet_leader_key=','
 let g:VM_show_warnings = 0
 let ayucolor="mirage"
 let mapleader=' ' 
+let g:gruvbox_guisp_fallback = 'bg'
 
-nmap <leader>gs :G<CR>
-nmap <leader>gj :diffget //3<CR>
-nmap <leader>gf :diffget //2<CR>
-nmap <leader>s :w<CR>
-nmap <leader>ss :w <bar> :bd<CR>
-nmap <leader>gp :Git push<CR>
-nmap <leader>e :Explore<CR>
-:imap kj <Esc>
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>ds :Gdiffsplit!<CR>
+nnoremap <leader>gj :diffget //3<CR>
+nnoremap <leader>gf :diffget //2<CR>
+nnoremap <leader>s :w<CR>
+nnoremap <leader>ss :w <bar> :bd<CR>
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>e :Explore<CR>
+nnoremap <leader>t :bel term<CR>
+nnoremap <leader>m :MaximizerToggle!<CR>
+
+inoremap kj <Esc>
+inoremap KJ <Esc>
+inoremap jk <Esc>
+inoremap JK <Esc>
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
@@ -81,13 +91,22 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 nnoremap <silent> <Find-Shortcut>  :Farf<cr>
 vnoremap <silent> <Find-Shortcut>  :Farf<cr>
 
+nnoremap <leader>f :Farf<CR>
+vnoremap <leader>f :Farf<CR>
+
 " shortcut for far.vim replace
 nnoremap <silent> <Replace-Shortcut>  :Farr<cr>
 vnoremap <silent> <Replace-Shortcut>  :Farr<cr>
 
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-references)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gy <Plug>(coc-type-definition)
+nnoremap <leader>fr :Farr<CR>
+vnoremap <leader>fr :Farr<CR>
 
-nmap <C-p> :Files<CR>
+nnoremap <leader>gd <Plug>(coc-definition)
+nnoremap <leader>gr <Plug>(coc-references)
+nnoremap <silent>gi <Plug>(coc-implementation)
+nnoremap <silent>gy <Plug>(coc-type-definition)
+
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+
+nnoremap <leader>r :reg<CR>
