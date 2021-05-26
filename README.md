@@ -1,5 +1,5 @@
-# Vim Config
+# Shell Config
 
-A repository to hold my vim config file(s).
+A repository to hold my shell config files.
 
-This setup also works on neovim, but rename .vimrc to init.vim and store in ~/.config/nvim. 
+Includes ~/.vimrc and ~/.zshrc
