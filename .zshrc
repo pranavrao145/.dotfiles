@@ -109,3 +109,7 @@ alias prog="cd && cd Programming"
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# For Homebrew and Ruby Gem compatability
+export PATH=/home/linuxbrew/.linuxbrew/opt/ruby/bin:$PATH
+export PATH=/home/linuxbrew/.linuxbrew/lib/ruby/gems/3.0.0/bin:$PATH
