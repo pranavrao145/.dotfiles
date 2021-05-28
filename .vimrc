@@ -17,7 +17,7 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set termguicolors
+set termguicolors 
 set scrolloff=8
 set signcolumn=yes
 set colorcolumn=80
@@ -51,6 +51,7 @@ Plug 'tpope/vim-bundler'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-surround'
+Plug 'puremourning/vimspector'
 call plug#end()
 
 colorscheme palenight
@@ -66,6 +67,7 @@ let g:VM_show_warnings = 0
 let ayucolor="mirage"
 let mapleader=' ' 
 let g:gruvbox_guisp_fallback = 'bg'
+let g:vimspector_enable_mappings = 'HUMAN'
 
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>ds :Gdiffsplit!<CR>
@@ -73,9 +75,11 @@ nnoremap <leader>gj :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>ss :w <bar> :bd<CR>
+nnoremap <leader>S :w<CR>
+nnoremap <leader>SS :w <bar> :bd<CR>
 nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>e :Explore<CR>
-nnoremap <leader>t :bel term<CR>
+nnoremap <leader>t :CocCommand terminal.Toggle<CR>
 nnoremap <leader>m :MaximizerToggle!<CR>
 
 inoremap kj <Esc>
@@ -110,3 +114,8 @@ nnoremap <C-p> :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 
 nnoremap <leader>r :reg<CR>
+
+"Vimspector remaps
+nnoremap <leader>dd :call vimspector#Launch()<CR>
+nnoremap <leader>de :call vimspector#Reset()<CR>
+
