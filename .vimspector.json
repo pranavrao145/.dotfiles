@@ -4,7 +4,8 @@
             "adapter": "vscode-cpptools",
             "configuration": {
                 "request": "launch",
-                "program": "debug/${fileBasenameNoExtension}", "cwd": "${workspaceRoot}",
+                "program": "debug/main", 
+                "cwd": "${workspaceRoot}",
                 "externalConsole": true,
                 "MIMode": "gdb",
                 "setupCommands": [
