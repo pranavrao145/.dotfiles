@@ -54,7 +54,7 @@ Plug 'tpope/vim-surround'
 Plug 'puremourning/vimspector'
 call plug#end()
 
-colorscheme palenight
+colorscheme ayu
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -66,7 +66,6 @@ let g:user_emmet_leader_key=','
 let g:VM_show_warnings = 0
 let ayucolor="mirage"
 let mapleader=' ' 
-let g:gruvbox_guisp_fallback = 'bg'
 let g:vimspector_enable_mappings = 'HUMAN'
 
 nnoremap <leader>gs :G<CR>
@@ -119,3 +118,5 @@ nnoremap <leader>r :reg<CR>
 nnoremap <leader>dd :call vimspector#Launch()<CR>
 nnoremap <leader>de :call vimspector#Reset()<CR>
 
+"Greatest remap ever
+vnoremap <leader>p "_dP
