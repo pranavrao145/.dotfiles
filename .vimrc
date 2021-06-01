@@ -23,14 +23,14 @@ set signcolumn=yes
 set colorcolumn=80
 set backspace=indent,eol,start
 set lazyredraw           
-set regexpengine=1        
+set regexpengine=0
 set ignorecase smartcase  
 set diffopt+=vertical
 
 filetype plugin on
 filetype indent on
 
-call plug#begin('~/.vim/vim-plugins')
+call plug#begin('~/.config/nvim/plugins')
 Plug 'ayu-theme/ayu-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -52,9 +52,10 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-surround'
 Plug 'puremourning/vimspector'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
-colorscheme ayu
+colorscheme gruvbox 
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -80,6 +81,10 @@ nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap <leader>t :CocCommand terminal.Toggle<CR>
 nnoremap <leader>m :MaximizerToggle!<CR>
+nnoremap ; :
+nnoremap : ;
+vnoremap ; : 
+vnoremap : ;
 
 inoremap kj <Esc>
 inoremap KJ <Esc>
@@ -104,12 +109,13 @@ vnoremap <silent> <Replace-Shortcut>  :Farr<cr>
 nnoremap <leader>fr :Farr<CR>
 vnoremap <leader>fr :Farr<CR>
 
-nnoremap <leader>gd <Plug>(coc-definition)
-nnoremap <leader>gr <Plug>(coc-references)
-nnoremap <silent>gi <Plug>(coc-implementation)
-nnoremap <silent>gy <Plug>(coc-type-definition)
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gy <Plug>(coc-type-definition)
+nmap <leader>qf <Plug>(coc-fix-current)
 
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 
 nnoremap <leader>r :reg<CR>
