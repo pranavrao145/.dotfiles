@@ -31,7 +31,6 @@ filetype plugin on
 filetype indent on
 
 call plug#begin('~/.config/nvim/plugins')
-Plug 'ayu-theme/ayu-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline' 
@@ -53,6 +52,10 @@ Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-surround'
 Plug 'puremourning/vimspector'
 Plug 'tpope/vim-repeat'
+Plug 'ryanoasis/vim-devicons'
+Plug 'andweeb/presence.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+Plug 'stsewd/fzf-checkout.vim'
 call plug#end()
 
 colorscheme gruvbox 
@@ -65,12 +68,11 @@ let g:user_emmet_mode='a'
 let g:far#enable_undo=1
 let g:user_emmet_leader_key=','
 let g:VM_show_warnings = 0
-let ayucolor="mirage"
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
 
 nnoremap <leader>gs :G<CR>
-nnoremap <leader>ds :Gdiffsplit!<CR>
+nnoremap <leader>ds :Gdiffsplit<CR>
 nnoremap <leader>gj :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
 nnoremap <leader>s :w<CR>
@@ -81,6 +83,9 @@ nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap <leader>t :CocCommand terminal.Toggle<CR>
 nnoremap <leader>m :MaximizerToggle!<CR>
+nnoremap <leader>gc :GCheckout<CR>
+
+
 nnoremap ; :
 nnoremap : ;
 vnoremap ; : 
@@ -114,11 +119,26 @@ nmap <leader>gr <Plug>(coc-references)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gy <Plug>(coc-type-definition)
 nmap <leader>qf <Plug>(coc-fix-current)
+nmap <leader>rf <Plug>(coc-refactor)
+nmap <leader>np <Plug>(coc-diagnostic-next)
+nmap <leader>pp <Plug>(coc-diagnostic-previous)
+nmap <leader>ca <Plug>(coc-codeaction)
+
+" codeaction selected
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected) 
+
+" format selected
+xmap <leader>fm  <Plug>(coc-format-selected)
+nmap <leader>fm  <Plug>(coc-format-selected)
 
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 
-nnoremap <leader>r :reg<CR>
+"rails remaps
+nnoremap <leader>rc :Econtroller<CR>
+nnoremap <leader>rv :Eview<CR>
+nnoremap <leader>rm :Emodel<CR>
 
 "Vimspector remaps
 nnoremap <leader>dd :call vimspector#Launch()<CR>
@@ -126,3 +146,27 @@ nnoremap <leader>de :call vimspector#Reset()<CR>
 
 "Greatest remap ever
 vnoremap <leader>p "_dP
+
+"to show inline documentation
+nnoremap <silent>K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction 
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF
+
+hi Normal guibg=NONE ctermbg=NONE
