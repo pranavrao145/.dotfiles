@@ -103,13 +103,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias nvim="vim"
+alias vim="nvim"
 alias prog="cd && cd Programming"
+alias x="xrandr --output HDMI1 --mode 1920x1080 --rate 60"
 
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# For Homebrew and Ruby Gem compatability
-export PATH=/home/linuxbrew/.linuxbrew/opt/ruby/bin:$PATH
-export PATH=/home/linuxbrew/.linuxbrew/lib/ruby/gems/3.0.0/bin:$PATH
+export PATH=/home/pranavrao/.local/share/gem/ruby/3.0.0/bin:$PATH
