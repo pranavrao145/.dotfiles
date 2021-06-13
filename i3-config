@@ -192,10 +192,11 @@ bar {
 }
 
 # custom keybinds
-bindsym $mod+shift+x exec i3lock -c e2a8fe
+bindsym $mod+shift+q exec i3lock -c e2a8fe # to lock
+bindsym $mod+shift+x exec i3lock -c e2a8fe && systemctl suspend # to sleep
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+p exec pavucontrol
-bindsym $mod+shift+q exec i3lock -c e2a8fe && systemctl suspend
+bindsym $mod+shift+v exec vboxmanage startvm "Windows 10"
 
 # Gaps
 
@@ -273,6 +274,7 @@ for_window [class="Spotify"] move to workspace $ws3
 assign [class="vlc"] $ws3
 assign [class="discord"] $ws4
 assign [class="VirtualBox Manager"] $ws5
+for_window [class="VirtualBox Machine"] move to workspace $ws5
 assign [class="Anydesk"] $ws6
 
 exec spotify
@@ -306,3 +308,5 @@ client.focused          #6d00c1 #6d00c1 #ffffff #6d00c1   #6d00c1
 
 # flameshot shortcut
 bindsym $mod+shift+s exec flameshot gui
+
+focus_on_window_activation focus # focus window on open
