@@ -42,6 +42,8 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -118,7 +120,7 @@ set $ws3 "3.  Music"
 set $ws4 "4.  Discord"
 set $ws5 "5.  Windows"
 set $ws6 "6.  Anydesk"
-set $ws7 "7"
+set $ws7 "7.  Streaming and Media"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -195,7 +197,7 @@ bindsym $mod+shift+q exec i3lock -c e2a8fe # to lock
 bindsym $mod+shift+x exec i3lock -c e2a8fe && systemctl suspend # to sleep
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+p exec pavucontrol
-bindsym $mod+shift+v exec vboxmanage startvm "Windows 10"
+bindsym $mod+ctrl+w exec vboxmanage startvm "Windows 10"
 
 # Gaps
 
@@ -273,11 +275,13 @@ bindsym $mod+Ctrl+h move workspace to output left
 assign [class="Google-chrome"] $ws1
 assign [class="Terminator"] $ws2
 for_window [class="Spotify"] move to workspace $ws3
-assign [class="vlc"] $ws3
 assign [class="discord"] $ws4
 assign [class="VirtualBox Manager"] $ws5
 for_window [class="VirtualBox Machine"] move to workspace $ws5
 assign [class="Anydesk"] $ws6
+assign [class="vlc"] $ws7
+assign [class="obs"] $ws7
+assign [class="kdenlive"] $ws7
 
 exec spotify
 exec discord-canary
@@ -300,6 +304,7 @@ workspace $ws3 output $monitor_two
 workspace $ws4 output $monitor_two
 workspace $ws5 output $monitor_two
 workspace $ws6 output $monitor_two
+workspace $ws7 output $monitor_two
 
 # Eliminate title window
 for_window [class="^.*"] border pixel 2
