@@ -264,8 +264,11 @@ bindsym $mod+n exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 
 bindsym $mod+m exec xrandr --output eDP1 --primary --mode 1600x900 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
 
 # move focused workspace between monitors
-bindsym $mod+Ctrl+greater move workspace to output right
-bindsym $mod+Ctrl+less move workspace to output left
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
+
+bindsym $mod+Ctrl+l move workspace to output right
+bindsym $mod+Ctrl+h move workspace to output left
 
 assign [class="Google-chrome"] $ws1
 assign [class="Terminator"] $ws2
