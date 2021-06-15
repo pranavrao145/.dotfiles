@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/pranavrao/.oh-my-zsh"
@@ -105,10 +105,13 @@ export NVM_DIR="$HOME/.nvm"
 
 alias vim="nvim"
 alias prog="cd && cd Programming"
-alias x="xrandr --output HDMI1 --mode 1920x1080 --rate 60"
+alias lr="ranger"
+alias dnd="dunstctl set-paused"
+alias dnds="dunstctl is-paused"
 
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=/home/pranavrao/.local/share/gem/ruby/3.0.0/bin:$PATH
+export PATH=/home/pranavrao/.local/bin:$PATH
+export EDITOR=nvim
