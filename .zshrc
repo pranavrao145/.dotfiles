@@ -115,3 +115,6 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 export PATH=/home/pranavrao/.local/bin:$PATH
 export EDITOR=nvim
+
+# this is for ruby gems to work when you do a user install (when ruby installed using pacman)
+export PATH=/home/pranavrao/.local/share/gem/ruby/3.0.0/bin:$PATH
