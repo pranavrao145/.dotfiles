@@ -2,7 +2,7 @@ syntax on
  
 set exrc
 set tabstop=4 softtabstop=4
-set shiftwidth=4
+set shiftwidth=4 
 set expandtab
 set smartindent
 set guicursor=
@@ -26,6 +26,9 @@ set lazyredraw
 set regexpengine=0
 set ignorecase smartcase  
 set diffopt+=vertical
+set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
 
 filetype plugin on
 filetype indent on
@@ -56,14 +59,17 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'andweeb/presence.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
 Plug 'stsewd/fzf-checkout.vim'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'rafi/awesome-vim-colorschemes'
 call plug#end()
 
-colorscheme gruvbox 
+colorscheme palenight
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#branch#enabled=1
+let g:airline_powerline_fonts=1
 let g:user_emmet_mode='a'
 let g:far#enable_undo=1
 let g:user_emmet_leader_key=','
@@ -81,7 +87,6 @@ nnoremap <leader>S :w<CR>
 nnoremap <leader>SS :w <bar> :bd<CR>
 nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>e :Explore<CR>
-nnoremap <leader>t :CocCommand terminal.Toggle<CR>
 nnoremap <leader>m :MaximizerToggle!<CR>
 nnoremap <leader>gc :GCheckout<CR>
 
@@ -123,6 +128,7 @@ nmap <leader>rf <Plug>(coc-refactor)
 nmap <leader>np <Plug>(coc-diagnostic-next)
 nmap <leader>pp <Plug>(coc-diagnostic-previous)
 nmap <leader>ca <Plug>(coc-codeaction)
+nmap <leader>t <Plug>(coc-terminal-toggle)
 
 " codeaction selected
 xmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -131,6 +137,9 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " format selected
 xmap <leader>fm  <Plug>(coc-format-selected)
 nmap <leader>fm  <Plug>(coc-format-selected)
+
+" format whole file
+nnoremap <leader>sa gg <bar> V <bar> G<CR>
 
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
@@ -170,3 +179,4 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 hi Normal guibg=NONE ctermbg=NONE
+
