@@ -1,5 +1,5 @@
 syntax on
- 
+
 set exrc
 set tabstop=4 softtabstop=4
 set shiftwidth=4 
@@ -23,8 +23,8 @@ set signcolumn=yes
 set colorcolumn=80
 set backspace=indent,eol,start
 set lazyredraw           
+set ignorecase smartcase
 set regexpengine=0
-set ignorecase smartcase  
 set diffopt+=vertical
 set encoding=utf-8
 set fileencoding=utf-8
@@ -42,25 +42,24 @@ Plug 'tpope/vim-fugitive'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'mattn/emmet-vim'
 Plug 'craigemery/vim-autotag'
-Plug 'brooth/far.vim'
 Plug 'preservim/nerdcommenter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-rails'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-bundler'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'szw/vim-maximizer'
 Plug 'tpope/vim-surround'
 Plug 'puremourning/vimspector'
-Plug 'tpope/vim-repeat'
 Plug 'ryanoasis/vim-devicons'
 Plug 'andweeb/presence.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } 
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 colorscheme palenight
@@ -77,72 +76,64 @@ let g:VM_show_warnings = 0
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
 
+
+" Vim Fugitive setup
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gc :GCheckout<CR>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>ds :Gdiffsplit<CR>
 nnoremap <leader>gj :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
+
+" Miscellaneous remaps
 nnoremap <leader>s :w<CR>
 nnoremap <leader>ss :w <bar> :bd<CR>
 nnoremap <leader>S :w<CR>
 nnoremap <leader>SS :w <bar> :bd<CR>
-nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>e :Explore<CR>
+nnoremap <leader>sa gg <bar> V <bar> G<CR>
+
+"quickfix list remaps
+nnoremap <C-q> :copen<CR>
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
+
+"location list remaps
+nnoremap <leader>q :lopen<CR>
+nnoremap <leader>j :lnext<CR>
+nnoremap <leader>k :lprev<CR>
+nnoremap <leader>ll :CocDiagnostic<CR>
+
+"Vim maximizer remap
 nnoremap <leader>m :MaximizerToggle!<CR>
-nnoremap <leader>gc :GCheckout<CR>
 
-
+" semicolon remaps
 nnoremap ; :
 nnoremap : ;
 vnoremap ; : 
 vnoremap : ;
 
+" exit insert mode remaps
 inoremap kj <Esc>
 inoremap KJ <Esc>
 inoremap jk <Esc>
 inoremap JK <Esc>
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-
-" shortcut for far.vim find
-nnoremap <silent> <Find-Shortcut>  :Farf<cr>
-vnoremap <silent> <Find-Shortcut>  :Farf<cr>
-
-nnoremap <leader>f :Farf<CR>
-vnoremap <leader>f :Farf<CR>
-
-" shortcut for far.vim replace
-nnoremap <silent> <Replace-Shortcut>  :Farr<cr>
-vnoremap <silent> <Replace-Shortcut>  :Farr<cr>
-
-nnoremap <leader>fr :Farr<CR>
-vnoremap <leader>fr :Farr<CR>
-
+" coc remaps
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gy <Plug>(coc-type-definition)
 nmap <leader>qf <Plug>(coc-fix-current)
 nmap <leader>rf <Plug>(coc-refactor)
-nmap <leader>np <Plug>(coc-diagnostic-next)
-nmap <leader>pp <Plug>(coc-diagnostic-previous)
+nmap <silent>]g <Plug>(coc-diagnostic-next)
+nmap <silent>[g <Plug>(coc-diagnostic-prev)
 nmap <leader>ca <Plug>(coc-codeaction)
-nmap <leader>t <Plug>(coc-terminal-toggle)
-
-" codeaction selected
+nmap <C-t> <Plug>(coc-terminal-toggle)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected) 
-
-" format selected
 xmap <leader>fm  <Plug>(coc-format-selected)
 nmap <leader>fm  <Plug>(coc-format-selected)
-
-" format whole file
-nnoremap <leader>sa gg <bar> V <bar> G<CR>
-
-nnoremap <C-p> :GFiles<CR>
-nnoremap <leader>b :Buffers<CR>
 
 "rails remaps
 nnoremap <leader>rc :Econtroller<CR>
@@ -160,23 +151,84 @@ vnoremap <leader>p "_dP
 nnoremap <silent>K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
+    else
+        execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
 endfunction 
 
+" treesitter activation
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-  },
+ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+highlight = {
+enable = true,              -- false will disable the whole extension
+},
 }
 EOF
 
 hi Normal guibg=NONE ctermbg=NONE
+
+" remaps to make tab for autocomplete work
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" easier search shortcut
+nnoremap <leader>f /\<\><left><left>
+nnoremap <leader>fr :%s/\<\>/<left><left><left>
+
+" telescope remaps
+nnoremap <C-p> <cmd>Telescope git_files<cr>
+nnoremap <leader>gc <cmd>Telescope git_branches<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+
+lua <<EOF
+require('telescope').setup {
+    defaults = {
+        file_sorter =  require'telescope.sorters'.get_fzy_sorter,
+        vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            },
+        mappings = {
+            i = {
+                ["<C-q>"] = require("telescope.actions").send_to_qflist,
+                },
+            },
+        },
+
+    extensions = {
+        fzy_native = {
+            override_generic_sorter = false,
+            override_file_sorter = true,
+            }
+        }
+    }
+
+require('telescope').load_extension('fzy_native')
+
+local M = {}
+
+M.git_branches = function()
+    require("telescope.builtin").git_branches({
+        attach_mappings = function(_, map)
+            map('i', '<c-d>', actions.git_delete_branch)
+            map('n', '<c-d>', actions.git_delete_branch)
+            return true
+        end
+    })
+end
+
+return M
+EOF
 
