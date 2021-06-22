@@ -76,7 +76,6 @@ let g:VM_show_warnings = 0
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
 
-
 " Vim Fugitive setup
 nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>gc :GCheckout<CR>
@@ -102,7 +101,7 @@ nnoremap <C-k> :cprev<CR>
 nnoremap <leader>q :lopen<CR>
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprev<CR>
-nnoremap <leader>ll :CocDiagnostic<CR>
+nnoremap <leader>lp :CocDiagnostic<CR>
 
 "Vim maximizer remap
 nnoremap <leader>m :MaximizerToggle!<CR>
@@ -128,8 +127,8 @@ nmap <leader>qf <Plug>(coc-fix-current)
 nmap <leader>rf <Plug>(coc-refactor)
 nmap <silent>]g <Plug>(coc-diagnostic-next)
 nmap <silent>[g <Plug>(coc-diagnostic-prev)
-nmap <leader>ca <Plug>(coc-codeaction)
 nmap <C-t> <Plug>(coc-terminal-toggle)
+nmap <leader>aa <Plug>(coc-codeaction)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected) 
 xmap <leader>fm  <Plug>(coc-format-selected)
@@ -205,6 +204,7 @@ require('telescope').setup {
                 ["<C-q>"] = require("telescope.actions").send_to_qflist,
                 },
             },
+        preview_cutoff = 1
         },
 
     extensions = {
