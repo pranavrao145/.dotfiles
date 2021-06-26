@@ -121,7 +121,7 @@ set $ws4 "4.  Music"
 set $ws5 "5.  Virtual Machines"
 set $ws6 "6.  Anydesk"
 set $ws7 "7.  Streaming and Media"
-set $ws8 "8"
+set $ws8 "8.  Videoconferencing"
 set $ws9 "9"
 set $ws10 "10"
 
@@ -195,10 +195,11 @@ bar {
 # custom keybinds
 bindsym $mod+shift+q exec i3lock -c e2a8fe # to lock
 bindsym $mod+shift+x exec i3lock -c e2a8fe && systemctl suspend # to sleep
-bindsym $mod+c exec google-chrome-stable
+bindsym $mod+c exec chromium
 bindsym $mod+p exec pavucontrol
 bindsym $mod+ctrl+w exec vboxmanage startvm "Windows 10"
 bindsym $mod+ctrl+k exec vboxmanage startvm "Kali Linux"
+bindsym $mod+ctrl+m exec vboxmanage startvm "macOS"
 
 # Gaps
 
@@ -260,11 +261,11 @@ mode "$mode_gaps_outer" {
 # set up wallpaper
 exec --no-startup-id nitrogen --restore
 
-# fix display
+# fix display (for monitor), laptop done manually
 exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 
 bindsym $mod+n exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-bindsym $mod+m exec xrandr --output eDP1 --primary --mode 1600x900 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
+bindsym $mod+m exec xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
 
 # move focused workspace between monitors
 bindsym $mod+Ctrl+Right move workspace to output right
@@ -274,7 +275,7 @@ bindsym $mod+Ctrl+l move workspace to output right
 bindsym $mod+Ctrl+h move workspace to output left
 
 assign [class="Terminator"] $ws1
-assign [class="Google-chrome"] $ws2
+assign [class="Chromium"] $ws2
 assign [class="discord"] $ws3
 for_window [class="Spotify"] move to workspace $ws4
 assign [class="YouTube Music"] $ws4
@@ -284,12 +285,13 @@ assign [class="Anydesk"] $ws6
 assign [class="vlc"] $ws7
 assign [class="obs"] $ws7
 assign [class="kdenlive"] $ws7
+assign [class="Microsoft Teams - Insiders"] $ws8
 
 exec spotify
 exec discord-canary
 exec flameshot
 exec terminator
-exec google-chrome-stable
+exec chromium
 exec --no-startup-id picom --experimental-backends --backend glx
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 
@@ -313,7 +315,7 @@ for_window [class="^.*"] border pixel 2
 new_window pixel 2
 
 # Change window focused color
-client.focused          #6d00c1 #6d00c1 #ffffff #6d00c1   #6d00c1
+client.focused          #ff0000 #ff0000 #ffffff #ff0000   #ff0000
 
 # flameshot shortcut
 bindsym $mod+shift+s exec flameshot gui
