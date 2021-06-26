@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/pranavrao/.oh-my-zsh"
+export ZSH="/home/cypher/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -113,8 +113,8 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=/home/pranavrao/.local/bin:$PATH
+export PATH=/home/cypher/.local/bin:$PATH
 export EDITOR=nvim
+export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
 
-# this is for ruby gems to work when you do a user install (when ruby installed using pacman)
-export PATH=/home/pranavrao/.local/share/gem/ruby/3.0.0/bin:$PATH
+PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
