@@ -60,6 +60,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'tpope/vim-vinegar'
 call plug#end()
 
 colorscheme palenight
@@ -83,6 +84,7 @@ nnoremap <leader>gs :G<CR>
 nnoremap <leader>ds :Gdiffsplit<CR>
 nnoremap <leader>gj :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
+nnoremap <leader>gl :Git log<CR>
 
 " Miscellaneous remaps
 nnoremap <leader>s :w<CR>
@@ -93,15 +95,15 @@ nnoremap <leader>e :Explore<CR>
 nnoremap <leader>sa gg <bar> V <bar> G<CR>
 
 "quickfix list remaps
-nnoremap <C-q> :copen<CR>
+nnoremap <C-q> :call ToggleList("Quickfix List", 'c')<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
 "location list remaps
-nnoremap <leader>q :lopen<CR>
+nnoremap <leader>qq :call ToggleList("Location List", 'l')<CR>
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprev<CR>
-nnoremap <leader>lp :CocDiagnostic<CR>
+nnoremap <leader>ll :CocDiagnostic<CR>
 
 "Vim maximizer remap
 nnoremap <leader>m :MaximizerToggle!<CR>
@@ -127,7 +129,7 @@ nmap <leader>qf <Plug>(coc-fix-current)
 nmap <leader>rf <Plug>(coc-refactor)
 nmap <silent>]g <Plug>(coc-diagnostic-next)
 nmap <silent>[g <Plug>(coc-diagnostic-prev)
-nmap <C-t> <Plug>(coc-terminal-toggle)
+nmap <leader>t <Plug>(coc-terminal-toggle)
 nmap <leader>aa <Plug>(coc-codeaction)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected) 
@@ -162,10 +164,10 @@ endfunction
 " treesitter activation
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-highlight = {
-enable = true,              -- false will disable the whole extension
-},
+    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    highlight = {
+        enable = true,              -- false will disable the whole extension
+    },
 }
 EOF
 
@@ -178,14 +180,18 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " easier search shortcut
 nnoremap <leader>f /\<\><left><left>
-nnoremap <leader>fr :%s/\<\>/<left><left><left>
+nnoremap <leader>ff /\<<C-r><C-w>\>/g<CR>
+nnoremap <leader>fr :%s/\<\>//g<left><left><left><left><left>
+nnoremap <leader>frr :%s/\<<C-r><C-w>\>//g<left><left>
 
 " telescope remaps
 nnoremap <C-p> <cmd>Telescope git_files<cr>
 nnoremap <leader>gc <cmd>Telescope git_branches<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>gg <cmd>Telescope grep_string<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 
+" lua for both telescope initialization
 lua <<EOF
 require('telescope').setup {
     defaults = {
@@ -204,7 +210,9 @@ require('telescope').setup {
                 ["<C-q>"] = require("telescope.actions").send_to_qflist,
                 },
             },
-        preview_cutoff = 1
+        preview_cutoff = 1,
+        only_sort_text = true,
+        color_devicons= true
         },
 
     extensions = {
@@ -231,4 +239,34 @@ end
 
 return M
 EOF
+
+
+" functions to enable toggling of quickfix and location lists
+
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
 
