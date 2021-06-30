@@ -31,7 +31,6 @@ set fileencoding=utf-8
 set termencoding=utf-8
 
 filetype plugin on
-filetype indent on
 
 call plug#begin('~/.config/nvim/plugins')
 Plug 'gruvbox-community/gruvbox'
@@ -63,7 +62,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-vinegar'
 call plug#end()
 
-colorscheme palenight
+colorscheme gruvbox
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -100,6 +99,8 @@ nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
 "location list remaps
+nnoremap <leader>q :call ToggleList("Location List", 'l')<CR>
+" second remap for closing location list in case of impatience (both should work)
 nnoremap <leader>qq :call ToggleList("Location List", 'l')<CR>
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprev<CR>
