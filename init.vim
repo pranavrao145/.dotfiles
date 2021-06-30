@@ -31,6 +31,7 @@ set fileencoding=utf-8
 set termencoding=utf-8
 
 filetype plugin on
+filetype indent on
 
 call plug#begin('~/.config/nvim/plugins')
 Plug 'gruvbox-community/gruvbox'
