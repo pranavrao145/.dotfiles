@@ -114,14 +114,14 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1.  Terminals"
-set $ws2 "2.  Browsers"
-set $ws3 "3.  Discord"
-set $ws4 "4.  Music"
-set $ws5 "5.  Virtual Machines"
-set $ws6 "6.  Anydesk"
-set $ws7 "7.  Streaming and Media"
-set $ws8 "8.  Videoconferencing"
+set $ws1 "1. "
+set $ws2 "2. "
+set $ws3 "3. "
+set $ws4 "4. "
+set $ws5 "5. "
+set $ws6 "6. "
+set $ws7 "7. "
+set $ws8 "8. "
 set $ws9 "9"
 set $ws10 "10"
 
@@ -193,8 +193,8 @@ bar {
 }
 
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c e2a8fe # to lock
-bindsym $mod+shift+x exec i3lock -c e2a8fe && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c fcb061 # to lock
+bindsym $mod+shift+x exec i3lock -c fcb061 && systemctl suspend # to sleep
 bindsym $mod+c exec chromium
 bindsym $mod+p exec pavucontrol
 bindsym $mod+t exec thunar
@@ -300,14 +300,14 @@ exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 set $monitor_one HDMI1
 set $monitor_two eDP1
 
-# set browsers and terminals monitor 1
+# set browsers, terminals, and virtual machines monitor 1
 workspace $ws1 output $monitor_one
 workspace $ws2 output $monitor_one
+workspace $ws5 output $monitor_two
 
 # set everything else monitor 2
 workspace $ws3 output $monitor_two
 workspace $ws4 output $monitor_two
-workspace $ws5 output $monitor_two
 workspace $ws6 output $monitor_two
 workspace $ws7 output $monitor_two
 
