@@ -55,9 +55,9 @@ bindsym $mod+Return exec terminator
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -sb '#ff6600'
+#bindsym $mod+d exec --no-startup-id dmenu_run -sb '#ff6600'
 # A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec "rofi -modi drun,run -show drun -show-icons"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -119,11 +119,11 @@ set $ws2 "2. "
 set $ws3 "3. "
 set $ws4 "4. "
 set $ws5 "5. "
-set $ws6 "6. "
-set $ws7 "7. "
+set $ws6 "6. "
+set $ws7 "7. "
 set $ws8 "8. "
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10. "
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -200,7 +200,6 @@ bindsym $mod+p exec pavucontrol
 bindsym $mod+t exec thunar
 bindsym $mod+ctrl+w exec vboxmanage startvm "Windows 10"
 bindsym $mod+ctrl+k exec vboxmanage startvm "Kali Linux"
-bindsym $mod+ctrl+m exec vboxmanage startvm "macOS"
 
 # Gaps
 
@@ -282,11 +281,11 @@ for_window [class="Spotify"] move to workspace $ws4
 assign [class="YouTube Music"] $ws4
 assign [class="VirtualBox Manager"] $ws5
 for_window [class="VirtualBox Machine"] move to workspace $ws5
-assign [class="Anydesk"] $ws6
+assign [class="obs"] $ws6
 assign [class="vlc"] $ws7
-assign [class="obs"] $ws7
 assign [class="kdenlive"] $ws7
 assign [class="Microsoft Teams - Insiders"] $ws8
+assign [class="Anydesk"] $ws10
 
 exec spotify
 exec discord-canary
@@ -303,13 +302,16 @@ set $monitor_two eDP1
 # set browsers, terminals, and virtual machines monitor 1
 workspace $ws1 output $monitor_one
 workspace $ws2 output $monitor_one
-workspace $ws5 output $monitor_two
+workspace $ws5 output $monitor_one
 
 # set everything else monitor 2
 workspace $ws3 output $monitor_two
 workspace $ws4 output $monitor_two
 workspace $ws6 output $monitor_two
 workspace $ws7 output $monitor_two
+workspace $ws8 output $monitor_two
+workspace $ws9 output $monitor_two
+workspace $ws10 output $monitor_two
 
 # Eliminate title window
 for_window [class="^.*"] border pixel 2
@@ -322,3 +324,9 @@ client.focused          #ff6600 #ff6600 #ffffff #ff6600 #ff6600
 bindsym $mod+shift+s exec flameshot gui
 
 focus_on_window_activation focus # focus window on open
+
+# shortcut for browser
+bindcode $mod+34 workspace $ws1
+
+# rofi custom binds
+bindsym $mod+Tab exec --no-startup-id rofi -show window
