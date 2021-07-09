@@ -120,7 +120,7 @@ set $ws3 "3. "
 set $ws4 "4. "
 set $ws5 "5. "
 set $ws6 "6. "
-set $ws7 "7. "
+set $ws7 "7. " 
 set $ws8 "8. "
 set $ws9 "9"
 set $ws10 "10. "
@@ -195,17 +195,22 @@ bar {
 # custom keybinds
 bindsym $mod+shift+q exec i3lock -c fcb061 # to lock
 bindsym $mod+shift+x exec i3lock -c fcb061 && systemctl suspend # to sleep
-bindsym $mod+c exec chromium
-bindsym $mod+p exec pavucontrol
+bindsym $mod+c exec brave
+bindsym $mod+p workspace $ws1
 bindsym $mod+t exec thunar
 bindsym $mod+ctrl+w exec vboxmanage startvm "Windows 10"
 bindsym $mod+ctrl+k exec vboxmanage startvm "Kali Linux"
+bindcode $mod+34 exec pavucontrol
 
 # Gaps
 
+# smart borders and gaps to prevent them when not necessary
+# smart_gaps on
+# smart_borders on
+
 # Set inner/outer gaps
-gaps inner 10
-gaps outer 5 
+gaps inner 5
+gaps outer 5
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -275,7 +280,7 @@ bindsym $mod+Ctrl+l move workspace to output right
 bindsym $mod+Ctrl+h move workspace to output left
 
 assign [class="Terminator"] $ws1
-assign [class="Chromium"] $ws2
+assign [class="Brave-browser"] $ws2
 assign [class="discord"] $ws3
 for_window [class="Spotify"] move to workspace $ws4
 assign [class="YouTube Music"] $ws4
@@ -291,7 +296,7 @@ exec spotify
 exec discord-canary
 exec flameshot
 exec terminator
-exec chromium
+exec brave
 exec --no-startup-id picom --experimental-backends --backend glx
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 
@@ -325,8 +330,6 @@ bindsym $mod+shift+s exec flameshot gui
 
 focus_on_window_activation focus # focus window on open
 
-# shortcut for browser
-bindcode $mod+34 workspace $ws1
-
 # rofi custom binds
 bindsym $mod+Tab exec --no-startup-id rofi -show window
+
