@@ -114,7 +114,8 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=/home/cypher/.local/bin:$PATH
-export EDITOR=nvim
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
 
 PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
+
+export EDITOR=nvim
