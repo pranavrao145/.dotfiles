@@ -58,6 +58,7 @@ bindsym $mod+q kill
 # bindsym $mod+d exec --no-startup-id dmenu_run -sb '#ff6600'
 # A more modern dmenu replacement is rofi:
 bindsym $mod+d exec "rofi -modi drun,run -show drun -show-icons"
+bindsym $mod+ctrl+s exec "rofi -modi ssh -show ssh"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -197,10 +198,10 @@ bindsym $mod+shift+q exec i3lock -c fcb061 # to lock
 bindsym $mod+shift+x exec i3lock -c fcb061 && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
-bindsym $mod+t exec thunar
-bindsym $mod+ctrl+w exec vboxmanage startvm "Windows 10"
-bindsym $mod+ctrl+k exec vboxmanage startvm "Kali Linux"
 bindcode $mod+34 exec pavucontrol
+bindsym $mod+t exec thunar
+bindsym $mod+ctrl+shift+w exec vboxmanage startvm "Windows 10"
+bindsym $mod+ctrl+shift+k exec vboxmanage startvm "Kali Linux"
 
 # Gaps
 
@@ -332,3 +333,4 @@ focus_on_window_activation focus # focus window on open
 
 # rofi custom binds
 bindsym $mod+Tab exec --no-startup-id rofi -show window
+
