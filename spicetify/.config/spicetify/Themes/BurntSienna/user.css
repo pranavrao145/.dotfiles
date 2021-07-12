@@ -1,0 +1,107 @@
+* {
+	font-family: Montserrat;
+}
+
+/* Sets font-weight for all titles */
+.h-title,
+.Header__title-text,
+.glue-page-header__title,
+.GlueHeader__title,
+.section-divider{
+    font-weight: 700 !important;
+}
+
+/* Bigger font for big colorful play/pause button */
+.button{
+    font-size: 16px;
+}
+
+/* Colored scrollbar moving things, they have rounded edges too */
+::-webkit-scrollbar-thumb {
+    background: var(--modspotify_indicator_fg_and_button_bg) !important;
+    border-radius: 10px;
+}
+
+/* Colored progressbar */
+.inner{
+    background-color: var(--modspotify_indicator_fg_and_button_bg) !important;
+}
+
+/* Bigger font for elapsed time, remaining time and artist name */
+.elapsed,
+.remaining,
+.artist{
+    font-size: 14px !important;
+}
+
+/* Bigger font for track title and big colorful play/pause button */
+.button.button-icon-only::before,
+.track{
+    font-size: 18px !important;
+}
+
+/* No circle around player play button */
+.button-play,
+.view-player .player-controls-container .controls .button-play.button-play:after {
+    box-shadow: 0px 0px!important;
+}
+
+/* Makes play button gray */
+.view-player .player-controls-container .controls .button-play
+{
+    color: var(--modspotify_secondary_fg);
+}
+
+/* Bigger font for play button */
+#player-button-play::before{
+    font-size: 25px !important;
+}
+
+/* Centering play button */
+#player-button-play{
+    margin-left: -5px !important;
+}
+
+/* Wider container for track and artist names */
+.now-playing-container{
+    min-width: 400px !important;
+}
+
+/* CHANGES IN V2 */
+
+/* Thinner font for Friend Activity title and friends' names */
+.section-divider > *:first-child,
+.friend .user .name {
+	font-weight: 600;
+}
+
+/* Thinner font for subtitles and username in Settings */
+.account-info__profile-info-name-text,
+.section-divider h4 {
+	font-weight: 600;
+}
+
+/* Brighter color of 'Explicit' labels */
+.tl-explicit .label, .tl-premium .label {
+	color: #d0d0d0;
+}
+
+/* Thinner font for 'Help create Popular Songs for this artist!' heading */
+.no-top-tracks h3 {
+	font-weight: 600;
+}
+
+/* Thinner font for 'The playlist is currently empty' heading */
+.empty-content-title {
+	font-weight: 600;
+}
+
+/* Thinner font for subtitles in Home and Radio tabs */
+.GlueSectionDivider__title {
+	font-weight: 600;
+}
+
+/* Thinner font for 'Nothing here yet' subtitle in Recently Played */
+.RecentlyPlayedEmptyState__title {
+	font-weight: 600;
+}
