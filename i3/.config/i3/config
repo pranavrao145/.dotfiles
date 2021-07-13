@@ -183,22 +183,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-    #i3bar_command i3bar -t
-    #status_command i3blocks
-    #position top
-    #colors {
-        #focused_workspace #313233 #ff6600 #ffffff
-    #}
-#}
-
-set_from_resource $lockcolour color7 #f0f0f0
-
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c 9A9F71 # to lock
-bindsym $mod+shift+x exec i3lock -c 9A9F71 && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c EF5F4E # to lock
+bindsym $mod+shift+x exec i3lock -c EF5F4E && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
 bindsym $mod+shift+p exec pavucontrol
