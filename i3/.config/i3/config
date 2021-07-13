@@ -344,3 +344,4 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 border_radius 5 
 
+for_window [class="Terminator"] floating enable
