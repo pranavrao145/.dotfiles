@@ -62,7 +62,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-vinegar'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme deus
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1

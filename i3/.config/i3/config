@@ -194,12 +194,14 @@ bindsym $mod+r mode "resize"
     #}
 #}
 
+set_from_resource $lockcolour color7 #f0f0f0
+
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c fcb061 # to lock
-bindsym $mod+shift+x exec i3lock -c fcb061 && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c 9A9F71 # to lock
+bindsym $mod+shift+x exec i3lock -c 9A9F71 && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
-bindcode $mod+34 exec pavucontrol
+bindsym $mod+shift+p exec pavucontrol
 bindsym $mod+t exec thunar
 bindsym $mod+ctrl+shift+w exec vboxmanage startvm "Windows 10"
 bindsym $mod+ctrl+shift+k exec vboxmanage startvm "Kali Linux"
@@ -334,11 +336,12 @@ new_window pixel 0
 # it fails to get colors from Xresources.
 set_from_resource $fg i3wm.color7 #f0f0f0
 set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $alt i3wm.color6 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.unfocused        $alt     $alt     $fg  $alt       $alt
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 
