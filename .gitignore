@@ -1,6 +1,12 @@
 spicetify/.config/spicetify/Extensions
 spicetify/.config/spicetify/Extracted
 spicetify/.config/spicetify/CustomApps
-spicetify/.config/spicetify/Themes
 spicetify/.config/spicetify/Backup
+spicetify/.config/spicetify/Themes/Dribbblish/*.png
+spicetify/.config/spicetify/Themes/Dribbblish/*.exe
+spicetify/.config/spicetify/Themes/Dribbblish/LICENSE
+spicetify/.config/spicetify/Themes/Dribbblish/README.md
+spicetify/.config/spicetify/Themes/Dribbblish/**/*.woff2
+spicetify/.config/spicetify/Themes/Dribbblish/*.js
+spicetify/.config/spicetify/Themes/Dribbblish/*.gif
 
