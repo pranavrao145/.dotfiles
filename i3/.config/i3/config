@@ -188,6 +188,7 @@ bindsym $mod+shift+q exec i3lock -c EF5F4E # to lock
 bindsym $mod+shift+x exec i3lock -c EF5F4E && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
+bindcode $mod+34 workspace $ws1
 bindsym $mod+shift+p exec pavucontrol
 bindsym $mod+t exec thunar
 bindsym $mod+ctrl+shift+w exec vboxmanage startvm "Windows 10"
@@ -344,4 +345,3 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 border_radius 5 
 
-for_window [class="Terminator"] floating enable

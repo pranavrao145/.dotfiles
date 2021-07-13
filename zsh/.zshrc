@@ -112,16 +112,15 @@ alias lr="ranger"
 alias dnd="dunstctl set-paused"
 alias dnds="dunstctl is-paused"
 
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
 
 PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 
 export EDITOR=nvim
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # run neofetch on startup
 neofetch
