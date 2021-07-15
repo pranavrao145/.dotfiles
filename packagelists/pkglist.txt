@@ -3,6 +3,7 @@ adobe-source-sans-fonts
 aircrack-ng
 alsa-utils
 arandr
+arc-gtk-theme
 autoconf
 automake
 autorandr
@@ -14,6 +15,7 @@ bison
 bluez
 bluez-utils
 calc
+chromium
 clang
 cronie
 cups
@@ -43,7 +45,6 @@ grep
 groff
 grub
 grub-customizer
-gvim
 gzip
 htop
 i3blocks
@@ -63,10 +64,12 @@ lightdm-webkit2-greeter
 linux
 linux-firmware
 linux-headers
+lxappearance
 lxqt-policykit
 m4
 make
 mesa-demos
+mosh
 mpd
 nano
 neofetch
@@ -85,6 +88,7 @@ pacman
 pacman-contrib
 patch
 pavucontrol
+pinta
 pkgconf
 playerctl
 python-pipenv

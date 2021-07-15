@@ -5,7 +5,6 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4 
 set expandtab
 set smartindent
-set guicursor=
 set nohlsearch
 set hidden
 set noerrorbells
@@ -33,7 +32,6 @@ set termencoding=utf-8
 filetype plugin indent on
 
 call plug#begin('~/.config/nvim/plugins')
-Plug 'gruvbox-community/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes'
@@ -60,9 +58,10 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-eunuch'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme deus
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -211,9 +210,11 @@ require('telescope').setup {
                 ["<C-q>"] = require("telescope.actions").send_to_qflist,
                 },
             },
-        preview_cutoff = 1,
         only_sort_text = true,
-        color_devicons= true
+        color_devicons= true,
+        layout_config = {
+            height = 0.7
+            }
         },
 
     extensions = {

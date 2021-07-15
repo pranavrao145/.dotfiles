@@ -184,11 +184,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c EF5F4E # to lock
-bindsym $mod+shift+x exec i3lock -c EF5F4E && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c 96719E # to lock
+bindsym $mod+shift+x exec i3lock -c 96719E && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
-bindcode $mod+34 workspace $ws1
 bindsym $mod+shift+p exec pavucontrol
 bindsym $mod+t exec thunar
 bindsym $mod+ctrl+shift+w exec vboxmanage startvm "Windows 10"
@@ -197,8 +196,8 @@ bindsym $mod+ctrl+shift+k exec vboxmanage startvm "Kali Linux"
 # Gaps
 
 # smart borders and gaps to prevent them when not necessary
-# smart_gaps on
-# smart_borders on
+smart_gaps on
+smart_borders on
 
 # Set inner/outer gaps
 gaps inner 14
@@ -272,6 +271,7 @@ bindsym $mod+Ctrl+l move workspace to output right
 bindsym $mod+Ctrl+h move workspace to output left
 
 assign [class="Terminator"] $ws1
+assign [class="konsole"] $ws1
 assign [class="Brave-browser"] $ws2
 assign [class="discord"] $ws3
 for_window [class="Spotify"] move to workspace $ws4
@@ -313,8 +313,8 @@ workspace $ws9 output $monitor_two
 workspace $ws10 output $monitor_two
 
 # Eliminate title window
-for_window [class="^.*"] border pixel 0
-new_window pixel 0
+for_window [class="^.*"] border pixel 1
+new_window pixel 1
 
 # Change window focused color
 # Set colors from Xresources
@@ -328,7 +328,7 @@ set_from_resource $alt i3wm.color6 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $alt     $alt     $fg  $alt       $alt
 client.unfocused        $alt     $alt     $fg  $alt       $alt
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
@@ -343,5 +343,5 @@ focus_on_window_activation focus # focus window on open
 # rofi custom binds
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
-border_radius 5 
+#border_radius 5 
 

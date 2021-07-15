@@ -1,4 +1,3 @@
-7-zip
 anydesk-bin
 betterdiscord-git
 betterdiscordctl-git
@@ -12,6 +11,7 @@ lightdm-webkit-theme-aether
 nerd-fonts-fira-code
 nerd-fonts-fira-mono
 nerd-fonts-iosevka
+nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch
 picom-ibhagwan-git
@@ -29,6 +29,5 @@ ttf-material-icons-git
 ttf-ms-fonts
 visual-studio-code-bin
 yay-git
-youtube-music-bin
 zoom
 zscroll-git
