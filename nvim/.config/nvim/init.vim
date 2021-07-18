@@ -32,7 +32,12 @@ set termencoding=utf-8
 filetype plugin indent on
 
 call plug#begin('~/.config/nvim/plugins')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+Plug 'hrsh7th/nvim-compe' 
+Plug 'onsails/lspkind-nvim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline' 
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -66,7 +71,7 @@ colorscheme deus
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#branch#enabled=1 
 let g:airline_powerline_fonts=1
 let g:user_emmet_mode='a'
 let g:far#enable_undo=1
@@ -74,6 +79,11 @@ let g:user_emmet_leader_key=','
 let g:VM_show_warnings = 0
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
 
 " Vim Fugitive setup
 nnoremap <leader>gp :Git push<CR>
@@ -103,7 +113,6 @@ nnoremap <leader>q :call ToggleList("Location List", 'l')<CR>
 nnoremap <leader>qq :call ToggleList("Location List", 'l')<CR>
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprev<CR>
-nnoremap <leader>ll :CocDiagnostic<CR>
 
 "Vim maximizer remap
 nnoremap <leader>m :MaximizerToggle!<CR>
@@ -120,22 +129,6 @@ inoremap KJ <Esc>
 inoremap jk <Esc>
 inoremap JK <Esc>
 
-" coc remaps
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-references)
-nmap <silent>gi <Plug>(coc-implementation)
-nmap <silent>gy <Plug>(coc-type-definition)
-nmap <leader>qf <Plug>(coc-fix-current)
-nmap <leader>rf <Plug>(coc-refactor)
-nmap <silent>]g <Plug>(coc-diagnostic-next)
-nmap <silent>[g <Plug>(coc-diagnostic-prev)
-nmap <leader>t <Plug>(coc-terminal-toggle)
-nmap <leader>aa <Plug>(coc-codeaction)
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected) 
-xmap <leader>fm  <Plug>(coc-format-selected)
-nmap <leader>fm  <Plug>(coc-format-selected)
-
 "rails remaps
 nnoremap <leader>rc :Econtroller<CR>
 nnoremap <leader>rv :Eview<CR>
@@ -147,19 +140,6 @@ nnoremap <leader>de :call vimspector#Reset()<CR>
 
 "Greatest remap ever
 vnoremap <leader>p "_dP
-
-"to show inline documentation
-nnoremap <silent>K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
-        call CocActionAsync('doHover')
-    else
-        execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
-endfunction 
 
 " treesitter activation
 lua <<EOF
@@ -178,6 +158,9 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noselect
+
 " easier search shortcut
 nnoremap <leader>f /\<\><left><left>
 nnoremap <leader>ff /\<<C-r><C-w>\>/g<CR>
@@ -191,7 +174,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>gg <cmd>Telescope grep_string<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 
-" lua for both telescope initialization
+" lua for telescope initialization
 lua <<EOF
 require('telescope').setup {
     defaults = {
@@ -242,6 +225,62 @@ end
 return M
 EOF
 
+lua << EOF
+require'lspinstall'.setup() -- important
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', '<leader>gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<leader>gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>rf', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap("n", "<leader>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+end
+
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{
+        on_attach = on_attach,
+    }
+end
+
+local function setup_servers()
+  require'lspinstall'.setup()
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+      require'lspconfig'[server].setup{
+        on_attach = on_attach,
+      }
+  end
+end
+
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
+EOF
 
 " functions to enable toggling of quickfix and location lists
 
@@ -271,4 +310,56 @@ function! ToggleList(bufname, pfx)
     wincmd p
   endif
 endfunction
+
+lua << EOF
+require('lspkind').init({
+    -- enables text annotations
+    --
+    -- default: true
+    with_text = true,
+})
+
+EOF
+
+lua << EOF
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  resolve_timeout = 800;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = {
+    border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
+    winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+    max_width = 120,
+    min_width = 60,
+    max_height = math.floor(vim.o.lines * 0.3),
+    min_height = 1,
+  };
+
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    vsnip = true;
+    ultisnips = true;
+    luasnip = true;
+  };
+}
+EOF
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
