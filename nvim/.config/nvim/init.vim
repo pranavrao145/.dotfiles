@@ -28,7 +28,6 @@ set diffopt+=vertical
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
-set splitbelow
 
 filetype plugin indent on
 
