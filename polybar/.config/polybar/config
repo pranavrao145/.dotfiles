@@ -17,8 +17,8 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #80000000
+background = ${xrdb:color0:#222}
+;background = #80000000
 background-alt = #444
 foreground = ${xrdb:color7:#222}
 ;foreground = #dfdfdf
@@ -51,12 +51,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
-font-3 = Font Awesome 5 Free:pixelsize=12;2
-font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
-font-5 = Font Awesome 5 Brands:pixelsize=12;2
+font-0 = Font Awesome 5 Free:pixelsize=12;2
+font-1 = Font Awesome 5 Free Solid:pixelsize=12;2
+font-2 = Font Awesome 5 Brands:pixelsize=12;2
+font-3 = fixed:pixelsize=10;1
+font-4 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-5 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = xwindow
@@ -249,9 +249,9 @@ format-disconnected =
 
 ramp-signal-0 = 
 ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
@@ -280,7 +280,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
@@ -290,7 +290,7 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
@@ -362,15 +362,15 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 

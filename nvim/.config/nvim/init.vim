@@ -28,6 +28,7 @@ set diffopt+=vertical
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
+set splitbelow
 
 filetype plugin indent on
 
@@ -62,9 +63,10 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-eunuch'
 Plug 'hoob3rt/lualine.nvim'
+Plug 'akinsho/nvim-bufferline.lua'
 call plug#end()
 
-colorscheme deus
+colorscheme nord
 
 let g:user_emmet_mode='a'
 let g:far#enable_undo=1
@@ -103,7 +105,6 @@ nnoremap <C-k> :cprev<CR>
 "location list remaps
 nnoremap <leader>q :call ToggleList("Location List", 'l')<CR>
 " second remap for closing location list in case of impatience (both should work)
-nnoremap <leader>qq :call ToggleList("Location List", 'l')<CR>
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprev<CR>
 
@@ -339,7 +340,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'gruvbox'
+        theme = 'nord'
     }
 })
 EOF
@@ -350,3 +351,12 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
+lua << EOF
+require("bufferline").setup{
+    options = {
+        diagnostics = "nvim_lsp"
+        }
+}
+EOF
+
+nnoremap <leader>t :new +resize20 term://zsh<CR>

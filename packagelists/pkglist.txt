@@ -91,6 +91,7 @@ pavucontrol
 pinta
 pkgconf
 playerctl
+pyright
 python-pipenv
 python-pywal
 ranger
