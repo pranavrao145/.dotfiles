@@ -75,7 +75,7 @@ let mapleader=' '
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpBackwardTrigger="<c-f>"
 let g:UltiSnipsEditSplit="vertical"
 
 

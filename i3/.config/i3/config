@@ -184,8 +184,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c 96719E # to lock
-bindsym $mod+shift+x exec i3lock -c 96719E && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c 9DC6E8 # to lock
+bindsym $mod+shift+x exec i3lock -c 9DC6E8 && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
