@@ -1,5 +1,4 @@
 syntax on
-
 set exrc
 set tabstop=4 softtabstop=4
 set shiftwidth=4 
@@ -18,7 +17,8 @@ set undofile
 set incsearch
 set termguicolors 
 set scrolloff=8
-set signcolumn=yes
+set signcolumn=yes 
+set guicursor=
 set colorcolumn=80
 set backspace=indent,eol,start
 set lazyredraw           
@@ -33,13 +33,10 @@ filetype plugin indent on
 
 call plug#begin('~/.config/nvim/plugins')
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe' 
 Plug 'onsails/lspkind-nvim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline' 
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'mattn/emmet-vim'
@@ -64,15 +61,11 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-eunuch'
+Plug 'hoob3rt/lualine.nvim'
 call plug#end()
 
 colorscheme deus
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#branch#enabled=1 
-let g:airline_powerline_fonts=1
 let g:user_emmet_mode='a'
 let g:far#enable_undo=1
 let g:user_emmet_leader_key=','
@@ -158,8 +151,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noselect
+"set completeopt=menuone,noselect
 
 " easier search shortcut
 nnoremap <leader>f /\<\><left><left>
@@ -226,7 +218,7 @@ return M
 EOF
 
 lua << EOF
-require'lspinstall'.setup() -- important
+local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -253,34 +245,23 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap("n", "<leader>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  buf_set_keymap('n', "<leader>fm", '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
 end
 
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{
-        on_attach = on_attach,
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { "tsserver", "clangd", "pyright", "solargraph" }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
     }
-end
-
-local function setup_servers()
-  require'lspinstall'.setup()
-  local servers = require'lspinstall'.installed_servers()
-  for _, server in pairs(servers) do
-      require'lspconfig'[server].setup{
-        on_attach = on_attach,
-      }
-  end
-end
-
-setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+  }
 end
 EOF
+
 
 " functions to enable toggling of quickfix and location lists
 
@@ -324,8 +305,7 @@ EOF
 lua << EOF
 require'compe'.setup {
   enabled = true;
-  autocomplete = true;
-  debug = false;
+  autocomplete = true; debug = false;
   min_length = 1;
   preselect = 'enable';
   throttle_time = 80;
@@ -352,9 +332,16 @@ require'compe'.setup {
     nvim_lua = true;
     vsnip = true;
     ultisnips = true;
-    luasnip = true;
   };
 }
+EOF
+
+lua << EOF
+require('lualine').setup({
+    options = {
+        theme = 'gruvbox'
+    }
+})
 EOF
 
 inoremap <silent><expr> <C-Space> compe#complete()
