@@ -196,10 +196,6 @@ bindsym $mod+ctrl+shift+k exec vboxmanage startvm "Kali Linux"
 
 # Gaps
 
-# smart borders and gaps to prevent them when not necessary
-smart_gaps on
-smart_borders on
-
 # Set inner/outer gaps
 gaps inner 14
 gaps outer -2
@@ -210,11 +206,11 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-# smart_borders on
+smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove 
 # gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
@@ -283,6 +279,7 @@ assign [class="obs"] $ws6
 assign [class="vlc"] $ws7
 assign [class="kdenlive"] $ws7
 assign [class="Microsoft Teams - Insiders"] $ws8
+assign [class="Skype"] $ws8
 assign [class="zoom"] $ws8
 assign [class="Anydesk"] $ws10
 
