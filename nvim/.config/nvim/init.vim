@@ -63,9 +63,10 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-eunuch'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
+Plug 'milkypostman/vim-togglelist'
 call plug#end()
 
-colorscheme nord
+colorscheme gruvbox
 
 let g:user_emmet_mode='a'
 let g:far#enable_undo=1
@@ -97,12 +98,12 @@ nnoremap <leader>e :Explore<CR>
 nnoremap <leader>sa gg <bar> V <bar> G<CR>
 
 "quickfix list remaps
-nnoremap <C-q> :call ToggleList("Quickfix List", 'c')<CR>
+nnoremap <C-q> :call ToggleQuickfixList()<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <C-k> :cprev<CR>
 
 "location list remaps
-nnoremap <leader>q :call ToggleList("Location List", 'l')<CR>
+nnoremap <leader>q :call ToggleLocationList()<CR>
 " second remap for closing location list in case of impatience (both should work)
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprev<CR>
@@ -241,7 +242,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>rf', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<silent>ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
@@ -261,36 +262,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 EOF
-
-
-" functions to enable toggling of quickfix and location lists
-
-function! GetBufferList()
-  redir =>buflist
-  silent! ls!
-  redir END
-  return buflist
-endfunction
-
-function! ToggleList(bufname, pfx)
-  let buflist = GetBufferList()
-  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-    if bufwinnr(bufnum) != -1
-      exec(a:pfx.'close')
-      return
-    endif
-  endfor
-  if a:pfx == 'l' && len(getloclist(0)) == 0
-      echohl ErrorMsg
-      echo "Location List is Empty."
-      return
-  endif
-  let winnr = winnr()
-  exec(a:pfx.'open')
-  if winnr() != winnr
-    wincmd p
-  endif
-endfunction
 
 lua << EOF
 require('lspkind').init({
@@ -339,7 +310,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'nord'
+        theme = 'gruvbox'
     }
 })
 EOF
@@ -359,3 +330,12 @@ require("bufferline").setup{
 EOF
 
 nnoremap <leader>t :new +resize20 term://zsh<CR>
+
+fun! LspLocationList()
+    lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
+endfun
+
+augroup LSPUpdate
+    autocmd!
+    autocmd! BufWrite,BufEnter,InsertLeave * :call LspLocationList()
+augroup END
