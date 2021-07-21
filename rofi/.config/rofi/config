@@ -1,2 +1,3 @@
 rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi 
 rofi.font: JetBrainsMonoMedium Nerd Font Mono 12
+rofi.terminal: /usr/bin/terminator
