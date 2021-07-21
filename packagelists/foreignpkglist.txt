@@ -18,6 +18,7 @@ picom-ibhagwan-git
 polybar
 pywal-discord-git
 rtl88x2bu-dkms-git
+ruby-solargraph
 siji-git
 spicetify-cli
 spotify

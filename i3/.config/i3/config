@@ -56,7 +56,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run -sb '#ff6600'
 # A more modern dmenu replacement is rofi:
-bindsym $mod+d exec rofi -show run -modi run -location 1 -width 100 \
+bindsym $mod+d exec rofi -show drun -modi drun -location 1 -width 100 \
 		 -lines 2 -line-margin 0 -line-padding 1 \
 		 -separator-style none -font "JetBrainsMonoMedium Nerd Font Mono 10" -columns 9 -bw 0 \
 		 -disable-history \
