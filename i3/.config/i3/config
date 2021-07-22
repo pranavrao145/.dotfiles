@@ -294,6 +294,7 @@ exec --no-startup-id flameshot
 exec --no-startup-id terminator
 exec --no-startup-id brave
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
+exec --no-startup-id xmodmap ~/.config/swapkeys/swapkeys -display :0
 exec_always --no-startup-id picom --experimental-backends
 exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
 
