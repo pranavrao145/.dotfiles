@@ -106,7 +106,8 @@
 
     ### Text ###
 
-    font = Source Sans Pro 12
+    font = JetBrainsMono Nerd Font Mono 11
+
     
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -242,7 +243,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 6
+    corner_radius = 0
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this

@@ -8,7 +8,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: JetBrainsMonoMedium Nerd Font Mono 12
+font pango: JetBrainsMonoMedium Nerd Font Mono 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -189,8 +189,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c C05D45 # to lock
-bindsym $mod+shift+x exec i3lock -c C05D45 && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c 98764A # to lock
+bindsym $mod+shift+x exec i3lock -c 98764A && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
@@ -262,8 +262,8 @@ exec --no-startup-id nitrogen --restore
 # fix display (for monitor), laptop done manually
 exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 
-bindsym $mod+n exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-bindsym $mod+m exec xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
+bindsym $mod+shift+n exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+bindsym $mod+shift+m exec xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
 
 # move focused workspace between monitors
 bindsym $mod+Ctrl+Right move workspace to output right
@@ -294,7 +294,6 @@ exec --no-startup-id flameshot
 exec --no-startup-id terminator
 exec --no-startup-id brave
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
-exec --no-startup-id xmodmap ~/.config/swapkeys/swapkeys -display :0
 exec_always --no-startup-id picom --experimental-backends
 exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
 

@@ -1,4 +1,5 @@
-syntax on
+syntax on 
+
 set exrc
 set tabstop=4 softtabstop=4
 set shiftwidth=4 
@@ -64,6 +65,8 @@ Plug 'tpope/vim-eunuch'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
 Plug 'milkypostman/vim-togglelist'
+Plug 'ThePrimeagen/harpoon'
+Plug 'tpope/vim-dispatch'
 call plug#end()
 
 colorscheme gruvbox
@@ -311,15 +314,19 @@ lua << EOF
 require('lualine').setup({
     options = {
         theme = 'gruvbox'
+    },
+extensions = {
+    'quickfix',
+    'fugitive',
     }
 })
 EOF
 
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+inoremap <silent><expr><C-Space> compe#complete()
+inoremap <silent><expr><CR>      compe#confirm('<CR>')
+inoremap <silent><expr><C-e>     compe#close('<C-e>')
+inoremap <silent><expr><C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr><C-d>     compe#scroll({ 'delta': -4 })
 
 lua << EOF
 require("bufferline").setup{
@@ -329,8 +336,6 @@ require("bufferline").setup{
 }
 EOF
 
-nnoremap <leader>t :new +resize20 term://zsh<CR>
-
 fun! LspLocationList()
     lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
 endfun
@@ -339,3 +344,26 @@ augroup LSPUpdate
     autocmd!
     autocmd! BufWrite,BufEnter,InsertLeave * :call LspLocationList()
 augroup END
+
+" harpoon remaps
+ 
+lua require("harpoon").setup{}
+
+nnoremap <silent>'' :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent>'a :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent>'s :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent>'d :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent>'f :lua require("harpoon.ui").nav_file(4)<CR>
+
+nnoremap <leader>t :lua require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <leader>tt :lua require("harpoon.term").gotoTerminal(2)<CR>
+
+" exit terminal mode remaps
+tnoremap kj <C-\><C-n> 
+tnoremap KJ <C-\><C-n> 
+tnoremap jk <C-\><C-n>
+tnoremap JK <C-\><C-n>
+
+nnoremap <leader>dp :Dispatch<CR>
+

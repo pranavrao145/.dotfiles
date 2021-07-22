@@ -54,7 +54,6 @@ iw
 iwd
 john
 kdenlive
-konsole
 kvantum-qt5
 libtool
 lightdm
@@ -69,6 +68,7 @@ lxqt-policykit
 m4
 make
 mesa-demos
+mlocate
 mosh
 mpd
 nano
