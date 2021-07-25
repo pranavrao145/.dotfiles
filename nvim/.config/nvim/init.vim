@@ -69,7 +69,7 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'tpope/vim-dispatch'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme palenight
 
 let g:user_emmet_mode='a'
 let g:far#enable_undo=1
@@ -313,7 +313,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'gruvbox'
+        theme = 'palenight'
     },
 extensions = {
     'quickfix',
@@ -355,15 +355,14 @@ nnoremap <silent>'a :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <silent>'s :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <silent>'d :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <silent>'f :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent>'g :lua require("harpoon.ui").nav_file(5)<CR>
+nnoremap <silent>'h :lua require("harpoon.ui").nav_file(6)<CR>
 
-nnoremap <leader>t :lua require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <leader>tt :lua require("harpoon.term").gotoTerminal(2)<CR>
+nnoremap <silent>'t :lua require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <leader>t :lua require("harpoon.term").gotoTerminal(2)<CR>
 
 " exit terminal mode remaps
 tnoremap kj <C-\><C-n> 
 tnoremap KJ <C-\><C-n> 
 tnoremap jk <C-\><C-n>
 tnoremap JK <C-\><C-n>
-
-nnoremap <leader>dp :Dispatch<CR>
-
