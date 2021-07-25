@@ -64,12 +64,11 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-eunuch'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
-Plug 'milkypostman/vim-togglelist'
 Plug 'ThePrimeagen/harpoon'
 Plug 'tpope/vim-dispatch'
 call plug#end()
 
-colorscheme palenight
+colorscheme nord
 
 let g:user_emmet_mode='a'
 let g:far#enable_undo=1
@@ -100,6 +99,22 @@ nnoremap <leader>SS :w <bar> :bd<CR>
 nnoremap <leader>e :Explore<CR>
 nnoremap <leader>sa gg <bar> V <bar> G<CR>
 
+function! ToggleQuickfixList()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+
+function! ToggleLocationList()
+    if empty(filter(getwininfo(), 'v:val.loclist'))
+        lopen
+    else
+        lclose
+    endif
+endfunction
+
 "quickfix list remaps
 nnoremap <C-q> :call ToggleQuickfixList()<CR>
 nnoremap <C-j> :cnext<CR>
@@ -107,7 +122,6 @@ nnoremap <C-k> :cprev<CR>
 
 "location list remaps
 nnoremap <leader>q :call ToggleLocationList()<CR>
-" second remap for closing location list in case of impatience (both should work)
 nnoremap <leader>j :lnext<CR>
 nnoremap <leader>k :lprev<CR>
 
@@ -248,7 +262,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist = false})<CR>', opts)
+  buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', "<leader>fm", '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
@@ -313,7 +327,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'palenight'
+        theme = 'nord'
     },
 extensions = {
     'quickfix',
@@ -336,15 +350,6 @@ require("bufferline").setup{
 }
 EOF
 
-fun! LspLocationList()
-    lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
-endfun
-
-augroup LSPUpdate
-    autocmd!
-    autocmd! BufWrite,BufEnter,InsertLeave * :call LspLocationList()
-augroup END
-
 " harpoon remaps
  
 lua require("harpoon").setup{}
@@ -366,3 +371,4 @@ tnoremap kj <C-\><C-n>
 tnoremap KJ <C-\><C-n> 
 tnoremap jk <C-\><C-n>
 tnoremap JK <C-\><C-n>
+

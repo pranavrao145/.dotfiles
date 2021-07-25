@@ -111,6 +111,7 @@ alias prog="cd && cd Programming"
 alias lr="ranger"
 alias dnd="dunstctl set-paused"
 alias dnds="dunstctl is-paused"
+alias edf="cd ~/.dotfiles"
 
 export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
