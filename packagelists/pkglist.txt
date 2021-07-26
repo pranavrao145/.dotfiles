@@ -91,6 +91,7 @@ pavucontrol
 pinta
 pkgconf
 playerctl
+pulseaudio
 pyright
 python-pipenv
 python-pywal
