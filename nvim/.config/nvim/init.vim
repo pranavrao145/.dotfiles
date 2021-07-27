@@ -68,7 +68,7 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'tpope/vim-dispatch'
 call plug#end()
 
-colorscheme nord
+colorscheme gruvbox
 
 let g:user_emmet_mode='a'
 let g:far#enable_undo=1
@@ -269,7 +269,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "clangd", "pyright", "solargraph" }
+local servers = { "tsserver", "clangd", "pyright", "solargraph", "hls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -327,7 +327,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'nord'
+        theme = 'gruvbox'
     },
 extensions = {
     'quickfix',

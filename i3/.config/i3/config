@@ -260,9 +260,9 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id nitrogen --restore
 
 # fix display (for monitor), laptop done manually
-exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+exec xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 
-bindsym $mod+shift+n exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+bindsym $mod+shift+n exec xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 bindsym $mod+shift+m exec xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
 
 # move focused workspace between monitors
@@ -288,11 +288,11 @@ assign [class="Skype"] $ws8
 assign [class="zoom"] $ws8
 assign [class="Anydesk"] $ws10
 
+exec --no-startup-id brave
 exec --no-startup-id spotify
 exec --no-startup-id discord
 exec --no-startup-id flameshot
 exec --no-startup-id terminator
-exec --no-startup-id brave
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 exec_always --no-startup-id picom --experimental-backends
 exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
