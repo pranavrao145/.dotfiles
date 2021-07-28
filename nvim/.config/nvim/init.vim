@@ -66,13 +66,12 @@ Plug 'hoob3rt/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
 Plug 'ThePrimeagen/harpoon'
 Plug 'tpope/vim-dispatch'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
-colorscheme gruvbox
+colorscheme dracula
 
 let g:user_emmet_mode='a'
-let g:far#enable_undo=1
-let g:user_emmet_leader_key=','
 let g:VM_show_warnings = 0
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
@@ -327,7 +326,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'gruvbox'
+        theme = 'dracula'
     },
 extensions = {
     'quickfix',
@@ -362,6 +361,10 @@ nnoremap <silent>'d :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <silent>'f :lua require("harpoon.ui").nav_file(4)<CR>
 nnoremap <silent>'g :lua require("harpoon.ui").nav_file(5)<CR>
 nnoremap <silent>'h :lua require("harpoon.ui").nav_file(6)<CR>
+nnoremap <silent>'j :lua require("harpoon.ui").nav_file(7)<CR>
+nnoremap <silent>'k :lua require("harpoon.ui").nav_file(8)<CR>
+nnoremap <silent>'l :lua require("harpoon.ui").nav_file(9)<CR>
+nnoremap <silent>'; :lua require("harpoon.ui").nav_file(10)<CR>
 
 nnoremap <silent>'t :lua require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <leader>t :lua require("harpoon.term").gotoTerminal(2)<CR>
