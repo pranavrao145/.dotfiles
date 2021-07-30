@@ -194,12 +194,12 @@ bindsym $mod+shift+x exec i3lock -c 659EEB && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
+bindsym $mod+i workspace $ws3
+bindsym $mod+u workspace $ws4
 bindsym $mod+shift+p exec pavucontrol
 bindsym $mod+t exec thunar
 bindsym $mod+ctrl+shift+w exec vboxmanage startvm "Windows 10"
 bindsym $mod+ctrl+shift+k exec vboxmanage startvm "Kali Linux"
-bindsym $mod+i [con_mark="discord"] scratchpad show
-bindsym $mod+u [con_mark="spotify"] scratchpad show
 
 # Gaps
 
@@ -277,17 +277,17 @@ bindsym $mod+Ctrl+h move workspace to output left
 assign [class="Terminator"] $ws1
 assign [class="konsole"] $ws1
 assign [class="Brave-browser"] $ws2
-for_window [class="discord"] mark "discord", move scratchpad
-for_window [class="Spotify"] mark "spotify", move scratchpad
-assign [class="VirtualBox Manager"] $ws3
-for_window [class="VirtualBox Machine"] move to workspace $ws3
-assign [class="obs"] $ws4
-assign [class="vlc"] $ws5
-assign [class="kdenlive"] $ws6
-assign [class="Microsoft Teams - Insiders"] $ws7
-assign [class="Skype"] $ws7
-assign [class="zoom"] $ws7
-assign [class="Thunar"] $ws8
+assign [class="discord"] $ws3
+for_window [class="Spotify"] move to workspace $ws4
+assign [class="VirtualBox Manager"] $ws5
+for_window [class="VirtualBox Machine"] move to workspace $ws5
+assign [class="obs"] $ws5
+assign [class="vlc"] $ws6
+assign [class="kdenlive"] $ws7
+assign [class="Microsoft Teams - Insiders"] $ws8
+assign [class="Skype"] $ws8
+assign [class="zoom"] $ws8
+assign [class="Thunar"] $ws9
 assign [class="Anydesk"] $ws10
 
 exec --no-startup-id brave
@@ -307,7 +307,6 @@ set $monitor_two eDP1
 # set browsers, terminals, and virtual machines monitor 1
 workspace $ws1 output $monitor_one
 workspace $ws2 output $monitor_one
-workspace $ws3 output $monitor_one
 
 # set everything else monitor 2
 workspace $ws3 output $monitor_two
@@ -349,21 +348,12 @@ for_window [class=.*] focus
 # rofi custom binds
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
-# border_radius 5 
-
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-
-for_window[con_mark="spotify"] resize set 1700 900, move position center
-for_window[con_mark="discord"] resize set 1700 900, move position center
-
-# send discord and spotify to the scratchpad initially
-for_window[con_mark="discord"] scratchpad show
-for_window[con_mark="spotify"] scratchpad show
-
 for_window[class="Nitrogen"] floating enable
 for_window[class="Nitrogen"] resize set 1700 900, move position center
+ 

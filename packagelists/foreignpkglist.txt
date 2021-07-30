@@ -8,7 +8,6 @@ gotop
 haskell-language-server-bin
 heroku-cli
 i3-battery-popup
-i3-gaps-rounded-git
 lightdm-webkit-theme-aether
 nerd-fonts-fira-code
 nerd-fonts-fira-mono
@@ -16,7 +15,7 @@ nerd-fonts-iosevka
 nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch
-picom-ibhagwan-git
+picom-jonaburg-git
 polybar
 pywal-discord-git
 rtl88x2bu-dkms-git
