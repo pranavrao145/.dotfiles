@@ -67,6 +67,7 @@ Plug 'akinsho/nvim-bufferline.lua'
 Plug 'ThePrimeagen/harpoon'
 Plug 'tpope/vim-dispatch'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 colorscheme dracula
@@ -179,8 +180,8 @@ nnoremap <leader>frr :%s/\<<C-r><C-w>\>//g<left><left>
 " telescope remaps
 nnoremap <C-p> <cmd>Telescope git_files<cr>
 nnoremap <leader>gc <cmd>Telescope git_branches<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>gg <cmd>Telescope grep_string<cr>
+nnoremap <leader>gg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg <cmd>Telescope grep_string<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 
 " lua for telescope initialization
@@ -375,3 +376,18 @@ tnoremap KJ <C-\><C-n>
 tnoremap jk <C-\><C-n>
 tnoremap JK <C-\><C-n>
 
+" command to copy the entire buffer name to the clipboard
+command! CopyBuffer let @+ = expand('%:p')
+
+" vim, behave or else
+nnoremap Y y$
+
+" undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" vim, behave or else: the sequel
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'

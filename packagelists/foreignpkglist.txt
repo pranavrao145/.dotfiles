@@ -1,9 +1,11 @@
+alternating-layouts-git
 anydesk-bin
 betterdiscord-git
 betterdiscordctl-git
 brave-bin
 crunch
 gotop
+haskell-language-server-bin
 heroku-cli
 i3-battery-popup
 i3-gaps-rounded-git
@@ -22,6 +24,7 @@ ruby-solargraph
 siji-git
 spicetify-cli
 spotify
+spotifywm-git
 teams-insiders
 ttf-font-awesome-4
 ttf-icomoon-feather

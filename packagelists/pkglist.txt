@@ -14,6 +14,7 @@ binutils
 bison
 bluez
 bluez-utils
+brightnessctl
 calc
 chromium
 clang
@@ -91,10 +92,14 @@ pavucontrol
 pinta
 pkgconf
 playerctl
+powerline
+powerline-fonts
 pulseaudio
 pyright
+python-i3ipc
 python-pipenv
 python-pywal
+python-xlib
 ranger
 ripgrep
 rofi
@@ -162,6 +167,7 @@ xorg-xkbutils
 xorg-xkill
 xorg-xlsatoms
 xorg-xlsclients
+xorg-xmessage
 xorg-xmodmap
 xorg-xpr
 xorg-xrandr
