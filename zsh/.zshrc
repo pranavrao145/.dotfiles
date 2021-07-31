@@ -120,9 +120,21 @@ PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 
 export EDITOR=nvim
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
 
-# run neofetch on startup
-neofetch
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+    source /usr/share/fzf/key-bindings.zsh
+fi
+
+if [ -f /usr/share/fzf/completion.zsh ]; then
+    source /usr/share/fzf/completion.zsh
+fi
+
+# timeout
+TMOUT=120
+TRAPALRM() {
+    ruby /home/cypher/Scripts/shell/timeout.rb
+}
+
+# run startup script on startup
+ruby /home/cypher/Scripts/shell/startup.rb
 
