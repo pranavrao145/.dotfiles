@@ -70,7 +70,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-repeat'
 call plug#end()
 
-colorscheme nord
+colorscheme dracula
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -183,6 +183,7 @@ nnoremap <leader>gc <cmd>Telescope git_branches<cr>
 nnoremap <leader>gg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fg <cmd>Telescope grep_string<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>ls <cmd>Telescope treesitter<cr>
 
 " lua for telescope initialization
 lua <<EOF
@@ -327,7 +328,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'nord'
+        theme = 'dracula'
     },
 extensions = {
     'quickfix',

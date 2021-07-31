@@ -19,7 +19,7 @@ picom-jonaburg-git
 polybar
 pywal-discord-git
 rtl88x2bu-dkms-git
-ruby-solargraph
+shell-color-scripts
 siji-git
 spicetify-cli
 spotify

@@ -189,8 +189,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c 5D87B9 # to lock
-bindsym $mod+shift+x exec i3lock -c 5D87B9 && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c 62599B # to lock
+bindsym $mod+shift+x exec i3lock -c 62599B && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
@@ -281,9 +281,10 @@ assign [class="discord"] $ws3
 for_window [class="Spotify"] move to workspace $ws4
 assign [class="VirtualBox Manager"] $ws5
 for_window [class="VirtualBox Machine"] move to workspace $ws5
-assign [class="obs"] $ws5
-assign [class="vlc"] $ws6
+assign [class="obs"] $ws6
+assign [class="vlc"] $ws7
 assign [class="kdenlive"] $ws7
+assign [class="Gimp-2.10"] $ws7
 assign [class="Microsoft Teams - Insiders"] $ws8
 assign [class="Skype"] $ws8
 assign [class="zoom"] $ws8

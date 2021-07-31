@@ -1,17 +1,18 @@
+# Runs when the terminal is idle for 120 seconds
+
+# frozen_string_literal: true
+
 def cmatrix
-  system("cmatrix")
+  system('cmatrix')
 end
 
-def hollywood
-  system("hollywood")
-end
- 
 def asciiquarium
-  system("asciiquarium")
+  system('asciiquarium')
 end
 
-choices = [method(:cmatrix), method(:hollywood), method(:asciiquarium)]
+# array of functions available
+choices = [method(:cmatrix), method(:asciiquarium)]
 
+# call a a random function
 func = choices.sample
-
 func.call
