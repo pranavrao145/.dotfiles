@@ -70,7 +70,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-repeat'
 call plug#end()
 
-colorscheme dracula
+colorscheme gruvbox
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -183,7 +183,7 @@ nnoremap <leader>gc <cmd>Telescope git_branches<cr>
 nnoremap <leader>gg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fg <cmd>Telescope grep_string<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
-nnoremap <leader>ls <cmd>Telescope treesitter<cr>
+nnoremap <leader>ls <cmd>Telescope lsp_document_symbols<cr>
 
 " lua for telescope initialization
 lua <<EOF
@@ -257,7 +257,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   buf_set_keymap('n', '<leader>gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>rf', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
@@ -328,7 +328,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'dracula'
+        theme = 'gruvbox'
     },
 extensions = {
     'quickfix',
@@ -390,5 +390,5 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
 " vim, behave or else: the sequel
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
-nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+nnoremap <expr> k (v:count > 2 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 2 ? "m'" . v:count : "") . 'j'

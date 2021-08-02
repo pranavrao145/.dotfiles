@@ -129,12 +129,6 @@ if [ -f /usr/share/fzf/completion.zsh ]; then
     source /usr/share/fzf/completion.zsh
 fi
 
-# timeout
-TMOUT=120
-TRAPALRM() {
-    ruby /home/cypher/Scripts/shell/timeout.rb
-}
-
 # run startup script on startup
 ruby /home/cypher/Scripts/shell/startup.rb
 

@@ -189,8 +189,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c 62599B # to lock
-bindsym $mod+shift+x exec i3lock -c 62599B && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c B46C4F # to lock
+bindsym $mod+shift+x exec i3lock -c B46C4F && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
@@ -344,6 +344,7 @@ client.background       $bg
 # flameshot shortcut
 bindsym $mod+shift+s exec flameshot gui
 
+# make everything take focus
 for_window [class=.*] focus
 
 # rofi custom binds

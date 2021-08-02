@@ -4,7 +4,6 @@ aircrack-ng
 alsa-utils
 arandr
 arc-gtk-theme
-asciiquarium
 autoconf
 automake
 autorandr
@@ -19,7 +18,6 @@ brightnessctl
 calc
 chromium
 clang
-cmatrix
 cowsay
 cronie
 cups
