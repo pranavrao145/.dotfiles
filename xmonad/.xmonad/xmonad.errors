@@ -1,0 +1,8 @@
+
+xmonad.hs:65:13: warning: [-Wdeprecations]
+    In the use of ‘defaultTheme’
+    (imported from XMonad.Layout.Tabbed, but defined in XMonad.Layout.Decoration):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad.Layout.Decoration) instead."
+   |
+65 | tabConfig = defaultTheme {
+   |             ^^^^^^^^^^^^

@@ -70,7 +70,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-repeat'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme dracula
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -328,7 +328,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'gruvbox'
+        theme = 'dracula'
     },
 extensions = {
     'quickfix',
