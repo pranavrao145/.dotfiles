@@ -119,6 +119,7 @@ export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
 PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 
 export EDITOR=nvim
+export TERMINAL=/usr/bin/terminator
 
 
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then

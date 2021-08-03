@@ -70,7 +70,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-repeat'
 call plug#end()
 
-colorscheme dracula
+colorscheme gruvbox
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -80,6 +80,7 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-f>"
 let g:UltiSnipsEditSplit="vertical"
+let g:netrw_http_cmd="brave"
 
 
 " Vim Fugitive setup
@@ -169,7 +170,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-"set completeopt=menuone,noselect
+set completeopt=menuone,noselect
 
 " easier search shortcut
 nnoremap <leader>f /\<\><left><left>
@@ -328,7 +329,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'dracula'
+        theme = 'gruvbox'
     },
 extensions = {
     'quickfix',
@@ -392,3 +393,9 @@ inoremap ? ?<c-g>u
 " vim, behave or else: the sequel
 nnoremap <expr> k (v:count > 2 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 2 ? "m'" . v:count : "") . 'j'
+
+augroup dispatchStuff
+    autocmd!
+    autocmd FileType cpp let b:dispatch = "g++ -o debug/main -g %"
+augroup END
+

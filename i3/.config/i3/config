@@ -188,8 +188,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c 677DC2 # to lock
-bindsym $mod+shift+x exec i3lock -c 677DC2 && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c 906E5D # to lock
+bindsym $mod+shift+x exec i3lock -c 906E5D && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
@@ -357,4 +357,3 @@ bindsym $mod+minus scratchpad show
 
 for_window[class="Nitrogen"] floating enable
 for_window[class="Nitrogen"] resize set 1700 900, move position center
- 
