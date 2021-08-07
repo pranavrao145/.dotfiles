@@ -68,6 +68,7 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'tpope/vim-dispatch'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-repeat'
+Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
 colorscheme gruvbox
@@ -266,12 +267,11 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', "<leader>fm", '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "clangd", "pyright", "solargraph", "hls" }
+local servers = { "tsserver", "clangd", "pyright", "solargraph" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -390,12 +390,20 @@ inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
+" copy to clipboard bind
+nnoremap <leader>y "+y
+
 " vim, behave or else: the sequel
 nnoremap <expr> k (v:count > 2 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 2 ? "m'" . v:count : "") . 'j'
 
-augroup dispatchStuff
+augroup dispatch
     autocmd!
     autocmd FileType cpp let b:dispatch = "g++ -o debug/main -g %"
-augroup END
+augroup end
+
+augroup lsp
+    autocmd!
+    autocmd FileType java lua require('setup_jdtls').setup()
+augroup end
 
