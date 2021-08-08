@@ -71,7 +71,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme dracula
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -186,6 +186,7 @@ nnoremap <leader>gg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fg <cmd>Telescope grep_string<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>ls <cmd>Telescope lsp_document_symbols<cr>
+nnoremap <leader>H <cmd>Telescope help_tags<cr>
 
 " lua for telescope initialization
 lua <<EOF
@@ -329,7 +330,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'gruvbox'
+        theme = 'dracula'
     },
 extensions = {
     'quickfix',
@@ -392,6 +393,7 @@ inoremap ? ?<c-g>u
 
 " copy to clipboard bind
 nnoremap <leader>y "+y
+vnoremap <leader>y "+y
 
 " vim, behave or else: the sequel
 nnoremap <expr> k (v:count > 2 ? "m'" . v:count : "") . 'k'

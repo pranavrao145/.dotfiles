@@ -121,7 +121,6 @@ PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 export EDITOR=nvim
 export TERMINAL=/usr/bin/terminator
 
-
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     source /usr/share/fzf/key-bindings.zsh
 fi
