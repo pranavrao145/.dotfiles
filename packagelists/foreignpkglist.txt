@@ -5,7 +5,6 @@ betterdiscordctl-git
 brave-bin
 crunch
 gotop
-haskell-language-server-bin
 heroku-cli
 i3-battery-popup
 lightdm-webkit-theme-aether
@@ -21,6 +20,7 @@ pywal-discord-git
 rtl88x2bu-dkms-git
 shell-color-scripts
 siji-git
+skypeforlinux-stable-bin
 spicetify-cli
 spotify
 spotifywm-git

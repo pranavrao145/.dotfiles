@@ -129,6 +129,9 @@ if [ -f /usr/share/fzf/completion.zsh ]; then
     source /usr/share/fzf/completion.zsh
 fi
 
+# launch tmux if not already launched
+if [ "$TMUX" = "" ]; then tmux new -As0; fi
+
 # run startup script on startup
 ruby /home/cypher/Scripts/shell/startup.rb
 

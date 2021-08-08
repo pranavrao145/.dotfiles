@@ -29,6 +29,7 @@ set diffopt+=vertical
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
+set noshowmode
 
 filetype plugin indent on
 
@@ -71,7 +72,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
-colorscheme dracula
+colorscheme nord
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -330,7 +331,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'dracula'
+        theme = 'nord'
     },
 extensions = {
     'quickfix',
@@ -372,6 +373,7 @@ nnoremap <silent>'; :lua require("harpoon.ui").nav_file(10)<CR>
 
 nnoremap <silent>'t :lua require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <leader>t :lua require("harpoon.term").gotoTerminal(2)<CR>
+nnoremap <leader>T :lua require("harpoon.term").gotoTerminal(3)<CR>
 
 " exit terminal mode remaps
 tnoremap kj <C-\><C-n> 

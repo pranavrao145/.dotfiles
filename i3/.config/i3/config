@@ -273,7 +273,7 @@ bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+l move workspace to output right
 bindsym $mod+Ctrl+h move workspace to output left
 
-assign [class="Terminator"] $ws1
+assign [class="Alacritty"] $ws1
 assign [class="konsole"] $ws1
 assign [class="Brave-browser"] $ws2
 assign [class="discord"] $ws3
@@ -294,7 +294,7 @@ exec --no-startup-id brave
 exec --no-startup-id spotify
 exec --no-startup-id discord
 exec --no-startup-id flameshot
-exec --no-startup-id terminator
+exec --no-startup-id alacritty
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 # exec_always --no-startup-id /usr/bin/alternating_layouts.py
 exec_always --no-startup-id picom --experimental-backends

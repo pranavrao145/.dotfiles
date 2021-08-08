@@ -1,6 +1,7 @@
 acpi
 adobe-source-sans-fonts
 aircrack-ng
+alacritty
 alsa-utils
 arandr
 arc-gtk-theme
@@ -16,11 +17,13 @@ bluez
 bluez-utils
 brightnessctl
 calc
+cheese
 chromium
 clang
 cowsay
 cronie
 cups
+dart
 discord
 dmenu
 dmg2img
@@ -43,9 +46,11 @@ gawk
 gcc
 gdb
 gettext
+ghc-static
 gimp
 git
 github-cli
+gradle
 grep
 groff
 grub
@@ -118,10 +123,10 @@ sudo
 sysstat
 system-config-printer
 termdown
-terminator
 terminus-font
 texinfo
 thunar
+tmux
 tor
 tree
 ttf-dejavu
@@ -187,5 +192,6 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xterm
 yarn
 zsh
