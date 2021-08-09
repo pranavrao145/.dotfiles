@@ -16,6 +16,7 @@ import XMonad.Hooks.DynamicProperty
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
@@ -80,7 +81,7 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 -- Utility functions end
 
-myTerminal = "terminator"
+myTerminal = "alacritty"
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
@@ -103,6 +104,7 @@ myKeys =
     ("M-o", windows $ W.greedyView " 2 "),
     ("M-i", windows $ W.greedyView " 3 "),
     ("M-u", windows $ W.greedyView " 4 "),
+    ("M-y", windows $ W.greedyView " 5 "),
 
     ("M-c", spawn "brave"),
 
@@ -131,7 +133,7 @@ myKeys =
 
 myManageHook = composeAll
     [
-        className =? "Terminator" --> doShift " 1 ",
+        className =? "Alacritty" --> doShift " 1 ",
         className =? "Brave-browser" --> doShift " 2 ",
         className =? "discord" --> doShift " 3 ",
         className =? "VirtualBox Manager" --> doShift " 5 ",
@@ -155,7 +157,8 @@ myDynHook = composeAll [
     ]
 
 myStartupHook = do
-    spawnOnce "terminator &"
+    spawn "$HOME/.config/polybar/scripts/launch_xmonad.sh"
+    spawnOnce "alacritty &"
     spawnOnce "brave &"
     spawnOnce "discord &"
     spawnOnce "spotify &"
@@ -171,9 +174,7 @@ myLayoutHook = avoidStruts (
     spiral (6/7))
 
 main = do
-    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
-    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/xmobarrc"
-    xmonad $ docks desktopConfig {
+    xmonad $ docks $ ewmh desktopConfig {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         borderWidth        = myBorderWidth,
@@ -185,23 +186,10 @@ main = do
         focusedBorderColor = myFocusedBorderColor,
 
         -- hooks, layouts
-        layoutHook         = smartBorders $ mkToggle (single NBFULL) $ myLayoutHook,
+        layoutHook         = spacingRaw False (Border 0 10 0 10) True (Border 10 0 10 0) True $ mkToggle (single NBFULL) $ myLayoutHook,
         manageHook         = myManageHook,
         handleEventHook    = myHandleEventHook,
-        logHook            = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ xmobarPP
-              -- the following variables beginning with 'pp' are settings for xmobar.
-              { ppOutput = \x -> hPutStrLn xmproc0 x                          -- xmobar on monitor 1
-                              >> hPutStrLn xmproc1 x                          -- xmobar on monitor 2
-              , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]"           -- Current workspace
-              , ppVisible = xmobarColor "#98be65" "" . clickable              -- Visible but not current workspace
-              , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" "" . clickable -- Hidden workspaces
-              , ppHiddenNoWindows = xmobarColor "#c792ea" ""  . clickable     -- Hidden workspaces (no windows)
-              , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window
-              , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separator character
-              , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
-              , ppExtras  = [windowCount]                                     -- # of windows current workspace
-              , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
-              },
+        --logHook = myLogHook,
         startupHook        = myStartupHook
     } `additionalKeysP` myKeys
 

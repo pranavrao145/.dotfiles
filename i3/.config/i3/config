@@ -195,6 +195,7 @@ bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
 bindsym $mod+i workspace $ws3
 bindsym $mod+u workspace $ws4
+bindsym $mod+y workspace $ws5
 bindsym $mod+shift+p exec pavucontrol
 bindsym $mod+t exec thunar
 bindsym $mod+ctrl+shift+w exec vboxmanage startvm "Windows 10"
@@ -294,11 +295,11 @@ exec --no-startup-id brave
 exec --no-startup-id spotify
 exec --no-startup-id discord
 exec --no-startup-id flameshot
-exec --no-startup-id alacritty
+exec --no-startup-id sleep 4 && alacritty
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 # exec_always --no-startup-id /usr/bin/alternating_layouts.py
 exec_always --no-startup-id picom --experimental-backends
-exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/scripts/launch_i3.sh
 
 # display settings
 set $monitor_one HDMI1

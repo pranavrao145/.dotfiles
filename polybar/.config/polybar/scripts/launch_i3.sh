@@ -5,15 +5,14 @@ killall -q polybar
 # If all your bars have ipc enabled, you can also use 
 # polybar-msg cmd quit
 
-# Launch cypherbar
-echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
+# Launch i3bar
 
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload cypherbar &
+    MONITOR=$m polybar --reload i3bar &
   done
 else
-  polybar --reload cypherbar &
+  polybar --reload i3bar &
 fi
 
 echo "Bars launched..."

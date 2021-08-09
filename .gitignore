@@ -10,4 +10,7 @@ spicetify/.config/spicetify/Themes/Dribbblish/**/*.woff2
 spicetify/.config/spicetify/Themes/Dribbblish/*.js
 spicetify/.config/spicetify/Themes/Dribbblish/*.gif
 spicetify/.config/spicetify/Themes/Dribbblish/*.css
+xmonad/.xmonad/xmonad.o
+xmonad/.xmonad/xmonad.hi
+xmonad/.xmonad/xmonad-x86_64-linux
 
