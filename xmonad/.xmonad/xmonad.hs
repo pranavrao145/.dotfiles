@@ -157,7 +157,7 @@ myDynHook = composeAll [
     ]
 
 myStartupHook = do
-    spawn "$HOME/.config/polybar/scripts/launch_xmonad.sh"
+    --spawn "$HOME/.config/polybar/scripts/launch_xmonad.sh"
     spawnOnce "alacritty &"
     spawnOnce "brave &"
     spawnOnce "discord &"
@@ -174,6 +174,8 @@ myLayoutHook = avoidStruts (
     spiral (6/7))
 
 main = do
+    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
+    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/xmobarrc"
     xmonad $ docks $ ewmh desktopConfig {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -189,7 +191,20 @@ main = do
         layoutHook         = spacingRaw False (Border 0 10 0 10) True (Border 10 0 10 0) True $ mkToggle (single NBFULL) $ myLayoutHook,
         manageHook         = myManageHook,
         handleEventHook    = myHandleEventHook,
-        --logHook = myLogHook,
-        startupHook        = myStartupHook
+        startupHook        = myStartupHook,
+        logHook = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ xmobarPP
+              -- the following variables beginning with 'pp' are settings for xmobar.
+              { ppOutput = \x -> hPutStrLn xmproc0 x                          -- xmobar on monitor 1
+                              >> hPutStrLn xmproc1 x                          -- xmobar on monitor 2
+              , ppCurrent = xmobarColor (fromXres "*color7") "" . wrap "<box type=Bottom width=2 color=#c792ea>" "</box>"         -- Current workspace
+              , ppVisible = xmobarColor (fromXres "*color7")"" . clickable              -- Visible but not current workspace
+              , ppHidden = xmobarColor "#82AAFF" "" . wrap "<box type=Top width=2 color=#82AAFF>" "</box>" . clickable -- Hidden workspaces
+              , ppHiddenNoWindows = xmobarColor "#82AAFF" ""  . clickable     -- Hidden workspaces (no windows)
+              , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window
+              , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separator character
+              , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
+              , ppExtras  = [windowCount]                                     -- # of windows current workspace
+              , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
+              }
     } `additionalKeysP` myKeys
 

@@ -133,22 +133,45 @@ cursor-scroll = ns-resize
 
 [module/ewmh]
 type = internal/xworkspaces
+format = <label-state>
+index-sort = true
+wrapping-scroll = false
 
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
+; Only show workspaces on the same output as the bar
 pin-workspaces = false
 
-; Create click handler used to focus desktop
-; Default: true
-enable-click = true
+; Workspace icons
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
 
-; Create scroll handlers used to cycle desktops
-; Default: true
-enable-scroll = true
+label-active = %index%
+label-active-background = ${colors.background-alt}
+label-active-underline= ${colors.primary}
+label-active-padding = 2
+
+label-inactive = %index%
+label-inactive-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = ${self.label-inactive-padding}
+
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
 
 [module/xwindow]
 type = internal/xwindow
