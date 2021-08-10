@@ -316,8 +316,8 @@ workspace $ws9 output $monitor_two
 workspace $ws10 output $monitor_two
 
 # Eliminate title window
-for_window [class="^.*"] border pixel 2
-new_window pixel 2
+for_window [class="^.*"] border pixel 0
+new_window pixel 0
 
 # Change window focused color
 # Set colors from Xresources

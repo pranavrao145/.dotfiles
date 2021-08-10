@@ -73,7 +73,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
-colorscheme solarized8
+colorscheme nord
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -167,6 +167,11 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 hi Normal guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE ctermbg=NONE
+hi NonText guibg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
+hi CursorLineNr guibg=NONE ctermbg=NONE
 
 " remaps to make tab for autocomplete work
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -332,7 +337,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'solarized_dark'
+        theme = 'nord'
     },
 extensions = {
     'quickfix',
