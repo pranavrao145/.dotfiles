@@ -57,8 +57,8 @@ font-2 = Font Awesome 5 Brands:pixelsize=11;2
 font-3 = JetBrainsMonoMedium Nerd Font Mono:pixelsize=11;2
 font-4 = fixed:pixelsize=11;1
 
-modules-left = i3 xwindow
-modules-center =
+modules-left = i3
+modules-center = xwindow
 modules-right = pulseaudio spotify filesystem memory cpu wlan battery date powermenu
 
 tray-position = right
@@ -109,8 +109,8 @@ font-2 = Font Awesome 5 Brands:pixelsize=11;2
 font-3 = JetBrainsMonoMedium Nerd Font Mono:pixelsize=11;2
 font-4 = fixed:pixelsize=11;1
 
-modules-left = i3 xwindow
-modules-center =
+modules-left = i3 
+modules-center = xwindow
 modules-right = pulseaudio xbacklight spotify  wlan battery date powermenu
 
 tray-position = right
@@ -288,7 +288,7 @@ ws-icon-7 = 8;
 ws-icon-8 = 9;
 ws-icon-9 = 10;
 
-label-mode-padding = 1
+label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -296,11 +296,11 @@ label-mode-background = ${colors.primary}
 label-focused = %icon%  
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 1
+label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
-label-unfocused-padding = 1
+label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
@@ -311,7 +311,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |

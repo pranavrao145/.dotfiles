@@ -2,10 +2,10 @@
 
 BLANK='#00000000'
 CLEAR='#ffffff22'
-DEFAULT=$(xrdb -query | grep "*color14" | cut -f 2)
-TEXT=$(xrdb -query | grep "*color14" | cut -f 2)
+DEFAULT=$(xrdb -query | grep "*color10" | cut -f 2)
+TEXT=$(xrdb -query | grep "*color10" | cut -f 2)
 WRONG='#880000bb'
-VERIFYING=$(xrdb -query | grep "*color14" | cut -f 2)
+VERIFYING=$(xrdb -query | grep "*color10" | cut -f 2)
 
 i3lock \
 --insidever-color=$CLEAR     \

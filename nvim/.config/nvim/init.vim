@@ -30,6 +30,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 set noshowmode
+set background=dark
 
 filetype plugin indent on
 
@@ -72,7 +73,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
-colorscheme nord
+colorscheme solarized8
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -331,7 +332,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'nord'
+        theme = 'solarized_dark'
     },
 extensions = {
     'quickfix',
