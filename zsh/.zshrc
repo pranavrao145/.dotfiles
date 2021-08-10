@@ -132,3 +132,4 @@ fi
 # run startup script on startup
 ruby /home/cypher/Scripts/shell/startup.rb
 
+eval "$(starship init zsh)"

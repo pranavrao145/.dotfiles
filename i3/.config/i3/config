@@ -188,8 +188,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom keybinds
-bindsym $mod+shift+q exec i3lock -c E05E6D # to lock
-bindsym $mod+shift+x exec i3lock -c E05E6D && systemctl suspend # to sleep
+bindsym $mod+shift+q exec i3lock -c A35528 # to lock
+bindsym $mod+shift+x exec i3lock -c A35528 && systemctl suspend # to sleep
 bindsym $mod+c exec brave
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
@@ -264,8 +264,8 @@ exec --no-startup-id nitrogen --restore
 # fix display (for monitor), laptop done manually
 exec xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 
-bindsym $mod+shift+n exec xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-bindsym $mod+shift+m exec xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
+bindsym $mod+ctrl+shift+n exec xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+bindsym $mod+ctrl+shift+m exec xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
 
 # move focused workspace between monitors
 bindsym $mod+Ctrl+Right move workspace to output right
@@ -291,10 +291,7 @@ assign [class="zoom"] $ws8
 assign [class="Thunar"] $ws9
 assign [class="Anydesk"] $ws10
 
-exec --no-startup-id brave
-exec --no-startup-id spotify
 exec --no-startup-id discord
-exec --no-startup-id flameshot
 exec --no-startup-id sleep 4 && alacritty
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 # exec_always --no-startup-id /usr/bin/alternating_layouts.py

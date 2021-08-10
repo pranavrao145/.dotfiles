@@ -23,7 +23,7 @@ def cow_art
 end
 
 # array of functions available
-choices = [method(:neofetch), method(:ascii_art), method(:color_script), method(:cypher_art), method(:cow_art)]
+choices = [method(:neofetch), method(:ascii_art), method(:color_script), method(:cow_art)]
 
 # call a a random function
 func = choices.sample

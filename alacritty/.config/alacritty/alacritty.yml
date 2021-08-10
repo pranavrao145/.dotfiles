@@ -7,4 +7,8 @@ font:
     family: JetBrainsMonoMedium Nerd Font Mono
   italic:
     family: JetBrainsMonoMedium Nerd Font Mono
-background_opacity: 0.80
+# background_opacity: 0.80
+window:
+  padding:
+    x: 20
+    y: 5
