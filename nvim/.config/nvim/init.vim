@@ -72,7 +72,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme nord
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -331,7 +331,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'gruvbox'
+        theme = 'nord'
     },
 extensions = {
     'quickfix',

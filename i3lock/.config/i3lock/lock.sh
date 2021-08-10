@@ -2,10 +2,10 @@
 
 BLANK='#00000000'
 CLEAR='#ffffff22'
-DEFAULT=$(xrdb -query | grep "*color10" | cut -f 2)
-TEXT=$(xrdb -query | grep "*color10" | cut -f 2)
+DEFAULT=$(xrdb -query | grep "*color14" | cut -f 2)
+TEXT=$(xrdb -query | grep "*color14" | cut -f 2)
 WRONG='#880000bb'
-VERIFYING=$(xrdb -query | grep "*color10" | cut -f 2)
+VERIFYING=$(xrdb -query | grep "*color14" | cut -f 2)
 
 i3lock \
 --insidever-color=$CLEAR     \
@@ -35,3 +35,9 @@ i3lock \
 --date-str="%A, %m %Y"       \
 --keylayout 1                \
 --radius 250                 \
+--time-font "JetBrainsMonoMedium Nerd Font Mono" \
+--date-font "JetBrainsMonoMedium Nerd Font Mono" \
+--layout-font "JetBrainsMonoMedium Nerd Font Mono" \
+--verif-font "JetBrainsMonoMedium Nerd Font Mono" \
+--wrong-font "JetBrainsMonoMedium Nerd Font Mono" \
+--greeter-font "JetBrainsMonoMedium Nerd Font Mono" \
