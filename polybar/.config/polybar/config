@@ -56,8 +56,9 @@ font-1 = Font Awesome 5 Free Solid:pixelsize=11;2
 font-2 = Font Awesome 5 Brands:pixelsize=11;2
 font-3 = JetBrainsMonoMedium Nerd Font Mono:pixelsize=11;2
 font-4 = fixed:pixelsize=11;1
+font-5 = forkawesome:pixelsize=11;2
 
-modules-left = i3
+modules-left = logo i3
 modules-center = xwindow
 modules-right = pulseaudio spotify filesystem memory cpu wlan battery date powermenu
 
@@ -108,8 +109,9 @@ font-1 = Font Awesome 5 Free Solid:pixelsize=11;2
 font-2 = Font Awesome 5 Brands:pixelsize=11;2
 font-3 = JetBrainsMonoMedium Nerd Font Mono:pixelsize=11;2
 font-4 = fixed:pixelsize=11;1
+font-5 = forkawesome:pixelsize=11;2
 
-modules-left = i3 
+modules-left = logo i3 
 modules-center = xwindow
 modules-right = pulseaudio xbacklight spotify  wlan battery date powermenu
 
@@ -617,5 +619,9 @@ format-prefix-foreground = ${colors.foreground-alt}
 format = <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}'
 format-underline = ${colors.primary}
+
+[module/logo]
+type=custom/text
+content="  "
 
 ; vim:ft=dosini
