@@ -3,10 +3,12 @@ anydesk-bin
 betterdiscord-git
 betterdiscordctl-git
 brave-bin
+cava
 crunch
 gotop
 heroku-cli
 i3-battery-popup
+i3lock-color-git
 lightdm-webkit-theme-aether
 nerd-fonts-fira-code
 nerd-fonts-fira-mono
@@ -25,6 +27,7 @@ spicetify-cli
 spotify
 spotifywm-git
 teams-insiders
+tmux-plugin-manager
 ttf-font-awesome-4
 ttf-icomoon-feather
 ttf-inconsolata-g
