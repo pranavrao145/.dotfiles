@@ -71,9 +71,10 @@ Plug 'tpope/vim-dispatch'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
+Plug 'mbbill/undotree'
 call plug#end()
 
-colorscheme nord
+colorscheme onedark
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -337,7 +338,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'nord'
+        theme = 'onedark'
     },
 extensions = {
     'quickfix',
@@ -406,6 +407,9 @@ vnoremap <leader>y "+y
 " vim, behave or else: the sequel
 nnoremap <expr> k (v:count > 2 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 2 ? "m'" . v:count : "") . 'j'
+
+" undotree plugins
+nnoremap <leader>u :UndotreeToggle<CR>
 
 augroup dispatch
     autocmd!

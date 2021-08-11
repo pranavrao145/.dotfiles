@@ -58,7 +58,7 @@ font-3 = JetBrainsMonoMedium Nerd Font Mono:pixelsize=11;2
 font-4 = fixed:pixelsize=11;1
 font-5 = forkawesome:pixelsize=11;2
 
-modules-left = logo i3
+modules-left = i3
 modules-center = xwindow
 modules-right = pulseaudio spotify filesystem memory cpu wlan battery date powermenu
 
@@ -111,7 +111,7 @@ font-3 = JetBrainsMonoMedium Nerd Font Mono:pixelsize=11;2
 font-4 = fixed:pixelsize=11;1
 font-5 = forkawesome:pixelsize=11;2
 
-modules-left = logo i3 
+modules-left = i3 
 modules-center = xwindow
 modules-right = pulseaudio xbacklight spotify  wlan battery date powermenu
 

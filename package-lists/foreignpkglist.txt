@@ -14,6 +14,7 @@ nerd-fonts-fira-code
 nerd-fonts-fira-mono
 nerd-fonts-iosevka
 nerd-fonts-jetbrains-mono
+nerd-fonts-ubuntu-mono
 networkmanager-dmenu-git
 noisetorch
 picom-jonaburg-git
@@ -26,6 +27,7 @@ skypeforlinux-stable-bin
 spicetify-cli
 spotify
 spotifywm-git
+tailwindcss-language-server
 teams-insiders
 tmux-plugin-manager
 ttf-font-awesome-4
