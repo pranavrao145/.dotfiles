@@ -72,10 +72,12 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'mbbill/undotree'
-Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+Plug 'tpope/vim-abolish'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 call plug#end()
 
-colorscheme gruvbox
+colorscheme nord
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -89,7 +91,6 @@ let g:netrw_http_cmd="brave"
 
 " Vim Fugitive setup
 nnoremap <leader>gp :Git push<CR>
-nnoremap <leader>gc :GCheckout<CR>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>ds :Gdiffsplit<CR>
 nnoremap <leader>gj :diffget //3<CR>
@@ -189,7 +190,8 @@ nnoremap <leader>frr :%s/\<<C-r><C-w>\>//g<left><left>
 
 " telescope remaps
 nnoremap <C-p> <cmd>Telescope git_files<cr>
-nnoremap <leader>gc <cmd>Telescope git_branches<cr>
+nnoremap <leader>gc <cmd>Telescope git_commits<cr>
+nnoremap <leader>gb <cmd>Telescope git_branches<cr>
 nnoremap <leader>gg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fg <cmd>Telescope grep_string<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
@@ -212,7 +214,13 @@ require('telescope').setup {
             },
         mappings = {
             i = {
-                ["<C-q>"] = require("telescope.actions").send_to_qflist,
+                ["<C-q>"] = require("telescope.actions").smart_send_to_qflist,
+                },
+            n = {
+                ["<C-q>"] = require("telescope.actions").smart_send_to_qflist,
+                ["<C-a>"] = require("telescope.actions").select_all,
+                ["<C-s>"] = require("telescope.actions").toggle_selection,
+                ["<C-d>"] = require("telescope.actions").drop_all,
                 },
             },
         only_sort_text = true,
@@ -231,20 +239,6 @@ require('telescope').setup {
     }
 
 require('telescope').load_extension('fzy_native')
-
-local M = {}
-
-M.git_branches = function()
-    require("telescope.builtin").git_branches({
-        attach_mappings = function(_, map)
-            map('i', '<c-d>', actions.git_delete_branch)
-            map('n', '<c-d>', actions.git_delete_branch)
-            return true
-        end
-    })
-end
-
-return M
 EOF
 
 lua << EOF
@@ -280,14 +274,16 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "clangd", "pyright", "solargraph" }
+local servers = { "tsserver", "clangd", "pyright", "solargraph", "tailwindcss" }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+    nvim_lsp[lsp].setup(require("coq")().lsp_ensure_capabilities({
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
   }
+)
+)
 end
 EOF
 
@@ -331,7 +327,6 @@ require'compe'.setup {
     nvim_lua = true;
     vsnip = true;
     ultisnips = true;
-    tabnine = true;
   };
 }
 EOF
@@ -339,7 +334,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'gruvbox'
+        theme = 'nord'
     },
 extensions = {
     'quickfix',
