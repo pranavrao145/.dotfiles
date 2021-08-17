@@ -72,9 +72,10 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'mbbill/undotree'
+Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 call plug#end()
 
-colorscheme onedark
+colorscheme gruvbox
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -85,7 +86,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-f>"
 let g:UltiSnipsEditSplit="vertical"
 let g:netrw_http_cmd="brave"
-
 
 " Vim Fugitive setup
 nnoremap <leader>gp :Git push<CR>
@@ -331,6 +331,7 @@ require'compe'.setup {
     nvim_lua = true;
     vsnip = true;
     ultisnips = true;
+    tabnine = true;
   };
 }
 EOF
@@ -338,7 +339,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'onedark'
+        theme = 'gruvbox'
     },
 extensions = {
     'quickfix',

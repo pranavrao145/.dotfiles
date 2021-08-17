@@ -12,3 +12,7 @@ window:
   padding:
     x: 20
     y: 5
+shell:
+  program: /bin/zsh
+  args:
+    - --login
