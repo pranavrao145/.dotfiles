@@ -73,8 +73,6 @@ Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-abolish'
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 call plug#end()
 
 colorscheme nord
@@ -276,14 +274,12 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = { "tsserver", "clangd", "pyright", "solargraph", "tailwindcss" }
 for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup(require("coq")().lsp_ensure_capabilities({
+    nvim_lsp[lsp].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
   }
-)
-)
 end
 EOF
 
