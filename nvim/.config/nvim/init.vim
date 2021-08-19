@@ -75,7 +75,7 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-abolish'
 call plug#end()
 
-colorscheme nord
+colorscheme gruvbox
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -330,7 +330,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'nord'
+        theme = 'gruvbox'
     },
 extensions = {
     'quickfix',
