@@ -50,6 +50,7 @@ ghc-static
 gimp
 git
 github-cli
+go
 gradle
 grep
 groff
@@ -68,6 +69,8 @@ jp2a
 kdenlive
 kvantum-qt5
 libtool
+libva-intel-driver
+libva-mesa-driver
 lightdm
 lightdm-gtk-greeter
 lightdm-webkit-theme-litarvan
@@ -93,7 +96,6 @@ nomacs
 noto-fonts
 noto-fonts-emoji
 ntfs-3g
-obs-studio
 okular
 openssh
 os-prober

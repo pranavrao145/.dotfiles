@@ -17,6 +17,7 @@ nerd-fonts-jetbrains-mono
 nerd-fonts-ubuntu-mono
 networkmanager-dmenu-git
 noisetorch
+obs-studio-git
 picom-jonaburg-git
 polybar
 pywal-discord-git
