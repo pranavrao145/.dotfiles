@@ -51,6 +51,7 @@ gimp
 git
 github-cli
 go
+gopls
 gradle
 grep
 groff
