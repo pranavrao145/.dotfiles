@@ -1,5 +1,6 @@
 alternating-layouts-git
 anydesk-bin
+balena-etcher
 betterdiscord-git
 betterdiscordctl-git
 brave-bin
@@ -38,7 +39,6 @@ ttf-inconsolata-g
 ttf-material-icons-git
 ttf-ms-fonts
 typescript-language-server
-visual-studio-code-bin
 yay-git
 zoom
 zscroll-git
