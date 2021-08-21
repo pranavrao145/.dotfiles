@@ -74,9 +74,10 @@ Plug 'mfussenegger/nvim-jdtls'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-abolish'
 Plug 'vim-test/vim-test'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme deus
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -87,6 +88,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-f>"
 let g:UltiSnipsEditSplit="vertical"
 let g:netrw_http_cmd="brave"
+let g:NERDSpaceDelims = 1
+let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 
 " Vim Fugitive setup
 nnoremap <leader>gp :Git push<CR>
@@ -341,7 +344,7 @@ extensions = {
 EOF
 
 inoremap <silent><expr><C-Space> compe#complete()
-inoremap <silent><expr><CR>      compe#confirm('<CR>')
+inoremap <silent><expr><C-a>     compe#confirm('<CR>')
 inoremap <silent><expr><C-e>     compe#close('<C-e>')
 inoremap <silent><expr><C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr><C-d>     compe#scroll({ 'delta': -4 })
@@ -404,12 +407,16 @@ inoremap ? ?<c-g>u
 " copy to clipboard bind
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " vim, behave or else: the sequel
 nnoremap <expr> k (v:count > 2 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 2 ? "m'" . v:count : "") . 'j'
 
-" undotree plugins
+" undotree plugin
 nnoremap <leader>u :UndotreeToggle<CR>
 
 augroup dispatch
@@ -420,5 +427,10 @@ augroup end
 augroup lsp
     autocmd!
     autocmd FileType java lua require('setup_jdtls').setup()
+augroup end
+
+augroup nerdcommenter
+    autocmd!
+    autocmd FileType python let g:NERDSpaceDelims = 0
 augroup end
 

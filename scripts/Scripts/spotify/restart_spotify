@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+pkill -9 -i spotify
+
+sleep 1
+
+spotify &
+
+disown
