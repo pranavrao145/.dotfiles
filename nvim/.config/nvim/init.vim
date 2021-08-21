@@ -73,6 +73,7 @@ Plug 'tpope/vim-repeat'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-abolish'
+Plug 'vim-test/vim-test'
 call plug#end()
 
 colorscheme gruvbox
@@ -379,6 +380,14 @@ tnoremap kj <C-\><C-n>
 tnoremap KJ <C-\><C-n> 
 tnoremap jk <C-\><C-n>
 tnoremap JK <C-\><C-n>
+
+" vim-test remaps
+nmap <C-t>n :TestNearest<CR>
+nmap <C-t>f :TestFile<CR>
+nmap <C-t>s :TestSuite<CR>
+nmap <C-t>l :TestLast<CR>
+nmap <C-t>v :TestVisit<CR>
+
 
 " command to copy the entire buffer name to the clipboard
 command! CopyBuffer let @+ = expand('%:p')
