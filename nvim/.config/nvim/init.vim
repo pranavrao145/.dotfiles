@@ -77,7 +77,7 @@ Plug 'vim-test/vim-test'
 Plug 'vimwiki/vimwiki'
 call plug#end()
 
-colorscheme deus
+colorscheme gruvbox
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -343,11 +343,11 @@ extensions = {
 })
 EOF
 
-inoremap <silent><expr><C-Space> compe#complete()
-inoremap <silent><expr><C-a>     compe#confirm('<CR>')
-inoremap <silent><expr><C-e>     compe#close('<C-e>')
-inoremap <silent><expr><C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr><C-d>     compe#scroll({ 'delta': -4 })
+" inoremap <silent><expr><C-Space> compe#complete()
+" inoremap <silent><expr><C-a>     compe#confirm('<CR>')
+" inoremap <silent><expr><C-e>     compe#close('<C-e>')
+" inoremap <silent><expr><C-f>     compe#scroll({ 'delta': +4 })
+" inoremap <silent><expr><C-d>     compe#scroll({ 'delta': -4 })
 
 lua << EOF
 require("bufferline").setup{

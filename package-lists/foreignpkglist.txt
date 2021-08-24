@@ -1,6 +1,5 @@
 alternating-layouts-git
 anydesk-bin
-balena-etcher
 betterdiscord-git
 betterdiscordctl-git
 brave-bin
@@ -10,7 +9,10 @@ gotop
 heroku-cli
 i3-battery-popup
 i3lock-color-git
+imagewriter
+kdenlive-git
 lightdm-webkit-theme-aether
+neovim-nightly-bin
 nerd-fonts-fira-code
 nerd-fonts-fira-mono
 nerd-fonts-iosevka

@@ -58,7 +58,7 @@ bindsym $mod+q kill
 # A more modern dmenu replacement is rofi:
 bindsym $mod+d exec rofi -show drun -modi drun -location 1 -width 100 \
 		 -lines 2 -line-margin 0 -line-padding 1 \
-		 -separator-style none -font "JetBrainsMonoMedium Nerd Font Mono 10" -columns 9 -bw 0 \
+		 -separator-style none -columns 9 -bw 0 \
 		 -disable-history \
 		 -hide-scrollbar \
 		 -show-icons \
@@ -203,8 +203,8 @@ bindsym $mod+m exec --no-startup-id restart_spotify
 # Gaps
 
 # Set inner/outer gaps
-# gaps inner 12
-# gaps outer -2
+gaps inner 12
+gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -212,7 +212,7 @@ bindsym $mod+m exec --no-startup-id restart_spotify
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

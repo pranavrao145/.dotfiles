@@ -1,0 +1,5 @@
+configuration {
+	font: "JetBrainsMonoMedium Nerd Font Mono 10";
+	terminal: "/usr/bin/terminator";
+	theme: "~/.cache/wal/colors-rofi-dark.rasi";
+}

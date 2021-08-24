@@ -112,6 +112,8 @@ alias lr="ranger"
 alias dnd="dunstctl set-paused"
 alias dnds="dunstctl is-paused"
 alias ef="cd ~/.dotfiles && nvim ."
+alias t="tmux a"
+alias tt="tmux"
 
 export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
@@ -122,7 +124,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 
 export EDITOR=nvim
-export TERMINAL=/usr/bin/terminator
+export TERMINAL=/usr/bin/alacritty
 
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     source /usr/share/fzf/key-bindings.zsh

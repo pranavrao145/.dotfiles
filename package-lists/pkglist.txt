@@ -67,7 +67,6 @@ iw
 iwd
 john
 jp2a
-kdenlive
 kvantum-qt5
 libtool
 libva-intel-driver
