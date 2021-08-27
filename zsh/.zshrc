@@ -112,7 +112,7 @@ alias lr="ranger"
 alias dnd="dunstctl set-paused"
 alias dnds="dunstctl is-paused"
 alias ef="cd ~/.dotfiles && nvim ."
-alias t="tmux a"
+alias ta="tmux a"
 alias tt="tmux"
 
 export PATH=/home/cypher/.local/bin:$PATH

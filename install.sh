@@ -70,11 +70,10 @@ echo "Installation of all packages completed successfully. Make sure to adjust a
 
 echo "Setting up shell..."
 
-# set up zsh by installing oh-my-zsh and starship prompt. Then symlink zsh config file.
+# set up zsh by installing oh-my-zsh. Then symlink zsh config file.
 sudo -u cypher -s << 'EOF'
     cd
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-    sh -c "$(curl -fsSL https://starship.rs/install.sh)"
     cd .dotfiles
     stow zsh
 EOF
