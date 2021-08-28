@@ -38,7 +38,6 @@ call plug#begin('~/.config/nvim/plugins')
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe' 
 Plug 'onsails/lspkind-nvim'
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -74,7 +73,8 @@ Plug 'mfussenegger/nvim-jdtls'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-abolish'
 Plug 'vim-test/vim-test'
-Plug 'vimwiki/vimwiki'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
 call plug#end()
 
 colorscheme nord
@@ -83,13 +83,8 @@ let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-f>"
-let g:UltiSnipsEditSplit="vertical"
 let g:netrw_http_cmd="brave"
 let g:NERDSpaceDelims = 1
-let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 
 " Vim Fugitive setup
 nnoremap <leader>gp :Git push<CR>
@@ -180,6 +175,8 @@ hi CursorLineNr guibg=NONE ctermbg=NONE
 " remaps to make tab for autocomplete work
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" visual mode next result
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 set completeopt=menuone,noselect
@@ -325,9 +322,9 @@ require'compe'.setup {
     calc = true;
     nvim_lsp = true;
     nvim_lua = true;
-    vsnip = true;
-    ultisnips = true;
-  };
+    friendly_snippets = true;
+    luasnip = true;
+  } 
 }
 EOF
 
@@ -434,3 +431,15 @@ augroup nerdcommenter
     autocmd FileType python let g:NERDSpaceDelims = 0
 augroup end
 
+imap <silent><expr> <C-s> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+inoremap <silent> <C-S-s> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+snoremap <silent> <C-s> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <C-S-s> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent<expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+
+lua << EOF
+require("luasnip/loaders/from_vscode").load()
+EOF
