@@ -92,12 +92,14 @@ neofetch
 network-manager-applet
 networkmanager
 nitrogen
+nmap
 nomacs
 noto-fonts
 noto-fonts-emoji
 ntfs-3g
 okular
 openssh
+openvpn
 os-prober
 pacman
 pacman-contrib
@@ -141,6 +143,7 @@ unzip
 usbutils
 virtualbox
 vlc
+vulkan-intel
 wget
 which
 wireshark-qt
@@ -173,6 +176,7 @@ xorg-xcursorgen
 xorg-xdpyinfo
 xorg-xdriinfo
 xorg-xev
+xorg-xfontsel
 xorg-xgamma
 xorg-xhost
 xorg-xinit

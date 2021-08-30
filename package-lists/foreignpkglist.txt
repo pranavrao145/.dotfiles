@@ -12,6 +12,7 @@ i3lock-color-git
 imagewriter
 kdenlive-git
 lightdm-webkit-theme-aether
+neovide
 neovim-nightly-bin
 nerd-fonts-fira-code
 nerd-fonts-fira-mono

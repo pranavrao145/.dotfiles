@@ -1,5 +1,12 @@
 configuration {
-	font: "JetBrainsMonoMedium Nerd Font Mono 10";
-	terminal: "/usr/bin/terminator";
-	theme: "~/.cache/wal/colors-rofi-dark.rasi";
+	font: "JetBrainsMonoMedium Nerd Font Mono 12";
+	terminal: "/usr/bin/alacritty";
+    width: 25;
+    lines: 10;
+    padding: 5;
+    yoffset: 0;
+    xoffset: 0;
+    show-icons: true;
+    sidebar-mode: false;
 }
+@theme "/home/cypher/.config/rofi/rofi-theme.rasi"

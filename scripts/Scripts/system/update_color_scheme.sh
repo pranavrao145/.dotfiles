@@ -16,5 +16,5 @@ pkill -i spotify
 sleep 2
 spicetify apply
 
-echo "System colour scheme updated successfully..."
+echo "System colour scheme updated successfully."
 

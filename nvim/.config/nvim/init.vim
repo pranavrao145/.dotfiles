@@ -38,6 +38,7 @@ call plug#begin('~/.config/nvim/plugins')
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe' 
 Plug 'onsails/lspkind-nvim'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -73,16 +74,19 @@ Plug 'mfussenegger/nvim-jdtls'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-abolish'
 Plug 'vim-test/vim-test'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'rafamadriz/friendly-snippets'
+Plug 'nvim-telescope/telescope-project.nvim'
 call plug#end()
 
-colorscheme nord
+colorscheme gruvbox
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
+let g:UltiSnipsExpandTrigger="<C-s>"
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-f>"
+let g:UltiSnipsEditSplit="vertical"
 let g:netrw_http_cmd="brave"
 let g:NERDSpaceDelims = 1
 
@@ -190,6 +194,7 @@ nnoremap <leader>frr :%s/\<<C-r><C-w>\>//g<left><left>
 " telescope remaps
 nnoremap <C-p> <cmd>Telescope git_files<cr>
 nnoremap <leader>gc <cmd>Telescope git_commits<cr>
+nnoremap <leader>gv <cmd>Telescope git_bcommits<cr>
 nnoremap <leader>gb <cmd>Telescope git_branches<cr>
 nnoremap <leader>gg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fg <cmd>Telescope grep_string<cr>
@@ -238,6 +243,7 @@ require('telescope').setup {
     }
 
 require('telescope').load_extension('fzy_native')
+require('telescope').load_extension('project')
 EOF
 
 lua << EOF
@@ -253,21 +259,22 @@ local on_attach = function(client, bufnr)
   local opts = { noremap=true, silent=true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', '<leader>gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', '<leader>gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>gy', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', 'ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', "<leader>fm", '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
@@ -322,8 +329,8 @@ require'compe'.setup {
     calc = true;
     nvim_lsp = true;
     nvim_lua = true;
-    friendly_snippets = true;
-    luasnip = true;
+    vsnip = true;
+    ultisnips = true;
   } 
 }
 EOF
@@ -331,7 +338,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'nord'
+        theme = 'gruvbox'
     },
 extensions = {
     'quickfix',
@@ -356,7 +363,14 @@ EOF
 
 " harpoon remaps
  
-lua require("harpoon").setup{}
+lua << EOF
+require("harpoon").setup{
+    global_settings = {
+        save_on_toggle = false,
+        save_on_change = true,
+    };
+}
+EOF
 
 nnoremap <silent>'' :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
@@ -388,7 +402,6 @@ nmap <C-t>s :TestSuite<CR>
 nmap <C-t>l :TestLast<CR>
 nmap <C-t>v :TestVisit<CR>
 
-
 " command to copy the entire buffer name to the clipboard
 command! CopyBuffer let @+ = expand('%:p')
 
@@ -416,7 +429,7 @@ nnoremap <expr> j (v:count > 2 ? "m'" . v:count : "") . 'j'
 " undotree plugin
 nnoremap <leader>u :UndotreeToggle<CR>
 
-augroup dispatch
+augroup setDispatch
     autocmd!
     autocmd FileType cpp let b:dispatch = "g++ -o debug/main -g %"
 augroup end
@@ -431,15 +444,3 @@ augroup nerdcommenter
     autocmd FileType python let g:NERDSpaceDelims = 0
 augroup end
 
-imap <silent><expr> <C-s> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
-inoremap <silent> <C-S-s> <cmd>lua require'luasnip'.jump(-1)<Cr>
-
-snoremap <silent> <C-s> <cmd>lua require('luasnip').jump(1)<Cr>
-snoremap <silent> <C-S-s> <cmd>lua require('luasnip').jump(-1)<Cr>
-
-imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent<expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-
-lua << EOF
-require("luasnip/loaders/from_vscode").load()
-EOF
