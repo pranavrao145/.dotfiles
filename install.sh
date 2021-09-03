@@ -64,7 +64,7 @@ sudo -u cypher -s << 'EOF'
     yay -Syyu --needed --noconfirm - < ./package-lists/foreignpkglist.txt.txt
 EOF 
 
-echo "Installation of all packages completed successfully. Make sure to adjust any faulty packages (such as spicetify-cli) by downloading the correct version manually from the AUR."
+echo "Installation of all packages completed successfully."
 
 ##### SHELL SETUP #####
 
@@ -204,22 +204,6 @@ echo "Development workflow set up successfully."
 
 ##### MISCELLANEOUS CONFIG #####
 echo "Setting up miscellaneous services..."
-
-echo "Setting up spicetify... "
-
-# setup spicetify-cli
-sudo -u cypher -s << 'EOF'
-    mkdir -p ~/.config/spicetify/Themes
-    git clone https://github.com/morpheusthewhite/spicetify-themes/tree/master/Dribbblish /home/cypher/.config/spicetify/Themes/Dribbblish
-    cd "$(dirname "$(spicetify -c)")/Themes/Dribbblish"
-    mkdir -p ../../Extensions
-    cp dribbblish.js ../../Extensions/.
-    rm color.ini
-    cd /home/cypher/.dotfiles
-    stow spicetify
-EOF
-
-echo "Spicetify set up successfully."
 
 echo "Setting up profile... "
 

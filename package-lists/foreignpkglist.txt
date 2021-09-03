@@ -12,7 +12,6 @@ i3lock-color-git
 imagewriter
 kdenlive-git
 lightdm-webkit-theme-aether
-neovide
 neovim-nightly-bin
 nerd-fonts-fira-code
 nerd-fonts-fira-mono
@@ -29,7 +28,6 @@ rtl88x2bu-dkms-git
 shell-color-scripts
 siji-git
 skypeforlinux-stable-bin
-spicetify-cli
 spotify
 spotifywm-git
 tailwindcss-language-server
