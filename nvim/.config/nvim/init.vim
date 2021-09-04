@@ -31,6 +31,7 @@ set fileencoding=utf-8
 set termencoding=utf-8
 set noshowmode
 set background=dark
+set guifont=JetBrainsMono\ Nerd\ Font:h22
 
 filetype plugin indent on
 
@@ -84,8 +85,8 @@ let g:VM_show_warnings = 0
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:UltiSnipsExpandTrigger="<C-s>"
-let g:UltiSnipsJumpForwardTrigger="<C-b>"
-let g:UltiSnipsJumpBackwardTrigger="<C-f>"
+let g:UltiSnipsJumpForwardTrigger="<C-f>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 let g:UltiSnipsEditSplit="vertical"
 let g:netrw_http_cmd="brave"
 let g:NERDSpaceDelims = 1
@@ -201,6 +202,7 @@ nnoremap <leader>fg <cmd>Telescope grep_string<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>ls <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <leader>H <cmd>Telescope help_tags<cr>
+nnoremap <leader>P <cmd>Telescope project<cr>
 
 " lua for telescope initialization
 lua <<EOF
@@ -434,6 +436,11 @@ augroup setDispatch
     autocmd FileType cpp let b:dispatch = "g++ -o debug/main -g %"
 augroup end
 
+augroup treesitter
+    autocmd!
+    autocmd FileType vim TSBufDisable highlight
+augroup end
+
 augroup lsp
     autocmd!
     autocmd FileType java lua require('setup_jdtls').setup()
@@ -443,4 +450,3 @@ augroup nerdcommenter
     autocmd!
     autocmd FileType python let g:NERDSpaceDelims = 0
 augroup end
-
