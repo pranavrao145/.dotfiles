@@ -76,6 +76,7 @@ Plug 'mbbill/undotree'
 Plug 'tpope/vim-abolish'
 Plug 'vim-test/vim-test'
 Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'ThePrimeagen/git-worktree.nvim'
 call plug#end()
 
 colorscheme gruvbox
@@ -98,6 +99,10 @@ nnoremap <leader>ds :Gdiffsplit<CR>
 nnoremap <leader>gj :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
 nnoremap <leader>gl :Git log<CR>
+
+" Git worktree setup
+nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
+nnoremap <leader>ga <:lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 
 " Miscellaneous remaps
 nnoremap <leader>s :w<CR>
@@ -204,6 +209,10 @@ nnoremap <leader>ls <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <leader>H <cmd>Telescope help_tags<cr>
 nnoremap <leader>P <cmd>Telescope project<cr>
 
+lua << EOF
+require("git-worktree").setup{}
+EOF
+
 " lua for telescope initialization
 lua <<EOF
 require('telescope').setup {
@@ -246,6 +255,7 @@ require('telescope').setup {
 
 require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('project')
+require("telescope").load_extension("git_worktree")
 EOF
 
 lua << EOF
@@ -273,7 +283,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
@@ -373,6 +383,7 @@ require("harpoon").setup{
     };
 }
 EOF
+
 
 nnoremap <silent>'' :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>

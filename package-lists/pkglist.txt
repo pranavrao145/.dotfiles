@@ -68,6 +68,7 @@ iwd
 john
 jp2a
 kvantum-qt5
+libreoffice-fresh
 libtool
 libva-intel-driver
 libva-mesa-driver
