@@ -181,6 +181,8 @@ echo "Setting up neovim..."
 # set up neovim 
 sudo -u cypher -s << 'EOF'
     cd /home/cypher/dotfiles
+    mkdir -p ~/.config/nvim
+    mkdir -p ~/.config/jdtls
     stow nvim
     stow jdtls
     stow vimspector
@@ -195,6 +197,7 @@ echo "Setting up tmux..."
 # setup tmux
 sudo -u cypher -s << 'EOF'
     cd /home/cypher/dotfiles
+    mkdir -p ~/.config/tmux
     stow tmux
 EOF
  

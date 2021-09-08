@@ -76,6 +76,12 @@ Plug 'tpope/vim-abolish'
 Plug 'vim-test/vim-test'
 Plug 'nvim-telescope/telescope-project.nvim'
 Plug 'ThePrimeagen/git-worktree.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-calc'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 call plug#end()
 
 colorscheme gruvbox
@@ -94,6 +100,7 @@ let g:NERDSpaceDelims = 1
 " Vim Fugitive setup
 nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>gs :G<CR>
+nnoremap <leader>gB :Git blame<cr>
 nnoremap <leader>ds :Gdiffsplit<CR>
 nnoremap <leader>gj :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
@@ -181,6 +188,33 @@ hi SignColumn guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi CursorLineNr guibg=NONE ctermbg=NONE
 
+lua <<EOF
+  local cmp = require'cmp'
+  cmp.setup({
+    sources = {
+      { name = 'buffer' },
+      { name = 'nvim_lsp' },
+      { name = 'ultisnips' },
+      { name = 'path' },
+      { name = 'calc' },
+    },
+    formatting = {
+      format = function(entry, vim_item)
+        -- fancy icons and a name of kind
+        vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+
+        -- set a name for each source
+        vim_item.menu = ({
+          buffer = "[Buffer]",
+          nvim_lsp = "[LSP]",
+          ultisnips = "[UltiSnips]",
+        })[entry.source.name]
+        return vim_item
+      end,
+    },
+  })
+EOF
+
 " remaps to make tab for autocomplete work
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -260,6 +294,9 @@ EOF
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -291,13 +328,14 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "clangd", "pyright", "solargraph", "tailwindcss", "gopls" }
+local servers = { "tsserver", "clangd", "pyright", "solargraph", "gopls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
-    }
+      },
+    capabilities = capabilities
   }
 end
 EOF

@@ -109,6 +109,7 @@ pavucontrol
 pinta
 pkgconf
 playerctl
+postgresql-libs
 powerline
 powerline-fonts
 pulseaudio
