@@ -19,7 +19,7 @@ set incsearch
 set termguicolors 
 set scrolloff=8
 set signcolumn=yes 
-set guicursor=
+" set guicursor=
 set colorcolumn=80
 set backspace=indent,eol,start
 set lazyredraw           
@@ -82,9 +82,10 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-calc'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'hrsh7th/vim-vsnip'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme onedark
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -198,6 +199,11 @@ lua <<EOF
       { name = 'path' },
       { name = 'calc' },
     },
+    snippet = {
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+      end,
+    },
     formatting = {
       format = function(entry, vim_item)
         -- fancy icons and a name of kind
@@ -211,6 +217,10 @@ lua <<EOF
         })[entry.source.name]
         return vim_item
       end,
+    },
+    mapping = {
+      ['<C-a>'] = cmp.mapping.confirm({ select = true }),
+      ['<C-Space>'] = cmp.mapping.complete()
     },
   })
 EOF
@@ -353,7 +363,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'gruvbox'
+        theme = 'onedark'
     },
 extensions = {
     'quickfix',
@@ -380,7 +390,6 @@ require("harpoon").setup{
     };
 }
 EOF
-
 
 nnoremap <silent>'' :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>

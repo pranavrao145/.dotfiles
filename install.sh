@@ -199,6 +199,7 @@ sudo -u cypher -s << 'EOF'
     cd /home/cypher/dotfiles
     mkdir -p ~/.config/tmux
     stow tmux
+    ln -s /home/cypher/Scripts/tmux/tmux-cht.sh /usr/bin/cht
 EOF
  
 echo "Tmux set up successfully."
