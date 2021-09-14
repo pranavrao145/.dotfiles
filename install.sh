@@ -47,21 +47,21 @@ EOF
 
 ##### FOREIGN PACKAGES #####
 
-echo "Installing yay package manager."
+echo "Installing aura package manager."
 
-# install yay package manager
+# install aura package manager
 sudo -u cypher -s << 'EOF'
     cd
-    git clone https://aur.archlinux.org/yay-git.git
-    cd yay
+    git clone https://aur.archlinux.org/aura.git
+    cd aura
     makepkg -si
 EOF
 
-echo "Installing foreign packages using yay."
+echo "Installing foreign packages using aura."
 
-# install foreign packages using yay
+# install foreign packages using aura
 sudo -u cypher -s << 'EOF'
-    yay -Syyu --needed --noconfirm - < ./package-lists/foreignpkglist.txt.txt
+    aura -Ayyu --needed --noconfirm - < ./package-lists/foreignpkglist.txt
 EOF 
 
 echo "Installation of all packages completed successfully."
@@ -199,7 +199,8 @@ sudo -u cypher -s << 'EOF'
     cd /home/cypher/dotfiles
     mkdir -p ~/.config/tmux
     stow tmux
-    ln -s /home/cypher/Scripts/tmux/tmux-cht.sh /usr/bin/cht
+    ln -s /home/cypher/Scripts/tmux/tmux-cht.sh /usr/bin/tmux-cht
+    ln -s /home/cypher/Scripts/tmux/tmux-sessionizer /usr/bin/tmux-sessionizer
 EOF
  
 echo "Tmux set up successfully."

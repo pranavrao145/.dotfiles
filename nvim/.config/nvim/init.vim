@@ -43,7 +43,6 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'mattn/emmet-vim'
-Plug 'craigemery/vim-autotag'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-rails'
 Plug 'jiangmiao/auto-pairs'
@@ -85,13 +84,13 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'hrsh7th/vim-vsnip'
 call plug#end()
 
-colorscheme onedark
+colorscheme dracula
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
-let g:UltiSnipsExpandTrigger="<C-s>"
+let g:UltiSnipsExpandTrigger="<C-q>"
 let g:UltiSnipsJumpForwardTrigger="<C-f>"
 let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 let g:UltiSnipsEditSplit="vertical"
@@ -100,6 +99,7 @@ let g:NERDSpaceDelims = 1
 
 " Vim Fugitive setup
 nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gP :Git pull<CR>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gB :Git blame<cr>
 nnoremap <leader>ds :Gdiffsplit<CR>
@@ -183,6 +183,7 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 hi Normal guibg=NONE ctermbg=NONE
+" hi Visual gui=NONE
 hi LineNr guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
 hi SignColumn guibg=NONE ctermbg=NONE
@@ -219,8 +220,9 @@ lua <<EOF
       end,
     },
     mapping = {
-      ['<C-a>'] = cmp.mapping.confirm({ select = true }),
+      ['<C-q>'] = cmp.mapping.confirm({ select = true }),
       ['<C-Space>'] = cmp.mapping.complete()
+
     },
   })
 EOF
@@ -329,7 +331,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
@@ -363,7 +365,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'onedark'
+        theme = 'dracula'
     },
 extensions = {
     'quickfix',
@@ -467,3 +469,11 @@ augroup nerdcommenter
     autocmd!
     autocmd FileType python let g:NERDSpaceDelims = 0
 augroup end
+
+augroup snippets
+  autocmd!
+  autocmd BufEnter *.jsx UltiSnipsAddFiletypes html
+  autocmd BufEnter *.jsx UltiSnipsAddFiletypes javascript
+  autocmd BufEnter *.tsx UltiSnipsAddFiletypes html
+  autocmd BufEnter *.tsx UltiSnipsAddFiletypes typescript
+augroup END

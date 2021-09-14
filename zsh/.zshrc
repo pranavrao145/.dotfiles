@@ -113,6 +113,10 @@ alias dnd="dunstctl set-paused"
 alias dnds="dunstctl is-paused"
 alias ef="cd ~/.dotfiles && nvim ."
 alias ta="tmux a || tmux"
+alias v="nvim ."
+alias cht="tmux-cht"
+alias ts="tmux-sessionizer"
+alias ivm="nvim"
 
 export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH

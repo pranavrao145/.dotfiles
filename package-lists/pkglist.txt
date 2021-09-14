@@ -5,6 +5,7 @@ alacritty
 alsa-utils
 arandr
 arc-gtk-theme
+arduino-cli
 autoconf
 automake
 autorandr
@@ -116,6 +117,7 @@ pulseaudio
 pyright
 python-i3ipc
 python-pipenv
+python-pyserial
 python-pywal
 python-xlib
 ranger

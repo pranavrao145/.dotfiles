@@ -1,5 +1,7 @@
 alternating-layouts-git
 anydesk-bin
+arduino-mk
+aura-bin
 betterdiscord-git
 betterdiscordctl-git
 brave-bin
@@ -40,6 +42,5 @@ ttf-material-icons-git
 ttf-ms-fonts
 typescript-language-server
 visual-studio-code-bin
-yay-git
 zoom
 zscroll-git
