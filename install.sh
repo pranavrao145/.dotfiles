@@ -219,7 +219,9 @@ EOF
 
 echo "Profile set up successfully."
 
-echo "System setup completed successfully. Rebooting..."
+echo "System setup completed successfully. Rebooting in 5 seconds... (press Ctrl-C to cancel)"
+
+# wait for 5 seconds to cancel if necessary
+sleep 5
 
 systemctl reboot
-
