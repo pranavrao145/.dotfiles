@@ -82,9 +82,10 @@ Plug 'hrsh7th/cmp-calc'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 call plug#end()
 
-colorscheme dracula
+colorscheme material
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -365,7 +366,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'dracula'
+        theme = 'material'
     },
 extensions = {
     'quickfix',
