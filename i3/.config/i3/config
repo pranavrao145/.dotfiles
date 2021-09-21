@@ -162,9 +162,9 @@ mode "resize" {
 # Pressing right will grow the window’s width.
 # Pressing up will shrink the window’s height.
 # Pressing down will grow the window’s height.
-    bindsym h resize shrink width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
 # same bindings, but for the arrow keys
@@ -198,8 +198,8 @@ bindsym $mod+ctrl+shift+k exec --no-startup-id vboxmanage startvm "Kali Linux"
 # Gaps
 
 # Set inner/outer gaps
-gaps inner 12
-gaps outer -2
+# gaps inner 12
+# gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -211,7 +211,7 @@ gaps outer -2
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-# smart_borders on
+smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove 
 # gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
