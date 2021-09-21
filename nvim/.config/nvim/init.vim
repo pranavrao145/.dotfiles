@@ -85,7 +85,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 call plug#end()
 
-colorscheme material
+colorscheme dracula
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -286,9 +286,6 @@ require('telescope').setup {
             },
         only_sort_text = true,
         color_devicons= true,
-        layout_config = {
-            height = 0.7
-            }
         },
 
     extensions = {
@@ -366,7 +363,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'material'
+        theme = 'dracula'
     },
 extensions = {
     'quickfix',
@@ -384,14 +381,21 @@ require("bufferline").setup{
 EOF
 
 " harpoon remaps
- 
 lua << EOF
-require("harpoon").setup{
+require("harpoon").setup({
     global_settings = {
-        save_on_toggle = false,
-        save_on_change = true,
-    };
-}
+        enter_on_sendcmd = true,
+    },
+    projects = {
+        ["/home/cypher/Programming/todo-list/master"] = {
+            term = {
+                cmds = {
+                    "yarn start",
+                }
+            }
+        }
+    }
+})
 EOF
 
 nnoremap <silent>'' :lua require("harpoon.mark").add_file()<CR>
@@ -407,10 +411,12 @@ nnoremap <silent>'k :lua require("harpoon.ui").nav_file(8)<CR>
 nnoremap <silent>'l :lua require("harpoon.ui").nav_file(9)<CR>
 nnoremap <silent>'; :lua require("harpoon.ui").nav_file(10)<CR>
 
-nnoremap <silent>'t :lua require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <leader>t :lua require("harpoon.term").gotoTerminal(2)<CR>
+nnoremap <leader>t :lua require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <silent>'t :lua require("harpoon.term").gotoTerminal(2)<CR>
 nnoremap <leader>T :lua require("harpoon.term").gotoTerminal(3)<CR>
 
+nnoremap <leader><Enter> :lua require("harpoon.term").sendCommand(1, 1)<CR>
+ 
 " exit terminal mode remaps
 tnoremap kj <C-\><C-n> 
 tnoremap KJ <C-\><C-n> 
@@ -454,6 +460,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 augroup setDispatch
     autocmd!
     autocmd FileType cpp let b:dispatch = "g++ -o debug/main -g %"
+    autocmd FileType go let b:dispatch = "go build"
 augroup end
 
 augroup treesitter

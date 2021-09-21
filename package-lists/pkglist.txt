@@ -24,6 +24,7 @@ clang
 cowsay
 cronie
 cups
+cups-pdf
 dart
 discord
 dmenu
@@ -98,6 +99,7 @@ nmap
 nomacs
 noto-fonts
 noto-fonts-emoji
+nss-mdns
 ntfs-3g
 okular
 openssh
@@ -113,6 +115,7 @@ playerctl
 postgresql-libs
 powerline
 powerline-fonts
+proxychains-ng
 pulseaudio
 pyright
 python-i3ipc
@@ -203,6 +206,5 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
-xterm
 yarn
 zsh

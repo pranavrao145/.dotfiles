@@ -7,6 +7,7 @@ betterdiscordctl-git
 brave-bin
 cava
 crunch
+dirsearch
 gotop
 heroku-cli
 i3-battery-popup
@@ -26,7 +27,6 @@ obs-studio-git
 picom-jonaburg-git
 polybar
 pywal-discord-git
-rtl88x2bu-dkms-git
 shell-color-scripts
 siji-git
 skypeforlinux-stable-bin

@@ -8,7 +8,7 @@ end
 
 def ascii_art
   system('figlet cypher | lolcat')
-end 
+end
 
 def color_script
   system('colorscript -r')
@@ -18,12 +18,8 @@ def cypher_art
   system('jp2a ~/Pictures/terminal/cypher --height=25 | lolcat')
 end
 
-def cow_art
-  system('cowsay "Let\'s get it" | lolcat')
-end
-
 # array of functions available
-choices = [method(:neofetch), method(:ascii_art), method(:color_script), method(:cow_art)]
+choices = [method(:neofetch), method(:color_script)]
 
 # call a a random function
 func = choices.sample
