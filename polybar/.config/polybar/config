@@ -113,7 +113,7 @@ font-5 = forkawesome:pixelsize=11;2
 
 modules-left = i3 
 modules-center = xwindow
-modules-right = pulseaudio xbacklight spotify  wlan battery date powermenu
+modules-right = pulseaudio xbacklight wlan battery date powermenu
 
 tray-position = right
 tray-padding = 2

@@ -85,7 +85,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 call plug#end()
 
-colorscheme dracula
+colorscheme gruvbox
 
 let g:user_emmet_mode='a'
 let g:VM_show_warnings = 0
@@ -363,7 +363,7 @@ EOF
 lua << EOF
 require('lualine').setup({
     options = {
-        theme = 'dracula'
+        theme = 'gruvbox'
     },
 extensions = {
     'quickfix',

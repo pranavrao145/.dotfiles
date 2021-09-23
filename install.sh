@@ -187,6 +187,8 @@ sudo -u cypher -s << 'EOF'
     stow jdtls
     stow vimspector
     pip install neovim
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     nvim --headless +PlugInstall +qa
 EOF
 
