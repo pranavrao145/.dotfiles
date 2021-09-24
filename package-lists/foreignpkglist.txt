@@ -23,6 +23,7 @@ nerd-fonts-jetbrains-mono
 nerd-fonts-ubuntu-mono
 networkmanager-dmenu-git
 noisetorch
+nvim-packer-git
 obs-studio-git
 orchis-theme-git
 papirus-icon-theme-git

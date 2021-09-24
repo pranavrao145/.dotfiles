@@ -470,7 +470,7 @@ augroup end
 
 augroup lsp
     autocmd!
-    autocmd FileType java lua require('setup_jdtls').setup()
+    autocmd FileType java lua require('lsp.java').setup()
 augroup end
 
 augroup nerdcommenter
