@@ -85,6 +85,12 @@ return require('packer').startup(function()
   -- Discord presence
   use 'andweeb/presence.nvim'
 
+  -- Better quickfix list
+  use { 'kevinhwang91/nvim-bqf', requires = {
+      { 'junegunn/fzf', run = 'fzf#install()' }
+  } }
+  use { 'Olical/vim-enmasse' }
+
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
@@ -103,8 +109,14 @@ return require('packer').startup(function()
     { 'nvim-lua/plenary.nvim' }
   } }
 
+  -- Enhanced increment
+  use 'tpope/vim-speeddating'
+
   -- Dispatch
   use 'tpope/vim-dispatch'
+
+  -- Dotenv
+  use 'tpope/vim-dotenv'
 
   -- Enhanced repeat
   use 'tpope/vim-repeat'

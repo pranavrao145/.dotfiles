@@ -182,14 +182,10 @@ echo "Setting up neovim..."
 sudo -u cypher -s << 'EOF'
     cd /home/cypher/dotfiles
     mkdir -p ~/.config/nvim
-    mkdir -p ~/.config/jdtls
     stow nvim
-    stow jdtls
     stow vimspector
     pip install neovim
-    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    nvim --headless +PlugInstall +qa
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 EOF
 
 echo "Neovim set up successfully."
