@@ -94,8 +94,8 @@ return require('packer').startup(function()
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-  -- Show colors in vim when mentioned in a line
-  use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
+  -- Display colors for color codes
+  use 'norcalli/nvim-colorizer.lua'
 
   -- Netrw enhancement
   use 'tpope/vim-vinegar'

@@ -2,7 +2,7 @@
 
 -- Options
 vim.cmd([[
-    let g:UltiSnipsExpandTrigger="<C-q>"
+    let g:UltiSnipsExpandTrigger="<C-s>"
     let g:UltiSnipsJumpForwardTrigger="<C-f>"
     let g:UltiSnipsJumpBackwardTrigger="<C-b>"
     let g:UltiSnipsEditSplit="vertical"
