@@ -87,8 +87,6 @@ call plug#end()
 
 colorscheme gruvbox
 
-let g:user_emmet_mode='a'
-let g:VM_show_warnings = 0
 let mapleader=' ' 
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:UltiSnipsExpandTrigger="<C-q>"
@@ -110,7 +108,7 @@ nnoremap <leader>gl :Git log<CR>
 
 " Git worktree setup
 nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
-nnoremap <leader>ga <:lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
+nnoremap <leader>ga :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 
 " Miscellaneous remaps
 nnoremap <leader>s :w<CR>
@@ -251,6 +249,7 @@ nnoremap <leader>gb <cmd>Telescope git_branches<cr>
 nnoremap <leader>gg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fg <cmd>Telescope grep_string<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>ls <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <leader>ls <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <leader>H <cmd>Telescope help_tags<cr>
 nnoremap <leader>P <cmd>Telescope project<cr>

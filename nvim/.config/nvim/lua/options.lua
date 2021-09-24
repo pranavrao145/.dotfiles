@@ -1,35 +1,44 @@
-vim.cmd('syntax on')
- 
-vim.cmd('set exrc')
-vim.cmd('set tabstop=4 softtabstop=4')
-vim.cmd('set shiftwidth=4')
-vim.cmd('set expandtab')
-vim.cmd('set smartindent')
-vim.cmd('set nohlsearch')
-vim.cmd('set hidden')
-vim.cmd('set noerrorbells')
-vim.cmd('set nu')
-vim.cmd('set relativenumber')
-vim.cmd('set nowrap')
-vim.cmd('set noswapfile')
-vim.cmd('set nobackup')
-vim.cmd('set undodir=~/.config/nvim/undodir')
-vim.cmd('set undofile')
-vim.cmd('set incsearch')
-vim.cmd('set termguicolors')
-vim.cmd('set scrolloff=8')
-vim.cmd('set signcolumn=yes')
-vim.cmd('set guicursor=')
-vim.cmd('set colorcolumn=80')
-vim.cmd('set backspace=indent,eol,start')
-vim.cmd('set lazyredraw')
-vim.cmd('set ignorecase smartcase')
-vim.cmd('set regexpengine=0')
-vim.cmd('set diffopt+=vertical')
-vim.cmd('set encoding=utf-8')
-vim.cmd('set fileencoding=utf-8')
-vim.cmd('set termencoding=utf-8')
-vim.cmd('set noshowmode')
-vim.cmd('set background=dark')
+-- Set basic options
+vim.cmd([[
+    syntax on 
 
+    set exrc
+    set tabstop=4 softtabstop=4
+    set shiftwidth=4 
+    set expandtab
+    set smartindent
+    set nohlsearch
+    set hidden
+    set noerrorbells
+    set nu
+    set relativenumber
+    set nowrap
+    set noswapfile
+    set nobackup
+    set undodir=~/.config/nvim/undodir
+    set undofile
+    set incsearch
+    set termguicolors 
+    set scrolloff=8
+    set signcolumn=yes 
+    set colorcolumn=80
+    set backspace=indent,eol,start
+    set lazyredraw           
+    set ignorecase smartcase
+    set regexpengine=0
+    set diffopt+=vertical
+    set encoding=utf-8
+    set fileencoding=utf-8
+    set termencoding=utf-8
+    set noshowmode
+    set background=dark
+]])
+
+-- Set map leader
+vim.cmd('let mapleader=\' \'')
+
+-- Set custom netrw http command
+vim.cmd('let g:netrw_http_cmd="brave"')
+
+-- Set filetype
 vim.cmd('filetype plugin indent on')
