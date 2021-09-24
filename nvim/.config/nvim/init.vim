@@ -462,16 +462,6 @@ augroup setDispatch
     autocmd FileType go let b:dispatch = "go build"
 augroup end
 
-augroup treesitter
-    autocmd!
-    autocmd FileType vim TSBufDisable highlight
-augroup end
-
-augroup lsp
-    autocmd!
-    autocmd FileType java lua require('lsp.java').setup()
-augroup end
-
 augroup nerdcommenter
     autocmd!
     autocmd FileType python let g:NERDSpaceDelims = 0

@@ -15,10 +15,9 @@ return require('packer').startup(function()
           { 'hrsh7th/cmp-path' },
           { 'hrsh7th/cmp-calc' },
           { 'hrsh7th/cmp-nvim-lsp' },
-          { 'quangnguyen30192/cmp-nvim-ultisnips', requires = {
-            { 'SirVer/ultisnips' },
-            { 'hrsh7th/vim-vsnip' }
-          } },
+          { 'quangnguyen30192/cmp-nvim-ultisnips'},
+          { 'SirVer/ultisnips' },
+          { 'honza/vim-snippets' },
           { 'onsails/lspkind-nvim' },
       }
   }
@@ -27,9 +26,8 @@ return require('packer').startup(function()
   use {
       'hoob3rt/lualine.nvim',
       requires = {
-          { 'kyazdani42/nvim-web-devicons', requires = {
-            { 'ryanoasis/vim-devicons' }
-          } }
+          { 'kyazdani42/nvim-web-devicons' },
+          { 'ryanoasis/vim-devicons' }
       }
   }
 
@@ -37,9 +35,8 @@ return require('packer').startup(function()
   use {
       'akinsho/nvim-bufferline.lua',
       requires = {
-          { 'kyazdani42/nvim-web-devicons', requires = {
-            { 'ryanoasis/vim-devicons' }
-          } }
+          { 'kyazdani42/nvim-web-devicons' },
+          { 'ryanoasis/vim-devicons' }
       }
   }
 
@@ -47,9 +44,8 @@ return require('packer').startup(function()
   use {
       'nvim-telescope/telescope.nvim',
       requires = {
-          { 'kyazdani42/nvim-web-devicons', requires = {
-              { 'ryanoasis/vim-devicons' }
-          } },
+          { 'kyazdani42/nvim-web-devicons' },
+          { 'ryanoasis/vim-devicons' },
           { 'nvim-lua/popup.nvim' },
           { 'nvim-lua/plenary.nvim' },
           { 'nvim-telescope/telescope-fzy-native.nvim' },

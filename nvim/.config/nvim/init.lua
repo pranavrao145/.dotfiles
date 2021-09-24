@@ -10,6 +10,9 @@ require('lsp')
 -- load theme
 require('theme')
 
+-- load all custom keymaps
+require('keymaps')
+
 -- load config for all plugins
 require('setup.cmp')
 require('setup.fugitive')
@@ -22,3 +25,8 @@ require('setup.telescope')
 require('setup.treesitter')
 require('setup.vimspector')
 require('setup.worktree')
+require('setup.lualine')
+require('setup.bufferline')
+require('setup.harpoon')
+require('setup.test')
+require('setup.undotree')
