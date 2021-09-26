@@ -122,14 +122,13 @@ alias switch-worktree="source switch-worktree"
 
 export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
+export PATH=$PATH:$HOME/.rvm/bin
 
 export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty
+
+# Fallback prompt
+PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 
 if [ -f /usr/share/fzf/key-bindings.zsh ]; then
     source /usr/share/fzf/key-bindings.zsh
