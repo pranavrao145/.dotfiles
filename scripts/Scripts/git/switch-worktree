@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# This function will list all your worktrees in fzf and switch to the one you select
+# Note that this file must be sourced instead of run like an executable in order
+# to be able to change the working directory of the shell it was sourced from
+
+function changeWorktree() {
+    WORKTREES=$(git worktree list --porcelain | grep "worktree" | cut -d ' ' -f2 | fzf)
+
+    if [ -n "$WORKTREES" ]; then
+        cd $WORKTREES
+    fi
+}
+
+changeWorktree

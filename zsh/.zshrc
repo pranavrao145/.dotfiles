@@ -117,6 +117,8 @@ alias v="nvim ."
 alias cht="tmux-cht"
 alias ts="tmux-sessionizer"
 alias ivm="nvim"
+alias gw="source switch-worktree"
+alias switch-worktree="source switch-worktree"
 
 export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH

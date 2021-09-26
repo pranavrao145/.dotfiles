@@ -1,5 +1,5 @@
 -- Set colorscheme
-vim.cmd('colorscheme dracula')
+vim.cmd('colorscheme material')
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[

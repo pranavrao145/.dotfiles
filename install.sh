@@ -95,7 +95,7 @@ sudo -u cypher -s << 'EOF'
     mkdir -p ~/.config/i3lock
     mkdir -p ~/.config/picom
     mkdir -p ~/Pictures
-    cd /home/cypher/dotfiles
+    cd /home/cypher/.dotfiles
     stow i3
     stow polybar
     stow rofi
@@ -118,7 +118,7 @@ echo "Setting up terminal emulator..."
 
 sudo -u cypher -s << 'EOF'
     mkdir -p ~/.config/alacritty
-    cd /home/cypher/dotfiles
+    cd /home/cypher/.dotfiles
     stow alacritty
 EOF
 
@@ -133,7 +133,7 @@ echo "Setting up pacman hooks..."
 # set up pacman hooks
 sudo -u cypher -s << 'EOF'
     mkdir -p /etc/pacman.d/hooks
-    cd /home/cypher/dotfiles
+    cd /home/cypher/.dotfiles
     cp ./pacman-hooks/hooks/* /etc/pacman.d/hooks
 EOF
 
@@ -143,7 +143,7 @@ echo "Setting up pacman scripts..."
 
 # set up pacman scripts
 sudo -u cypher -s << 'EOF'
-    cd /home/cypher/dotfiles
+    cd /home/cypher/.dotfiles
     ln -s /home/cypher/Scripts/system/update.sh /usr/bin/update
 EOF
 
@@ -153,7 +153,7 @@ echo "Setting up lightdm..."
 
 # set up lightdm
 sudo -u cypher -s << 'EOF'
-    cd /home/cypher/dotfiles
+    cd /home/cypher/.dotfiles
     cp ./lightdm/lightdm/* /etc/lightdm/
 EOF
 
@@ -180,7 +180,7 @@ echo "Setting up neovim..."
 
 # set up neovim 
 sudo -u cypher -s << 'EOF'
-    cd /home/cypher/dotfiles
+    cd /home/cypher/.dotfiles
     mkdir -p ~/.config/nvim
     stow nvim
     stow vimspector
@@ -194,7 +194,7 @@ echo "Setting up tmux..."
 
 # setup tmux
 sudo -u cypher -s << 'EOF'
-    cd /home/cypher/dotfiles
+    cd /home/cypher/.dotfiles
     mkdir -p ~/.config/tmux
     stow tmux
     ln -s /home/cypher/Scripts/tmux/tmux-cht.sh /usr/bin/tmux-cht
@@ -202,6 +202,16 @@ sudo -u cypher -s << 'EOF'
 EOF
  
 echo "Tmux set up successfully."
+
+echo "Setting up git scripts..."
+
+# setup git scripts
+sudo -u cypher -s << 'EOF'
+    cd /home/cypher/.dotfiles
+    ln -s /home/cypher/Scripts/git/switch-worktree /usr/bin/switch-worktree
+EOF
+ 
+echo "Git scripts set up successfully."
 
 echo "Development workflow set up successfully."
 
