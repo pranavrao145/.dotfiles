@@ -59,3 +59,11 @@ nvim_lsp.gopls.setup {
     on_attach = on_attach,
     capabilities = capabilities
 }
+
+-- Java
+vim.cmd([[
+    augroup jdtls_lsp
+        autocmd!
+        autocmd FileType java lua require'setup.jdtls'.setup()
+    augroup end
+]])

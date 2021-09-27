@@ -65,6 +65,7 @@ htop
 i3-gaps
 i3blocks
 i3status
+intellij-idea-community-edition
 iw
 iwd
 john

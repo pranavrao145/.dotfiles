@@ -130,6 +130,9 @@ return require('packer').startup(function()
   -- Tests
   use 'vim-test/vim-test'
 
+  -- JDTLS (Java language server)
+  use 'mfussenegger/nvim-jdtls'
+
   -- Themes
   use 'drewtempelmeyer/palenight.vim'
   use 'rafi/awesome-vim-colorschemes'

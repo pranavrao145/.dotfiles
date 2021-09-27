@@ -185,6 +185,7 @@ sudo -u cypher -s << 'EOF'
     stow nvim
     stow vimspector
     pip install neovim
+    ln -s /home/cypher/.dotfiles/jdtls/launch-jdtls.sh /usr/bin/launch-jdtls
     nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 EOF
 
