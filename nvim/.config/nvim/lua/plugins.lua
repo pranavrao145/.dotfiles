@@ -1,144 +1,146 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
-  -- Let Packer manage itself
-  use 'wbthomason/packer.nvim'
-  
-  -- LSP Config
-  use { 'neovim/nvim-lspconfig', requires = {
-    { 'mfussenegger/nvim-jdtls' }
-  }}
+    -- Let Packer manage itself
+    use 'wbthomason/packer.nvim'
 
-  -- Auto-complete
-  use { 'hrsh7th/nvim-cmp', requires = {
-          { 'hrsh7th/cmp-buffer' },
-          { 'hrsh7th/cmp-path' },
-          { 'hrsh7th/cmp-calc' },
-          { 'hrsh7th/cmp-nvim-lsp' },
-          { 'quangnguyen30192/cmp-nvim-ultisnips'},
-          { 'SirVer/ultisnips' },
-          { 'honza/vim-snippets' },
-          { 'onsails/lspkind-nvim' },
-      }
-  }
+    -- LSP Config
+    use { 'neovim/nvim-lspconfig', requires = {
+        { 'mfussenegger/nvim-jdtls' }
+    }}
 
-  -- Status line
-  use {
-      'hoob3rt/lualine.nvim',
-      requires = {
-          { 'kyazdani42/nvim-web-devicons' },
-          { 'ryanoasis/vim-devicons' }
-      }
-  }
+    -- Auto-complete
+    use { 'hrsh7th/nvim-cmp', requires = {
+        { 'hrsh7th/cmp-buffer' },
+        { 'hrsh7th/cmp-path' },
+        { 'hrsh7th/cmp-calc' },
+        { 'hrsh7th/cmp-nvim-lsp' },
+        { 'quangnguyen30192/cmp-nvim-ultisnips'},
+        { 'SirVer/ultisnips' },
+        { 'honza/vim-snippets' },
+        { 'onsails/lspkind-nvim' },
+    }
+}
 
-  -- Bufferline
-  use {
-      'akinsho/nvim-bufferline.lua',
-      requires = {
-          { 'kyazdani42/nvim-web-devicons' },
-          { 'ryanoasis/vim-devicons' }
-      }
-  }
+-- Status line
+use {
+    'hoob3rt/lualine.nvim',
+    requires = {
+        { 'kyazdani42/nvim-web-devicons' },
+        { 'ryanoasis/vim-devicons' }
+    }
+}
 
-  -- Telescope
-  use {
-      'nvim-telescope/telescope.nvim',
-      requires = {
-          { 'kyazdani42/nvim-web-devicons' },
-          { 'ryanoasis/vim-devicons' },
-          { 'nvim-lua/popup.nvim' },
-          { 'nvim-lua/plenary.nvim' },
-          { 'nvim-telescope/telescope-fzy-native.nvim' },
-          { 'nvim-telescope/telescope-project.nvim' },
-          { 'ThePrimeagen/git-worktree.nvim' }
-      }
-  }
+-- Bufferline
+use {
+    'akinsho/nvim-bufferline.lua',
+    requires = {
+        { 'kyazdani42/nvim-web-devicons' },
+        { 'ryanoasis/vim-devicons' }
+    }
+}
 
-  -- Auto pairs
-  use 'jiangmiao/auto-pairs'
+-- Telescope
+use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+        { 'kyazdani42/nvim-web-devicons' },
+        { 'ryanoasis/vim-devicons' },
+        { 'nvim-lua/popup.nvim' },
+        { 'nvim-lua/plenary.nvim' },
+        { 'nvim-telescope/telescope-fzy-native.nvim' },
+        { 'nvim-telescope/telescope-project.nvim' },
+        { 'ThePrimeagen/git-worktree.nvim' }
+    }
+}
 
-  -- Git integration
-  use 'tpope/vim-fugitive'
+-- Auto pairs
+use 'jiangmiao/auto-pairs'
 
-  -- Rails plugins
-  use 'tpope/vim-rails'
-  use 'tpope/vim-bundler'
+-- Git integration
+use 'tpope/vim-fugitive'
 
-  -- Commenter
-  use 'preservim/nerdcommenter'
+-- Rails plugins
+use 'tpope/vim-rails'
+use 'tpope/vim-bundler'
 
-  -- Emmet
-  use 'mattn/emmet-vim'
+-- Commenter
+use 'preservim/nerdcommenter'
 
-  -- Multi cursor
-  use { 'mg979/vim-visual-multi', branch = 'master' }
-  
-  -- Buffer maximizer
-  use 'szw/vim-maximizer'
+-- Emmet
+use 'mattn/emmet-vim'
 
-  -- Surround motions
-  use 'tpope/vim-surround'
+-- Multi cursor
+use { 'mg979/vim-visual-multi', branch = 'master' }
 
-  -- Debugger
-  use 'puremourning/vimspector'
+-- Buffer maximizer
+use 'szw/vim-maximizer'
 
-  -- Discord presence
-  use 'andweeb/presence.nvim'
+-- Surround motions
+use 'tpope/vim-surround'
 
-  -- Better quickfix list
-  use { 'kevinhwang91/nvim-bqf', requires = {
-      { 'junegunn/fzf', run = 'fzf#install()' }
-  } }
-  use { 'Olical/vim-enmasse' }
+-- Debugger
+use 'puremourning/vimspector'
 
-  -- Treesitter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+-- Discord presence
+use 'andweeb/presence.nvim'
 
-  -- Display colors for color codes
-  use 'norcalli/nvim-colorizer.lua'
+-- Better quickfix list
+use { 'kevinhwang91/nvim-bqf', requires = {
+    { 'junegunn/fzf', run = 'fzf#install()' }
+}
+}
 
-  -- Netrw enhancement
-  use 'tpope/vim-vinegar'
+use 'Olical/vim-enmasse'
 
-  -- Unix helpers
-  use 'tpope/vim-eunuch'
+-- Treesitter
+use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-  -- Harpoon
-  use { 'ThePrimeagen/harpoon', requires = {
+-- Display colors for color codes
+use 'norcalli/nvim-colorizer.lua'
+
+-- Netrw enhancement
+use 'tpope/vim-vinegar'
+
+-- Unix helpers
+use 'tpope/vim-eunuch'
+
+-- Harpoon
+use { 'ThePrimeagen/harpoon', requires = {
     { 'nvim-lua/popup.nvim' },
     { 'nvim-lua/plenary.nvim' }
-  } }
+} }
 
-  -- Enhanced increment
-  use 'tpope/vim-speeddating'
+-- Enhanced increment
+use 'tpope/vim-speeddating'
 
-  -- Dispatch
-  use 'tpope/vim-dispatch'
+-- Dispatch
+use 'tpope/vim-dispatch'
 
-  -- Dotenv
-  use 'tpope/vim-dotenv'
+-- Dotenv
+use 'tpope/vim-dotenv'
 
-  -- Enhanced repeat
-  use 'tpope/vim-repeat'
+-- Enhanced repeat
+use 'tpope/vim-repeat'
 
-  -- Undo Tree
-  use 'mbbill/undotree'
+-- Undo Tree
+use 'mbbill/undotree'
 
-  -- Smart replacements
-  use 'tpope/vim-abolish'
+-- Smart replacements
+use 'tpope/vim-abolish'
 
-  -- Tests
-  use 'vim-test/vim-test'
+-- Tests
+use 'vim-test/vim-test'
 
-  -- JDTLS (Java language server)
-  use 'mfussenegger/nvim-jdtls'
+-- Colors
+use 'folke/lsp-colors.nvim'
 
-  -- Colors
-  use 'folke/lsp-colors.nvim'
-
-  -- Themes
-  use 'drewtempelmeyer/palenight.vim'
-  use 'rafi/awesome-vim-colorschemes'
-  use { 'kaicataldo/material.vim', branch = 'main' }
-  use { 'dracula/vim', as = 'dracula' }
+-- Themes
+use 'drewtempelmeyer/palenight.vim'
+use 'morhetz/gruvbox'
+use { 'kaicataldo/material.vim', branch = 'main' }
+use { 'dracula/vim', as = 'dracula' }
+use 'joshdick/onedark.vim'
+use 'arcticicestudio/nord-vim'
+use 'cocopon/iceberg.vim'
 end)

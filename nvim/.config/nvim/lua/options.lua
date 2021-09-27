@@ -31,6 +31,7 @@ vim.cmd([[
     set fileencoding=utf-8
     set termencoding=utf-8
     set noshowmode
+    set completeopt=menu,menuone,noselect
     set background=dark
 ]])
 

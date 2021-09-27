@@ -29,7 +29,7 @@ pacman -Syyu --needed --noconfirm - < ./package-lists/pkglist.txt
 ##### USER SETUP #####
 
 echo "Setting up user cypher..."
-useradd -m cypher # add cypher user
+useradd -m -G wheel cypher # add cypher user
 
 echo "Please enter a password for the user cypher."
 passwd cypher # set password for cypher

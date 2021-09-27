@@ -11,7 +11,14 @@ require("harpoon").setup({
                     "yarn start",
                 }
             }
-        }
+        },
+        ["/home/cypher/Programming/url-shortener"] = {
+            term = {
+                cmds = {
+                    "go run main.go",
+                }
+            }
+        },
     }
 })
 

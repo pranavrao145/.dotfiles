@@ -31,7 +31,8 @@ cmp.setup({
         end,
     },
     mapping = {
-        ['<C-q>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-Space>'] = cmp.mapping.complete()
+        ['<C-Space>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-s>'] = cmp.mapping.complete()
     },
+    preselect = "none"
 })

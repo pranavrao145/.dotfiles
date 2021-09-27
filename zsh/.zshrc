@@ -106,17 +106,29 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# to work when "vi m." is typed
+vi() {
+    if [ "$1" = "m." ]; then
+        nvim .
+    else
+        nvim
+    fi
+}
+
 alias vim="nvim"
+alias vmi="nvim"
+alias ivm="nvim"
+alias imv="nvim"
+alias lvim="nvim"
+alias v="nvim ."
 alias prog="cd && cd Programming"
 alias lr="ranger"
 alias dnd="dunstctl set-paused"
 alias dnds="dunstctl is-paused"
 alias ef="cd ~/.dotfiles && nvim ."
 alias ta="tmux a || tmux"
-alias v="nvim ."
 alias cht="tmux-cht"
 alias ts="tmux-sessionizer"
-alias ivm="nvim"
 alias gw="source switch-worktree"
 alias switch-worktree="source switch-worktree"
 

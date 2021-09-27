@@ -78,14 +78,16 @@ vim.api.nvim_set_keymap('i', '.', '.<c-g>u', { noremap = true })
 vim.api.nvim_set_keymap('i', '!', '!<c-g>u', { noremap = true })
 vim.api.nvim_set_keymap('i', '?', '?<c-g>u', { noremap = true })
  
--- Copy to system clipobard map
+-- Copy to system clipboard map
 vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true })
 vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>Y', 'gg"+yG', { noremap = true })
 
 -- Visual mode move line maps
-vim.api.nvim_set_keymap('v', 'J', ':m \'>+1<CR>gv=gv', { noremap = true })
-vim.api.nvim_set_keymap('v', 'K', '\'<-2<CR>gv=gv', { noremap = true })
+vim.cmd([[
+    vnoremap J :m '>+1<CR>gv=gv
+    vnoremap K :m '<-2<CR>gv=gv
+]])
 
 -- Register movement points more often
 vim.cmd([[

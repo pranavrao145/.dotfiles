@@ -125,6 +125,7 @@ python-pyserial
 python-pywal
 python-xlib
 ranger
+redis
 ripgrep
 rofi
 ruby

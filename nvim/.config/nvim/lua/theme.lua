@@ -1,5 +1,5 @@
 -- Set colorscheme
-vim.cmd('colorscheme material')
+vim.cmd('colorscheme gruvbox')
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[

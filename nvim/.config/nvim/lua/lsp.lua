@@ -74,3 +74,17 @@ nvim_lsp.arduino_language_server.setup {
     on_attach = on_attach,
     capabilities = capabilities
 }
+
+-- Lua
+nvim_lsp.sumneko_lua.setup {
+    cmd = { '/usr/bin/lua-language-server' },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim', 'use' }
+            }
+        }
+    }
+}
