@@ -133,6 +133,9 @@ return require('packer').startup(function()
   -- JDTLS (Java language server)
   use 'mfussenegger/nvim-jdtls'
 
+  -- Colors
+  use 'folke/lsp-colors.nvim'
+
   -- Themes
   use 'drewtempelmeyer/palenight.vim'
   use 'rafi/awesome-vim-colorschemes'

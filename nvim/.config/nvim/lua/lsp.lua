@@ -67,3 +67,10 @@ vim.cmd([[
         autocmd FileType java lua require'setup.jdtls'.setup()
     augroup end
 ]])
+
+-- Arduino
+nvim_lsp.arduino_language_server.setup {
+    cmd = { 'arduino-language-server', '-cli-config', '/home/cypher/.arduino15/arduino-cli.yaml' },
+    on_attach = on_attach,
+    capabilities = capabilities
+}

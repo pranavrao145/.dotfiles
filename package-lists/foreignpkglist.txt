@@ -1,5 +1,6 @@
 alternating-layouts-git
 anydesk-bin
+arduino-language-server-git
 arduino-mk
 aura-bin
 betterdiscord-git
