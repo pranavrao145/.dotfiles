@@ -32,7 +32,6 @@ siji-git
 skypeforlinux-stable-bin
 spotify
 spotifywm-git
-teams-insiders
 tmux-plugin-manager
 ttf-font-awesome-4
 ttf-fork-awesome

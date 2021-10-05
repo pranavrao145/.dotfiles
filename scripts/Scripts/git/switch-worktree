@@ -5,14 +5,10 @@
 # to be able to change the working directory of the shell it was sourced from
 
 function changeWorktree() {
-    if [[ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" == "true" ]]; then
-        WORKTREE=$(git worktree list --porcelain | grep "worktree" | cut -d ' ' -f2 | fzf)
+    WORKTREES=$(git worktree list --porcelain | grep "worktree" | cut -d ' ' -f2 | fzf)
 
-        if [ -n "$WORKTREE" ]; then
-            cd $WORKTREE
-        fi
-    else 
-        echo "Error: neither this folder nor its parent diectories are git repositories."
+    if [ -n "$WORKTREES" ]; then
+        cd $WORKTREES
     fi
 }
 

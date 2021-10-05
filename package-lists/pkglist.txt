@@ -71,6 +71,7 @@ iwd
 john
 jp2a
 kvantum-qt5
+lazygit
 libreoffice-fresh
 libtool
 libva-intel-driver

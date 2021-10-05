@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo web-search copydir copyfile copybuffer dirhistory zsh_reload history)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo web-search copydir copyfile copybuffer dirhistory)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,6 +120,7 @@ alias vmi="nvim"
 alias ivm="nvim"
 alias imv="nvim"
 alias lvim="nvim"
+alias im="nvim"
 alias v="nvim ."
 alias prog="cd && cd Programming"
 alias lr="ranger"
@@ -130,6 +131,7 @@ alias ta="tmux a || tmux"
 alias cht="tmux-cht"
 alias ts="tmux-sessionizer"
 alias gw="source switch-worktree"
+alias lg="lazygit"
 alias switch-worktree="source switch-worktree"
 
 export PATH=/home/cypher/.local/bin:$PATH

@@ -286,8 +286,8 @@ assign [class="zoom"] $ws8
 assign [class="Thunar"] $ws9
 assign [class="Anydesk"] $ws10
 
-exec --no-startup-id discord
-exec --no-startup-id sleep 6 && alacritty
+# exec --no-startup-id discord
+# exec --no-startup-id sleep 6 && alacritty
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 # exec_always --no-startup-id /usr/bin/alternating_layouts.py
 exec_always --no-startup-id picom --experimental-backends
