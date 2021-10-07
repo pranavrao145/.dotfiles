@@ -193,6 +193,7 @@ bindsym $mod+y workspace $ws5
 bindsym $mod+shift+p exec --no-startup-id pavucontrol
 bindsym $mod+t exec --no-startup-id thunar
 bindsym $mod+m exec --no-startup-id restart_spotify
+bindsym $mod+n exec --no-startup-id discord
 bindsym $mod+ctrl+shift+k exec --no-startup-id vboxmanage startvm "Kali Linux"
 
 # Gaps

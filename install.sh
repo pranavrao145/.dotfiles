@@ -106,6 +106,7 @@ sudo -u cypher -s << 'EOF'
     stow i3lock
     ln -s /home/cypher/Scripts/system/update_color_scheme.sh /usr/bin/update-color-scheme
     ln -s /home/cypher/.config/i3lock/lock.sh /usr/bin/lock
+    ln -s /home/cypher/Scripts/spotify/restart_spotify /usr/bin/restart_spotify
 EOF
 
 echo "Window manager (i3) setup successfully. Don't forget to run wal and update-color-scheme when logged into XSession."

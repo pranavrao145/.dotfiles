@@ -55,3 +55,4 @@ vim.api.nvim_set_keymap('n', '<leader>lD', '<cmd>Telescope lsp_document_diagnost
 vim.api.nvim_set_keymap('n', '<leader>P', '<cmd>Telescope project<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>H', '<cmd>Telescope help_tags<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>/', '<cmd>Telescope current_buffer_fuzzy_find<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>o', '<cmd>Telescope oldfiles<CR>', { noremap = true })
