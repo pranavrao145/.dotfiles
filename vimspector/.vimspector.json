@@ -17,6 +17,15 @@
                 ]
             }
         },
+        "Go: Current File" : {
+            "adapter": "vscode-go",
+            "configuration": {
+                "request": "launch",
+                "program": "${file}",
+                "mode": "debug",
+                "dlvToolPath": "/usr/bin/dlv"
+            }
+        },
         "Python: Current File" : {
             "adapter": "debugpy",
             "configuration": {

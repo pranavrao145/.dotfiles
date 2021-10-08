@@ -26,6 +26,7 @@ cronie
 cups
 cups-pdf
 dart
+delve
 discord
 dmenu
 dmg2img

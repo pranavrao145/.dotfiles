@@ -3,11 +3,11 @@ local cmp = require('cmp')
 
 cmp.setup({
     sources = {
-        { name = 'buffer' },
         { name = 'nvim_lsp' },
         { name = 'ultisnips' },
         { name = 'path' },
         { name = 'calc' },
+        { name = 'buffer' },
     },
     snippet = {
         expand = function(args)
