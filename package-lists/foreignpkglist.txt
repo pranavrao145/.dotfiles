@@ -1,7 +1,6 @@
 alternating-layouts-git
 anydesk-bin
 arduino-mk
-aura-bin
 betterdiscord-git
 betterdiscordctl-git
 brave-bin
@@ -16,12 +15,11 @@ imagewriter
 kdenlive-git
 lightdm-webkit-theme-aether
 lua-language-server-git
-neovim-nightly-bin
 nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch
 nvim-packer-git
-obs-studio-git
+obs-studio-browser
 orchis-theme-git
 papirus-icon-theme-git
 picom-jonaburg-git
@@ -41,5 +39,6 @@ ttf-material-icons-git
 ttf-ms-fonts
 typescript-language-server
 visual-studio-code-bin
+yay-bin
 zoom
 zscroll-git

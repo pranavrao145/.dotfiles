@@ -44,7 +44,10 @@ vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true })
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true })
 
 -- Void paste remap
-vim.api.nvim_set_keymap('v', 'p', '"_dP', { noremap = true })
+vim.api.nvim_set_keymap('v', '<leader>p', '"_dP', { noremap = true })
+
+-- Void delete remap
+vim.api.nvim_set_keymap('v', '<leader>d', '"_x', { noremap = true })
 
 -- Tab remaps and visual mode next result remap
 vim.cmd([[
@@ -70,7 +73,7 @@ vim.api.nvim_set_keymap('t', 'jk', '<C-\\><C-n>', { noremap = true })
 vim.api.nvim_command('command! CopyBuffer let @+ = expand(\'%:p\')')
 
 -- Special yank to end of line
-vim.api.nvim_set_keymap('v', 'Y', 'y$', { noremap = true })
+vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 
 -- Undo breakpoints
 vim.api.nvim_set_keymap('i', ',', ',<c-g>u', { noremap = true })

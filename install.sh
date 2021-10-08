@@ -36,6 +36,9 @@ passwd cypher # set password for cypher
  
 echo "User cypher set up successfully."
 
+echo "cypher ALL=(ALL) ALL" >> /etc/sudoers
+echo "cypher ALL=(ALL) NOPASSWD: /usr/bin/xbacklight" >> /etc/sudoers
+
 ##### CLONING DOTFILES #####
 
 # Clone dotfiles (again) but this time to home directory
@@ -47,24 +50,33 @@ EOF
 
 ##### FOREIGN PACKAGES #####
 
-echo "Installing aura package manager."
+echo "Installing yay package manager."
 
 # install aura package manager
 sudo -u cypher -s << 'EOF'
     cd
-    git clone https://aur.archlinux.org/aura.git
-    cd aura
-    makepkg -si
+    git clone https://aur.archlinux.org/yay-bin.git
 EOF
 
-echo "Installing foreign packages using aura."
+echo "Exiting to shell for manual installation of yay. Install yay by changing into the cloned /home/cypher/yay-bin directory and running makepkg -si."
 
-# install foreign packages using aura
+exit
+
+# NOTE: The script exits here so that the yay can be built manually. (It often fails when makepkg is run automatically.)
+
+echo "Installing foreign packages using yay. Skipping problematic packages for manual installation later."
+
+# install foreign packages using yay
 sudo -u cypher -s << 'EOF'
-    aura -Ayyu --needed --noconfirm - < ./package-lists/foreignpkglist.txt
+   sudo sed -i '/spotify/d' ./package-lists/foreignpkglist.txt
+   yay -Syyu --needed --noconfirm $(cat ./package-lists/foreignpkglist.txt)
 EOF 
 
-echo "Installation of all packages completed successfully."
+echo "Installation of packages completed successfully. Exiting to shell for manual installation of skipped programs. The following programs were skipped: spotify."
+
+exit
+
+# NOTE: The script exits here so that the skipped programs can be built and installed manually.
 
 ##### SHELL SETUP #####
 
@@ -74,7 +86,10 @@ echo "Setting up shell..."
 sudo -u cypher -s << 'EOF'
     cd
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     cd .dotfiles
+    rm ~/.zshrc
     stow zsh
 EOF
 
@@ -104,9 +119,10 @@ sudo -u cypher -s << 'EOF'
     stow dunst
     stow picom
     stow i3lock
-    ln -s /home/cypher/Scripts/system/update_color_scheme.sh /usr/bin/update-color-scheme
-    ln -s /home/cypher/.config/i3lock/lock.sh /usr/bin/lock
-    ln -s /home/cypher/Scripts/spotify/restart_spotify /usr/bin/restart_spotify
+    stow scripts
+    sudo ln -s /home/cypher/Scripts/system/update_color_scheme.sh /usr/bin/update-color-scheme
+    sudo ln -s /home/cypher/.config/i3lock/lock.sh /usr/bin/lock
+    sudo ln -s /home/cypher/Scripts/spotify/restart_spotify /usr/bin/restart_spotify
 EOF
 
 echo "Window manager (i3) setup successfully. Don't forget to run wal and update-color-scheme when logged into XSession."
@@ -133,9 +149,9 @@ echo "Setting up pacman hooks..."
 
 # set up pacman hooks
 sudo -u cypher -s << 'EOF'
-    mkdir -p /etc/pacman.d/hooks
+    sudo mkdir -p /etc/pacman.d/hooks
     cd /home/cypher/.dotfiles
-    cp ./pacman-hooks/hooks/* /etc/pacman.d/hooks
+    sudo cp ./pacman-hooks/hooks/* /etc/pacman.d/hooks
 EOF
 
 echo "Pacman hooks setup successfully."
@@ -145,7 +161,7 @@ echo "Setting up pacman scripts..."
 # set up pacman scripts
 sudo -u cypher -s << 'EOF'
     cd /home/cypher/.dotfiles
-    ln -s /home/cypher/Scripts/system/update.sh /usr/bin/update
+    sudo ln -s /home/cypher/Scripts/system/update.sh /usr/bin/update
 EOF
 
 echo "Pacman scripts setup successfully."
@@ -155,7 +171,8 @@ echo "Setting up lightdm..."
 # set up lightdm
 sudo -u cypher -s << 'EOF'
     cd /home/cypher/.dotfiles
-    cp ./lightdm/lightdm/* /etc/lightdm/
+    sudo cp ./lightdm/lightdm/* /etc/lightdm/
+    sudo systemctl enable lightdm
 EOF
 
 echo "Lightdm setup successfully."
@@ -164,9 +181,9 @@ echo "Setting up touchpad support..."
 
 # set up lightdm
 sudo -u cypher -s << 'EOF'
-    mkdir -p /etc/X11/xorg.conf.d
+    sudo mkdir -p /etc/X11/xorg.conf.d
     cd /home/cypher/.dotfiles
-    cp ./touchpad/90-touchpad.conf /etc/X11/xorg.conf.d
+    sudo cp ./touchpad/90-touchpad.conf /etc/X11/xorg.conf.d
 EOF
 
 echo "Touchpad support setup successfully."
@@ -185,12 +202,10 @@ sudo -u cypher -s << 'EOF'
     mkdir -p ~/.config/nvim
     stow nvim
     stow vimspector
-    pip install neovim
-    ln -s /home/cypher/.dotfiles/jdtls/launch-jdtls.sh /usr/bin/launch-jdtls
-    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+    sudo ln -s /home/cypher/.dotfiles/jdtls/launch-jdtls.sh /usr/bin/launch-jdtls
 EOF
 
-echo "Neovim set up successfully."
+echo "Neovim config set up successfully. Make sure to build Neovim from source or get the appimage."
 
 echo "Setting up tmux..."
 
@@ -199,8 +214,8 @@ sudo -u cypher -s << 'EOF'
     cd /home/cypher/.dotfiles
     mkdir -p ~/.config/tmux
     stow tmux
-    ln -s /home/cypher/Scripts/tmux/tmux-cht.sh /usr/bin/tmux-cht
-    ln -s /home/cypher/Scripts/tmux/tmux-sessionizer /usr/bin/tmux-sessionizer
+    sudo ln -s /home/cypher/Scripts/tmux/tmux-cht.sh /usr/bin/tmux-cht
+    sudo ln -s /home/cypher/Scripts/tmux/tmux-sessionizer /usr/bin/tmux-sessionizer
 EOF
  
 echo "Tmux set up successfully."
@@ -210,7 +225,7 @@ echo "Setting up git scripts..."
 # setup git scripts
 sudo -u cypher -s << 'EOF'
     cd /home/cypher/.dotfiles
-    ln -s /home/cypher/Scripts/git/switch-worktree /usr/bin/switch-worktree
+    sudo ln -s /home/cypher/Scripts/git/switch-worktree /usr/bin/switch-worktree
 EOF
  
 echo "Git scripts set up successfully."
@@ -224,14 +239,15 @@ echo "Setting up profile... "
 
 # setup profile
 sudo -u cypher -s << 'EOF'
+    cd /home/cypher/.dotfiles
     stow profile
 EOF
 
 echo "Profile set up successfully."
 
-echo "System setup completed successfully. Rebooting in 5 seconds... (press Ctrl-C to cancel)"
+echo "System setup completed successfully. Rebooting in 15 seconds... (press Ctrl-C to cancel)"
 
 # wait for 5 seconds to cancel if necessary
-sleep 5
+sleep 15
 
 systemctl reboot

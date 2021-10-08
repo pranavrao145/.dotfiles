@@ -1,5 +1,5 @@
 -- Set colorscheme
-vim.cmd('colorscheme dracula')
+vim.cmd('colorscheme nord')
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[
@@ -9,4 +9,6 @@ vim.cmd([[
     hi SignColumn guibg=NONE ctermbg=NONE
     hi EndOfBuffer guibg=NONE ctermbg=NONE
     hi CursorLineNr guibg=NONE ctermbg=NONE
+    hi CmpItemKind ctermfg=White
+    hi CmpItemMenu ctermfg=White
 ]])

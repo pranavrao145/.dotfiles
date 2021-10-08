@@ -12,10 +12,17 @@ require("harpoon").setup({
                 }
             }
         },
-        ["/home/cypher/Programming/url-shortener"] = {
+        ["/home/cypher/Programming/comp-eng/lesson6"] = {
             term = {
                 cmds = {
-                    "go run main.go",
+                    "clang-format -i lesson6.ino"
+                }
+            }
+        },
+        ["/home/cypher/Programming/comp-eng/lesson5Modified"] = {
+            term = {
+                cmds = {
+                    "clang-format -i lesson5Modified.ino"
                 }
             }
         },
@@ -24,7 +31,7 @@ require("harpoon").setup({
 
 -- Harpoon mark commands
 vim.cmd([[
-    nnoremap <silent>'' :lua require("harpoon.mark").add_file()<CR>
+    nnoremap <leader>' :lua require("harpoon.mark").add_file()<CR>
     nnoremap <silent>'a :lua require("harpoon.ui").nav_file(1)<CR>
     nnoremap <silent>'s :lua require("harpoon.ui").nav_file(2)<CR>
     nnoremap <silent>'d :lua require("harpoon.ui").nav_file(3)<CR>

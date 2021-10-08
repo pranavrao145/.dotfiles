@@ -16,7 +16,6 @@ require('keymaps')
 -- load config for all plugins
 require('setup.cmp')
 require('setup.fugitive')
-require('setup.lspkind')
 require('setup.maximizer')
 require('setup.nerdcommenter')
 require('setup.rails')

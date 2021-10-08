@@ -15,20 +15,13 @@ cmp.setup({
         end,
     },
     formatting = {
-        format = function(entry, vim_item)
-            -- fancy icons and a name of kind
-            vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
-
-            -- set a name for each source
-            vim_item.menu = ({
-                buffer = "[Buffer]",
-                nvim_lsp = "[LSP]",
-                ultisnips = "[UltiSnips]",
-                path = "[Path]",
-                calc = "[Calc]",
-            })[entry.source.name]
-            return vim_item
-        end,
+        format = require("lspkind").cmp_format({ with_text = true, menu = ({
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            ultisnips = "[UltiSnips]",
+            path = "[Path]",
+            calc = "[Calc]",
+        })}),
     },
     mapping = {
         ['<C-Space>'] = cmp.mapping.confirm({ select = true }),

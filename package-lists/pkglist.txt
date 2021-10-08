@@ -21,6 +21,7 @@ calc
 cheese
 chromium
 clang
+cmake
 cowsay
 cronie
 cups
@@ -66,7 +67,6 @@ htop
 i3-gaps
 i3blocks
 i3status
-intellij-idea-community-edition
 iw
 iwd
 john
@@ -95,8 +95,10 @@ mosh
 mpd
 nano
 neofetch
+neovim
 network-manager-applet
 networkmanager
+ninja
 nitrogen
 nmap
 nomacs
@@ -145,6 +147,7 @@ thunar
 tmux
 tor
 tree
+tree-sitter
 ttf-dejavu
 ttf-droid
 ttf-fantasque-sans-mono
@@ -153,7 +156,6 @@ ttf-jetbrains-mono
 unzip
 usbutils
 virtualbox
-vlc
 vulkan-intel
 wget
 which
