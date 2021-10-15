@@ -129,6 +129,9 @@ use 'mbbill/undotree'
 -- Smart replacements
 use 'tpope/vim-abolish'
 
+-- Formatter
+use 'sbdchd/neoformat'
+
 -- Tests
 use 'vim-test/vim-test'
 

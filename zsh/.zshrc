@@ -135,6 +135,7 @@ alias ts="tmux-sessionizer"
 alias gwi="git worktree add master"
 alias gw="source switch-worktree"
 alias lg="lazygit"
+alias ff='cd && cd "$(fd -H --type d | fzf)"'
 alias switch-worktree="source switch-worktree"
 
 export PATH=/home/cypher/.local/bin:$PATH

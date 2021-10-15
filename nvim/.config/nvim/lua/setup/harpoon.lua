@@ -12,20 +12,6 @@ require("harpoon").setup({
                 }
             }
         },
-        ["/home/cypher/Programming/comp-eng/lesson6"] = {
-            term = {
-                cmds = {
-                    "clang-format -i lesson6.ino"
-                }
-            }
-        },
-        ["/home/cypher/Programming/comp-eng/lesson5Modified"] = {
-            term = {
-                cmds = {
-                    "clang-format -i lesson5Modified.ino"
-                }
-            }
-        },
     }
 })
 
