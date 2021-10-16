@@ -37,6 +37,7 @@ doge
 dsniff
 dunst
 efibootmgr
+emacs
 fakeroot
 fd
 figlet

@@ -36,8 +36,7 @@ passwd cypher # set password for cypher
  
 echo "User cypher set up successfully."
 
-echo "cypher ALL=(ALL) ALL" >> /etc/sudoers
-echo "cypher ALL=(ALL) NOPASSWD: /usr/bin/xbacklight" >> /etc/sudoers
+cp ./sudo/sudoers /etc/sudoers # copy sudoers file
 
 ##### CLONING DOTFILES #####
 
@@ -50,26 +49,26 @@ EOF
 
 ##### FOREIGN PACKAGES #####
 
-echo "Installing yay package manager."
+echo "Installing paru package manager."
 
 # install aura package manager
 sudo -u cypher -s << 'EOF'
     cd
-    git clone https://aur.archlinux.org/yay-bin.git
+    git clone https://aur.archlinux.org/paru-bin.git
 EOF
 
-echo "Exiting to shell for manual installation of yay. Install yay by changing into the cloned /home/cypher/yay-bin directory and running makepkg -si."
+echo "Exiting to shell for manual installation of paru. Install paru by changing into the cloned /home/cypher/paru-bin directory and running makepkg -si."
 
 exit
 
-# NOTE: The script exits here so that the yay can be built manually. (It often fails when makepkg is run automatically.)
+# NOTE: The script exits here so that the paru can be installed manually. (It often fails when makepkg is run automatically.)
 
-echo "Installing foreign packages using yay. Skipping problematic packages for manual installation later."
+echo "Installing foreign packages using paru. Skipping problematic packages for manual installation later."
 
 # install foreign packages using yay
 sudo -u cypher -s << 'EOF'
    sudo sed -i '/spotify/d' ./package-lists/foreignpkglist.txt
-   yay -Syyu --needed --noconfirm $(cat ./package-lists/foreignpkglist.txt)
+   paru -Syyu --needed --noconfirm - < ./package-lists/foreignpkglist.txt
 EOF 
 
 echo "Installation of packages completed successfully. Exiting to shell for manual installation of skipped programs. The following programs were skipped: spotify."
@@ -145,13 +144,14 @@ echo "Terminal emulator set up successfully."
 
 # set up system services, including pacman, lightdm, 
 
-echo "Setting up pacman hooks..."
+echo "Setting up pacman..."
 
-# set up pacman hooks
+# set up pacman hooks and copy config
 sudo -u cypher -s << 'EOF'
     sudo mkdir -p /etc/pacman.d/hooks
     cd /home/cypher/.dotfiles
-    sudo cp ./pacman-hooks/hooks/* /etc/pacman.d/hooks
+    sudo cp ./pacman/hooks/* /etc/pacman.d/hooks/
+    sudo cp ./pacman/pacman.conf /etc/pacman.conf
 EOF
 
 echo "Pacman hooks setup successfully."

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo aura -Syyu --noconfirm && sudo aura -Ayyu --noconfirm --force
+sudo pacman -Syyu --noconfirm && paru -Syyu --noconfirm

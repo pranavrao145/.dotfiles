@@ -12,6 +12,13 @@ require("harpoon").setup({
                 }
             }
         },
+        ["/home/cypher/Programming/lanchat/client"] = {
+            term = {
+                cmds = {
+                    "go run cmd/client/main.go",
+                }
+            }
+        },
     }
 })
 
@@ -39,8 +46,3 @@ vim.api.nvim_set_keymap('n', '<leader>t', ':lua require("harpoon.term").gotoTerm
 vim.api.nvim_set_keymap('n', '<leader>T', ':lua require("harpoon.term").gotoTerminal(3)<CR>', { noremap = true })
 
 vim.api.nvim_set_keymap('n', '<leader><Enter>', ':lua require("harpoon.term").sendCommand(1, 1)<CR>', { noremap = true })
-
--- Autocmds
-vim.cmd([[
-    autocmd FileType harpoon nnoremap <buffer> <silent> q :wq<CR>
-]])

@@ -22,6 +22,7 @@ nvim-packer-git
 obs-studio-browser
 orchis-theme-git
 papirus-icon-theme-git
+paru-bin
 picom-jonaburg-git
 polybar
 pywal-discord-git
@@ -39,6 +40,5 @@ ttf-material-icons-git
 ttf-ms-fonts
 typescript-language-server
 visual-studio-code-bin
-yay-bin
 zoom
 zscroll-git

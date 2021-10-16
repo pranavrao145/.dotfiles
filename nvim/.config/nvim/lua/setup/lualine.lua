@@ -1,6 +1,6 @@
 require('lualine').setup({
     options = {
-        theme = 'nord',
+        theme = 'gruvbox',
     },
     extensions = {
         'quickfix',
