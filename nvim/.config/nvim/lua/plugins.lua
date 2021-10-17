@@ -123,6 +123,9 @@ use 'tpope/vim-dotenv'
 -- Enhanced repeat
 use 'tpope/vim-repeat'
 
+-- Enhanced common bindings
+use 'tpope/vim-unimpaired'
+
 -- Undo Tree
 use 'mbbill/undotree'
 

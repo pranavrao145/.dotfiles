@@ -216,6 +216,7 @@ sudo -u cypher -s << 'EOF'
     stow tmux
     sudo ln -s /home/cypher/Scripts/tmux/tmux-cht.sh /usr/bin/tmux-cht
     sudo ln -s /home/cypher/Scripts/tmux/tmux-sessionizer /usr/bin/tmux-sessionizer
+    sudo ln -s /home/cypher/Scripts/tmux/tmux-windowizer /usr/bin/tmux-windowizer
 EOF
  
 echo "Tmux set up successfully."

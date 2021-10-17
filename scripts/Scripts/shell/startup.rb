@@ -6,6 +6,10 @@ def neofetch
   system('neofetch')
 end
 
+def pfetch
+  system('pfetch')
+end
+
 def ascii_art
   system('figlet cypher | lolcat')
 end
@@ -19,7 +23,7 @@ def cypher_art
 end
 
 # array of functions available
-choices = [method(:neofetch), method(:color_script)]
+choices = [method(:pfetch), method(:color_script)]
 
 # call a a random function
 func = choices.sample

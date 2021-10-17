@@ -28,8 +28,8 @@ vim.cmd([[
 ]])
 
 -- Misc maps
-vim.api.nvim_set_keymap('n', '<leader>s', ':w<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>ss', ':w <bar> :bd<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>s', ':w!<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>ss', ':w! <bar> :bd<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>e', ':Explore<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>sa', 'gg <bar> V <bar> G<CR>', { noremap = true })
 
@@ -75,7 +75,7 @@ vim.api.nvim_set_keymap('t', 'jk', '<C-\\><C-n>', { noremap = true })
 vim.api.nvim_command('command! CopyBuffer let @+ = expand(\'%:p\')')
 
 -- Special changes to default remaps to make more sense
-vim.api.nvim_set_keymap('n', 'Y', 'yg$', { noremap = true })
+vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true })
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true })
 vim.api.nvim_set_keymap('n', 'J', 'mzJ`z', { noremap = true })

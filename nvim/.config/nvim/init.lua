@@ -13,6 +13,9 @@ require('theme')
 -- load all custom keymaps
 require('keymaps')
 
+-- load all project-specific requirements
+require('projects')
+
 -- load config for all plugins
 require('setup.cmp')
 require('setup.fugitive')

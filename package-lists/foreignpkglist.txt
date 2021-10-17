@@ -23,14 +23,17 @@ obs-studio-browser
 orchis-theme-git
 papirus-icon-theme-git
 paru-bin
+pfetch
 picom-jonaburg-git
 polybar
 pywal-discord-git
 shell-color-scripts
 siji-git
 skypeforlinux-stable-bin
+slack-desktop
 spotify
 spotifywm-git
+st
 tmux-plugin-manager
 ttf-font-awesome-4
 ttf-fork-awesome

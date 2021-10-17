@@ -122,6 +122,8 @@ alias imv="nvim"
 alias lvim="nvim"
 alias im="nvim"
 alias v="nvim ."
+alias p="cd && cd Programming"
+alias pr="cd && cd Programming"
 alias prog="cd && cd Programming"
 alias lr="ranger"
 alias dnd="dunstctl set-paused"
@@ -132,15 +134,18 @@ alias ta="tmux a || tmux"
 alias cht="tmux-cht"
 alias tks="tmux kill-server"
 alias ts="tmux-sessionizer"
+alias tw="tmux-windowizer"
 alias gwi="git worktree add master"
 alias gw="source switch-worktree"
 alias lg="lazygit"
+alias f='cd && cd "$(fd -H --type d | fzf)"'
 alias ff='cd && cd "$(fd -H --type d | fzf)"'
 alias switch-worktree="source switch-worktree"
 
 export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin
+export PATH=$PATH:$HOME/.emacs.d/bin
 
 export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty

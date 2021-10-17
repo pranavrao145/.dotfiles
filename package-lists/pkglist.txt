@@ -18,7 +18,6 @@ bluez
 bluez-utils
 brightnessctl
 calc
-cheese
 chromium
 clang
 cmake
@@ -37,7 +36,6 @@ doge
 dsniff
 dunst
 efibootmgr
-emacs
 fakeroot
 fd
 figlet
@@ -95,7 +93,6 @@ mlocate
 mosh
 mpd
 nano
-neofetch
 neovim
 network-manager-applet
 networkmanager
