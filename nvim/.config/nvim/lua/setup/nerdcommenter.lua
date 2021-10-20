@@ -1,6 +1,6 @@
 -- Setup NERDCommenter for commenting
 
-vim.cmd('let g:NERDSpaceDelims = 1')
+vim.cmd("let g:NERDSpaceDelims = 1")
 
 vim.cmd([[
     augroup nerdcommenter

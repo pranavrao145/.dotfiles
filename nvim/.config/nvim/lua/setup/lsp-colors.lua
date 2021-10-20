@@ -1,3 +1,3 @@
 -- Setup LSP colors
 
-require('lsp-colors').setup()
+require("lsp-colors").setup()

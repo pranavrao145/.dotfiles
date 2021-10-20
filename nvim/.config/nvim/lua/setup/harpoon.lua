@@ -1,25 +1,33 @@
 -- Setup harpoon
 
 require("harpoon").setup({
-    global_settings = {
-        enter_on_sendcmd = true,
-    },
-    projects = {
-        ["/home/cypher/Programming/todo-list/master"] = {
-            term = {
-                cmds = {
-                    "yarn start",
-                }
-            }
-        },
-        ["/home/cypher/Programming/lanchat/client"] = {
-            term = {
-                cmds = {
-                    "go run cmd/client/main.go",
-                }
-            }
-        },
-    }
+	global_settings = {
+		enter_on_sendcmd = true,
+	},
+	projects = {
+		["/home/cypher/Programming/todo-list/master"] = {
+			term = {
+				cmds = {
+					"yarn start",
+				},
+			},
+		},
+		["/home/cypher/Programming/fulcrum-mk2/master"] = {
+			term = {
+				cmds = {
+					"docker-compose down && docker-compose up",
+					"yarn",
+				},
+			},
+		},
+		["/home/cypher/Programming/lanchat/client"] = {
+			term = {
+				cmds = {
+					"go run cmd/client/main.go",
+				},
+			},
+		},
+	},
 })
 
 -- Harpoon mark commands
@@ -36,13 +44,19 @@ vim.cmd([[
     nnoremap <silent>'l :lua require("harpoon.ui").nav_file(9)<CR>
     nnoremap <silent>'; :lua require("harpoon.ui").nav_file(10)<CR>
 
-    nnoremap <silent>'t :lua require("harpoon.term").gotoTerminal(2)<CR>
+    nnoremap <silent>'t :lua require("harpoon.term").gotoTerminal(3)<CR>
 ]])
 
 -- Other maps (terminal, ui, etc)
-vim.api.nvim_set_keymap('n', '<leader>h', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>h", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { noremap = true })
 
-vim.api.nvim_set_keymap('n', '<leader>t', ':lua require("harpoon.term").gotoTerminal(1)<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>T', ':lua require("harpoon.term").gotoTerminal(3)<CR>', { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>t", ':lua require("harpoon.term").gotoTerminal(1)<CR>', { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>T", ':lua require("harpoon.term").gotoTerminal(2)<CR>', { noremap = true })
 
-vim.api.nvim_set_keymap('n', '<leader><Enter>', ':lua require("harpoon.term").sendCommand(1, 1)<CR>', { noremap = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader><Enter>",
+	':lua require("harpoon.term").sendCommand(1, 1)<CR>',
+	{ noremap = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>\\", ':lua require("harpoon.term").sendCommand(2, 2)<CR>', { noremap = true })

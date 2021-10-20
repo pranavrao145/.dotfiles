@@ -5,5 +5,6 @@ vim.cmd([[
         autocmd!
         autocmd FileType cpp let b:dispatch = "g++ -o debug/main -g %"
         autocmd FileType go let b:dispatch = "go build"
+        autocmd FileType typescript let b:dispatch = "yarn build"
     augroup end
 ]])

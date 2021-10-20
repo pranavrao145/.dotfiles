@@ -275,16 +275,12 @@ assign [class="konsole"] $ws1
 assign [class="Brave-browser"] $ws2
 assign [class="discord"] $ws3
 for_window [class="Spotify"] move to workspace $ws4
-assign [class="VirtualBox Manager"] $ws5
-for_window [class="VirtualBox Machine"] move to workspace $ws5
+assign [class="Microsoft Teams - Insiders"] $ws5
+assign [class="zoom"] $ws5
+assign [class="Skype"] $ws7
 assign [class="obs"] $ws6
-assign [class="vlc"] $ws7
 assign [class="kdenlive"] $ws7
 assign [class="Gimp-2.10"] $ws7
-assign [class="Microsoft Teams - Insiders"] $ws8
-assign [class="Skype"] $ws8
-assign [class="zoom"] $ws8
-assign [class="Thunar"] $ws9
 assign [class="Anydesk"] $ws10
 
 # exec --no-startup-id discord

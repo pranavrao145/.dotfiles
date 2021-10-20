@@ -57,25 +57,13 @@ sudo -u cypher -s << 'EOF'
     git clone https://aur.archlinux.org/paru-bin.git
 EOF
 
-echo "Exiting to shell for manual installation of paru. Install paru by changing into the cloned /home/cypher/paru-bin directory and running makepkg -si."
+echo "Exiting to shell for manual installation of paru and all AUR packages. Install paru by changing into the cloned /home/cypher/paru-bin directory and running makepkg -si. Then change into the /home/cypher/.dotfiles directory and run:" 
+echo
+echo "paru -Syyu --needed --noconfirm \$(./package-lists/foreignpkglist.txt)"
 
 exit
 
-# NOTE: The script exits here so that the paru can be installed manually. (It often fails when makepkg is run automatically.)
-
-echo "Installing foreign packages using paru. Skipping problematic packages for manual installation later."
-
-# install foreign packages using yay
-sudo -u cypher -s << 'EOF'
-   sudo sed -i '/spotify/d' ./package-lists/foreignpkglist.txt
-   paru -Syyu --needed --noconfirm - < ./package-lists/foreignpkglist.txt
-EOF 
-
-echo "Installation of packages completed successfully. Exiting to shell for manual installation of skipped programs. The following programs were skipped: spotify."
-
-exit
-
-# NOTE: The script exits here so that the skipped programs can be built and installed manually.
+# NOTE: The script exits here so that the paru and all other AUR packages can be installed manually. AUR package building sometimes fails when makepkg is run automatically, and that leaves the system and the script in an odd state.
 
 ##### SHELL SETUP #####
 

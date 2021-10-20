@@ -23,7 +23,7 @@ def cypher_art
 end
 
 # array of functions available
-choices = [method(:pfetch), method(:color_script)]
+choices = [method(:neofetch), method(:color_script)]
 
 # call a a random function
 func = choices.sample

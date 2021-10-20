@@ -1,3 +1,4 @@
+aalib
 acpi
 adobe-source-sans-fonts
 aircrack-ng
@@ -9,6 +10,7 @@ arduino-cli
 autoconf
 automake
 autorandr
+awesome
 base
 bat
 bettercap
@@ -72,6 +74,10 @@ john
 jp2a
 kvantum-qt5
 lazygit
+libcaca
+libdvdnav
+libdvdread
+libmicrodns
 libreoffice-fresh
 libtool
 libva-intel-driver
@@ -118,6 +124,7 @@ playerctl
 postgresql-libs
 powerline
 powerline-fonts
+prettier
 proxychains-ng
 pulseaudio
 pyright
@@ -212,3 +219,4 @@ xorg-xwininfo
 xorg-xwud
 yarn
 zsh
+zvbi

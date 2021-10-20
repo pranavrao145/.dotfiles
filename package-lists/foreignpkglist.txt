@@ -15,6 +15,7 @@ imagewriter
 kdenlive-git
 lightdm-webkit-theme-aether
 lua-language-server-git
+luacheck
 nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch
@@ -34,6 +35,7 @@ slack-desktop
 spotify
 spotifywm-git
 st
+stylua
 tmux-plugin-manager
 ttf-font-awesome-4
 ttf-fork-awesome

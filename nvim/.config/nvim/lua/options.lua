@@ -33,13 +33,14 @@ vim.cmd([[
     set noshowmode
     set completeopt=menu,menuone,noselect
     set background=dark
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/harpoon/master'
 ]])
 
 -- Set map leader
-vim.cmd('let mapleader=\' \'')
+vim.cmd("let mapleader=' '")
 
 -- Set custom netrw http command
 vim.cmd('let g:netrw_http_cmd="brave"')
 
 -- Set filetype
-vim.cmd('filetype plugin indent on')
+vim.cmd("filetype plugin indent on")

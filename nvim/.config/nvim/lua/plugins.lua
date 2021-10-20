@@ -1,152 +1,153 @@
-vim.cmd [[packadd packer.nvim]]
+vim.cmd([[packadd packer.nvim]])
 
-return require('packer').startup(function()
-    -- Let Packer manage itself
-    use 'wbthomason/packer.nvim'
+return require("packer").startup(function()
+	-- Let Packer manage itself
+	use("wbthomason/packer.nvim")
 
-    -- LSP Config
-    use { 'neovim/nvim-lspconfig', requires = {
-        { 'mfussenegger/nvim-jdtls' }
-    }}
+	-- LSP Config
+	use({ "neovim/nvim-lspconfig", requires = {
+		{ "mfussenegger/nvim-jdtls" },
+	} })
 
-    -- Auto-complete
-    use { 'hrsh7th/nvim-cmp', requires = {
-        { 'hrsh7th/cmp-buffer' },
-        { 'hrsh7th/cmp-path' },
-        { 'hrsh7th/cmp-calc' },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'quangnguyen30192/cmp-nvim-ultisnips'},
-        { 'SirVer/ultisnips' },
-        { 'honza/vim-snippets' },
-        { 'onsails/lspkind-nvim' },
-    }
-}
+	-- Auto-complete
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "hrsh7th/cmp-calc" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "quangnguyen30192/cmp-nvim-ultisnips" },
+			{ "SirVer/ultisnips" },
+			{ "honza/vim-snippets" },
+			{ "onsails/lspkind-nvim" },
+		},
+	})
 
--- Status line
-use {
-    'hoob3rt/lualine.nvim',
-    requires = {
-        { 'kyazdani42/nvim-web-devicons' },
-        { 'ryanoasis/vim-devicons' }
-    }
-}
+	-- Status line
+	use({
+		"hoob3rt/lualine.nvim",
+		requires = {
+			{ "kyazdani42/nvim-web-devicons" },
+			{ "ryanoasis/vim-devicons" },
+		},
+	})
 
--- Bufferline
-use {
-    'akinsho/nvim-bufferline.lua',
-    requires = {
-        { 'kyazdani42/nvim-web-devicons' },
-        { 'ryanoasis/vim-devicons' }
-    }
-}
+	-- Bufferline
+	use({
+		"akinsho/nvim-bufferline.lua",
+		requires = {
+			{ "kyazdani42/nvim-web-devicons" },
+			{ "ryanoasis/vim-devicons" },
+		},
+	})
 
--- Telescope
-use {
-    'nvim-telescope/telescope.nvim',
-    requires = {
-        { 'kyazdani42/nvim-web-devicons' },
-        { 'ryanoasis/vim-devicons' },
-        { 'nvim-lua/popup.nvim' },
-        { 'nvim-lua/plenary.nvim' },
-        { 'nvim-telescope/telescope-fzy-native.nvim' },
-        { 'nvim-telescope/telescope-project.nvim' },
-        { 'ThePrimeagen/git-worktree.nvim' }
-    }
-}
+	-- Telescope
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			{ "kyazdani42/nvim-web-devicons" },
+			{ "ryanoasis/vim-devicons" },
+			{ "nvim-lua/popup.nvim" },
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-fzy-native.nvim" },
+			{ "nvim-telescope/telescope-project.nvim" },
+			{ "ThePrimeagen/git-worktree.nvim" },
+		},
+	})
 
--- Auto pairs
-use 'jiangmiao/auto-pairs'
+	-- Auto pairs
+	use("jiangmiao/auto-pairs")
 
--- Git integration
-use 'tpope/vim-fugitive'
+	-- Git integration
+	use("tpope/vim-fugitive")
 
--- Rails plugins
-use 'tpope/vim-rails'
-use 'tpope/vim-bundler'
+	-- Rails plugins
+	use("tpope/vim-rails")
+	use("tpope/vim-bundler")
 
--- Commenter
-use 'preservim/nerdcommenter'
+	-- Commenter
+	use("preservim/nerdcommenter")
 
--- Emmet
-use 'mattn/emmet-vim'
+	-- Emmet
+	use("mattn/emmet-vim")
 
--- Multi cursor
-use { 'mg979/vim-visual-multi', branch = 'master' }
+	-- Multi cursor
+	use({ "mg979/vim-visual-multi", branch = "master" })
 
--- Buffer maximizer
-use 'szw/vim-maximizer'
+	-- Buffer maximizer
+	use("szw/vim-maximizer")
 
--- Surround motions
-use 'tpope/vim-surround'
+	-- Surround motions
+	use("tpope/vim-surround")
 
--- Debugger
-use 'puremourning/vimspector'
+	-- Debugger
+	use("puremourning/vimspector")
 
--- Discord presence
-use 'andweeb/presence.nvim'
+	-- Discord presence
+	use("andweeb/presence.nvim")
 
--- Better quickfix list
-use { 'kevinhwang91/nvim-bqf', requires = {
-    { 'junegunn/fzf', run = 'fzf#install()' }
-}
-}
+	-- Better quickfix list
+	use({ "kevinhwang91/nvim-bqf", requires = {
+		{ "junegunn/fzf", run = "fzf#install()" },
+	} })
 
-use 'Olical/vim-enmasse'
+	use("Olical/vim-enmasse")
 
--- Treesitter
-use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	-- Treesitter
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
--- Display colors for color codes
-use 'norcalli/nvim-colorizer.lua'
+	-- Display colors for color codes
+	use("norcalli/nvim-colorizer.lua")
 
--- Netrw enhancement
-use 'tpope/vim-vinegar'
+	-- Netrw enhancement
+	use("tpope/vim-vinegar")
 
--- Unix helpers
-use 'tpope/vim-eunuch'
+	-- Unix helpers
+	use("tpope/vim-eunuch")
 
--- Harpoon
-use { 'ThePrimeagen/harpoon', requires = {
-    { 'nvim-lua/popup.nvim' },
-    { 'nvim-lua/plenary.nvim' }
-} }
+	-- Harpoon
+	-- use({ "ThePrimeagen/harpoon", requires = {
+		-- { "nvim-lua/popup.nvim" },
+		-- { "nvim-lua/plenary.nvim" },
+	-- } })
 
--- Enhanced increment
-use 'tpope/vim-speeddating'
+	-- Enhanced increment
+	use("tpope/vim-speeddating")
 
--- Dispatch
-use 'tpope/vim-dispatch'
+	-- Dispatch
+	use("tpope/vim-dispatch")
 
--- Dotenv
-use 'tpope/vim-dotenv'
+	-- Dotenv
+	use("tpope/vim-dotenv")
 
--- Enhanced repeat
-use 'tpope/vim-repeat'
+	-- Enhanced repeat
+	use("tpope/vim-repeat")
 
--- Enhanced common bindings
-use 'tpope/vim-unimpaired'
+	-- Enhanced common bindings
+	use("tpope/vim-unimpaired")
 
--- Undo Tree
-use 'mbbill/undotree'
+	-- Undo Tree
+	use("mbbill/undotree")
 
--- Smart replacements
-use 'tpope/vim-abolish'
+	-- Smart replacements
+	use("tpope/vim-abolish")
 
--- Formatter
-use 'sbdchd/neoformat'
+	-- Formatter
+	use("sbdchd/neoformat")
 
--- Tests
-use 'vim-test/vim-test'
+	-- Tests
+	use("vim-test/vim-test")
 
--- Colors
-use 'folke/lsp-colors.nvim'
+	-- Colors
+	use("folke/lsp-colors.nvim")
 
--- Themes
-use 'drewtempelmeyer/palenight.vim'
-use 'morhetz/gruvbox'
-use { 'kaicataldo/material.vim', branch = 'main' }
-use { 'dracula/vim', as = 'dracula' }
-use 'joshdick/onedark.vim'
-use 'arcticicestudio/nord-vim'
-use 'cocopon/iceberg.vim'
+	-- Themes
+	use("drewtempelmeyer/palenight.vim")
+	use("morhetz/gruvbox")
+	use({ "kaicataldo/material.vim", branch = "main" })
+	use({ "dracula/vim", as = "dracula" })
+	use("joshdick/onedark.vim")
+	use("arcticicestudio/nord-vim")
+	use("cocopon/iceberg.vim")
 end)
