@@ -269,6 +269,12 @@ bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+l move workspace to output right
 bindsym $mod+Ctrl+h move workspace to output left
 
+# dunst bindings (notification daemon)
+bindsym Ctrl+space exec --no-startup-id dunstctl close
+bindsym Ctrl+shift+space exec --no-startup-id dunstctl close-all
+bindsym Ctrl+grave exec --no-startup-id dunstctl history-pop
+bindsym Ctrl+shift+period exec --no-startup-id dunstctl context
+
 assign [class="Alacritty"] $ws1
 assign [class="Code"] $ws1
 assign [class="konsole"] $ws1

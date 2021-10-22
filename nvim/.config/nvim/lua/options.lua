@@ -33,7 +33,7 @@ vim.cmd([[
     set noshowmode
     set completeopt=menu,menuone,noselect
     set background=dark
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/harpoon/master'
+    set mouse=a
 ]])
 
 -- Set map leader

@@ -44,7 +44,7 @@ return require("packer").startup(function()
 
 	-- Telescope
 	use({
-		"nvim-telescope/telescope.nvim",
+		"pranavrao145/telescope.nvim",
 		requires = {
 			{ "kyazdani42/nvim-web-devicons" },
 			{ "ryanoasis/vim-devicons" },
@@ -52,7 +52,6 @@ return require("packer").startup(function()
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzy-native.nvim" },
 			{ "nvim-telescope/telescope-project.nvim" },
-			{ "ThePrimeagen/git-worktree.nvim" },
 		},
 	})
 
@@ -61,6 +60,9 @@ return require("packer").startup(function()
 
 	-- Git integration
 	use("tpope/vim-fugitive")
+
+	-- Git worktree
+	use("ThePrimeagen/git-worktree.nvim")
 
 	-- Rails plugins
 	use("tpope/vim-rails")
@@ -107,10 +109,13 @@ return require("packer").startup(function()
 	use("tpope/vim-eunuch")
 
 	-- Harpoon
-	-- use({ "ThePrimeagen/harpoon", requires = {
-		-- { "nvim-lua/popup.nvim" },
-		-- { "nvim-lua/plenary.nvim" },
-	-- } })
+	use({
+		"pranavrao145/harpoon",
+		requires = {
+			{ "nvim-lua/popup.nvim" },
+			{ "nvim-lua/plenary.nvim" },
+		},
+	})
 
 	-- Enhanced increment
 	use("tpope/vim-speeddating")
