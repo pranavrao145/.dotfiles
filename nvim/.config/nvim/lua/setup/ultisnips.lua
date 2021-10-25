@@ -2,7 +2,7 @@
 
 -- Options
 vim.cmd([[
-    let g:UltiSnipsExpandTrigger="<C-q>"
+    let g:UltiSnipsExpandTrigger="<C-s>"
     let g:UltiSnipsJumpForwardTrigger="<C-f>"
     let g:UltiSnipsJumpBackwardTrigger="<C-b>"
     let g:UltiSnipsEditSplit="vertical"
@@ -10,7 +10,7 @@ vim.cmd([[
 
 -- Autocmds to add certain snippets to certain filetypes
 vim.cmd([[
-    augroup snippets
+    augroup CUSTOM_SNIPPET_ADDITIONS
         autocmd!
         autocmd BufEnter *.jsx UltiSnipsAddFiletypes html
         autocmd BufEnter *.jsx UltiSnipsAddFiletypes javascript

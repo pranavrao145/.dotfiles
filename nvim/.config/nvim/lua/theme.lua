@@ -9,6 +9,4 @@ vim.cmd([[
     hi SignColumn guibg=NONE ctermbg=NONE
     hi EndOfBuffer guibg=NONE ctermbg=NONE
     hi CursorLineNr guibg=NONE ctermbg=NONE
-    hi CmpItemKind ctermfg=White
-    hi CmpItemMenu ctermfg=White
 ]])

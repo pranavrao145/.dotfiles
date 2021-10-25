@@ -199,8 +199,8 @@ bindsym $mod+ctrl+shift+k exec --no-startup-id vboxmanage startvm "Kali Linux"
 # Gaps
 
 # Set inner/outer gaps
-gaps inner 12
-gaps outer -2
+# gaps inner 12
+# gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -280,6 +280,7 @@ assign [class="Code"] $ws1
 assign [class="konsole"] $ws1
 assign [class="Brave-browser"] $ws2
 assign [class="discord"] $ws3
+assign [class="Slack"] $ws3
 for_window [class="Spotify"] move to workspace $ws4
 assign [class="Microsoft Teams - Insiders"] $ws5
 assign [class="zoom"] $ws5
@@ -300,22 +301,21 @@ exec_always --no-startup-id $HOME/.config/polybar/scripts/launch_i3.sh
 set $monitor_one HDMI1
 set $monitor_two eDP1
 
-# set browsers, terminals, and virtual machines monitor 1
+# set everything to show up on monitor 1 by default
 workspace $ws1 output $monitor_one
 workspace $ws2 output $monitor_one
-
-# set everything else monitor 2
-workspace $ws3 output $monitor_two
-workspace $ws4 output $monitor_two
-workspace $ws6 output $monitor_two
-workspace $ws7 output $monitor_two
-workspace $ws8 output $monitor_two
-workspace $ws9 output $monitor_two
-workspace $ws10 output $monitor_two
+workspace $ws3 output $monitor_one
+workspace $ws4 output $monitor_one
+workspace $ws5 output $monitor_one
+workspace $ws6 output $monitor_one
+workspace $ws7 output $monitor_one
+workspace $ws8 output $monitor_one
+workspace $ws9 output $monitor_one
+workspace $ws10 output $monitor_one
 
 # Eliminate title window
-for_window [class="^.*"] border pixel 0
-new_window pixel 0
+for_window [class="^.*"] border pixel 1
+new_window pixel 1
 
 # Change window focused color
 # Set colors from Xresources

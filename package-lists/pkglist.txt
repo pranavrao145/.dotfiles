@@ -5,6 +5,7 @@ alacritty
 alsa-utils
 arandr
 arc-gtk-theme
+arduino
 arduino-cli
 autoconf
 automake
@@ -19,6 +20,7 @@ bluez
 bluez-utils
 brightnessctl
 calc
+cheese
 chromium
 clang
 cmake
@@ -95,7 +97,6 @@ mosh
 mpd
 nano
 neofetch
-neovim
 network-manager-applet
 networkmanager
 ninja

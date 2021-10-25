@@ -30,7 +30,8 @@ vim.cmd([[
 -- Misc maps
 vim.api.nvim_set_keymap("n", "<leader>s", ":w!<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>ss", ":w! <bar> :bd<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>so", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>so", ":source %", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>sO", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>e", ":Explore<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>sa", "gg <bar> V <bar> G<CR>", { noremap = true })
 
@@ -52,11 +53,8 @@ vim.api.nvim_set_keymap("v", "<leader>p", '"_dP', { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>d", '"_x', { noremap = true })
 vim.api.nvim_set_keymap("v", "<leader>d", '"_x', { noremap = true })
 
--- Tab remaps and visual mode next result remap
+-- Visual mode next result remap
 vim.cmd([[
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
     vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 ]])
 

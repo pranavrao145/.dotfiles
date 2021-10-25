@@ -94,8 +94,6 @@ return require("packer").startup(function()
 		{ "junegunn/fzf", run = "fzf#install()" },
 	} })
 
-	use("Olical/vim-enmasse")
-
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
@@ -109,13 +107,13 @@ return require("packer").startup(function()
 	use("tpope/vim-eunuch")
 
 	-- Harpoon
-	use({
-		"pranavrao145/harpoon",
-		requires = {
-			{ "nvim-lua/popup.nvim" },
-			{ "nvim-lua/plenary.nvim" },
-		},
-	})
+	-- use({
+		-- "pranavrao145/harpoon",
+		-- requires = {
+			-- { "nvim-lua/popup.nvim" },
+			-- { "nvim-lua/plenary.nvim" },
+		-- },
+	-- })
 
 	-- Enhanced increment
 	use("tpope/vim-speeddating")
