@@ -40,7 +40,6 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("fzy_native")
-require("telescope").load_extension("project")
 require("telescope").load_extension("git_worktree")
 
 vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>Telescope git_files<CR>", { noremap = true })
@@ -54,7 +53,6 @@ vim.api.nvim_set_keymap("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<
 vim.api.nvim_set_keymap("n", "<leader>lw", ":Telescope lsp_workspace_symbols query=", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>lD", "<cmd>Telescope lsp_document_diagnostics<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>lW", "<cmd>Telescope lsp_workspace_diagnostics<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>P", "<cmd>Telescope project<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>?", "<cmd>Telescope help_tags<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>o", "<cmd>Telescope oldfiles<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>oo", "<cmd>Telescope oldfiles<CR>", { noremap = true })

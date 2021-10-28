@@ -62,7 +62,7 @@ modules-left = i3
 modules-center = xwindow
 modules-right = pulseaudio spotify filesystem memory cpu wlan battery date powermenu
 
-tray-position = right
+tray-position = none
 tray-padding = 2
 ;tray-background = #0063ff
 
@@ -115,7 +115,7 @@ modules-left = i3
 modules-center = xwindow
 modules-right = pulseaudio xbacklight wlan battery date powermenu
 
-tray-position = right
+tray-position = none
 tray-padding = 2
 ;tray-background = #0063ff
 
@@ -296,7 +296,8 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%  
-label-focused-background = ${colors.background-alt}
+label-focused-background = ${colors.background}
+label-focused-foreground= ${colors.primary}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
@@ -619,9 +620,5 @@ format-prefix-foreground = ${colors.foreground-alt}
 format = <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}'
 format-underline = ${colors.primary}
-
-[module/logo]
-type=custom/text
-content="  "
 
 ; vim:ft=dosini

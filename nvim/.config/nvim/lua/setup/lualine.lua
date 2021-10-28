@@ -1,6 +1,6 @@
 require("lualine").setup({
 	options = {
-		theme = "palenight",
+		theme = "onedark",
 	},
 	extensions = {
 		"quickfix",

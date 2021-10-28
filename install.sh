@@ -193,8 +193,6 @@ sudo -u cypher -s << 'EOF'
     sudo ln -s /home/cypher/.dotfiles/jdtls/launch-jdtls.sh /usr/bin/launch-jdtls
 EOF
 
-echo "Neovim config set up successfully. Make sure to build Neovim from source or get the appimage."
-
 echo "Setting up tmux..."
 
 # setup tmux

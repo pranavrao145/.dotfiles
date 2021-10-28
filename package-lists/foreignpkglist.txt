@@ -8,7 +8,6 @@ cava
 crunch
 dirsearch
 gotop
-heroku-cli
 i3-battery-popup
 i3lock-color-git
 imagewriter
@@ -30,7 +29,6 @@ polybar
 pywal-discord-git
 shell-color-scripts
 siji-git
-skypeforlinux-stable-bin
 slack-desktop
 spotify
 spotifywm-git

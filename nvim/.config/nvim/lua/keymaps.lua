@@ -29,11 +29,11 @@ vim.cmd([[
 
 -- Misc maps
 vim.api.nvim_set_keymap("n", "<leader>s", ":w!<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ss", ":w! <bar> :bd<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>so", ":source %", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>sO", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>e", ":Explore<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>sa", "gg <bar> V <bar> G<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>o", ":source %<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>O", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>e", ":e!<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>E", ":Explore<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>A", "gg <bar> V <bar> G<CR>", { noremap = true })
 
 -- Semicolon remaps
 vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
@@ -92,6 +92,7 @@ vim.api.nvim_set_keymap("n", "<leader>Y", 'gg"+yG', { noremap = true })
 
 -- Change to executable map
 vim.api.nvim_set_keymap("n", "<leader>x", ":silent !chmod +x %<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>X", ":silent !chmod -x %<CR>", { noremap = true })
 
 -- Visual mode move line maps
 vim.cmd([[
@@ -103,4 +104,11 @@ vim.cmd([[
 vim.cmd([[
     nnoremap <expr> k (v:count > 2 ? "m'" . v:count : "") . 'k'
     nnoremap <expr> j (v:count > 2 ? "m'" . v:count : "") . 'j'
+]])
+
+vim.cmd([[
+    augroup BUFFER_RESET
+        autocmd!
+        autocmd FileType arduino :nnoremap <leader>lr :bd <bar> :lua require('harpoon.ui').nav_file(1)<CR>
+    augroup END
 ]])

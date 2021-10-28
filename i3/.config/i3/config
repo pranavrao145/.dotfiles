@@ -48,7 +48,7 @@ bindsym XF86AudioStop exec playerctl stop
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -199,8 +199,8 @@ bindsym $mod+ctrl+shift+k exec --no-startup-id vboxmanage startvm "Kali Linux"
 # Gaps
 
 # Set inner/outer gaps
-# gaps inner 12
-# gaps outer -2
+gaps inner 12
+gaps outer 12
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -212,7 +212,7 @@ bindsym $mod+ctrl+shift+k exec --no-startup-id vboxmanage startvm "Kali Linux"
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+# smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove 
 # gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
@@ -275,6 +275,7 @@ bindsym Ctrl+shift+space exec --no-startup-id dunstctl close-all
 bindsym Ctrl+grave exec --no-startup-id dunstctl history-pop
 bindsym Ctrl+shift+period exec --no-startup-id dunstctl context
 
+assign [class="kitty"] $ws1
 assign [class="Alacritty"] $ws1
 assign [class="Code"] $ws1
 assign [class="konsole"] $ws1
@@ -284,14 +285,14 @@ assign [class="Slack"] $ws3
 for_window [class="Spotify"] move to workspace $ws4
 assign [class="Microsoft Teams - Insiders"] $ws5
 assign [class="zoom"] $ws5
-assign [class="Skype"] $ws7
+assign [class="Skype"] $ws5
 assign [class="obs"] $ws6
 assign [class="kdenlive"] $ws7
 assign [class="Gimp-2.10"] $ws7
 assign [class="Anydesk"] $ws10
 
 # exec --no-startup-id discord
-# exec --no-startup-id sleep 6 && alacritty
+# exec --no-startup-id sleep 6 && kitty
 exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 # exec_always --no-startup-id /usr/bin/alternating_layouts.py
 exec_always --no-startup-id picom --experimental-backends
@@ -314,8 +315,8 @@ workspace $ws9 output $monitor_one
 workspace $ws10 output $monitor_one
 
 # Eliminate title window
-for_window [class="^.*"] border pixel 1
-new_window pixel 1
+for_window [class="^.*"] border pixel 0
+new_window pixel 0
 
 # Change window focused color
 # Set colors from Xresources

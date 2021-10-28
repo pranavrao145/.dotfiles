@@ -17,10 +17,10 @@ return require("packer").startup(function()
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-calc" },
 			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "quangnguyen30192/cmp-nvim-ultisnips" },
-			{ "SirVer/ultisnips" },
-			{ "honza/vim-snippets" },
 			{ "onsails/lspkind-nvim" },
+			{ "L3MON4D3/LuaSnip" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "rafamadriz/friendly-snippets" },
 		},
 	})
 
@@ -51,8 +51,8 @@ return require("packer").startup(function()
 			{ "nvim-lua/popup.nvim" },
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzy-native.nvim" },
-			{ "nvim-telescope/telescope-project.nvim" },
 		},
+		branch = "updated",
 	})
 
 	-- Auto pairs
@@ -107,13 +107,14 @@ return require("packer").startup(function()
 	use("tpope/vim-eunuch")
 
 	-- Harpoon
-	-- use({
-		-- "pranavrao145/harpoon",
-		-- requires = {
-			-- { "nvim-lua/popup.nvim" },
-			-- { "nvim-lua/plenary.nvim" },
-		-- },
-	-- })
+	use({
+		"pranavrao145/harpoon",
+		requires = {
+			{ "nvim-lua/popup.nvim" },
+			{ "nvim-lua/plenary.nvim" },
+		},
+		branch = "updated",
+	})
 
 	-- Enhanced increment
 	use("tpope/vim-speeddating")
