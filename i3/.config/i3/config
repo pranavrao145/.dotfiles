@@ -184,7 +184,8 @@ bindsym $mod+r mode "resize"
 # custom keybinds
 bindsym $mod+shift+q exec --no-startup-id lock # to lock
 bindsym $mod+shift+x exec --no-startup-id lock && systemctl suspend # to sleep
-bindsym $mod+c exec --no-startup-id brave
+bindsym $mod+c exec --no-startup-id firefox
+bindsym $mod+z exec --no-startup-id firefox -P
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
 bindsym $mod+i workspace $ws3
@@ -280,6 +281,7 @@ assign [class="Alacritty"] $ws1
 assign [class="Code"] $ws1
 assign [class="konsole"] $ws1
 assign [class="Brave-browser"] $ws2
+assign [class="firefox"] $ws2
 assign [class="discord"] $ws3
 assign [class="Slack"] $ws3
 for_window [class="Spotify"] move to workspace $ws4

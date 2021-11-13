@@ -44,7 +44,7 @@ return require("packer").startup(function()
 
 	-- Telescope
 	use({
-		"pranavrao145/telescope.nvim",
+		"nvim-telescope/telescope.nvim",
 		requires = {
 			{ "kyazdani42/nvim-web-devicons" },
 			{ "ryanoasis/vim-devicons" },
@@ -52,7 +52,6 @@ return require("packer").startup(function()
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzy-native.nvim" },
 		},
-		branch = "updated",
 	})
 
 	-- Auto pairs
@@ -84,7 +83,7 @@ return require("packer").startup(function()
 	use("tpope/vim-surround")
 
 	-- Debugger
-	use("puremourning/vimspector")
+	use({ "puremourning/vimspector", opt = true })
 
 	-- Discord presence
 	use("andweeb/presence.nvim")
@@ -145,6 +144,9 @@ return require("packer").startup(function()
 
 	-- Colors
 	use("folke/lsp-colors.nvim")
+
+	-- Startup time monitor
+	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
 
 	-- Themes
 	use("drewtempelmeyer/palenight.vim")

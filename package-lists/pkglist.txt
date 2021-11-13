@@ -23,6 +23,7 @@ cheese
 chromium
 clang
 cmake
+cmatrix
 cowsay
 cronie
 cups
@@ -43,6 +44,7 @@ fd
 figlet
 file
 findutils
+firefox
 flameshot
 flex
 fuse2
@@ -217,6 +219,5 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
-xterm
 yarn
 zsh

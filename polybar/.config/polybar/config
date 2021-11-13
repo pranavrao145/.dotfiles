@@ -33,7 +33,7 @@ width = 100%
 height = 30
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 10
+radius-bottom = 10
 fixed-center = false
 
 background = ${colors.background}
@@ -43,7 +43,7 @@ line-size = 2
 line-color = #f00
 
 ; border-size = 0
-border-top-size = 5
+; border-top-size = 5
 border-left-size = 5
 border-right-size = 5
 border-bottom-size = 0
@@ -90,7 +90,7 @@ width = 100%
 height = 30
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 10
+radius-bottom = 10
 fixed-center = false
 
 background = ${colors.background}
@@ -100,7 +100,7 @@ line-size = 2
 line-color = #f00
 
 ; border-size = 0
-border-top-size = 5
+; border-top-size = 5
 border-left-size = 5
 border-right-size = 5
 border-bottom-size = 0
@@ -194,7 +194,7 @@ pin-workspaces = true
 
 ; Workspace icons
 ws-icon-0 = 1;
-ws-icon-1 = 2;
+ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;

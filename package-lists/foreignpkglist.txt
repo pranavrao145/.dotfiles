@@ -7,6 +7,7 @@ brave-bin
 cava
 crunch
 dirsearch
+firefox-profile-switcher-connector-bin
 gotop
 i3-battery-popup
 i3lock-color-git
@@ -26,6 +27,7 @@ paru-bin
 pfetch
 picom-jonaburg-git
 polybar
+python-pywalfox
 pywal-discord-git
 shell-color-scripts
 siji-git

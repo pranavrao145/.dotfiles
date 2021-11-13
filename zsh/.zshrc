@@ -115,6 +115,13 @@ vi() {
     fi
 }
 
+# to reset the origin remote should it stop working
+reset-remote() {
+    remote_url=$(git config --get remote.origin.url)
+    git remote remove origin
+    git remote add origin $remote_url
+}
+
 alias vim="nvim"
 alias vmi="nvim"
 alias ivm="nvim"

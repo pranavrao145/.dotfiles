@@ -40,7 +40,7 @@ vim.cmd([[
 vim.cmd("let mapleader=' '")
 
 -- Set custom netrw http command
-vim.cmd('let g:netrw_http_cmd="brave"')
+vim.cmd('let g:netrw_http_cmd="firefox"')
 
 -- Set filetype
 vim.cmd("filetype plugin indent on")
