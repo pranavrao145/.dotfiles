@@ -107,12 +107,11 @@ return require("packer").startup(function()
 
 	-- Harpoon
 	use({
-		"pranavrao145/harpoon",
+		"ThePrimeagen/harpoon",
 		requires = {
 			{ "nvim-lua/popup.nvim" },
 			{ "nvim-lua/plenary.nvim" },
 		},
-		branch = "updated",
 	})
 
 	-- Enhanced increment
@@ -144,6 +143,15 @@ return require("packer").startup(function()
 
 	-- Colors
 	use("folke/lsp-colors.nvim")
+
+	-- Refactoring library
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
 
 	-- Startup time monitor
 	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })

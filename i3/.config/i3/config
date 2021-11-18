@@ -48,7 +48,7 @@ bindsym XF86AudioStop exec playerctl stop
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty zsh --login
 
 # kill focused window
 bindsym $mod+q kill
@@ -184,8 +184,8 @@ bindsym $mod+r mode "resize"
 # custom keybinds
 bindsym $mod+shift+q exec --no-startup-id lock # to lock
 bindsym $mod+shift+x exec --no-startup-id lock && systemctl suspend # to sleep
-bindsym $mod+c exec --no-startup-id firefox
-bindsym $mod+z exec --no-startup-id firefox -P
+bindsym $mod+c exec --no-startup-id firefox-developer-edition
+bindsym $mod+z exec --no-startup-id firefox-developer-edition -P
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
 bindsym $mod+i workspace $ws3

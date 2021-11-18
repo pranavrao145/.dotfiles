@@ -53,6 +53,9 @@ vim.api.nvim_set_keymap("v", "<leader>p", '"_dP', { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>d", '"_x', { noremap = true })
 vim.api.nvim_set_keymap("v", "<leader>d", '"_x', { noremap = true })
 
+-- Use system clipboard map
+vim.api.nvim_set_keymap("n", "<leader>P", ":set clipboard=unnamedplus<CR>", { noremap = true })
+
 -- Visual mode next result remap
 vim.cmd([[
     vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>

@@ -1,6 +1,6 @@
 configuration {
 	font: "JetBrainsMonoMedium Nerd Font Mono 12";
-	terminal: "/usr/bin/alacritty";
+	terminal: "/usr/bin/kitty";
     width: 25;
     lines: 10;
     padding: 5;

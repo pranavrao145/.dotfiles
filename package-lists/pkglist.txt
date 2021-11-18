@@ -15,6 +15,7 @@ bat
 bettercap
 binutils
 bison
+blueman
 bluez
 bluez-utils
 brightnessctl
@@ -44,7 +45,7 @@ fd
 figlet
 file
 findutils
-firefox
+firefox-developer-edition
 flameshot
 flex
 fuse2
@@ -65,13 +66,12 @@ groff
 grub
 grub-customizer
 gzip
-haskell-interpolate
-haskell-language-server
 hindent
 htop
 i3-gaps
 i3blocks
 i3status
+intellij-idea-community-edition
 iw
 iwd
 john
@@ -101,7 +101,6 @@ mosh
 mpd
 nano
 neofetch
-neovim
 network-manager-applet
 networkmanager
 ninja
@@ -129,6 +128,7 @@ powerline-fonts
 prettier
 proxychains-ng
 pulseaudio
+pulseaudio-bluetooth
 pyright
 python-i3ipc
 python-pipenv
@@ -160,6 +160,7 @@ ttf-droid
 ttf-fantasque-sans-mono
 ttf-font-awesome
 ttf-jetbrains-mono
+uncrustify
 unzip
 usbutils
 virtualbox
