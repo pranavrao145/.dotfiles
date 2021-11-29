@@ -118,12 +118,12 @@ echo "Window manager (i3) setup successfully. Don't forget to run wal and update
 
 echo "Setting up terminal emulator..."
 
-# set up alacritty and symlink its config file
+# set up kitty and symlink its config file
 
 sudo -u cypher -s << 'EOF'
-    mkdir -p ~/.config/alacritty
+    mkdir -p ~/.config/kitty
     cd /home/cypher/.dotfiles
-    stow alacritty
+    stow kitty
 EOF
 
 echo "Terminal emulator set up successfully."
@@ -190,7 +190,6 @@ sudo -u cypher -s << 'EOF'
     mkdir -p ~/.config/nvim
     stow nvim
     stow vimspector
-    sudo ln -s /home/cypher/.dotfiles/jdtls/launch-jdtls.sh /usr/bin/launch-jdtls
 EOF
 
 echo "Setting up tmux..."

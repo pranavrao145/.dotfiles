@@ -33,7 +33,7 @@ width = 100%
 height = 30
 ;offset-x = 1%
 ;offset-y = 1%
-radius-bottom = 10
+; radius-bottom = 10
 fixed-center = false
 
 background = ${colors.background}
@@ -44,9 +44,9 @@ line-color = #f00
 
 ; border-size = 0
 ; border-top-size = 5
-border-left-size = 5
-border-right-size = 5
-border-bottom-size = 0
+; border-left-size = 5
+; border-right-size = 5
+; border-bottom-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -66,7 +66,7 @@ modules-left = i3
 modules-center = xwindow
 modules-right = pulseaudio spotify filesystem memory cpu wlan battery date powermenu
 
-tray-position = none
+tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
@@ -90,7 +90,7 @@ width = 100%
 height = 30
 ;offset-x = 1%
 ;offset-y = 1%
-radius-bottom = 10
+; radius-bottom = 10
 fixed-center = false
 
 background = ${colors.background}
@@ -101,9 +101,9 @@ line-color = #f00
 
 ; border-size = 0
 ; border-top-size = 5
-border-left-size = 5
-border-right-size = 5
-border-bottom-size = 0
+; border-left-size = 5
+; border-right-size = 5
+; border-bottom-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -123,7 +123,7 @@ modules-left = i3
 modules-center = xwindow
 modules-right = pulseaudio xbacklight wlan battery date powermenu
 
-tray-position = none
+tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
@@ -209,24 +209,24 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %icon%  
+label-focused = %index%  
 label-focused-background = ${colors.primary}
 label-focused-foreground= ${colors.foreground}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %icon%
+label-unfocused = %index%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %icon%
+label-visible = %index%
 label-visible-background = ${self.background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon%
+label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 

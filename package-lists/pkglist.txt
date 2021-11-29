@@ -101,6 +101,7 @@ mosh
 mpd
 nano
 neofetch
+neovim
 network-manager-applet
 networkmanager
 ninja

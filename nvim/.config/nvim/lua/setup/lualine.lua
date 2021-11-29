@@ -1,6 +1,8 @@
 require("lualine").setup({
 	options = {
-		theme = "iceberg",
+		theme = "palenight",
+		section_separators = "",
+		component_separators = "",
 	},
 	extensions = {
 		"quickfix",

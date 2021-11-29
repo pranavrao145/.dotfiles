@@ -94,7 +94,12 @@ return require("packer").startup(function()
 	} })
 
 	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use({
+		"nvim-treesitter/playground",
+		requires = {
+			{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+		},
+	})
 
 	-- Display colors for color codes
 	use("norcalli/nvim-colorizer.lua")
