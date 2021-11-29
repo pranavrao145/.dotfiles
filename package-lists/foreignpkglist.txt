@@ -6,6 +6,7 @@ betterdiscordctl-git
 cava
 crunch
 dirsearch
+downgrade
 firefox-profile-switcher-connector-bin
 gotop
 i3-battery-popup

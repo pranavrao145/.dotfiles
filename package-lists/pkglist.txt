@@ -171,6 +171,9 @@ wireshark-qt
 xclip
 xf86-video-intel
 xf86-video-vesa
+xmobar
+xmonad
+xmonad-contrib
 xorg-bdftopcf
 xorg-docs
 xorg-font-util

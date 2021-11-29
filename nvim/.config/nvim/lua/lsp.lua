@@ -65,12 +65,14 @@ nvim_lsp.gopls.setup({
 })
 
 -- Java
-vim.cmd([[
-    augroup jdtls_lsp
-        autocmd!
-        autocmd FileType java lua require'setup.jdtls'.setup()
-    augroup end
-]])
+nvim_lsp.jdtls.setup({
+	cmd = { "jdtls" },
+	root_dir = function(fname)
+		return nvim_lsp.util.root_pattern("pom.xml", "gradle.build", ".git")(fname) or vim.fn.getcwd()
+	end,
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 -- Arduino
 nvim_lsp.arduino_language_server.setup({
