@@ -59,7 +59,7 @@ EOF
 
 echo "Exiting to shell for manual installation of paru and all AUR packages. Install paru by changing into the cloned /home/cypher/paru-bin directory and running makepkg -si. Then change into the /home/cypher/.dotfiles directory and run:" 
 echo
-echo "paru -Syyu --needed --noconfirm \$(./package-lists/foreignpkglist.txt)"
+echo "paru -Syyu --needed --noconfirm \$(cat ./package-lists/foreignpkglist.txt)"
 
 exit
 
@@ -78,6 +78,7 @@ sudo -u cypher -s << 'EOF'
     cd .dotfiles
     rm ~/.zshrc
     stow zsh
+    chsh -s /usr/bin/zsh
 EOF
 
 echo "Shell setup successfully."
@@ -110,6 +111,7 @@ sudo -u cypher -s << 'EOF'
     sudo ln -s /home/cypher/Scripts/system/update_color_scheme.sh /usr/bin/update-color-scheme
     sudo ln -s /home/cypher/.config/i3lock/lock.sh /usr/bin/lock
     sudo ln -s /home/cypher/Scripts/spotify/restart_spotify /usr/bin/restart_spotify
+    pip install pywalfox
 EOF
 
 echo "Window manager (i3) setup successfully. Don't forget to run wal and update-color-scheme when logged into XSession."

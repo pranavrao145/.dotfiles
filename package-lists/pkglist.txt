@@ -20,7 +20,6 @@ bluez
 bluez-utils
 brightnessctl
 calc
-cheese
 chromium
 clang
 cmake
