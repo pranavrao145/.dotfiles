@@ -15,6 +15,7 @@ return require("packer").startup(function()
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-calc" },
 			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
 			{ "onsails/lspkind-nvim" },
 			{ "L3MON4D3/LuaSnip" },
 			{ "saadparwaiz1/cmp_luasnip" },
@@ -149,12 +150,20 @@ return require("packer").startup(function()
 	use("folke/lsp-colors.nvim")
 
 	-- Refactoring library
+	-- use({
+		-- "ThePrimeagen/refactoring.nvim",
+		-- requires = {
+			-- { "nvim-lua/plenary.nvim" },
+			-- { "nvim-treesitter/nvim-treesitter" },
+		-- },
+	-- })
+
+	-- Firenvim
 	use({
-		"ThePrimeagen/refactoring.nvim",
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
+		"glacambre/firenvim",
+		run = function()
+			vim.fn["firenvim#install"](0)
+		end,
 	})
 
 	-- Startup time monitor

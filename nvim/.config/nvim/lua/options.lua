@@ -34,6 +34,8 @@ vim.cmd([[
     set completeopt=menu,menuone,noselect
     set background=dark
     set mouse=a
+    set guicursor=
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/printf-cleanup'
 ]])
 
 -- Set map leader

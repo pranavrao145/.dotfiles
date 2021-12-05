@@ -20,6 +20,7 @@ bluez
 bluez-utils
 brightnessctl
 calc
+cheese
 chromium
 clang
 cmake
@@ -95,6 +96,7 @@ lxqt-policykit
 m4
 make
 mesa-demos
+metasploit
 mlocate
 mosh
 mpd
@@ -129,6 +131,7 @@ prettier
 proxychains-ng
 pulseaudio
 pulseaudio-bluetooth
+pycharm-community-edition
 pyright
 python-i3ipc
 python-pipenv

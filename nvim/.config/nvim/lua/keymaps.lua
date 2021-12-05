@@ -46,11 +46,9 @@ vim.api.nvim_set_keymap("i", "kj", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true })
 
 -- Void paste remap
-vim.api.nvim_set_keymap("n", "<leader>p", '"_dP', { noremap = true })
 vim.api.nvim_set_keymap("v", "<leader>p", '"_dP', { noremap = true })
 
 -- Void delete remap
-vim.api.nvim_set_keymap("n", "<leader>d", '"_x', { noremap = true })
 vim.api.nvim_set_keymap("v", "<leader>d", '"_x', { noremap = true })
 
 -- Use system clipboard map

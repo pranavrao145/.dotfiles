@@ -1,4 +1,4 @@
--- netup remaps for refactoring.nvim
+-- setup remaps for refactoring.nvim
 
 -- Create a global object so maps can access certain functions
 M = {}
@@ -29,13 +29,15 @@ end
 vim.api.nvim_set_keymap("v", "<leader>r", "<Esc><cmd>lua M.refactors()<CR>", { noremap = true })
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>ra",
+	"<leader>rpa",
 	":lua require('refactoring').debug.printf({below = false})<CR>",
 	{ noremap = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>rb",
+	"<leader>rpb",
 	":lua require('refactoring').debug.printf({below = true})<CR>",
 	{ noremap = true }
 )
+vim.api.nvim_set_keymap("v", "<leader>rv", ":lua require('refactoring').debug.print_var({})<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>", { noremap = true })
