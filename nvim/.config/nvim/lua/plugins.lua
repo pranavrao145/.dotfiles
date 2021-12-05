@@ -5,9 +5,7 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
 	-- LSP Config
-	use({ "neovim/nvim-lspconfig", requires = {
-		{ "mfussenegger/nvim-jdtls" },
-	} })
+	use({ "neovim/nvim-lspconfig" })
 
 	-- Auto-complete
 	use({
@@ -21,6 +19,7 @@ return require("packer").startup(function()
 			{ "L3MON4D3/LuaSnip" },
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "rafamadriz/friendly-snippets" },
+			{ "ray-x/lsp_signature.nvim" },
 		},
 	})
 

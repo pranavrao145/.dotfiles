@@ -172,6 +172,9 @@ if [ -f /usr/share/fzf/completion.zsh ]; then
     source /usr/share/fzf/completion.zsh
 fi
 
+# source nvm
+source /usr/share/nvm/init-nvm.sh
+
 # run startup script on startup
 ruby /home/cypher/Scripts/shell/startup.rb
 
