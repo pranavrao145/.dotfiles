@@ -3,6 +3,7 @@ anydesk-bin
 arduino-mk
 betterdiscord-git
 betterdiscordctl-git
+burpsuite
 cava
 crunch
 dirsearch

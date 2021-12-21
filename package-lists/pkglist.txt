@@ -19,6 +19,7 @@ blueman
 bluez
 bluez-utils
 brightnessctl
+cabal-install
 calc
 cheese
 chromium
@@ -58,6 +59,7 @@ ghc-static
 gimp
 git
 github-cli
+gnu-netcat
 go
 gopls
 gradle
@@ -66,8 +68,10 @@ groff
 grub
 grub-customizer
 gzip
+haskell-language-server
 hindent
 htop
+hydra
 i3-gaps
 i3blocks
 i3status
@@ -131,7 +135,6 @@ prettier
 proxychains-ng
 pulseaudio
 pulseaudio-bluetooth
-pycharm-community-edition
 pyright
 python-i3ipc
 python-pipenv
@@ -145,6 +148,7 @@ rofi
 ruby
 sassc
 sed
+stack
 starship
 stow
 sudo

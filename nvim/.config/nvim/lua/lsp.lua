@@ -94,3 +94,10 @@ nvim_lsp.sumneko_lua.setup({
 		},
 	},
 })
+
+-- Haskell
+nvim_lsp.hls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = nvim_lsp.util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".git"),
+})

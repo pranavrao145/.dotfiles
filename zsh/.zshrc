@@ -115,6 +115,15 @@ vi() {
     fi
 }
 
+v() {
+    if [ "$1" = "im." ]; then
+        nvim .
+    else
+        nvim .
+    fi
+}
+
+
 # to reset the origin remote should it stop working
 reset-remote() {
     remote_url=$(git config --get remote.origin.url)
@@ -128,7 +137,6 @@ alias ivm="nvim"
 alias imv="nvim"
 alias lvim="nvim"
 alias im="nvim"
-alias v="nvim ."
 alias p="cd && cd Programming"
 alias pr="cd && cd Programming"
 alias prog="cd && cd Programming"

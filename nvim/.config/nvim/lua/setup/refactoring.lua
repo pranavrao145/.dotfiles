@@ -29,13 +29,13 @@ end
 vim.api.nvim_set_keymap("v", "<leader>r", "<Esc><cmd>lua M.refactors()<CR>", { noremap = true })
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>rpa",
+	"<leader>ra",
 	":lua require('refactoring').debug.printf({below = false})<CR>",
 	{ noremap = true }
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>rpb",
+	"<leader>rb",
 	":lua require('refactoring').debug.printf({below = true})<CR>",
 	{ noremap = true }
 )

@@ -134,6 +134,9 @@ return require("packer").startup(function()
 	-- Enhanced common bindings
 	use("tpope/vim-unimpaired")
 
+	-- Database Interface
+	use("tpope/vim-dadbod")
+
 	-- Undo Tree
 	use("mbbill/undotree")
 
@@ -150,13 +153,13 @@ return require("packer").startup(function()
 	use("folke/lsp-colors.nvim")
 
 	-- Refactoring library
-	-- use({
-		-- "ThePrimeagen/refactoring.nvim",
-		-- requires = {
-			-- { "nvim-lua/plenary.nvim" },
-			-- { "nvim-treesitter/nvim-treesitter" },
-		-- },
-	-- })
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
 
 	-- Firenvim
 	use({
