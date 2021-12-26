@@ -9,6 +9,7 @@ end
 
 cmp.setup({
 	sources = {
+		{ name = "cmp_tabnine" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
@@ -27,6 +28,8 @@ cmp.setup({
 			menu = {
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
+				nvim_lua = "[LSP]",
+				cmp_tabnine = "[TN]",
 				luasnip = "[LuaSnip]",
 				path = "[Path]",
 				calc = "[Calc]",

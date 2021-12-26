@@ -21,6 +21,7 @@ return require("packer").startup(function()
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "rafamadriz/friendly-snippets" },
 			{ "ray-x/lsp_signature.nvim" },
+			{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		},
 	})
 
@@ -134,8 +135,10 @@ return require("packer").startup(function()
 	-- Enhanced common bindings
 	use("tpope/vim-unimpaired")
 
-	-- Database Interface
-	use("tpope/vim-dadbod")
+	-- Database Interface and UI
+	use({ "kristijanhusak/vim-dadbod-ui", requires = {
+		"tpope/vim-dadbod",
+	} })
 
 	-- Undo Tree
 	use("mbbill/undotree")
@@ -153,13 +156,13 @@ return require("packer").startup(function()
 	use("folke/lsp-colors.nvim")
 
 	-- Refactoring library
-	use({
-		"ThePrimeagen/refactoring.nvim",
-		requires = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-	})
+	-- use({
+		-- "ThePrimeagen/refactoring.nvim",
+		-- requires = {
+			-- { "nvim-lua/plenary.nvim" },
+			-- { "nvim-treesitter/nvim-treesitter" },
+		-- },
+	-- })
 
 	-- Firenvim
 	use({
@@ -168,6 +171,9 @@ return require("packer").startup(function()
 			vim.fn["firenvim#install"](0)
 		end,
 	})
+
+	-- Markdown Preview
+	use({ "iamcco/markdown-preview.nvim", run = function() end })
 
 	-- Startup time monitor
 	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })

@@ -35,6 +35,7 @@ vim.cmd([[
     set background=dark
     set mouse=a
     set guicursor=
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/standardize-refactor-features'
 ]])
 
 -- Set map leader

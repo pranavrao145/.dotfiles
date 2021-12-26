@@ -165,6 +165,7 @@ export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.emacs.d/bin
+export PATH=$PATH:$(yarn global bin)
 
 export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty

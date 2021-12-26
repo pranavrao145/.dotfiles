@@ -200,8 +200,8 @@ bindsym $mod+ctrl+shift+k exec --no-startup-id vboxmanage startvm "Kali Linux"
 # Gaps
 
 # Set inner/outer gaps
-gaps inner 12
-gaps outer 12
+# gaps inner 12
+# gaps outer 12
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -319,8 +319,8 @@ workspace $ws9 output $monitor_one
 workspace $ws10 output $monitor_one
 
 # Eliminate title window
-for_window [class="^.*"] border pixel 0
-new_window pixel 0
+for_window [class="^.*"] border pixel 1
+new_window pixel 1
 
 # Change window focused color
 # Set colors from Xresources
@@ -334,8 +334,8 @@ set_from_resource $alt i3wm.color2 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $alt     $alt     $fg  $alt       $alt
-client.unfocused        $alt     $alt     $fg  $alt       $alt
+client.focused_inactive $alt    $alt    $fg  $alt      $alt
+client.unfocused        #0000000    #0000000    $fg  #0000000      #0000000
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
 

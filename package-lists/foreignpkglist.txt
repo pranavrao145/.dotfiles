@@ -10,13 +10,14 @@ dirsearch
 downgrade
 firefox-profile-switcher-connector-bin
 gotop
+hollywood
 i3-battery-popup
 i3lock-color-git
 imagewriter
-kdenlive-git
 lightdm-webkit-theme-aether
 lua-language-server-git
 luacheck
+nerd-fonts-hack
 nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch

@@ -75,13 +75,13 @@ hydra
 i3-gaps
 i3blocks
 i3status
-intellij-idea-community-edition
 iw
 iwd
 john
 jp2a
+kdenlive
 kitty
-kvantum-qt5
+kvantum
 lazygit
 libreoffice-fresh
 libtool
@@ -178,9 +178,6 @@ wireshark-qt
 xclip
 xf86-video-intel
 xf86-video-vesa
-xmobar
-xmonad
-xmonad-contrib
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
