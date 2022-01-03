@@ -3,12 +3,12 @@ anydesk-bin
 arduino-mk
 betterdiscord-git
 betterdiscordctl-git
+brave-bin
 burpsuite
 cava
 crunch
 dirsearch
 downgrade
-firefox-profile-switcher-connector-bin
 gotop
 hollywood
 i3-battery-popup
@@ -37,7 +37,6 @@ snapd
 spotifywm-git
 st
 stylua
-teams
 tmux-plugin-manager
 ttf-font-awesome-4
 ttf-fork-awesome

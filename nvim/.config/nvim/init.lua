@@ -4,7 +4,8 @@ require("options")
 -- load plugins
 require("plugins")
 
--- load LSP
+-- load LSP and completion
+-- require("setup.coq")
 require("lsp")
 
 -- load theme
@@ -27,7 +28,7 @@ require("setup.treesitter")
 require("setup.vimspector")
 require("setup.worktree")
 require("setup.lualine")
-require("setup.bufferline")
+-- require("setup.bufferline")
 require("setup.harpoon")
 require("setup.test")
 require("setup.undotree")
@@ -39,3 +40,4 @@ require("setup.refactoring")
 require("setup.lsp-signature")
 require("setup.firenvim")
 require("setup.cmp-tabnine")
+require("setup.bqf")

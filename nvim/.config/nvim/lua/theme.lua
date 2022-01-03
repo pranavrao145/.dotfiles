@@ -9,4 +9,5 @@ vim.cmd([[
     hi SignColumn guibg=NONE ctermbg=NONE
     hi EndOfBuffer guibg=NONE ctermbg=NONE
     hi CursorLineNr guibg=NONE ctermbg=NONE
+    hi Comment cterm=italic gui=italic
 ]])

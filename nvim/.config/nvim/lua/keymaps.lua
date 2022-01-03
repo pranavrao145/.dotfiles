@@ -22,7 +22,7 @@ vim.cmd([[
     nnoremap <C-j> :cnext<CR>
     nnoremap <C-k> :cprev<CR>
 
-    nnoremap <leader>q :call ToggleLocationList()<CR>
+    nnoremap <leader>qq :call ToggleLocationList()<CR>
     nnoremap <leader>j :lnext<CR>
     nnoremap <leader>k :lprev<CR>
 ]])

@@ -4,8 +4,6 @@ aircrack-ng
 alsa-utils
 arandr
 arc-gtk-theme
-arduino
-arduino-cli
 autoconf
 automake
 autopep8
@@ -19,7 +17,6 @@ blueman
 bluez
 bluez-utils
 brightnessctl
-cabal-install
 calc
 cheese
 chromium
@@ -40,13 +37,13 @@ docker-compose
 doge
 dsniff
 dunst
+ed
 efibootmgr
 fakeroot
 fd
 figlet
 file
 findutils
-firefox-developer-edition
 flameshot
 flex
 fuse2
@@ -61,6 +58,7 @@ git
 github-cli
 gnu-netcat
 go
+gobject-introspection
 gopls
 gradle
 grep
@@ -69,7 +67,6 @@ grub
 grub-customizer
 gzip
 haskell-language-server
-hindent
 htop
 hydra
 i3-gaps
@@ -77,6 +74,7 @@ i3blocks
 i3status
 iw
 iwd
+jack2
 john
 jp2a
 kdenlive
@@ -106,7 +104,6 @@ mosh
 mpd
 nano
 neofetch
-neovim
 network-manager-applet
 networkmanager
 ninja
@@ -135,9 +132,11 @@ prettier
 proxychains-ng
 pulseaudio
 pulseaudio-bluetooth
+pulseaudio-jack
 pyright
 python-i3ipc
 python-pipenv
+python-pyaudio
 python-pyserial
 python-pywal
 python-xlib
@@ -171,6 +170,7 @@ uncrustify
 unzip
 usbutils
 virtualbox
+vlc
 vulkan-intel
 wget
 which

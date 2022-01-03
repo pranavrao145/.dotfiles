@@ -184,8 +184,7 @@ bindsym $mod+r mode "resize"
 # custom keybinds
 bindsym $mod+shift+q exec --no-startup-id lock # to lock
 bindsym $mod+shift+x exec --no-startup-id lock && systemctl suspend # to sleep
-bindsym $mod+c exec --no-startup-id firefox-developer-edition
-bindsym $mod+z exec --no-startup-id firefox-developer-edition -P
+bindsym $mod+c exec --no-startup-id brave
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
 bindsym $mod+i workspace $ws3
@@ -200,8 +199,8 @@ bindsym $mod+ctrl+shift+k exec --no-startup-id vboxmanage startvm "Kali Linux"
 # Gaps
 
 # Set inner/outer gaps
-# gaps inner 12
-# gaps outer 12
+gaps inner 7
+gaps outer 7
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -209,7 +208,7 @@ bindsym $mod+ctrl+shift+k exec --no-startup-id vboxmanage startvm "Kali Linux"
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -301,6 +300,7 @@ exec --no-startup-id i3-battery-popup -n -L 20 -t 3m
 # exec_always --no-startup-id /usr/bin/alternating_layouts.py
 exec_always --no-startup-id picom --experimental-backends
 exec_always --no-startup-id $HOME/.config/polybar/scripts/launch_i3.sh
+exec --no-startup-id xmodmap -e 'keycode 135 = Super_R' && xset -r 135
 
 # display settings
 set $monitor_one HDMI1

@@ -3,8 +3,8 @@ vim.cmd([[
     syntax on 
 
     set exrc
-    set tabstop=4 softtabstop=4
-    set shiftwidth=4 
+    set tabstop=2 softtabstop=2
+    set shiftwidth=2 
     set expandtab
     set smartindent
     set nohlsearch
@@ -35,7 +35,7 @@ vim.cmd([[
     set background=dark
     set mouse=a
     set guicursor=
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/standardize-refactor-features'
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'
 ]])
 
 -- Set map leader

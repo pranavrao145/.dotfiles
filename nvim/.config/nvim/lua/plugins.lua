@@ -5,9 +5,20 @@ return require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
 	-- LSP Config
-	use({ "neovim/nvim-lspconfig" })
+	use({ "neovim/nvim-lspconfig", requires = {
+		"ray-x/lsp_signature.nvim",
+	} })
 
 	-- Auto-complete
+	-- use({
+	-- "ms-jpq/coq_nvim",
+	-- branch = "coq",
+	-- requires = {
+	-- { "ms-jpq/coq.artifacts", branch = "artifacts" },
+	-- { "ms-jpq/coq.thirdparty", branch = "3p" },
+	-- },
+	-- })
+
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -35,13 +46,13 @@ return require("packer").startup(function()
 	})
 
 	-- Bufferline
-	use({
-		"akinsho/nvim-bufferline.lua",
-		requires = {
-			{ "kyazdani42/nvim-web-devicons" },
-			{ "ryanoasis/vim-devicons" },
-		},
-	})
+	-- use({
+	-- "akinsho/nvim-bufferline.lua",
+	-- requires = {
+	-- { "kyazdani42/nvim-web-devicons" },
+	-- { "ryanoasis/vim-devicons" },
+	-- },
+	-- })
 
 	-- Telescope
 	use({
@@ -157,11 +168,11 @@ return require("packer").startup(function()
 
 	-- Refactoring library
 	-- use({
-		-- "ThePrimeagen/refactoring.nvim",
-		-- requires = {
-			-- { "nvim-lua/plenary.nvim" },
-			-- { "nvim-treesitter/nvim-treesitter" },
-		-- },
+	-- "ThePrimeagen/refactoring.nvim",
+	-- requires = {
+	-- { "nvim-lua/plenary.nvim" },
+	-- { "nvim-treesitter/nvim-treesitter" },
+	-- },
 	-- })
 
 	-- Firenvim
@@ -175,6 +186,9 @@ return require("packer").startup(function()
 	-- Markdown Preview
 	use({ "iamcco/markdown-preview.nvim", run = function() end })
 
+	-- Additional text objects
+	use("https://github.com/wellle/targets.vim")
+
 	-- Startup time monitor
 	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
 
@@ -186,4 +200,5 @@ return require("packer").startup(function()
 	use("joshdick/onedark.vim")
 	use("arcticicestudio/nord-vim")
 	use("cocopon/iceberg.vim")
+	use("sonph/onehalf")
 end)
