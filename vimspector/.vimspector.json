@@ -1,48 +1,61 @@
 {
-    "configurations": {
-        "C++: Launch": {
-            "adapter": "vscode-cpptools",
-            "configuration": {
-                "request": "launch",
-                "program": "debug/main", 
-                "cwd": "${workspaceRoot}",
-                "externalConsole": true,
-                "MIMode": "gdb",
-                "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    }
-                ]
-            }
-        },
-        "Go: Current File" : {
-            "adapter": "vscode-go",
-            "configuration": {
-                "request": "launch",
-                "program": "${file}",
-                "mode": "debug",
-                "dlvToolPath": "/usr/bin/dlv"
-            }
-        },
-        "Python: Current File" : {
-            "adapter": "debugpy",
-            "configuration": {
-                "type": "python",
-                "request": "launch",
-                "cwd": "${workspaceRoot}",
-                "program": "${file}",
-                "console": "externalTerminal"
-            }
-        },
-        "Ruby: Current File" : {
-            "adapter": "cust_vscode-ruby",
-            "configuration": {
-                "request": "launch",
-                "program": "${file}",
-                "args": [ "*${args}" ]
-            }
-        }
+  "configurations": {
+    "C++: Launch": {
+      "adapter": "vscode-cpptools",
+      "configuration": {
+        "request": "launch",
+        "program": "debug/main",
+        "cwd": "${workspaceRoot}",
+        "externalConsole": true,
+        "MIMode": "gdb",
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ]
+      }
+    },
+    "Go: Current File": {
+      "adapter": "vscode-go",
+      "configuration": {
+        "request": "launch",
+        "program": "${file}",
+        "mode": "debug",
+        "dlvToolPath": "/usr/bin/dlv"
+      }
+    },
+    "Python: Current File": {
+      "adapter": "debugpy",
+      "configuration": {
+        "type": "python",
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "program": "${file}",
+        "console": "externalTerminal"
+      }
+    },
+    "Ruby: Current File": {
+      "adapter": "cust_vscode-ruby",
+      "configuration": {
+        "request": "launch",
+        "program": "${file}",
+        "args": ["*${args}"]
+      }
+    },
+    "Java Attach": {
+      "adapter": "vscode-java",
+      "filetypes": ["java"],
+      "configuration": {
+        "request": "attach",
+        "hostName": "${host}",
+        "port": "${port}",
+        "sourcePaths": [
+          "${workspaceRoot}/src/main/java",
+          "${workspaceRoot}/src/test/java"
+        ]
+      }
     }
+  }
 }

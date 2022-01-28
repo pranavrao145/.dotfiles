@@ -34,7 +34,7 @@ vim.cmd([[
     set completeopt=menu,menuone,noselect
     set background=dark
     set mouse=a
-    set guicursor=
+    "set guicursor=
     let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'
 ]])
 
@@ -46,3 +46,11 @@ vim.cmd('let g:netrw_http_cmd="firefox"')
 
 -- Set filetype
 vim.cmd("filetype plugin indent on")
+
+-- Autocmds for text files (wrap, linebreaks)
+vim.cmd([[
+  augroup textDocuments
+    autocmd!
+    autocmd FileType text set wrap linebreak
+  augroup end
+]])

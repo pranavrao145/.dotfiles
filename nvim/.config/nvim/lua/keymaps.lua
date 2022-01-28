@@ -22,7 +22,7 @@ vim.cmd([[
     nnoremap <C-j> :cnext<CR>
     nnoremap <C-k> :cprev<CR>
 
-    nnoremap <leader>qq :call ToggleLocationList()<CR>
+    nnoremap <leader>q :call ToggleLocationList()<CR>
     nnoremap <leader>j :lnext<CR>
     nnoremap <leader>k :lprev<CR>
 ]])
@@ -59,11 +59,8 @@ vim.cmd([[
     vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 ]])
 
--- Search remaps
+-- Find and replace all occurences
 vim.cmd([[
-    nnoremap <leader>f /\<\><left><left>
-    nnoremap <leader>ff /\<<C-r><C-w>\>/g<CR>
-    nnoremap <leader>fr :%s/\<\>//g<left><left><left><left><left>
     nnoremap <leader>frr :%s/\<<C-r><C-w>\>//g<left><left>
 ]])
 
