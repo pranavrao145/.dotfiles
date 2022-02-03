@@ -4,6 +4,7 @@ aircrack-ng
 alsa-utils
 arandr
 arc-gtk-theme
+audacity
 autoconf
 automake
 autopep8
@@ -134,6 +135,7 @@ pulseaudio
 pulseaudio-bluetooth
 pulseaudio-jack
 pyright
+python-debugpy
 python-i3ipc
 python-pipenv
 python-pyaudio
@@ -169,6 +171,7 @@ ttf-jetbrains-mono
 uncrustify
 unzip
 usbutils
+valgrind
 virtualbox
 vlc
 vulkan-intel

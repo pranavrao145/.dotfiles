@@ -95,7 +95,7 @@ return require("packer").startup(function()
 	use("tpope/vim-surround")
 
 	-- Debugger
-	use({ "puremourning/vimspector", opt = true })
+	use({ "mfussenegger/nvim-dap", requires = { "rcarriga/nvim-dap-ui", "theHamsta/nvim-dap-virtual-text" } })
 
 	-- Discord presence
 	use("andweeb/presence.nvim")

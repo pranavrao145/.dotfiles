@@ -34,7 +34,7 @@ vim.cmd([[
     set completeopt=menu,menuone,noselect
     set background=dark
     set mouse=a
-    "set guicursor=
+    set guicursor=
     let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'
 ]])
 
