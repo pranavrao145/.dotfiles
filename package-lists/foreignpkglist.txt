@@ -1,6 +1,5 @@
 alternating-layouts-git
 anydesk-bin
-arduino-mk
 betterdiscord-git
 betterdiscordctl-git
 brave-bin

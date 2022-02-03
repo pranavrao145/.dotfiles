@@ -5,6 +5,11 @@ local lsp_signature = require("lsp_signature")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
+local jdtls = require("jdtls")
+local jdtls_setup = require("jdtls.setup")
+
+local M = {}
+
 local on_attach = function(_, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -67,14 +72,33 @@ nvim_lsp.gopls.setup({
 })
 
 -- Java
-nvim_lsp.jdtls.setup({
-	cmd = { "jdtls" },
-	root_dir = function(fname)
-		return nvim_lsp.util.root_pattern("pom.xml", "gradle.build", ".git")(fname) or vim.fn.getcwd()
-	end,
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+M.get_jdtls_config = function()
+	local bundles = {
+		vim.fn.glob(
+			"/home/cypher/.local/opt/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+		),
+	}
+	vim.list_extend(bundles, vim.split(vim.fn.glob("/home/cypher/.local/opt/vscode-java-test/server/*.jar"), "\n"))
+	return {
+		cmd = {
+			"/home/cypher/.local/bin/jdtls",
+		},
+		root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
+		settings = {
+			java = {},
+		},
+		capabilities = capabilities,
+		on_attach = function(_, bufnr)
+			jdtls_setup.add_commands()
+			jdtls.setup_dap({ hotcodereplace = "auto" })
+			jdtls.update_project_config()
+			on_attach(_, bufnr)
+		end,
+		init_options = {
+			bundles = bundles,
+		},
+	}
+end
 
 -- Arduino
 nvim_lsp.arduino_language_server.setup({
@@ -103,3 +127,5 @@ nvim_lsp.hls.setup({
 	capabilities = capabilities,
 	root_dir = nvim_lsp.util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".git"),
 })
+
+return M

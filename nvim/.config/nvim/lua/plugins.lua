@@ -7,6 +7,7 @@ return require("packer").startup(function()
 	-- LSP Config
 	use({ "neovim/nvim-lspconfig", requires = {
 		"ray-x/lsp_signature.nvim",
+		"mfussenegger/nvim-jdtls",
 	} })
 
 	-- Auto-complete
@@ -95,7 +96,15 @@ return require("packer").startup(function()
 	use("tpope/vim-surround")
 
 	-- Debugger
-	use({ "mfussenegger/nvim-dap", requires = { "rcarriga/nvim-dap-ui", "theHamsta/nvim-dap-virtual-text" } })
+	use({
+		"mfussenegger/nvim-dap",
+		requires = {
+			"rcarriga/nvim-dap-ui",
+			"theHamsta/nvim-dap-virtual-text",
+			"mfussenegger/nvim-dap-python",
+			"leoluz/nvim-dap-go",
+		},
+	})
 
 	-- Discord presence
 	use("andweeb/presence.nvim")

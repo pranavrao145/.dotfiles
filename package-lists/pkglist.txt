@@ -98,6 +98,7 @@ lxappearance
 lxqt-policykit
 m4
 make
+maven
 mesa-demos
 metasploit
 mlocate

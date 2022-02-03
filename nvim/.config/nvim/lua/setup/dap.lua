@@ -1,6 +1,8 @@
 -- Setup for debugging each language
 require("setup.nvim-dap.cpp")
 require("setup.nvim-dap.python")
+require("setup.nvim-dap.go")
+require("setup.nvim-dap.java")
 
 -- Maps
 vim.api.nvim_set_keymap("n", "<leader>dc", ":lua require('dap').continue()<CR>", { noremap = true })
