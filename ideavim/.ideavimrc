@@ -1,0 +1,60 @@
+syntax on 
+
+set exrc
+set tabstop=2 softtabstop=2
+set shiftwidth=2 
+set expandtab
+set smartindent
+set nohlsearch
+set hidden
+set noerrorbells
+set nu
+set relativenumber
+set nowrap
+set noswapfile
+set nobackup
+set undodir=~/.config/nvim/undodir
+set undofile
+set incsearch
+set termguicolors 
+set scrolloff=8
+set signcolumn=yes 
+set colorcolumn=80
+set backspace=indent,eol,start
+set lazyredraw           
+set ignorecase smartcase
+set regexpengine=0
+set diffopt+=vertical
+set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
+set noshowmode
+set completeopt=menu,menuone,noselect
+set background=dark
+set mouse=a
+set guicursor=
+
+let mapleader=" "
+
+nnoremap <leader>s :w!<CR>
+nnoremap <leader>A gg <bar> V <bar> G<CR>
+
+nnoremap Y y$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+inoremap kj <Esc>
+inoremap jk <Esc>
+
+nnoremap <leader>p "_dP
+nnoremap <leader>d "_x
+
+set surround
+set argtextobj
+set textobj-entire

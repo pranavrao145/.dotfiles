@@ -8,6 +8,7 @@ cava
 crunch
 dirsearch
 downgrade
+eclipse-java
 gotop
 hollywood
 i3-battery-popup

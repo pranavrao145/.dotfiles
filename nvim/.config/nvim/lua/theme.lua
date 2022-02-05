@@ -10,7 +10,7 @@ vim.cmd([[
 ]])
 
 -- Set colorscheme
-vim.cmd("colorscheme palenight")
+vim.cmd("colorscheme gruvbox")
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[

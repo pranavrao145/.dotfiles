@@ -2,6 +2,7 @@ acpi
 adobe-source-sans-fonts
 aircrack-ng
 alsa-utils
+ant
 arandr
 arc-gtk-theme
 audacity
@@ -73,7 +74,6 @@ hydra
 i3-gaps
 i3blocks
 i3status
-intellij-idea-community-edition
 iw
 iwd
 jack2
