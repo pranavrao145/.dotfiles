@@ -201,6 +201,12 @@ return require("packer").startup(function()
 	-- Startup time monitor
 	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
 
+	-- Annotation toolkit
+	use({
+		"danymat/neogen",
+		requires = "nvim-treesitter/nvim-treesitter",
+	})
+
 	-- Themes
 	use("drewtempelmeyer/palenight.vim")
 	use("morhetz/gruvbox")
