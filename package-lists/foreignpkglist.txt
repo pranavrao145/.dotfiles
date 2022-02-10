@@ -28,7 +28,7 @@ papirus-icon-theme-git
 paru-bin
 pfetch
 picom-jonaburg-git
-polybar
+polybar-git
 pywal-discord-git
 shell-color-scripts
 siji-git

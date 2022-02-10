@@ -24,3 +24,4 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap("n", "<leader>dr", ":lua require('dap').repl.toggle()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>dl", ":lua require('dap').run_last()<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>de", ":lua require('dap').terminate()<CR>", { noremap = true })

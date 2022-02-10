@@ -42,7 +42,7 @@ elif [[ $# -eq 2 && "$1" = "restore" ]]; then
     fi
     selected=`cat $TMUX_HISTORY_FILE | sed -n "$2,${2}p"`
 else
-    items+=`find ~/ ~/Programming -maxdepth 1 -mindepth 1 -type d`
+    items+=`find ~/ ~/Programming ~/Programming/eclipse-workspace -maxdepth 1 -mindepth 1 -type d 2>/dev/null`
     selected=`echo "$items" | fzf`
 fi
 

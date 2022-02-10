@@ -4,13 +4,12 @@ vim.cmd([[
   let g:gruvbox_italic=1
   let g:material_terminal_italics=1
   let g:dracula_italic=1
-  let g:onedark_terminal_italics=1
   let g:nord_italic=1
   let g:onehalf_italic=1
 ]])
 
 -- Set colorscheme
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme onedark")
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[

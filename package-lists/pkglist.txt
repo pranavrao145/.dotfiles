@@ -233,4 +233,5 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yarn
+zip
 zsh
