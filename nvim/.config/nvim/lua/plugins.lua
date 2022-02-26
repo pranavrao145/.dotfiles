@@ -122,6 +122,9 @@ return require("packer").startup(function()
 		},
 	})
 
+	-- Context
+	use({ "romgrk/nvim-treesitter-context" })
+
 	-- Display colors for color codes
 	use("norcalli/nvim-colorizer.lua")
 
@@ -209,10 +212,10 @@ return require("packer").startup(function()
 
 	-- Themes
 	use("drewtempelmeyer/palenight.vim")
-	use("morhetz/gruvbox")
-	use({ "kaicataldo/material.vim", branch = "main" })
+	use("ellisonleao/gruvbox.nvim")
+	use("Mofiqul/dracula.nvim")
 	use({ "dracula/vim", as = "dracula" })
 	use("navarasu/onedark.nvim")
-	use("arcticicestudio/nord-vim")
+	use("shaunsingh/nord.nvim")
 	use("sonph/onehalf")
 end)

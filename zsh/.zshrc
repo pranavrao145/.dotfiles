@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo web-search copydir copyfile copybuffer dirhistory)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo web-search copypath copyfile copybuffer dirhistory)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -140,7 +140,7 @@ alias im="nvim"
 alias p="cd && cd Programming"
 alias pr="cd && cd Programming"
 alias prog="cd && cd Programming"
-alias lr="ranger"
+alias lr="ranger && source ~/.zshrc"
 alias dnd="dunstctl set-paused"
 alias dnds="dunstctl is-paused"
 alias ef="cd ~/.dotfiles && nvim ."

@@ -9,8 +9,8 @@ end
 
 cmp.setup({
 	sources = {
-		{ name = "cmp_tabnine" },
 		{ name = "nvim_lsp" },
+        { name = "cmp_tabnine" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "path" },

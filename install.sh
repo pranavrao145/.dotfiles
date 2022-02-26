@@ -192,6 +192,13 @@ sudo -u cypher -s << 'EOF'
     mkdir -p ~/.config/nvim
     stow nvim
     stow vimspector
+    mkdir -p ~/.local/opt
+    cd ~/.local/opt
+    wget -O codelldb.zip https://github.com/vadimcn/vscode-lldb/releases/latest/download/codelldb-x86_64-linux.vsix && unzip codelldb.zip "extension/*" && mv extension codelldb
+    git clone https://github.com/microsoft/java-debug.git && cd java-debug && chmod +x mvnw && sed -i '/ExecutionEnvironment/d' com.microsoft.java.debug.plugin/META-INF/MANIFEST.MF && ./mvnw clean install && cd ..
+    curl https://raw.githubusercontent.com/eruizc-dev/jdtls-launcher/master/install.sh | bash
+    cd ~/.local/opt
+    git clone https://github.com/microsoft/vscode-java-test.git
 EOF
 
 echo "Setting up tmux..."

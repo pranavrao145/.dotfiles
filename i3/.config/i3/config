@@ -162,7 +162,7 @@ mode "resize" {
 # Pressing right will grow the window’s width.
 # Pressing up will shrink the window’s height.
 # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
+    bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
@@ -190,6 +190,7 @@ bindsym $mod+o workspace $ws2
 bindsym $mod+i workspace $ws3
 bindsym $mod+u workspace $ws4
 bindsym $mod+y workspace $ws5
+bindcode $mod+34 workspace $ws9
 bindsym $mod+shift+p exec --no-startup-id pavucontrol
 bindsym $mod+t exec --no-startup-id thunar
 bindsym $mod+m exec --no-startup-id restart_spotify
@@ -200,8 +201,8 @@ bindsym $mod+ctrl+shift+k exec --no-startup-id vboxmanage startvm "Kali Linux"
 # Gaps
 
 # Set inner/outer gaps
-gaps inner 7
-gaps outer 7
+# gaps inner 1
+# gaps outer 1
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -209,7 +210,7 @@ gaps outer 7
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -293,9 +294,10 @@ assign [class="Skype"] $ws5
 assign [class="obs"] $ws6
 assign [class="kdenlive"] $ws7
 assign [class="Gimp-2.10"] $ws7
-assign [class="Anydesk"] $ws10
-assign [class="jetbrains-idea-ce"] $ws10
-assign [class="Eclipse"] $ws10
+assign [class="notion-app"] $ws10
+assign [class="Anydesk"] $ws9
+assign [class="jetbrains-idea-ce"] $ws9
+assign [class="Eclipse"] $ws9
 
 # exec --no-startup-id discord
 # exec --no-startup-id sleep 6 && kitty
@@ -320,6 +322,10 @@ workspace $ws7 output $monitor_one
 workspace $ws8 output $monitor_one
 workspace $ws9 output $monitor_one
 workspace $ws10 output $monitor_one
+
+# special considerations for terminal workspace
+# workspace $ws1 gaps inner 7
+# workspace $ws1 gaps outer 7
 
 # Eliminate title window
 for_window [class="^.*"] border pixel 1
@@ -365,11 +371,11 @@ for_window[class="Nitrogen"] resize set 1700 900, move position center
 for_window[class="App"] floating enable
 
 bar {
-  status_command i3status
-  tray_output primary
-  colors {
-    background $bar_bg
-    focused_workspace #0000000 $bg $fg
-    urgent_workspace #bd2c40 #bd2c40 $fg
-  }
+    status_command i3status
+        tray_output primary
+        colors {
+            background $bar_bg
+                focused_workspace #0000000 $bg $fg
+                urgent_workspace #bd2c40 #bd2c40 $fg
+        }
 }

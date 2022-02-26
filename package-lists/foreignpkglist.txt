@@ -21,6 +21,7 @@ nerd-fonts-hack
 nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch
+notion-app
 nvim-packer-git
 nvm
 orchis-theme-git
@@ -34,9 +35,9 @@ shell-color-scripts
 siji-git
 slack-desktop
 snapd
+spotify
 spotifywm-git
 st
-stylua
 tmux-plugin-manager
 ttf-font-awesome-4
 ttf-fork-awesome
