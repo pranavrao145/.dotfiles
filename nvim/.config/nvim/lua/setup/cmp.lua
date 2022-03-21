@@ -10,7 +10,7 @@ end
 cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
-        { name = "cmp_tabnine" },
+		{ name = "cmp_tabnine" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "path" },
@@ -36,7 +36,7 @@ cmp.setup({
 			},
 		}),
 	},
-	mapping = {
+	mapping = cmp.mapping.preset.insert({
 		["<C-q>"] = cmp.mapping.confirm({ select = true }),
 		["<C-s>"] = cmp.mapping.complete(),
 		["<Tab>"] = cmp.mapping(function(fallback)
@@ -62,8 +62,11 @@ cmp.setup({
 			"i",
 			"s",
 		}),
-	},
+	}),
 	preselect = "none",
+	view = {
+		entries = "native",
+	},
 	experimental = {
 		ghost_text = true,
 	},

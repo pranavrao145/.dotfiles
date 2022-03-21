@@ -17,36 +17,21 @@ vim.api.nvim_set_keymap(
 	{ noremap = true }
 )
 
-local function is_ruby()
-	return vim.env["RUBY"]
-end
-
-local function is_node()
-	return vim.env["NODE"]
-end
-
-local function is_docker()
-	return vim.env["DOCKER"]
-end
+local project_commands = {
+	["RUBY"] = ":silent !tmux-windowizer %s bundle",
+	["NODE"] = ":silent !tmux-windowizer %s yarn",
+	["DOCKER"] = ":silent !tmux-windowizer %s docker-compose build",
+}
 
 worktree.on_tree_change(function(op, metadata)
 	-- get the path of the new worktree directory
 	local path = metadata["path"]
 
 	if op == worktree.Operations.Switch then
-		if is_ruby() then
-			local command = string.format(":silent !tmux-windowizer %s bundle", path)
-			vim.cmd(command)
-		end
-
-		if is_node() then
-			local command = string.format(":silent !tmux-windowizer %s yarn", path)
-			vim.cmd(command)
-		end
-
-		if is_docker() then
-			local command = string.format(":silent !tmux-windowizer %s docker-compose build", path)
-			vim.cmd(command)
+		for project_type, _ in pairs(project_commands) do
+			if vim.env[project_type] then
+				vim.cmd(string.format(project_commands[project_type], path))
+			end
 		end
 	end
 end)

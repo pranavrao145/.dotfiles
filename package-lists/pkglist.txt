@@ -20,7 +20,6 @@ bluez
 bluez-utils
 brightnessctl
 calc
-cheese
 chromium
 clang
 cmake
@@ -37,6 +36,7 @@ dmg2img
 docker
 docker-compose
 doge
+dotnet-sdk
 dsniff
 dunst
 ed
@@ -46,6 +46,7 @@ fd
 figlet
 file
 findutils
+firefox
 flameshot
 flex
 fuse2
@@ -69,6 +70,7 @@ grub
 grub-customizer
 gzip
 haskell-language-server
+helix
 htop
 hydra
 i3-gaps
@@ -79,6 +81,7 @@ iwd
 jack2
 john
 jp2a
+kamoso
 kdenlive
 kitty
 kvantum
@@ -95,6 +98,7 @@ linux
 linux-firmware
 linux-headers
 lolcat
+luacheck
 lxappearance
 lxqt-policykit
 m4
@@ -103,6 +107,8 @@ maven
 mesa-demos
 metasploit
 mlocate
+mono-msbuild
+mono-msbuild-sdkresolver
 mosh
 mpd
 nano
@@ -161,7 +167,6 @@ system-config-printer
 termdown
 terminus-font
 texinfo
-thunar
 tmux
 tor
 tree
@@ -171,6 +176,7 @@ ttf-droid
 ttf-fantasque-sans-mono
 ttf-font-awesome
 ttf-jetbrains-mono
+typescript-language-server
 uncrustify
 unoconv
 unzip
@@ -183,6 +189,7 @@ wget
 which
 wireshark-qt
 xclip
+xf86-input-wacom
 xf86-video-intel
 xf86-video-vesa
 xorg-bdftopcf

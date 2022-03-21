@@ -51,7 +51,7 @@ vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>Telescope live_grep<CR>", { nor
 vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope grep_string<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>Telescope buffers<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>lw", ":Telescope lsp_workspace_symbols query=", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>lw", "<cmd>Telescope lsp_workspace_symbols query=", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>lW", "<cmd>Telescope diagnostics<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>?", "<cmd>Telescope help_tags<CR>", { noremap = true })

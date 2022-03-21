@@ -2,15 +2,13 @@
 local cwd = vim.loop.cwd()
 
 -- set vim env depending on cwd
+local projects = {
+	["fulcrum-mk2"] = "NODE",
+	["atom-v2"] = "NODE",
+}
 
-if string.find(cwd, "fulcrum-mk2", 0, true) then
-	vim.env.DOCKER = true
-end
-
-if string.find(cwd, "atom-v2", 0, true) then
-	vim.env.NODE = true
-end
-
-if string.find(cwd, "treble", 0, true) then
-	vim.env.NODE = true
+for project, _ in pairs(projects) do
+	if string.find(cwd, project, 0, true) then
+		vim.env[projects[project]] = true
+	end
 end

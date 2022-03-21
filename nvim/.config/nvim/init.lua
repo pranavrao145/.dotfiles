@@ -1,3 +1,6 @@
+-- Improve startup time
+require("impatient")
+
 -- load vim options
 require("options")
 

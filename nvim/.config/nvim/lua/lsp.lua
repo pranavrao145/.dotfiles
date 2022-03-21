@@ -135,4 +135,17 @@ nvim_lsp.hls.setup({
 	root_dir = nvim_lsp.util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".git"),
 })
 
+-- C#
+nvim_lsp.omnisharp.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = {
+		"/home/cypher/.local/opt/omnisharp/run",
+		"--languageserver",
+		"--hostPID",
+		tostring(vim.fn.getpid()),
+	},
+	root_dir = nvim_lsp.util.root_pattern(".sln", ".csproj", ".git"),
+})
+
 return M

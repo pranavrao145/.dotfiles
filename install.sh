@@ -169,11 +169,13 @@ echo "Lightdm setup successfully."
 
 echo "Setting up touchpad support..."
 
-# set up lightdm
+# set up lightdm and devices
 sudo -u cypher -s << 'EOF'
     sudo mkdir -p /etc/X11/xorg.conf.d
     cd /home/cypher/.dotfiles
     sudo cp ./touchpad/90-touchpad.conf /etc/X11/xorg.conf.d
+    sudo wget -O /usr/bin/mapwacom https://gist.githubusercontent.com/tom-galvin/6c19fe907945d735c045/raw/f16fa41cac87815bdd2f7da6da302fb272c7db70/mapwacom
+    sudo chmod +x /usr/bin/mapwacom
 EOF
 
 echo "Touchpad support setup successfully."
@@ -199,6 +201,10 @@ sudo -u cypher -s << 'EOF'
     curl https://raw.githubusercontent.com/eruizc-dev/jdtls-launcher/master/install.sh | bash
     cd ~/.local/opt
     git clone https://github.com/microsoft/vscode-java-test.git
+    mkdir -p omnisharp
+    wget https://github.com/OmniSharp/omnisharp-roslyn/releases/latest/download/omnisharp-linux-x86.zip && unzip -d omnisharp omnisharp-linux-x86.zip && chmod +x ./omnisharp/run
+    cd ~/.local/opt
+    rm -rf codelldb.zip omnisharp-linux-x86.zip
 EOF
 
 echo "Setting up tmux..."

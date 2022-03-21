@@ -4,6 +4,9 @@ return require("packer").startup(function()
 	-- Let Packer manage itself
 	use("wbthomason/packer.nvim")
 
+	-- Faster startup time
+	use("lewis6991/impatient.nvim")
+
 	-- LSP Config
 	use({ "neovim/nvim-lspconfig", requires = {
 		"ray-x/lsp_signature.nvim",
@@ -32,7 +35,6 @@ return require("packer").startup(function()
 			{ "L3MON4D3/LuaSnip" },
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "rafamadriz/friendly-snippets" },
-			{ "ray-x/lsp_signature.nvim" },
 			{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		},
 	})
@@ -68,7 +70,7 @@ return require("packer").startup(function()
 	})
 
 	-- Auto pairs
-	use("jiangmiao/auto-pairs")
+	-- use("jiangmiao/auto-pairs")
 
 	-- Git integration
 	use("tpope/vim-fugitive")
@@ -123,7 +125,7 @@ return require("packer").startup(function()
 	})
 
 	-- Context
-	use({ "romgrk/nvim-treesitter-context" })
+  use({ "romgrk/nvim-treesitter-context" })
 
 	-- Display colors for color codes
 	use("norcalli/nvim-colorizer.lua")
@@ -199,10 +201,7 @@ return require("packer").startup(function()
 	use({ "iamcco/markdown-preview.nvim", run = function() end })
 
 	-- Additional text objects
-	use("https://github.com/wellle/targets.vim")
-
-	-- Startup time monitor
-	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
+	use("wellle/targets.vim")
 
 	-- Annotation toolkit
 	use({
@@ -210,11 +209,16 @@ return require("packer").startup(function()
 		requires = "nvim-treesitter/nvim-treesitter",
 	})
 
+	-- Symbols outline
+	use("simrat39/symbols-outline.nvim")
+
+	-- Startup time monitor
+	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
+
 	-- Themes
-	use("drewtempelmeyer/palenight.vim")
+	use("kyazdani42/nvim-palenight.lua")
 	use("ellisonleao/gruvbox.nvim")
 	use("Mofiqul/dracula.nvim")
-	use({ "dracula/vim", as = "dracula" })
 	use("navarasu/onedark.nvim")
 	use("shaunsingh/nord.nvim")
 	use("sonph/onehalf")

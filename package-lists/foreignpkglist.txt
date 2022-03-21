@@ -16,7 +16,6 @@ i3lock-color-git
 imagewriter
 lightdm-webkit-theme-aether
 lua-language-server-git
-luacheck
 nerd-fonts-hack
 nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
@@ -45,7 +44,6 @@ ttf-icomoon-feather
 ttf-inconsolata-g
 ttf-material-icons-git
 ttf-ms-fonts
-typescript-language-server
 visual-studio-code-bin
 zoom
 zscroll-git

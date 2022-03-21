@@ -61,6 +61,7 @@ vim.cmd([[
 
 -- Find and replace all occurences
 vim.cmd([[
+    nnoremap <leader>f /\<\><left><left>
     nnoremap <leader>frr :%s/\<<C-r><C-w>\>//g<left><left>
 ]])
 
