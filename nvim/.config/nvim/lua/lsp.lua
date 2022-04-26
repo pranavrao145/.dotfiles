@@ -1,9 +1,9 @@
 local nvim_lsp = require("lspconfig")
--- local coq = require("coq")
+local coq = require("coq")
 local lsp_signature = require("lsp_signature")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local jdtls = require("jdtls")
 local jdtls_setup = require("jdtls.setup")
@@ -42,34 +42,34 @@ local on_attach = function(_, bufnr)
 end
 
 -- Typescript and Javascript
-nvim_lsp.tsserver.setup({
+nvim_lsp.tsserver.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach,
 	capabilities = capabilities,
-})
+}))
 
 -- C and C++
-nvim_lsp.clangd.setup({
+nvim_lsp.clangd.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach,
 	capabilities = capabilities,
-})
+}))
 
 -- Python
-nvim_lsp.pyright.setup({
+nvim_lsp.pyright.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach,
 	capabilities = capabilities,
-})
+}))
 
 -- Ruby
-nvim_lsp.solargraph.setup({
+nvim_lsp.solargraph.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach,
 	capabilities = capabilities,
-})
+}))
 
 -- Golang
-nvim_lsp.gopls.setup({
+nvim_lsp.gopls.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach,
 	capabilities = capabilities,
-})
+}))
 
 -- Java
 M.get_jdtls_config = function()
@@ -79,15 +79,13 @@ M.get_jdtls_config = function()
 		),
 	}
 	vim.list_extend(bundles, vim.split(vim.fn.glob("/home/cypher/.local/opt/vscode-java-test/server/*.jar"), "\n"))
-	return {
+	return coq.lsp_ensure_capabilities({
 		cmd = {
 			"/home/cypher/.local/bin/jdtls",
 		},
 		root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
 		settings = {
-			java = {},
-		},
-		capabilities = capabilities,
+			java = {}, }, capabilities = capabilities,
 		on_attach = function(_, bufnr)
 			jdtls_setup.add_commands()
 			jdtls.setup_dap({ hotcodereplace = "auto" })
@@ -97,7 +95,7 @@ M.get_jdtls_config = function()
 		init_options = {
 			bundles = bundles,
 		},
-	}
+	})
 end
 
 vim.cmd([[
@@ -108,14 +106,14 @@ vim.cmd([[
 ]])
 
 -- Arduino
-nvim_lsp.arduino_language_server.setup({
+nvim_lsp.arduino_language_server.setup(coq.lsp_ensure_capabilities({
 	cmd = { "arduino-language-server", "-cli-config", "/home/cypher/.arduino15/arduino-cli.yaml" },
 	on_attach = on_attach,
 	capabilities = capabilities,
-})
+}))
 
 -- Lua
-nvim_lsp.sumneko_lua.setup({
+nvim_lsp.sumneko_lua.setup(coq.lsp_ensure_capabilities({
 	cmd = { "/usr/bin/lua-language-server" },
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -126,17 +124,17 @@ nvim_lsp.sumneko_lua.setup({
 			},
 		},
 	},
-})
+}))
 
 -- Haskell
-nvim_lsp.hls.setup({
+nvim_lsp.hls.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	root_dir = nvim_lsp.util.root_pattern("*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".git"),
-})
+}))
 
 -- C#
-nvim_lsp.omnisharp.setup({
+nvim_lsp.omnisharp.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach,
 	capabilities = capabilities,
 	cmd = {
@@ -146,6 +144,6 @@ nvim_lsp.omnisharp.setup({
 		tostring(vim.fn.getpid()),
 	},
 	root_dir = nvim_lsp.util.root_pattern(".sln", ".csproj", ".git"),
-})
+}))
 
 return M

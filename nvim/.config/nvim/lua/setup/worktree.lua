@@ -18,8 +18,6 @@ vim.api.nvim_set_keymap(
 )
 
 local project_commands = {
-	["RUBY"] = ":silent !tmux-windowizer %s bundle",
-	["NODE"] = ":silent !tmux-windowizer %s yarn",
 	["DOCKER"] = ":silent !tmux-windowizer %s docker-compose build",
 }
 

@@ -14,30 +14,30 @@ return require("packer").startup(function()
 	} })
 
 	-- Auto-complete
-	-- use({
-	-- "ms-jpq/coq_nvim",
-	-- branch = "coq",
-	-- requires = {
-	-- { "ms-jpq/coq.artifacts", branch = "artifacts" },
-	-- { "ms-jpq/coq.thirdparty", branch = "3p" },
-	-- },
-	-- })
-
 	use({
-		"hrsh7th/nvim-cmp",
+		"ms-jpq/coq_nvim",
+		branch = "coq",
 		requires = {
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "hrsh7th/cmp-calc" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
-			{ "onsails/lspkind-nvim" },
-			{ "L3MON4D3/LuaSnip" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "rafamadriz/friendly-snippets" },
-			{ "tzachar/cmp-tabnine", run = "./install.sh" },
+			{ "ms-jpq/coq.artifacts", branch = "artifacts" },
+			{ "ms-jpq/coq.thirdparty", branch = "3p" },
 		},
 	})
+
+	-- use({
+	-- "hrsh7th/nvim-cmp",
+	-- requires = {
+	-- { "hrsh7th/cmp-buffer" },
+	-- { "hrsh7th/cmp-path" },
+	-- { "hrsh7th/cmp-calc" },
+	-- { "hrsh7th/cmp-nvim-lsp" },
+	-- { "hrsh7th/cmp-nvim-lua" },
+	-- { "onsails/lspkind-nvim" },
+	-- { "L3MON4D3/LuaSnip" },
+	-- { "saadparwaiz1/cmp_luasnip" },
+	-- { "rafamadriz/friendly-snippets" },
+	-- { "tzachar/cmp-tabnine", run = "./install.sh" },
+	-- },
+	-- })
 
 	-- Status line
 	use({
@@ -125,7 +125,7 @@ return require("packer").startup(function()
 	})
 
 	-- Context
-  use({ "romgrk/nvim-treesitter-context" })
+	use({ "romgrk/nvim-treesitter-context" })
 
 	-- Display colors for color codes
 	use("norcalli/nvim-colorizer.lua")
