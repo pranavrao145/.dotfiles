@@ -246,6 +246,16 @@ EOF
 
 echo "Profile set up successfully."
 
+echo "Setting up other services... "
+
+# setup profile
+sudo -u cypher -s << 'EOF'
+    cd /home/cypher/.dotfiles
+    stow gh-dash
+EOF
+
+echo "Other services set up successfully."
+
 echo "System setup completed successfully. Rebooting in 15 seconds... (press Ctrl-C to cancel)"
 
 # wait for 5 seconds to cancel if necessary

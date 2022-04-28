@@ -10,7 +10,7 @@ vim.cmd([[
 ]])
 
 -- Set colorscheme
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme palenight")
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[
@@ -24,8 +24,5 @@ vim.cmd([[
     hi TelescopeNormal guibg=NONE ctermbg=NONE
 
     " Needed for palenight
-    " hi ColorColumn guibg=#2C323C ctermbg=236
-
-    " Needed for gruvbox
-    " hi TSComment cterm=italic gui=italic
+    hi ColorColumn guibg=#2C323C ctermbg=236
 ]])
