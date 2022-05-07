@@ -140,7 +140,6 @@ return require("packer").startup(function()
 	use({
 		"ThePrimeagen/harpoon",
 		requires = {
-			{ "nvim-lua/popup.nvim" },
 			{ "nvim-lua/plenary.nvim" },
 		},
 	})
@@ -211,6 +210,9 @@ return require("packer").startup(function()
 
 	-- Symbols outline
 	use("simrat39/symbols-outline.nvim")
+
+	-- Git signs
+	use({ "lewis6991/gitsigns.nvim" })
 
 	-- Startup time monitor
 	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })

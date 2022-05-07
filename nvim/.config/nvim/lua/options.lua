@@ -1,42 +1,40 @@
 -- Set basic options
-vim.cmd([[
-    syntax on 
-
-    set exrc
-    set tabstop=2 softtabstop=2
-    set shiftwidth=2 
-    set expandtab
-    set smartindent
-    set nohlsearch
-    set hidden
-    set noerrorbells
-    set nu
-    set relativenumber
-    set nowrap
-    set noswapfile
-    set nobackup
-    set undodir=~/.config/nvim/undodir
-    set undofile
-    set incsearch
-    set termguicolors 
-    set scrolloff=8
-    set signcolumn=yes 
-    set colorcolumn=80
-    set backspace=indent,eol,start
-    set lazyredraw           
-    set ignorecase smartcase
-    set regexpengine=0
-    set diffopt+=vertical
-    set encoding=utf-8
-    set fileencoding=utf-8
-    set termencoding=utf-8
-    set noshowmode
-    set completeopt=menu,menuone,noselect
-    set background=dark
-    set mouse=a
-    set guicursor=
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'
-]])
+vim.opt.exrc = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.hlsearch = false
+vim.opt.hidden = true
+vim.opt.errorbells = false
+vim.opt.nu = true
+vim.opt.relativenumber = true
+vim.opt.wrap = false
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = "~/.config/nvim/undodir"
+vim.opt.undofile = true
+vim.opt.incsearch = true
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
+vim.opt.backspace = "indent,eol,start"
+vim.opt.lazyredraw = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.regexpengine = 0
+vim.opt.diffopt = vim.opt.diffopt + "vertical"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.opt.termencoding = "utf-8"
+vim.opt.showmode = false
+vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.background = "dark"
+vim.opt.mouse = "a"
+vim.opt.guicursor = ""
+vim.opt.pumblend = 15
 
 -- Set map leader
 vim.cmd("let mapleader=' '")
@@ -54,3 +52,13 @@ vim.cmd([[
     autocmd FileType text set wrap linebreak
   augroup end
 ]])
+
+-- Highlight on yank
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
+})
