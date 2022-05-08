@@ -1,4 +1,7 @@
 -- Set basic options
+
+vim.opt.syntax = "on"
+
 vim.opt.exrc = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -13,7 +16,7 @@ vim.opt.relativenumber = true
 vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = "~/.config/nvim/undodir"
+vim.opt.undodir = "/home/cypher/.config/nvim/undodir"
 vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
@@ -35,6 +38,10 @@ vim.opt.background = "dark"
 vim.opt.mouse = "a"
 vim.opt.guicursor = ""
 vim.opt.pumblend = 15
+
+vim.cmd([[
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'
+]])
 
 -- Set map leader
 vim.cmd("let mapleader=' '")

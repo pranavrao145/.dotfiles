@@ -6,9 +6,9 @@ brave-bin
 burpsuite
 cava
 crunch
-dirsearch
 downgrade
 eclipse-java
+gobuster-bin
 gotop
 hollywood
 i3-battery-popup
@@ -21,7 +21,6 @@ nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch
 notion-app
-nvim-packer-git
 nvm
 orchis-theme-git
 papirus-icon-theme-git
@@ -30,6 +29,7 @@ pfetch
 picom-jonaburg-git
 polybar-git
 pywal-discord-git
+seclists
 shell-color-scripts
 siji-git
 slack-desktop

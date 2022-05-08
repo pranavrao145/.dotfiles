@@ -73,7 +73,9 @@ return require("packer").startup(function()
 	-- use("jiangmiao/auto-pairs")
 
 	-- Git integration
-	use("tpope/vim-fugitive")
+	use({ "tpope/vim-fugitive", requires = {
+    "tpope/vim-rhubarb"
+  }})
 
 	-- Git worktree
 	use("ThePrimeagen/git-worktree.nvim")
@@ -118,9 +120,11 @@ return require("packer").startup(function()
 
 	-- Treesitter
 	use({
-		"nvim-treesitter/playground",
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
 		requires = {
-			{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+			"nvim-treesitter/playground",
+			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 	})
 

@@ -41,6 +41,8 @@ dsniff
 dunst
 ed
 efibootmgr
+encfs
+exploitdb
 fakeroot
 fd
 figlet
@@ -123,9 +125,11 @@ noto-fonts-emoji
 nss-mdns
 ntfs-3g
 okular
+opendoas
 openssh
 openvpn
 os-prober
+p7zip
 pacman
 pacman-contrib
 patch
@@ -133,6 +137,7 @@ pavucontrol
 pinta
 pkgconf
 playerctl
+postgresql
 postgresql-libs
 powerline
 powerline-fonts
@@ -156,6 +161,7 @@ rofi
 ruby
 sassc
 sed
+sqlmap
 stack
 starship
 stow

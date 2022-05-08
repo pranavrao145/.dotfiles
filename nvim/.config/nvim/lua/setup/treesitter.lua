@@ -9,9 +9,9 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 		keymaps = {
 			init_selection = "gnn",
-			node_incremental = "grn",
-			scope_incremental = "grc",
-			node_decremental = "grm",
+			node_incremental = "gni",
+			node_decremental = "gnd",
+			scope_incremental = "gsi",
 		},
 	},
 	indent = {
@@ -49,6 +49,15 @@ require("nvim-treesitter.configs").setup({
 				["[]"] = "@class.outer",
 			},
 		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["<leader>pn"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<leader>pp"] = "@parameter.inner",
+			},
+		},
 		playground = {
 			enable = true,
 			disable = {},
@@ -71,4 +80,4 @@ require("nvim-treesitter.configs").setup({
 })
 
 -- Setup playground keybindings
-vim.api.nvim_set_keymap("n", "<leader>p", ":TSPlaygroundToggle<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>pP", ":TSPlaygroundToggle<CR>", { noremap = true })
