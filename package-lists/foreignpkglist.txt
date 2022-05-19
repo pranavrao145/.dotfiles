@@ -14,6 +14,7 @@ hollywood
 i3-battery-popup
 i3lock-color-git
 imagewriter
+inferno
 lightdm-webkit-theme-aether
 lua-language-server-git
 nerd-fonts-hack

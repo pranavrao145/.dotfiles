@@ -38,6 +38,7 @@ vim.opt.background = "dark"
 vim.opt.mouse = "a"
 vim.opt.guicursor = ""
 vim.opt.pumblend = 15
+vim.opt.path = vim.o.path .. ",**"
 
 vim.cmd([[
     let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'

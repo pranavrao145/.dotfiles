@@ -1,8 +1,15 @@
 Packer_boostrap = nil
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+	Packer_bootstrap = fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
 end
 
 vim.cmd([[packadd packer.nvim]])
@@ -15,10 +22,14 @@ return require("packer").startup(function()
 	use("lewis6991/impatient.nvim")
 
 	-- LSP Config
-	use({ "neovim/nvim-lspconfig", requires = {
-		"ray-x/lsp_signature.nvim",
-		"mfussenegger/nvim-jdtls",
-	} })
+	use({
+		"neovim/nvim-lspconfig",
+		requires = {
+			"ray-x/lsp_signature.nvim",
+			"mfussenegger/nvim-jdtls",
+			"j-hui/fidget.nvim", -- visual loader
+		},
+	})
 
 	-- Auto-complete
 	-- use({
@@ -47,11 +58,20 @@ return require("packer").startup(function()
 	})
 
 	-- Status line
+	-- use({
+	-- "hoob3rt/lualine.nvim",
+	-- requires = {
+	-- { "kyazdani42/nvim-web-devicons" },
+	-- { "ryanoasis/vim-devicons" },
+	-- },
+	-- })
+
 	use({
-		"hoob3rt/lualine.nvim",
+		"tjdevries/express_line.nvim",
 		requires = {
 			{ "kyazdani42/nvim-web-devicons" },
 			{ "ryanoasis/vim-devicons" },
+			{ "nvim-lua/plenary.nvim" },
 		},
 	})
 
@@ -81,21 +101,21 @@ return require("packer").startup(function()
 
 	-- Git integration
 	use({ "tpope/vim-fugitive", requires = {
-		"tpope/vim-rhubarb"
-	}})
+		"tpope/vim-rhubarb",
+	} })
 
 	-- Git worktree
 	use("ThePrimeagen/git-worktree.nvim")
 
 	-- Rails plugins
-	use("tpope/vim-rails")
-	use("tpope/vim-bundler")
+	use({ "tpope/vim-rails", ft = { "rb", "erb" } })
+	use({ "tpope/vim-bundler", ft = { "rb", "erb" } })
 
 	-- Commenter
 	use("preservim/nerdcommenter")
 
 	-- Emmet
-	use("mattn/emmet-vim")
+	use({ "mattn/emmet-vim", ft = { "html", "erb" } })
 
 	-- Multi cursor
 	use({ "mg979/vim-visual-multi", branch = "master" })
@@ -115,6 +135,7 @@ return require("packer").startup(function()
 			"mfussenegger/nvim-dap-python",
 			"leoluz/nvim-dap-go",
 		},
+		opt = true,
 	})
 
 	-- Discord presence
@@ -139,7 +160,7 @@ return require("packer").startup(function()
 	use({ "romgrk/nvim-treesitter-context" })
 
 	-- Display colors for color codes
-	use("norcalli/nvim-colorizer.lua")
+	use({ "norcalli/nvim-colorizer.lua", cmd = "ColorizerAttachToBuffer" })
 
 	-- Netrw enhancement
 	use("tpope/vim-vinegar")
@@ -159,10 +180,10 @@ return require("packer").startup(function()
 	use("tpope/vim-speeddating")
 
 	-- Dispatch
-	use("tpope/vim-dispatch")
+	use({ "tpope/vim-dispatch", cmd = { "Dispatch", "Make", "Focus", "Start" } })
 
 	-- Dotenv
-	use("tpope/vim-dotenv")
+	use({ "tpope/vim-dotenv", cmd = { "Dotenv" } })
 
 	-- Enhanced repeat
 	use("tpope/vim-repeat")
@@ -199,14 +220,6 @@ return require("packer").startup(function()
 	-- },
 	-- })
 
-	-- Firenvim
-	use({
-		"glacambre/firenvim",
-		run = function()
-			vim.fn["firenvim#install"](0)
-		end,
-	})
-
 	-- Markdown Preview
 	use({ "iamcco/markdown-preview.nvim", run = function() end })
 
@@ -220,7 +233,7 @@ return require("packer").startup(function()
 	})
 
 	-- Symbols outline
-	use("simrat39/symbols-outline.nvim")
+	use({ "simrat39/symbols-outline.nvim", cmd = { "SymbolsOutline" } })
 
 	-- Git signs
 	use({ "lewis6991/gitsigns.nvim" })
@@ -229,14 +242,14 @@ return require("packer").startup(function()
 	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
 
 	-- Themes
-	use("kyazdani42/nvim-palenight.lua")
-	use("ellisonleao/gruvbox.nvim")
-	use("Mofiqul/dracula.nvim")
-	use("navarasu/onedark.nvim")
-	use("shaunsingh/nord.nvim")
-	use("sonph/onehalf")
+	use({ "kyazdani42/nvim-palenight.lua", opt = true })
+	use({ "ellisonleao/gruvbox.nvim", opt = false })
+	use({ "Mofiqul/dracula.nvim", opt = true })
+	use({ "navarasu/onedark.nvim", opt = true })
+	use({ "shaunsingh/nord.nvim", opt = true })
+	use({ "sonph/onehalf", opt = true })
 
 	if packer_bootstrap then
-		require('packer').sync()
+		require("packer").sync()
 	end
 end)

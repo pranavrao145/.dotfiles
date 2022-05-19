@@ -100,13 +100,6 @@ M.get_jdtls_config = function()
 	}
 end
 
-vim.cmd([[
-  augroup JAVA_LSP
-    autocmd!
-    autocmd VimEnter * silent !fuser -k 1044/tcp
-  augroup end
-]])
-
 -- Arduino
 nvim_lsp.arduino_language_server.setup({
 	cmd = { "arduino-language-server", "-cli-config", "/home/cypher/.arduino15/arduino-cli.yaml" },

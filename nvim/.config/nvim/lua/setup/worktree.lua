@@ -19,6 +19,7 @@ vim.api.nvim_set_keymap(
 
 local project_commands = {
 	["DOCKER"] = ":silent !tmux-windowizer %s docker-compose build",
+	["JAVA"] = ":silent !tmux-windowizer %s ant",
 }
 
 worktree.on_tree_change(function(op, metadata)
