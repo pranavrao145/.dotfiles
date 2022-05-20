@@ -32,30 +32,30 @@ return require("packer").startup(function()
 	})
 
 	-- Auto-complete
-	-- use({
-	-- "ms-jpq/coq_nvim",
-	-- branch = "coq",
-	-- requires = {
-	-- { "ms-jpq/coq.artifacts", branch = "artifacts" },
-	-- { "ms-jpq/coq.thirdparty", branch = "3p" },
-	-- },
-	-- })
-
 	use({
-		"hrsh7th/nvim-cmp",
+		"ms-jpq/coq_nvim",
+		branch = "coq",
 		requires = {
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "hrsh7th/cmp-calc" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
-			{ "onsails/lspkind-nvim" },
-			{ "L3MON4D3/LuaSnip" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "rafamadriz/friendly-snippets" },
-			{ "tzachar/cmp-tabnine", run = "./install.sh" },
+			{ "ms-jpq/coq.artifacts", branch = "artifacts" },
+			{ "ms-jpq/coq.thirdparty", branch = "3p" },
 		},
 	})
+
+	-- use({
+	-- "hrsh7th/nvim-cmp",
+	-- requires = {
+	-- { "hrsh7th/cmp-buffer" },
+	-- { "hrsh7th/cmp-path" },
+	-- { "hrsh7th/cmp-calc" },
+	-- { "hrsh7th/cmp-nvim-lsp" },
+	-- { "hrsh7th/cmp-nvim-lua" },
+	-- { "onsails/lspkind-nvim" },
+	-- { "L3MON4D3/LuaSnip" },
+	-- { "saadparwaiz1/cmp_luasnip" },
+	-- { "rafamadriz/friendly-snippets" },
+	-- { "tzachar/cmp-tabnine", run = "./install.sh" },
+	-- },
+	-- })
 
 	-- Status line
 	-- use({
@@ -192,12 +192,12 @@ return require("packer").startup(function()
 	use("tpope/vim-unimpaired")
 
 	-- Database Interface and UI
-	use({ "kristijanhusak/vim-dadbod-ui", requires = {
-		"tpope/vim-dadbod",
-	} })
+	use({ "tpope/vim-dadbod", requires = {
+		{ "kristijanhusak/vim-dadbod-ui", cmd = "DBUI" },
+	}, cmd = "DB" })
 
 	-- Undo Tree
-	use("mbbill/undotree")
+	-- use("mbbill/undotree")
 
 	-- Smart replacements
 	use("tpope/vim-abolish")
@@ -206,7 +206,7 @@ return require("packer").startup(function()
 	use("sbdchd/neoformat")
 
 	-- Tests
-	use("vim-test/vim-test")
+	-- use("vim-test/vim-test")
 
 	-- Colors
 	use("folke/lsp-colors.nvim")
@@ -242,8 +242,8 @@ return require("packer").startup(function()
 	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
 
 	-- Themes
-	use({ "kyazdani42/nvim-palenight.lua", opt = true })
-	use({ "ellisonleao/gruvbox.nvim", opt = false })
+	use({ "kyazdani42/nvim-palenight.lua", opt = false })
+	use({ "ellisonleao/gruvbox.nvim", opt = true })
 	use({ "Mofiqul/dracula.nvim", opt = true })
 	use({ "navarasu/onedark.nvim", opt = true })
 	use({ "shaunsingh/nord.nvim", opt = true })

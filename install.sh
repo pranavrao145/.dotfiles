@@ -142,6 +142,7 @@ sudo -u cypher -s << 'EOF'
     cd /home/cypher/.dotfiles
     sudo cp ./pacman/hooks/* /etc/pacman.d/hooks/
     sudo cp ./pacman/pacman.conf /etc/pacman.conf
+    sudo cp ./paru/paru.conf /etc/paru.conf
 EOF
 
 echo "Pacman hooks setup successfully."

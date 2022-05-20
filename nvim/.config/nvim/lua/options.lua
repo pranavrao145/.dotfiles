@@ -39,9 +39,10 @@ vim.opt.mouse = "a"
 vim.opt.guicursor = ""
 vim.opt.pumblend = 15
 vim.opt.path = vim.o.path .. ",**"
+vim.opt.laststatus = 3
 
 vim.cmd([[
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/printf-prompt'
 ]])
 
 -- Set map leader

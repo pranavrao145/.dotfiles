@@ -33,7 +33,7 @@ vim.api.nvim_set_keymap("n", "<leader>o", ":source %<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>O", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>e", ":e!<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>E", ":Explore<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>A", "<Esc>gg <bar> V <bar> G<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>A", "<Esc>gg <bar> V <bar> G", { noremap = true })
 
 -- Semicolon remaps
 vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
