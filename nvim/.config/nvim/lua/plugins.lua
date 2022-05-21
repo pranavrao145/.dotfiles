@@ -242,8 +242,8 @@ return require("packer").startup(function()
 	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
 
 	-- Themes
-	use({ "kyazdani42/nvim-palenight.lua", opt = false })
-	use({ "ellisonleao/gruvbox.nvim", opt = true })
+	use({ "kyazdani42/nvim-palenight.lua", opt = true })
+	use({ "ellisonleao/gruvbox.nvim", opt = false })
 	use({ "Mofiqul/dracula.nvim", opt = true })
 	use({ "navarasu/onedark.nvim", opt = true })
 	use({ "shaunsingh/nord.nvim", opt = true })

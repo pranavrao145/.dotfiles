@@ -79,4 +79,4 @@ require("nvim-treesitter.configs").setup({
 })
 
 -- Setup playground keybindings
-vim.api.nvim_set_keymap("n", "<leader>pP", ":TSPlaygroundToggle<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>pP", ":TSPlaygroundToggle<CR>", { noremap = true })

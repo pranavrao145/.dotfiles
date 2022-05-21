@@ -1,1 +1,1 @@
-vim.api.nvim_set_keymap("n", "<leader>m", ":MaximizerToggle!<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>m", ":MaximizerToggle!<CR>", { noremap = true })

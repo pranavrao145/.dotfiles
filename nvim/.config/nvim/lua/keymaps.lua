@@ -28,31 +28,31 @@ vim.cmd([[
 ]])
 
 -- Misc maps
-vim.api.nvim_set_keymap("n", "<leader>s", ":w!<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>o", ":source %<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>O", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>e", ":e!<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>E", ":Explore<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>A", "<Esc>gg <bar> V <bar> G", { noremap = true })
+vim.keymap.set("n", "<leader>s", ":w!<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>o", ":source %<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>O", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>e", ":e!<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>E", ":Explore<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>A", "<Esc>gg <bar> V <bar> G", { noremap = true })
 
 -- Semicolon remaps
-vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
-vim.api.nvim_set_keymap("n", ":", ";", { noremap = true })
-vim.api.nvim_set_keymap("v", ";", ":", { noremap = true })
-vim.api.nvim_set_keymap("v", ":", ";", { noremap = true })
+vim.keymap.set("n", ";", ":", { noremap = true })
+vim.keymap.set("n", ":", ";", { noremap = true })
+vim.keymap.set("v", ";", ":", { noremap = true })
+vim.keymap.set("v", ":", ";", { noremap = true })
 
 -- Escape remaps
-vim.api.nvim_set_keymap("i", "kj", "<Esc>", { noremap = true })
-vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true })
+vim.keymap.set("i", "kj", "<Esc>", { noremap = true })
+vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
 
 -- Void paste remap
-vim.api.nvim_set_keymap("v", "<leader>p", '"_dP', { noremap = true })
+vim.keymap.set("v", "<leader>p", '"_dP', { noremap = true })
 
 -- Void delete remap
-vim.api.nvim_set_keymap("v", "<leader>d", '"_x', { noremap = true })
+vim.keymap.set("v", "<leader>d", '"_x', { noremap = true })
 
 -- Use system clipboard map
-vim.api.nvim_set_keymap("n", "<leader>P", ":set clipboard=unnamedplus<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>P", ":set clipboard=unnamedplus<CR>", { noremap = true })
 
 -- Visual mode next result remap
 vim.cmd([[
@@ -66,32 +66,32 @@ vim.cmd([[
 ]])
 
 -- Terminal mode remaps
-vim.api.nvim_set_keymap("t", "kj", "<C-\\><C-n>", { noremap = true })
-vim.api.nvim_set_keymap("t", "jk", "<C-\\><C-n>", { noremap = true })
+vim.keymap.set("t", "kj", "<C-\\><C-n>", { noremap = true })
+vim.keymap.set("t", "jk", "<C-\\><C-n>", { noremap = true })
 
 -- CopyBuffer command
 vim.api.nvim_command("command! CopyBuffer let @+ = expand('%:p')")
 
 -- Special changes to default remaps to make more sense
-vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
-vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true })
-vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
-vim.api.nvim_set_keymap("n", "J", "mzJ`z", { noremap = true })
+vim.keymap.set("n", "Y", "y$", { noremap = true })
+vim.keymap.set("n", "n", "nzzzv", { noremap = true })
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
+vim.keymap.set("n", "J", "mzJ`z", { noremap = true })
 
 -- Undo breakpoints
-vim.api.nvim_set_keymap("i", ",", ",<c-g>u", { noremap = true })
-vim.api.nvim_set_keymap("i", ".", ".<c-g>u", { noremap = true })
-vim.api.nvim_set_keymap("i", "!", "!<c-g>u", { noremap = true })
-vim.api.nvim_set_keymap("i", "?", "?<c-g>u", { noremap = true })
+vim.keymap.set("i", ",", ",<c-g>u", { noremap = true })
+vim.keymap.set("i", ".", ".<c-g>u", { noremap = true })
+vim.keymap.set("i", "!", "!<c-g>u", { noremap = true })
+vim.keymap.set("i", "?", "?<c-g>u", { noremap = true })
 
 -- Copy to system clipboard maps
-vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>Y", 'gg"+yG', { noremap = true })
+vim.keymap.set("n", "<leader>y", '"+y', { noremap = true })
+vim.keymap.set("v", "<leader>y", '"+y', { noremap = true })
+vim.keymap.set("n", "<leader>Y", 'gg"+yG', { noremap = true })
 
 -- Change to executable map
-vim.api.nvim_set_keymap("n", "<leader>x", ":silent !chmod +x %<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>X", ":silent !chmod -x %<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>x", ":silent !chmod +x %<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>X", ":silent !chmod -x %<CR>", { noremap = true })
 
 -- Visual mode move line maps
 vim.cmd([[

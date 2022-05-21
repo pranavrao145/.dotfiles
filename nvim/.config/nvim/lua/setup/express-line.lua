@@ -42,7 +42,7 @@ require("el").setup({
 			{ diagnostic_display },
 			{ " " },
 			{ git_changes },
-			{ " [" },
+			{ "[" },
 			{ builtin.line_with_width(3) },
 			{ ":" },
 			{ builtin.column_with_width(2) },

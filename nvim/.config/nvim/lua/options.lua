@@ -42,7 +42,7 @@ vim.opt.path = vim.o.path .. ",**"
 vim.opt.laststatus = 3
 
 vim.cmd([[
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/printf-prompt'
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/normal-print-var'
 ]])
 
 -- Set map leader
