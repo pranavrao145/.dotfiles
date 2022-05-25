@@ -4,7 +4,6 @@ vim.g.coq_settings = {
 	["auto_start"] = "shut-up",
 	["keymap.manual_complete"] = "<C-s>",
 	["clients.tabnine.enabled"] = true,
-	["limits.completion_auto_timeout"] = 0.66,
 }
 
 require("coq_3p")({

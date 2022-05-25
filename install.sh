@@ -37,6 +37,7 @@ passwd cypher # set password for cypher
 echo "User cypher set up successfully."
 
 cp ./sudo/sudoers /etc/sudoers # copy sudoers file
+cp ./doas/doas.conf /etc/doas.conf # copy doas configuration file
 
 ##### CLONING DOTFILES #####
 
