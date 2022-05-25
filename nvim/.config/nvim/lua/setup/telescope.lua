@@ -44,31 +44,11 @@ require("telescope").load_extension("git_worktree")
 require("telescope").load_extension("refactoring")
 
 vim.keymap.set("n", "<C-p>", "<cmd>lua require('telescope.builtin').git_files()<CR>", { noremap = true })
-vim.keymap.set(
-	"n",
-	"<leader>gc",
-	"<cmd>lua require('telescope.builtin').git_commits()<CR>",
-	{ noremap = true }
-)
-vim.keymap.set(
-	"n",
-	"<leader>gv",
-	"<cmd>lua require('telescope.builtin').git_bcommits()<CR>",
-	{ noremap = true }
-)
-vim.keymap.set(
-	"n",
-	"<leader>gb",
-	"<cmd>lua require('telescope.builtin').git_branches()<CR>",
-	{ noremap = true }
-)
+vim.keymap.set("n", "<leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gv", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
-vim.keymap.set(
-	"n",
-	"<leader>fg",
-	"<cmd>lua require('telescope.builtin').grep_string()<CR>",
-	{ noremap = true }
-)
+vim.keymap.set("n", "<leader>fg", "<cmd>lua require('telescope.builtin').grep_string()<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
 vim.keymap.set(
 	"n",
@@ -88,12 +68,7 @@ vim.keymap.set(
 	"<cmd>lua require('telescope.builtin').diagnostics({ bufnr = 0 })<CR>",
 	{ noremap = true }
 )
-vim.keymap.set(
-	"n",
-	"<leader>lW",
-	"<cmd>lua require('telescope.builtin').diagnostics()<CR>",
-	{ noremap = true }
-)
+vim.keymap.set("n", "<leader>lW", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>?", "<cmd>lua require('telescope.builtin').help_tags()<CR>", { noremap = true })
 vim.keymap.set(
 	"n",
@@ -101,5 +76,3 @@ vim.keymap.set(
 	"<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
 	{ noremap = true }
 )
-vim.keymap.set("n", "<leader>oo", "<cmd>lua require('telescope.builtin').oldfiles()<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>D", ":CmpStatus test<CR>", {})

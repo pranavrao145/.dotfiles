@@ -10,7 +10,7 @@ require("options")
 require("plugins")
 
 -- load LSP and completion
-require("setup.coq")
+-- require("setup.coq")
 require("lsp")
 
 -- load theme
@@ -23,7 +23,7 @@ require("keymaps")
 require("projects")
 
 -- load config for all plugins
--- require("setup.cmp")
+require("setup.cmp")
 require("setup.fugitive")
 require("setup.maximizer")
 require("setup.comment")
@@ -40,11 +40,11 @@ require("setup.harpoon")
 require("setup.undotree")
 require("setup.dispatch")
 require("setup.neoformat")
--- require("setup.luasnip")
+require("setup.luasnip")
 require("setup.refactoring")
 require("setup.lsp-signature")
 require("setup.firenvim")
--- require("setup.cmp-tabnine")
+require("setup.cmp-tabnine")
 require("setup.bqf")
 require("setup.neogen")
 require("setup.treesitter-context")

@@ -42,6 +42,7 @@ dunst
 ed
 efibootmgr
 encfs
+exa
 exploitdb
 fakeroot
 fd
@@ -71,7 +72,6 @@ groff
 grub
 grub-customizer
 gzip
-haskell-language-server
 helix
 htop
 hydra
@@ -163,7 +163,6 @@ ruby
 sassc
 sed
 sqlmap
-stack
 starship
 stow
 stylua

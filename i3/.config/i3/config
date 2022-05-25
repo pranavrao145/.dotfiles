@@ -199,8 +199,8 @@ bindsym $mod+n exec --no-startup-id discord
 # Gaps
 
 # Set inner/outer gaps
-# gaps inner 1
-# gaps outer 1
+# gaps inner 5
+# gaps outer 5
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -257,9 +257,9 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id nitrogen --restore
 
 # fix display (for monitor), laptop done manually
-exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+exec xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 
-bindsym $mod+ctrl+shift+n exec xrandr --output eDP1 --primary --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+bindsym $mod+ctrl+shift+n exec xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 bindsym $mod+ctrl+shift+m exec xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
 
 # move focused workspace between monitors
@@ -315,8 +315,8 @@ exec_always --no-startup-id xsetwacom set "Wacom Intuos S Pen stylus" Button 3 "
 exec_always --no-startup-id mapwacom -d "Wacom Intuos S Pen stylus" -s "eDP1"
 
 # display settings
-set $monitor_one eDP1
-set $monitor_two HDMI1
+set $monitor_one HDMI1
+set $monitor_two eDP1
 
 # set everything to show up on monitor 1 by default
 workspace $ws1 output $monitor_one
@@ -327,8 +327,8 @@ workspace $ws5 output $monitor_two
 workspace $ws6 output $monitor_one
 workspace $ws7 output $monitor_one
 workspace $ws8 output $monitor_one
-workspace $ws9 output $monitor_two
-workspace $ws10 output $monitor_two
+workspace $ws9 output $monitor_one
+workspace $ws10 output $monitor_one
 
 # special considerations for terminal workspace
 # workspace $ws1 gaps inner 7
@@ -363,6 +363,11 @@ bindsym $mod+shift+s exec flameshot gui
 
 # make everything take focus
 for_window [class=.*] focus
+
+# make terminals have gaps
+for_window [class="kitty"] exec "i3-msg "gaps inner current set 10""
+for_window [class="kitty"] exec "i3-msg "gaps outer current set 5""
+for_window [class="kitty"] exec "i3-msg "border pixel 0""
 
 # rofi custom binds
 bindsym $mod+Tab exec --no-startup-id rofi -show window

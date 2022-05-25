@@ -30,6 +30,7 @@ pfetch
 picom-jonaburg-git
 polybar-git
 pywal-discord-git
+quickemu
 seclists
 shell-color-scripts
 siji-git

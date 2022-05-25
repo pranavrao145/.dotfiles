@@ -31,31 +31,31 @@ return require("packer").startup(function()
 		},
 	})
 
-	-- Auto-complete
+	-- -- Auto-complete
+	-- use({
+	-- 	"ms-jpq/coq_nvim",
+	-- 	branch = "coq",
+	-- 	requires = {
+	-- 		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
+	-- 		{ "ms-jpq/coq.thirdparty", branch = "3p" },
+	-- 	},
+	-- })
+
 	use({
-		"ms-jpq/coq_nvim",
-		branch = "coq",
+		"hrsh7th/nvim-cmp",
 		requires = {
-			{ "ms-jpq/coq.artifacts", branch = "artifacts" },
-			{ "ms-jpq/coq.thirdparty", branch = "3p" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "hrsh7th/cmp-calc" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
+			{ "onsails/lspkind-nvim" },
+			{ "L3MON4D3/LuaSnip" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "rafamadriz/friendly-snippets" },
+			{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		},
 	})
-
-	-- use({
-	-- "hrsh7th/nvim-cmp",
-	-- requires = {
-	-- { "hrsh7th/cmp-buffer" },
-	-- { "hrsh7th/cmp-path" },
-	-- { "hrsh7th/cmp-calc" },
-	-- { "hrsh7th/cmp-nvim-lsp" },
-	-- { "hrsh7th/cmp-nvim-lua" },
-	-- { "onsails/lspkind-nvim" },
-	-- { "L3MON4D3/LuaSnip" },
-	-- { "saadparwaiz1/cmp_luasnip" },
-	-- { "rafamadriz/friendly-snippets" },
-	-- { "tzachar/cmp-tabnine", run = "./install.sh" },
-	-- },
-	-- })
 
 	-- Status line
 	-- use({
@@ -119,10 +119,10 @@ return require("packer").startup(function()
 	use("numToStr/Comment.nvim")
 
 	-- Emmet
-	use({ "mattn/emmet-vim", ft = { "html", "erb" } })
+	use({ "mattn/emmet-vim" })
 
 	-- Multi cursor
-	use({ "mg979/vim-visual-multi", branch = "master" })
+	-- use({ "mg979/vim-visual-multi", branch = "master" })
 
 	-- Buffer maximizer
 	use("szw/vim-maximizer")
@@ -248,12 +248,12 @@ return require("packer").startup(function()
 	use({ "dstein64/vim-startuptime", cmd = { "StartupTime" } })
 
 	-- Themes
-	use({ "kyazdani42/nvim-palenight.lua", opt = true })
-	use({ "ellisonleao/gruvbox.nvim", opt = false })
-	use({ "Mofiqul/dracula.nvim", opt = true })
-	use({ "navarasu/onedark.nvim", opt = true })
-	use({ "shaunsingh/nord.nvim", opt = true })
-	use({ "sonph/onehalf", opt = true })
+	-- use({ "kyazdani42/nvim-palenight.lua" })
+	use({ "ellisonleao/gruvbox.nvim" })
+	-- use({ "Mofiqul/dracula.nvim" })
+	-- use({ "navarasu/onedark.nvim" })
+	-- use({ "shaunsingh/nord.nvim" })
+	-- use({ "sonph/onehalf" })
 
 	if packer_bootstrap then
 		require("packer").sync()

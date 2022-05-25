@@ -119,7 +119,7 @@ v() {
     if [ "$1" = "im." ]; then
         nvim .
     else
-        nvim .
+        nvim
     fi
 }
 
@@ -143,8 +143,8 @@ alias prog="cd && cd Programming"
 alias lr="ranger"
 alias dnd="dunstctl set-paused"
 alias dnds="dunstctl is-paused"
-alias ef="cd ~/.dotfiles && nvim ."
-alias fe="cd ~/.dotfiles && nvim ."
+alias ef="cd ~/.dotfiles && nvim"
+alias fe="cd ~/.dotfiles && nvim"
 alias a="tmux a || tmux"
 alias t="tmux a || tmux"
 alias ta="tmux a || tmux"
@@ -152,7 +152,7 @@ alias at="tmux a || tmux"
 alias cht="tmux-cht"
 alias tk="tmux kill-server"
 alias tks="tmux kill-server"
-alias ts="tmux-sessionizer"
+alias ts="tmux-sessioniz"
 alias tw="tmux-windowizer"
 alias gwi="git worktree add master"
 alias giw="git worktree add master"

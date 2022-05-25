@@ -39,6 +39,7 @@ vim.keymap.set(
 	":lua require('refactoring').debug.printf({below = true})<CR>",
 	{ noremap = true }
 )
+vim.keymap.set("n", "<leader>rv", ":lua require('refactoring').debug.print_var({})<CR>", { noremap = true })
 vim.keymap.set("v", "<leader>rv", ":lua require('refactoring').debug.print_var({})<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>rc", ":lua require('refactoring').debug.cleanup({})<CR>", { noremap = true })
 
