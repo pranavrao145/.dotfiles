@@ -1,13 +1,11 @@
 -- Set italics
-vim.cmd([[
-  let g:palenight_terminal_italics=1
-  let g:gruvbox_italic=1
-  let g:gruvbox_bold=1
-  let g:material_terminal_italics=1
-  let g:dracula_italic=1
-  let g:nord_italic=1
-  let g:onehalf_italic=1
-]])
+vim.g.palenight_terminal_italics = 1
+vim.g.gruvbox_italic = 1
+vim.g.gruvbox_bold = 1
+vim.g.material_terminal_italics = 1
+vim.g.dracula_italic = 1
+vim.g.nord_italic = 1
+vim.g.onehalf_italic = 1
 
 -- Set colorscheme
 vim.cmd("colorscheme gruvbox")

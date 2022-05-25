@@ -104,6 +104,10 @@ return require("packer").startup(function()
 		"tpope/vim-rhubarb",
 	} })
 
+	-- GitHub integration
+	use("pwntester/octo.nvim")
+	use("ruifm/gitlinker.nvim")
+
 	-- Git worktree
 	use("ThePrimeagen/git-worktree.nvim")
 
@@ -112,7 +116,7 @@ return require("packer").startup(function()
 	use({ "tpope/vim-bundler", ft = { "rb", "erb" } })
 
 	-- Commenter
-	use("preservim/nerdcommenter")
+	use("numToStr/Comment.nvim")
 
 	-- Emmet
 	use({ "mattn/emmet-vim", ft = { "html", "erb" } })
@@ -153,6 +157,8 @@ return require("packer").startup(function()
 		requires = {
 			"nvim-treesitter/playground",
 			"nvim-treesitter/nvim-treesitter-textobjects",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"mfussenegger/nvim-treehopper",
 		},
 	})
 

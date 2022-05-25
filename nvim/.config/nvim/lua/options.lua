@@ -42,14 +42,14 @@ vim.opt.path = vim.o.path .. ",**"
 vim.opt.laststatus = 3
 
 vim.cmd([[
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/normal-print-var'
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'
 ]])
 
 -- Set map leader
 vim.cmd("let mapleader=' '")
 
 -- Set custom netrw http command
-vim.cmd('let g:netrw_http_cmd="firefox"')
+vim.cmd('let g:netrw_http_cmd="brave"')
 
 -- Set filetype
 vim.cmd("filetype plugin indent on")
