@@ -1,10 +1,10 @@
 -- Setup harpoon
 
 require("harpoon").setup({
-	global_settings = {
-		enter_on_sendcmd = true,
-		tmux_autoclose_windows = true,
-	},
+  global_settings = {
+    enter_on_sendcmd = true,
+    tmux_autoclose_windows = true,
+  },
 })
 
 -- Harpoon mark commands
@@ -20,17 +20,42 @@ vim.cmd([[
 ]])
 
 -- Other maps (terminal, ui, etc)
-vim.keymap.set("n", "<leader>h", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { noremap = true })
-vim.keymap.set("n", "<leader>H", ':lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>', { noremap = true })
-
-vim.keymap.set("n", "<leader>T", ':lua require("harpoon.tmux").gotoTerminal(2)<CR>', { noremap = true })
-vim.keymap.set("n", "<leader>t", ':lua require("harpoon.tmux").gotoTerminal(1)<CR>', { noremap = true })
-
 vim.keymap.set(
-	"n",
-	"<leader><Enter>",
-	':lua require("harpoon.tmux").sendCommand(1, 1)<CR>',
-	{ noremap = true }
+  "n",
+  "<leader>h",
+  ':lua require("harpoon.ui").toggle_quick_menu()<CR>',
+  { noremap = true }
+)
+vim.keymap.set(
+  "n",
+  "<leader>H",
+  ':lua require("harpoon.cmd-ui").toggle_quick_menu()<CR>',
+  { noremap = true }
 )
 
-vim.keymap.set("n", "<leader>\\", ':lua require("harpoon.tmux").sendCommand(2, 2)<CR>', { noremap = true })
+vim.keymap.set(
+  "n",
+  "<leader>T",
+  ':lua require("harpoon.tmux").gotoTerminal(3)<CR>',
+  { noremap = true }
+)
+vim.keymap.set(
+  "n",
+  "<leader>t",
+  ':lua require("harpoon.tmux").gotoTerminal(2)<CR>',
+  { noremap = true }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader><Enter>",
+  ':lua require("harpoon.tmux").sendCommand(1, 1)<CR>',
+  { noremap = true }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>\\",
+  ':lua require("harpoon.tmux").sendCommand(2, 2)<CR>',
+  { noremap = true }
+)

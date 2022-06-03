@@ -17,6 +17,7 @@ binutils
 bison
 blueman
 bluez
+bluez-hid2hci
 bluez-utils
 brightnessctl
 calc
@@ -131,6 +132,7 @@ openssh
 openvpn
 os-prober
 p7zip
+packer
 pacman
 pacman-contrib
 patch

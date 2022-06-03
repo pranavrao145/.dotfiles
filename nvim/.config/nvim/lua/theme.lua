@@ -21,6 +21,7 @@ vim.cmd([[
     " hi WinSeparator guibg=NONE ctermbg=NONE
 
     hi TelescopeNormal guibg=NONE ctermbg=NONE
+    hi! link NonText Comment
 
     " Needed for palenight
     " hi ColorColumn guibg=#2C323C ctermbg=236

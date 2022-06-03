@@ -30,7 +30,12 @@ vim.cmd([[
 -- Misc maps
 vim.keymap.set("n", "<leader>s", ":w!<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>o", ":source %<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>O", ":source ~/.config/nvim/init.lua<CR>", { noremap = true })
+vim.keymap.set(
+  "n",
+  "<leader>O",
+  ":source ~/.config/nvim/init.lua<CR>",
+  { noremap = true }
+)
 vim.keymap.set("n", "<leader>e", ":e!<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>E", ":Explore<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>A", "<Esc>gg <bar> V <bar> G", { noremap = true })
@@ -52,7 +57,12 @@ vim.keymap.set("v", "<leader>p", '"_dP', { noremap = true })
 vim.keymap.set("v", "<leader>d", '"_x', { noremap = true })
 
 -- Use system clipboard map
-vim.keymap.set("n", "<leader>P", ":set clipboard=unnamedplus<CR>", { noremap = true })
+vim.keymap.set(
+  "n",
+  "<leader>P",
+  ":set clipboard=unnamedplus<CR>",
+  { noremap = true }
+)
 
 -- Visual mode next result remap
 vim.cmd([[
