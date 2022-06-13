@@ -6,8 +6,10 @@ brave-bin
 burpsuite
 cava
 crunch
+docker-credential-secretservice-bin
 downgrade
 eclipse-java
+gconf
 gobuster-bin
 gotop
 hollywood

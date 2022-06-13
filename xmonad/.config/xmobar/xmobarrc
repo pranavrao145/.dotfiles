@@ -1,12 +1,8 @@
 Config { 
     -- appearance
-        font =         "xft:JetBrainsMonoMedium Nerd Font Mono:size=12:antialias=true"
-        , additionalFonts = [ "xft:Font Awesome 5 Free:size=12:antialias=true",
-                              "xft:Font Awesome 5 Free Solid:size=12:antialias=true",
-                              "xft:Font Awesome 5 Brands:size=12:antialias=true" 
-                            ]
-        , bgColor =      "#0A0918"
-        , fgColor =      "#8FD6D5"
+        font =         "xft:JetBrainsMonoMedium Nerd Font Mono:size=8:antialias=true"
+        , bgColor =      "#0D0E0C"
+        , fgColor =      "#DEE0E2"
         , position =     Top
         , border =       BottomB
         , borderColor =  "#646464"
@@ -14,7 +10,7 @@ Config {
         -- layout
         , sepChar =  "%"   -- delineator between plugin names and straight text
         , alignSep = "}{"  -- separator between left-right alignment
-        , template = "%UnsafeStdinReader%}{"
+        , template = "%UnsafeStdinReader%}{%mpris2% | %wlan0wi% | %cpu% | %memory% | %battery% | %volume% | %date% "
 
         -- general behavior
         , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -40,6 +36,13 @@ Config {
         --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
         , commands = 
         [
-            Run UnsafeStdinReader
+           Run UnsafeStdinReader
+            , Run Wireless "wlan0" ["-t","Wireless: <quality>% at <essid>", "-L", "50", "--low", "red"] 10
+            , Run Cpu ["-H","80","--high","red"] 10
+            , Run Memory ["-t","Mem: <usedratio>%"] 10
+            , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+            , Run BatteryP ["BAT0"] ["-L", "20", "--low", "red", "-t", "<acstatus>", "--", "--off", "Batt: <left>% remaining / <timeleft>", "--on", "Char: <left>% remaining / <timeleft>"] 10
+            , Run Com "/home/cypher/Scripts/audio/get_pulse_volume.sh" [] "volume" 10
+            , Run Mpris2 "spotify" ["-t", "Spotify: <artist> - <title>"] 10
         ]
 }

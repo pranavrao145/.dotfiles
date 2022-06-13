@@ -6,6 +6,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 
+import XMonad.Actions.CycleWS
 import XMonad.Actions.OnScreen
 
 import qualified XMonad.StackSet as W
@@ -15,11 +16,13 @@ import XMonad.Hooks.DynamicProperty
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
 
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Reflect
 import XMonad.Layout.Spacing
 import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
@@ -37,12 +40,12 @@ import System.IO.Unsafe
 -- Utility functions begin
 getFromXres :: String -> IO String
 getFromXres key =
-    fromMaybe "" . findValue key <$> runProcessWithInput "xrdb" ["-query"] ""
+  fromMaybe "" . findValue key <$> runProcessWithInput "xrdb" ["-query"] ""
   where
     findValue :: String -> String -> Maybe String
     findValue xresKey xres =
-        snd <$>
-        (DL.find ((== xresKey) . fst) $ catMaybes $ splitAtColon <$> lines xres)
+      snd <$>
+      (DL.find ((== xresKey) . fst) $ catMaybes $ splitAtColon <$> lines xres)
     splitAtColon :: String -> Maybe (String, String)
     splitAtColon str = splitAtTrimming str <$> (DL.elemIndex ':' str)
     splitAtTrimming :: String -> Int -> (String, String)
@@ -55,26 +58,26 @@ fromXres = unsafePerformIO . getFromXres
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
 tabConfig =
-    defaultTheme
-        { activeBorderColor = fromXres "*color6"
-        , activeTextColor = fromXres "*color7"
-        , activeColor = fromXres "*color6"
-        , inactiveBorderColor = fromXres "*color2"
-        , inactiveTextColor = fromXres "*color7"
-        , inactiveColor = fromXres "*color2"
-        , fontName = "xft:JetBrainsMonoMedium Nerd Font Mono:size=12"
-        }
+  defaultTheme
+    { activeBorderColor = fromXres "*color6"
+    , activeTextColor = fromXres "*color7"
+    , activeColor = fromXres "*color6"
+    , inactiveBorderColor = fromXres "*color2"
+    , inactiveTextColor = fromXres "*color7"
+    , inactiveColor = fromXres "*color2"
+    , fontName = "xft:JetBrainsMonoMedium Nerd Font Mono:size=8"
+    }
 
 clickable ws =
-    "<action=xdotool key super+" ++ show i ++ ">" ++ ws ++ "</action>"
+  "<action=xdotool key super+" ++ show i ++ ">" ++ ws ++ "</action>"
   where
     i = fromJust $ M.lookup ws myWorkspaceIndices
 
 windowCount :: X (Maybe String)
 windowCount =
-    gets $
-    Just .
-    show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+  gets $
+  Just .
+  show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 -- Utility functions end
 myTerminal = "kitty"
@@ -90,99 +93,120 @@ myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1 ..] -- (,) == \x y -> (x,y)
 
-myNormalBorderColor = "*color2"
+myNormalBorderColor = fromXres "*color2"
 
 myFocusedBorderColor = fromXres "*color6"
 
 myKeys =
-    [ ( "M-d"
-      , spawn
-            "rofi -show drun -modi drun -location 1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -font \"JetBrainsMonoMedium Nerd Font Mono 10\" -columns 9 -bw 0 -disable-history -hide-scrollbar -show-icons -kb-row-select \"Tab\" -kb-row-tab \"\"")
-    , ("M-p", windows $ W.greedyView " 1 ")
-    , ("M-o", windows $ W.greedyView " 2 ")
-    , ("M-i", windows $ W.greedyView " 3 ")
-    , ("M-u", windows $ W.greedyView " 4 ")
-    , ("M-y", windows $ W.greedyView " 5 ")
-    , ("M-m", spawn "restart_spotify")
-    , ("M-n", spawn "discord")
-    , ("M-c", spawn "brave")
-    , ("M-q", kill)
-    , ("M-f", sendMessage $ Toggle NBFULL)
-    , ( "<XF86AudioRaiseVolume>"
-      , spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ( "<XF86AudioLowerVolume>"
-      , spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-    , ( "<XF86AudioMicMute>"
-      , spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
-    , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 20")
-    , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 20")
-    , ("<XF86AudioPlay>", spawn "playerctl play-pause")
-    , ("<XF86AudioPause>", spawn "playerctl play-pause")
-    , ("<XF86AudioNext>", spawn "playerctl next")
-    , ("<XF86AudioPrev>", spawn "playerctl previous")
-    , ("<XF86AudioStop>", spawn "playerctl stop")
-    , ( "M-S-n"
-      , spawn
-            "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off")
-    , ( "M-S-m"
-      , spawn
-            "xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off")
-    , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
-    ]
+  [ ( "M-d"
+    , spawn
+        "rofi -show drun -modi drun -location 1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -font \"JetBrainsMonoMedium Nerd Font Mono 10\" -columns 9 -bw 0 -disable-history -hide-scrollbar -show-icons -kb-row-select \"Tab\" -kb-row-tab \"\"")
+  , ("M-p", windows $ greedyViewOnScreen 0 " 1 ")
+  , ("M-o", windows $ greedyViewOnScreen 0 " 2 ")
+  , ("M-i", windows $ greedyViewOnScreen 0 " 3 ")
+  , ("M-u", windows $ greedyViewOnScreen 0 " 4 ")
+  , ("M-y", windows $ greedyViewOnScreen 0 " 5 ")
+  , ("M-[", windows $ greedyViewOnScreen 0 " 8 ")
+  , ("M-<Return>", spawn "kitty")
+  , ("M-S-<Return>", windows W.swapMaster)
+  , ("M-m", spawn "restart_spotify")
+  , ("M-n", spawn "discord")
+  , ("M-c", spawn "brave")
+  , ("M-q", kill)
+  , ("M-f", sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
+  , ("M-S-i", spawn "sysinfo")
+  , ("C-<Space>", spawn "dunstctl close")
+  , ("<Control_L>-`", spawn "dunstctl history-pop")
+  , ("C-S-.", spawn "dunstctl context")
+  , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+  , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+  , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+  , ( "<XF86AudioMicMute>"
+    , spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+  , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 20")
+  , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 20")
+  , ("<XF86AudioPlay>", spawn "playerctl play-pause")
+  , ("<XF86AudioPause>", spawn "playerctl play-pause")
+  , ("<XF86AudioNext>", spawn "playerctl next")
+  , ("<XF86AudioPrev>", spawn "playerctl previous")
+  , ("<XF86AudioStop>", spawn "playerctl stop")
+  , ("M-S-s", spawn "flameshot gui")
+  , ( "M-C-S-n"
+    , spawn
+        "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off")
+  , ( "M-C-S-m"
+    , spawn
+        "xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off")
+  , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
+  , ("M-S-p", spawn "pavucontrol")
+  , ("M-C-l", shiftNextScreen >> nextScreen)
+  , ("M-C-h", shiftPrevScreen >> prevScreen)
+  , ("M-C-<Right>", shiftNextScreen >> nextScreen)
+  , ("M-C-<Left>", shiftPrevScreen >> prevScreen)
+  , ("M-S-l", spawn "lock")
+  ]
 
 myManageHook =
-    composeAll
-        [ className =? "kitty" --> doShift " 1 "
-        , className =? "Alacritty" --> doShift " 1 "
-        , className =? "Code" --> doShift " 1 "
-        , className =? "Brave-browser" --> doShift " 2 "
-        , className =? "discord" --> doShift " 3 "
-        , className =? "Slack" --> doShift " 3 "
-        , className =? "Microsoft Teams - Insiders" --> doShift " 5 "
-        , className =? "zoom" --> doShift " 5 "
-        , className =? "Skype" --> doShift " 5 "
-        , className =? "obs" --> doShift " 6 "
-        , className =? "kdenlive" --> doShift " 7 "
-        , className =? "Gimp-2.10" --> doShift " 7 "
-        , className =? "Thunar" --> doShift " 9 "
-        , className =? "Nitrogen" --> doFloat
-        ]
+  composeAll
+    [ className =? "kitty" --> doShift " 1 "
+    , className =? "Code" --> doShift " 1 "
+    , className =? "Brave-browser" --> doShift " 2 "
+    , className =? "qutebrowser" --> doShift " 2 "
+    , className =? "discord" --> doShift " 3 "
+    , className =? "Slack" --> doShift " 3 "
+    , className =? "Chromium" --> doShift " 5 "
+    , className =? "Microsoft Teams - Insiders" --> doShift " 5 "
+    , className =? "zoom" --> doShift " 5 "
+    , className =? "Skype" --> doShift " 5 "
+    , className =? "obs" --> doShift " 6 "
+    , className =? "kdenlive" --> doShift " 7 "
+    , className =? "Gimp-2.10" --> doShift " 7 "
+    , className =? "Eclipse" --> doShift " 8 "
+    , className =? "notion-app" --> doShift " 9 "
+    , className =? "Nitrogen" --> doFloat
+    ]
 
 myHandleEventHook = dynamicPropertyChange "WM_CLASS" myDynHook
 
 myDynHook = composeAll [title =? "Spotify" --> doShift " 4 "]
 
 myStartupHook = do
-    spawnOnce "picom --experimental-backends &"
-    spawnOnce "nitrogen --restore"
-    spawnOnce
-        "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
+  spawnOnce "picom --experimental-backends &"
+  spawnOnce "nitrogen --restore"
+  spawn
+    "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
+  setWMName "LG3D"
+  spawnOnce "sysinfo"
 
 myLayoutHook =
-    ThreeColMid 1 (3 / 100) (1 / 2) |||
-    Tall 1 (3 / 100) (1 / 2) |||
-    Mirror (Tall 1 (3 / 100) (1 / 2)) ||| tabbed shrinkText tabConfig
+  reflectHoriz $
+  Tall 1 (3 / 100) (2 / 3) |||
+  Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (2 / 100) (1 / 2)
 
-mySpacing = spacingRaw False (Border 12 12 12 12) True (Border 5 5 5 5) True
-
-main = do
-    xmonad $
-        docks $
-        ewmh
-            desktopConfig
-                { terminal = myTerminal
-                , focusFollowsMouse = myFocusFollowsMouse
-                , borderWidth = myBorderWidth
-                , modMask = myModMask
-                , workspaces = myWorkspaces
-                , normalBorderColor = myNormalBorderColor
-                , focusedBorderColor = myFocusedBorderColor
-                , layoutHook =
-                      avoidStruts $
-                      mySpacing $ mkToggle (single NBFULL) $ myLayoutHook
-                , manageHook = myManageHook
-                , handleEventHook = myHandleEventHook
-                , startupHook = myStartupHook
-                } `additionalKeysP`
-        myKeys
+main
+  -- xmproc <- spawnPipe "xmobar -x 0"
+  -- xmproc1 <- spawnPipe "xmobar -x 1"
+ = do
+  xmonad $
+    docks $
+    ewmh
+      desktopConfig
+        { terminal = myTerminal
+        , focusFollowsMouse = myFocusFollowsMouse
+        , borderWidth = myBorderWidth
+        , modMask = myModMask
+        , workspaces = myWorkspaces
+        , normalBorderColor = myNormalBorderColor
+        , focusedBorderColor = myFocusedBorderColor
+        , layoutHook =
+            lessBorders Screen $
+            mkToggle (single NBFULL) $ smartBorders myLayoutHook
+        , manageHook = myManageHook
+        , handleEventHook = myHandleEventHook
+        , startupHook = myStartupHook
+        -- , logHook =
+        --     dynamicLogWithPP
+        --       xmobarPP
+        --         {ppOutput = \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x}
+        } `additionalKeysP`
+    myKeys

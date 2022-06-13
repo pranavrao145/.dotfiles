@@ -112,6 +112,7 @@ sudo -u cypher -s << 'EOF'
     sudo ln -s /home/cypher/Scripts/system/update_color_scheme.sh /usr/bin/update-color-scheme
     sudo ln -s /home/cypher/.config/i3lock/lock.sh /usr/bin/lock
     sudo ln -s /home/cypher/Scripts/spotify/restart_spotify /usr/bin/restart_spotify
+    sudo ln -s /home/cypher/Scripts/system/sysinfo.sh /usr/bin/sysinfo
     pip install pywalfox
 EOF
 

@@ -43,7 +43,7 @@ vim.opt.laststatus = 3
 vim.opt.winbar = "%t %m"
 
 vim.cmd([[
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/python-extract-block-fix'
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/printvar2'
 ]])
 
 -- Set map leader

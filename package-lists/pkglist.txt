@@ -1,6 +1,7 @@
 acpi
 adobe-source-sans-fonts
 aircrack-ng
+alsa-plugins
 alsa-utils
 ant
 arandr
@@ -73,7 +74,9 @@ groff
 grub
 grub-customizer
 gzip
+haskell-language-server
 helix
+hindent
 htop
 hydra
 i3-gaps
@@ -199,6 +202,9 @@ xclip
 xf86-input-wacom
 xf86-video-intel
 xf86-video-vesa
+xmobar
+xmonad
+xmonad-contrib
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
