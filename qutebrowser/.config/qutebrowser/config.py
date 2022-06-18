@@ -126,6 +126,19 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/53
 # Type: List of Url
 c.content.blocking.hosts.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
 
+# Which method of blocking ads should be used.  Support for Adblock Plus
+# (ABP) syntax blocklists using Brave's Rust library requires the
+# `adblock` Python package to be installed, which is an optional
+# dependency of qutebrowser. It is required when either `adblock` or
+# `both` are selected.
+# Type: String
+# Valid values:
+#   - auto: Use Brave's ABP-style adblocker if available, host blocking otherwise
+#   - adblock: Use Brave's ABP-style adblocker
+#   - hosts: Use hosts blocking
+#   - both: Use both hosts blocking and Brave's ABP-style adblocker
+c.content.blocking.method = 'both'
+
 # Load images automatically in web pages.
 # Type: Bool
 config.set('content.images', True, 'chrome-devtools://*')
@@ -159,6 +172,20 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Type: Dict
 c.content.javascript.log = {'error': 'debug', 'info': 'debug', 'unknown': 'debug', 'warning': 'debug'}
 
+# Allow websites to register protocol handlers via
+# `navigator.registerProtocolHandler`.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.register_protocol_handler', True, 'https://mail.google.com?extsrc=mailto&url=%25s')
+
+# Directory to save downloads to. If unset, a sensible OS-specific
+# default is used.
+# Type: Directory
+c.downloads.location.directory = '/home/cypher/Downloads'
+
 # Editor (and arguments) to use for the `edit-*` commands. The following
 # placeholders are defined:  * `{file}`: Filename of the file to be
 # edited. * `{line}`: Line in which the caret is found in the text. *
@@ -184,6 +211,23 @@ c.fileselect.single_file.command = ['kitty', '-e', 'ranger', '--choosefile={}']
 # read instead.
 # Type: ShellCommand
 c.fileselect.multiple_files.command = ['kitty', '-e', 'ranger', '--choosefiles={}']
+
+# When to show the statusbar.
+# Type: String
+# Valid values:
+#   - always: Always show the statusbar.
+#   - never: Always hide the statusbar.
+#   - in-mode: Show the statusbar when in modes other than normal mode.
+c.statusbar.show = 'in-mode'
+
+# When to show the tab bar.
+# Type: String
+# Valid values:
+#   - always: Always show the tab bar.
+#   - never: Always hide the tab bar.
+#   - multiple: Hide the tab bar if only one tab is open.
+#   - switching: Show the tab bar when switching tabs.
+c.tabs.show = 'multiple'
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
@@ -245,3 +289,6 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 # Font used in the completion categories.
 # Type: Font
 c.fonts.completion.category = 'bold default_size default_family'
+
+# Bindings for normal mode
+config.bind(',m', 'spawn umpv {url}')

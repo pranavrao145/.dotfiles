@@ -117,6 +117,7 @@ mono-msbuild
 mono-msbuild-sdkresolver
 mosh
 mpd
+mpv
 nano
 neofetch
 network-manager-applet
@@ -153,6 +154,7 @@ pulseaudio
 pulseaudio-bluetooth
 pulseaudio-jack
 pyright
+python-adblock
 python-debugpy
 python-i3ipc
 python-pipenv
@@ -160,14 +162,18 @@ python-pyaudio
 python-pyserial
 python-pywal
 python-xlib
+qutebrowser
 ranger
 redis
 ripgrep
 rofi
 ruby
+rust
+rust-analyzer
 sassc
 sed
 sqlmap
+stack
 starship
 stow
 stylua
@@ -255,5 +261,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yarn
+youtube-dl
+yt-dlp
 zip
 zsh

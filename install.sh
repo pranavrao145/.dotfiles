@@ -113,6 +113,7 @@ sudo -u cypher -s << 'EOF'
     sudo ln -s /home/cypher/.config/i3lock/lock.sh /usr/bin/lock
     sudo ln -s /home/cypher/Scripts/spotify/restart_spotify /usr/bin/restart_spotify
     sudo ln -s /home/cypher/Scripts/system/sysinfo.sh /usr/bin/sysinfo
+    cd /usr/bin && sudo wget https://raw.githubusercontent.com/mpv-player/mpv/master/TOOLS/umpv && sudo chmod +x umpv
     pip install pywalfox
 EOF
 

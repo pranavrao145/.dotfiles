@@ -107,11 +107,18 @@ myKeys =
   , ("M-u", windows $ greedyViewOnScreen 0 " 4 ")
   , ("M-y", windows $ greedyViewOnScreen 0 " 5 ")
   , ("M-[", windows $ greedyViewOnScreen 0 " 8 ")
-  , ("M-<Return>", spawn "kitty")
+  , ("M-<Return>", windows (greedyViewOnScreen 0 " 1 ") >> spawn "kitty")
+  , ("M-t", windows (greedyViewOnScreen 0 " 1 ") >> spawn "kitty -e ranger")
   , ("M-S-<Return>", windows W.swapMaster)
+  , ("M-<Space>", windows W.focusMaster)
+  , ("M-S-<Space>", sendMessage NextLayout)
+  , ("M-C-S-<Space>", setLayout $ XMonad.Layout myLayoutHook)
   , ("M-m", spawn "restart_spotify")
   , ("M-n", spawn "discord")
-  , ("M-c", spawn "brave")
+  -- , ("M-c", windows (greedyViewOnScreen 0 " 2 ") >> spawn "brave")
+  , ( "M-c"
+    , windows (greedyViewOnScreen 0 " 2 ") >>
+      spawn "qutebrowser-profile --new personal")
   , ("M-q", kill)
   , ("M-f", sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
   , ("M-S-i", spawn "sysinfo")
@@ -179,9 +186,12 @@ myStartupHook = do
   spawnOnce "sysinfo"
 
 myLayoutHook =
+  avoidStruts $
   reflectHoriz $
   Tall 1 (3 / 100) (2 / 3) |||
   Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (2 / 100) (1 / 2)
+
+-- mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 2 2 2 2) True
 
 main
   -- xmproc <- spawnPipe "xmobar -x 0"

@@ -33,6 +33,7 @@ picom-jonaburg-git
 polybar-git
 pywal-discord-git
 quickemu
+qutebrowser-profile-git
 seclists
 shell-color-scripts
 siji-git

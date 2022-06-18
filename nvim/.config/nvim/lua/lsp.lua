@@ -186,4 +186,15 @@ nvim_lsp.omnisharp.setup({
   root_dir = nvim_lsp.util.root_pattern(".sln", ".csproj", ".git"),
 })
 
+-- Rust
+nvim_lsp.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_dir = nvim_lsp.util.root_pattern(
+    "Cargo.toml",
+    "rust-project.json",
+    ".git"
+  ),
+})
+
 return M

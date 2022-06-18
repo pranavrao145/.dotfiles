@@ -6,9 +6,10 @@ vim.g.material_terminal_italics = 1
 vim.g.dracula_italic = 1
 vim.g.nord_italic = 1
 vim.g.onehalf_italic = 1
+vim.g.tokyonight_transparent = 1
 
 -- Set colorscheme
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme tokyonight")
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[

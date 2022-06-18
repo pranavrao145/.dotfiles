@@ -189,7 +189,7 @@ return require("packer").startup(function()
   use("tpope/vim-speeddating")
 
   -- Dispatch
-  use({ "tpope/vim-dispatch", cmd = { "Dispatch", "Make", "Focus", "Start" } })
+  use({ "tpope/vim-dispatch" })
 
   -- Dotenv
   use({ "tpope/vim-dotenv", cmd = { "Dotenv" } })
@@ -258,11 +258,12 @@ return require("packer").startup(function()
 
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
-  use("ellisonleao/gruvbox.nvim")
+  -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
+  use("folke/tokyonight.nvim")
 
   if packer_bootstrap then
     require("packer").sync()
