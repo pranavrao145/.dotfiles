@@ -4,8 +4,8 @@ local cwd = vim.loop.cwd()
 -- set vim env depending on cwd
 local projects = {
   ["fulcrum-mk2"] = "DOCKER",
-  ["wanimals"] = "JAVA",
   ["lanchat"] = "DOCKER",
+  ["nocontext-server"] = "DOCKER",
 }
 
 for project, _ in pairs(projects) do

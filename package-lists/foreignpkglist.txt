@@ -9,6 +9,8 @@ crunch
 docker-credential-secretservice-bin
 downgrade
 eclipse-java
+elixir-ls
+etcher-bin
 gconf
 gobuster-bin
 gotop
@@ -17,6 +19,7 @@ i3-battery-popup
 i3lock-color-git
 imagewriter
 inferno
+latex-mk
 lightdm-webkit-theme-aether
 lua-language-server-git
 nerd-fonts-hack

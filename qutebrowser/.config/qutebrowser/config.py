@@ -13,6 +13,11 @@
 # Change the argument to True to still load settings configured via autoconfig.yml
 config.load_autoconfig(False)
 
+# Aliases for commands. The keys of the given dictionary are the
+# aliases, while the values are the commands they map to.
+# Type: Dict
+c.aliases = {'q': 'close', 'qa': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'wqa': 'quit --save', 'c': 'session-load calendar'}
+
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
 # including IndexedDB, DOM storage, filesystem API, service workers, and
@@ -146,6 +151,12 @@ config.set('content.images', True, 'chrome-devtools://*')
 # Load images automatically in web pages.
 # Type: Bool
 config.set('content.images', True, 'devtools://*')
+
+# Allow JavaScript to read from or write to the clipboard. With
+# QtWebEngine, writing the clipboard as response to a user interaction
+# is always allowed.
+# Type: Bool
+c.content.javascript.can_access_clipboard = True
 
 # Enable JavaScript.
 # Type: Bool
@@ -291,4 +302,8 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 c.fonts.completion.category = 'bold default_size default_family'
 
 # Bindings for normal mode
+config.bind(',M', 'hint links spawn umpv {hint-url}')
 config.bind(',m', 'spawn umpv {url}')
+config.bind(';M', 'hint --rapid links spawn umpv {hint-url}')
+config.bind('<Ctrl+Shift+Tab>', 'tab-prev')
+config.bind('<Ctrl+Tab>', 'tab-next')

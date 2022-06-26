@@ -197,4 +197,17 @@ nvim_lsp.rust_analyzer.setup({
   ),
 })
 
+-- Elixir/Erlang
+nvim_lsp.elixirls.setup({
+  cmd = { "/usr/bin/elixir-ls" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- LaTeX
+nvim_lsp.texlab.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
 return M

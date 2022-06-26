@@ -56,18 +56,6 @@ getFromXres key =
 fromXres :: String -> String
 fromXres = unsafePerformIO . getFromXres
 
--- Colors for text and backgrounds of each tab when in "Tabbed" layout.
-tabConfig =
-  defaultTheme
-    { activeBorderColor = fromXres "*color6"
-    , activeTextColor = fromXres "*color7"
-    , activeColor = fromXres "*color6"
-    , inactiveBorderColor = fromXres "*color2"
-    , inactiveTextColor = fromXres "*color7"
-    , inactiveColor = fromXres "*color2"
-    , fontName = "xft:JetBrainsMonoMedium Nerd Font Mono:size=8"
-    }
-
 clickable ws =
   "<action=xdotool key super+" ++ show i ++ ">" ++ ws ++ "</action>"
   where
@@ -106,7 +94,8 @@ myKeys =
   , ("M-i", windows $ greedyViewOnScreen 0 " 3 ")
   , ("M-u", windows $ greedyViewOnScreen 0 " 4 ")
   , ("M-y", windows $ greedyViewOnScreen 0 " 5 ")
-  , ("M-[", windows $ greedyViewOnScreen 0 " 8 ")
+  , ("M-[", windows $ greedyViewOnScreen 0 " 9 ")
+  , ("M-<Tab>", spawn "rofi -show window")
   , ("M-<Return>", windows (greedyViewOnScreen 0 " 1 ") >> spawn "kitty")
   , ("M-t", windows (greedyViewOnScreen 0 " 1 ") >> spawn "kitty -e ranger")
   , ("M-S-<Return>", windows W.swapMaster)
@@ -115,10 +104,14 @@ myKeys =
   , ("M-C-S-<Space>", setLayout $ XMonad.Layout myLayoutHook)
   , ("M-m", spawn "restart_spotify")
   , ("M-n", spawn "discord")
+  , ("M-z", spawn "notion-app")
   -- , ("M-c", windows (greedyViewOnScreen 0 " 2 ") >> spawn "brave")
   , ( "M-c"
     , windows (greedyViewOnScreen 0 " 2 ") >>
       spawn "qutebrowser-profile --new personal")
+  , ( "M-S-c"
+    , windows (greedyViewOnScreen 0 " 2 ") >>
+      spawn "qutebrowser-profile --new university")
   , ("M-q", kill)
   , ("M-f", sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
   , ("M-S-i", spawn "sysinfo")
@@ -140,10 +133,10 @@ myKeys =
   , ("M-S-s", spawn "flameshot gui")
   , ( "M-C-S-n"
     , spawn
-        "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off")
+        "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off && nitrogen --restore && picom --experimental-backends &")
   , ( "M-C-S-m"
     , spawn
-        "xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off")
+        "xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off && nitrogen --restore && picom --experimental-backends &")
   , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
   , ("M-S-p", spawn "pavucontrol")
   , ("M-C-l", shiftNextScreen >> nextScreen)
@@ -178,21 +171,31 @@ myHandleEventHook = dynamicPropertyChange "WM_CLASS" myDynHook
 myDynHook = composeAll [title =? "Spotify" --> doShift " 4 "]
 
 myStartupHook = do
-  spawnOnce "picom --experimental-backends &"
   spawnOnce "nitrogen --restore"
+  spawnOnce "xmodmap -e 'keycode 135 = Super_R' && xset -r 135"
   spawn
-    "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
+    "xsetwacom set \"Wacom Intuos S Pad pad\" Button 1 \"key +ctrl z -ctrl\""
+  spawn
+    "xsetwacom set \"Wacom Intuos S Pad pad\" Button 2 \"key +ctrl y -ctrl\""
+  spawn "xsetwacom set \"Wacom Intuos S Pad pad\" Button 3 \"key pgup\""
+  spawn "xsetwacom set \"Wacom Intuos S Pad pad\" Button 8 \"key pgdn\""
+  spawn "xsetwacom set \"Wacom Intuos S Pen stylus\" Button 2 3"
+  spawn "xsetwacom set \"Wacom Intuos S Pen stylus\" Button 3 \"key del\""
+  spawn "mapwacom -d \"Wacom Intuos S Pen stylus\" -s \"HDMI1\""
   setWMName "LG3D"
+  spawn "picom --experimental-backends &"
   spawnOnce "sysinfo"
 
 myLayoutHook =
+  lessBorders Screen $
+  mkToggle (single NBFULL) $
+  smartBorders $
   avoidStruts $
   reflectHoriz $
   Tall 1 (3 / 100) (2 / 3) |||
   Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (2 / 100) (1 / 2)
 
 -- mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 2 2 2 2) True
-
 main
   -- xmproc <- spawnPipe "xmobar -x 0"
   -- xmproc1 <- spawnPipe "xmobar -x 1"
@@ -208,9 +211,7 @@ main
         , workspaces = myWorkspaces
         , normalBorderColor = myNormalBorderColor
         , focusedBorderColor = myFocusedBorderColor
-        , layoutHook =
-            lessBorders Screen $
-            mkToggle (single NBFULL) $ smartBorders myLayoutHook
+        , layoutHook = myLayoutHook
         , manageHook = myManageHook
         , handleEventHook = myHandleEventHook
         , startupHook = myStartupHook

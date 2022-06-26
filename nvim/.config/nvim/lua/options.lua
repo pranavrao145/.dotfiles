@@ -36,7 +36,7 @@ vim.opt.showmode = false
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.background = "dark"
 vim.opt.mouse = "a"
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 vim.opt.pumblend = 15
 vim.opt.path = vim.o.path .. ",**"
 vim.opt.laststatus = 3
@@ -64,10 +64,8 @@ vim.cmd([[
 ]])
 
 -- Highlight on yank
-local highlight_group = vim.api.nvim_create_augroup(
-  "YankHighlight",
-  { clear = true }
-)
+local highlight_group =
+  vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()

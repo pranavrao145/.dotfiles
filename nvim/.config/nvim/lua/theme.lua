@@ -7,9 +7,11 @@ vim.g.dracula_italic = 1
 vim.g.nord_italic = 1
 vim.g.onehalf_italic = 1
 vim.g.tokyonight_transparent = 1
+vim.g.ayu_italic_comment = 1
 
 -- Set colorscheme
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme ayu")
+-- require("colorbuddy").colorscheme("gruvbuddy")
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[
@@ -24,6 +26,6 @@ vim.cmd([[
     hi TelescopeNormal guibg=NONE ctermbg=NONE
     hi! link NonText Comment
 
-    " Needed for palenight
+    " Needed for palenight and gruvbuddy
     " hi ColorColumn guibg=#2C323C ctermbg=236
 ]])

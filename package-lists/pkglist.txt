@@ -22,6 +22,7 @@ bluez-hid2hci
 bluez-utils
 brightnessctl
 calc
+cargo-generate
 chromium
 clang
 cmake
@@ -43,7 +44,9 @@ dsniff
 dunst
 ed
 efibootmgr
+elixir
 encfs
+erlang-nox
 exa
 exploitdb
 fakeroot
@@ -82,6 +85,7 @@ hydra
 i3-gaps
 i3blocks
 i3status
+inotify-tools
 iw
 iwd
 jack2
@@ -90,6 +94,8 @@ jp2a
 kamoso
 kdenlive
 kitty
+kompose
+kubectl
 kvantum
 lazygit
 libreoffice-fresh
@@ -168,8 +174,8 @@ redis
 ripgrep
 rofi
 ruby
-rust
 rust-analyzer
+rustup
 sassc
 sed
 sqlmap
@@ -183,6 +189,7 @@ system-config-printer
 termdown
 terminus-font
 texinfo
+texlab
 tmux
 tor
 tree
