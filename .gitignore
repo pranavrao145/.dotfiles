@@ -17,3 +17,7 @@ workspace
 .vscode
 .metadata
 ~
+plugin
+plugins
+undodir
+UltiSnips

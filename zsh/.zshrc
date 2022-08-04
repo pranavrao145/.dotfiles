@@ -162,6 +162,7 @@ alias f='fg'
 alias ff='cd && cd "$(fd -H --type d | fzf)"'
 alias src='exec zsh'
 alias switch-worktree="source switch-worktree"
+alias sa="eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
 
 export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH

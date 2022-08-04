@@ -16,7 +16,8 @@ config.load_autoconfig(False)
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'q': 'close', 'qa': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'wqa': 'quit --save', 'c': 'session-load calendar'}
+c.aliases = {'q': 'close', 'qa': 'quit', 'w': 'session-save',
+             'wq': 'quit --save', 'wqa': 'quit --save'}
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -69,7 +70,8 @@ config.set('content.cookies.accept', 'all', 'devtools://*')
 # Value to send in the `Accept-Language` header. Note that the value
 # read from JavaScript is always the global value.
 # Type: String
-config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io/*')
+config.set('content.headers.accept_language',
+           '', 'https://matchmaker.krunker.io/*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -85,7 +87,8 @@ config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
+config.set('content.headers.user_agent',
+           'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -101,7 +104,8 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0', 'https://accounts.google.com/*')
+config.set('content.headers.user_agent',
+           'Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0', 'https://accounts.google.com/*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -117,7 +121,8 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
+config.set('content.headers.user_agent',
+           'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
 
 # List of URLs to host blocklists for the host blocker.  Only used when
 # the simple host-blocker is used (see `content.blocking.method`).  The
@@ -129,7 +134,8 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/53
 # lists.  The file `~/.config/qutebrowser/blocked-hosts` is always read
 # if it exists.
 # Type: List of Url
-c.content.blocking.hosts.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
+c.content.blocking.hosts.lists = [
+    'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
 
 # Which method of blocking ads should be used.  Support for Adblock Plus
 # (ABP) syntax blocklists using Brave's Rust library requires the
@@ -181,7 +187,8 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # following levels are valid: `none`, `debug`, `info`, `warning`,
 # `error`.
 # Type: Dict
-c.content.javascript.log = {'error': 'debug', 'info': 'debug', 'unknown': 'debug', 'warning': 'debug'}
+c.content.javascript.log = {
+    'error': 'debug', 'info': 'debug', 'unknown': 'debug', 'warning': 'debug'}
 
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.
@@ -190,7 +197,8 @@ c.content.javascript.log = {'error': 'debug', 'info': 'debug', 'unknown': 'debug
 #   - true
 #   - false
 #   - ask
-config.set('content.register_protocol_handler', True, 'https://mail.google.com?extsrc=mailto&url=%25s')
+config.set('content.register_protocol_handler', True,
+           'https://mail.google.com?extsrc=mailto&url=%25s')
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.
@@ -204,7 +212,8 @@ c.downloads.location.directory = '/home/cypher/Downloads'
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ['kitty', '-e', 'nvim', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['kitty', '-e', 'nvim',
+                    '{file}', '-c', 'normal {line}G{column0}l']
 
 # Command (and arguments) to use for selecting a single file in forms.
 # The command should write the selected file path to the specified file
@@ -221,7 +230,8 @@ c.fileselect.single_file.command = ['kitty', '-e', 'ranger', '--choosefile={}']
 # contained in any argument, the   standard output of the command is
 # read instead.
 # Type: ShellCommand
-c.fileselect.multiple_files.command = ['kitty', '-e', 'ranger', '--choosefiles={}']
+c.fileselect.multiple_files.command = [
+    'kitty', '-e', 'ranger', '--choosefiles={}']
 
 # When to show the statusbar.
 # Type: String
@@ -307,3 +317,4 @@ config.bind(',m', 'spawn umpv {url}')
 config.bind(';M', 'hint --rapid links spawn umpv {hint-url}')
 config.bind('<Ctrl+Shift+Tab>', 'tab-prev')
 config.bind('<Ctrl+Tab>', 'tab-next')
+config.bind('W', 'tab-give')

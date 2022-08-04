@@ -5,7 +5,8 @@ local cwd = vim.loop.cwd()
 local projects = {
   ["fulcrum-mk2"] = "DOCKER",
   ["lanchat"] = "DOCKER",
-  ["nocontext-server"] = "DOCKER",
+  ["storybuilder-server"] = "DOCKER",
+  ["storybuilder-tui"] = "RUST",
 }
 
 for project, _ in pairs(projects) do

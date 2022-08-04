@@ -39,6 +39,15 @@ echo "User cypher set up successfully."
 cp ./sudo/sudoers /etc/sudoers # copy sudoers file
 cp ./doas/doas.conf /etc/doas.conf # copy doas configuration file
 
+##### SETUP OF USER DIRS #####
+
+# Set up basic user directories for user cypher (Documents, Downloads, etc.)
+
+sudo -u cypher -s << 'EOF'
+    cd
+    xdg-user-dir
+EOF
+
 ##### CLONING DOTFILES #####
 
 # Clone dotfiles (again) but this time to home directory
@@ -52,7 +61,7 @@ EOF
 
 echo "Installing paru package manager."
 
-# install aura package manager
+# install paru package manager
 sudo -u cypher -s << 'EOF'
     cd
     git clone https://aur.archlinux.org/paru-bin.git

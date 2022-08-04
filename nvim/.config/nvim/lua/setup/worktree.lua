@@ -20,6 +20,7 @@ vim.keymap.set(
 local project_commands = {
   ["DOCKER"] = ":silent !tmux-windowizer %s docker-compose build",
   ["JAVA"] = ":silent !tmux-windowizer %s ant",
+  ["RUST"] = ":silent !tmux-windowizer %s cargo build",
 }
 
 worktree.on_tree_change(function(op, metadata)

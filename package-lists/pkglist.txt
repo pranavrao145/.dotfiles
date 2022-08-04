@@ -3,6 +3,8 @@ adobe-source-sans-fonts
 aircrack-ng
 alsa-plugins
 alsa-utils
+ansible
+ansible-core
 ant
 arandr
 arc-gtk-theme
@@ -148,6 +150,8 @@ pacman-contrib
 patch
 pavucontrol
 pinta
+pipewire-alsa
+pipewire-pulse
 pkgconf
 playerctl
 postgresql
@@ -156,9 +160,6 @@ powerline
 powerline-fonts
 prettier
 proxychains-ng
-pulseaudio
-pulseaudio-bluetooth
-pulseaudio-jack
 pyright
 python-adblock
 python-debugpy
@@ -177,6 +178,7 @@ ruby
 rust-analyzer
 rustup
 sassc
+screenkey
 sed
 sqlmap
 stack
@@ -190,6 +192,17 @@ termdown
 terminus-font
 texinfo
 texlab
+texlive-bibtexextra
+texlive-fontsextra
+texlive-formatsextra
+texlive-games
+texlive-humanities
+texlive-latexextra
+texlive-music
+texlive-pictures
+texlive-pstricks
+texlive-publishers
+texlive-science
 tmux
 tor
 tree

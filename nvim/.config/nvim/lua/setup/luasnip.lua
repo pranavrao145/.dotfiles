@@ -1,1 +1,136 @@
 require("luasnip.loaders.from_vscode").lazy_load()
+
+local luasnip = require("luasnip")
+local s = luasnip.snippet
+local t = luasnip.text_node
+local i = luasnip.insert_node
+
+luasnip.add_snippets("tex", {
+  s("start", {
+    t({
+      "\\documentclass[12pt]{article}",
+      "\\usepackage{amsmath}",
+      "\\usepackage{amsfonts}",
+      "\\usepackage{amssymb}",
+      "\\usepackage{amsthm}",
+      "\\usepackage{pifont}",
+      "\\usepackage{fancyhdr}",
+      "\\usepackage{hyperref}",
+      "\\usepackage{float,graphicx}",
+      "\\usepackage{framed}",
+      "\\usepackage[margin=3cm, headheight=15pt]{geometry}",
+      "",
+      "\\pagestyle{fancyplain}",
+      "\\fancypagestyle{plain}{",
+      "\\renewcommand{\\headrulewidth}{0.4pt}",
+      "}",
+      "",
+      "\\lhead{\\fancyplain{Name}{Name}}",
+      "\\rhead{\\fancyplain{Title}{Title}}",
+      "",
+      "\\title{Title}",
+      "\\author{Name}",
+      "\\date{Date}",
+      "",
+      "\\begin{document}",
+      "\\maketitle",
+      "\\end{document}",
+    }),
+  }),
+  s("set", {
+    t("\\{"),
+    i(1),
+    t("\\}"),
+    i(0),
+  }),
+  s("tab", {
+    t({
+      "\\begin{center}",
+      "\\begin{tabular}{",
+    }),
+    i(1),
+    t({
+      "}",
+      "",
+    }),
+    i(2),
+    t({
+      "",
+      "  \\hline",
+      "",
+    }),
+    i(3),
+    t({
+      "",
+      "\\end{tabular}",
+      "\\end{center}",
+    }),
+    i(0),
+  }),
+  s("bold", {
+    t({ "\\textbf{" }),
+    i(1),
+    t({ "}" }),
+    i(0),
+  }),
+  s("emph", {
+    t({ "\\emph{" }),
+    i(1),
+    t({ "}" }),
+    i(0),
+  }),
+  s('"', {
+    t({ "``" }),
+    i(1),
+    t({ "''" }),
+    i(0),
+  }),
+  s("`", {
+    t({ "\\verb|" }),
+    i(1),
+    t({ "|" }),
+    i(0),
+  }),
+  s("verb", {
+    t({ "\\verb|" }),
+    i(1),
+    t({ "|" }),
+    i(0),
+  }),
+  s("bb", {
+    t({ "\\mathbb{" }),
+    i(1),
+    t({ "}" }),
+    i(0),
+  }),
+  s("$", {
+    t({ "$" }),
+    i(1),
+    t({ "$" }),
+    i(0),
+  }),
+  s("newtheorem", { t("\\newtheorem{theorem}{Theorem}[section]") }),
+  s(";", { t("\\;") }),
+  s("blacksquare", { t("\\renewcommand\\qedsymbol{$\\blacksquare$}") }),
+  s("frac", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), i(0) }),
+  s("sqrt", {
+    t({ "\\sqrt{" }),
+    i(1),
+    t({ "}" }),
+    i(0),
+  }),
+  s("abs", { t("\\left|"), i(1), t("\\right|"), i(0) }),
+  s("graphicspath", { t("\\graphicspath{ {"), i(1), t("} }"), i(0) }),
+  s("H", { t("[H]") }),
+  s("underline", {
+    t("\\underline{"),
+    i(1),
+    t("}"),
+    i(0),
+  }),
+  s("cmark", { t("\\ding{51}") }),
+  s("xmark", { t("\\ding{55}") }),
+  s("lim", { t("\\lim_{"), i(1), t("}"), i(0) }),
+  s("text", { t("\\text{"), i(1), t("}"), i(0) }),
+  s("b/w", { t("between") }),
+})

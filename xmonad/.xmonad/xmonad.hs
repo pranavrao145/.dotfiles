@@ -88,7 +88,7 @@ myFocusedBorderColor = fromXres "*color6"
 myKeys =
   [ ( "M-d"
     , spawn
-        "rofi -show drun -modi drun -location 1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -font \"JetBrainsMonoMedium Nerd Font Mono 10\" -columns 9 -bw 0 -disable-history -hide-scrollbar -show-icons -kb-row-select \"Tab\" -kb-row-tab \"\"")
+        "rofi -show drun -modi drun -location 1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -font \"JetBrainsMonoMedium Nerd Font Mono 10\" -columns 9 -bw 0 -disable-history -hide-scrollbar -show-icons  -kb-row-tab \"\" -kb-row-select \"Tab\"")
   , ("M-p", windows $ greedyViewOnScreen 0 " 1 ")
   , ("M-o", windows $ greedyViewOnScreen 0 " 2 ")
   , ("M-i", windows $ greedyViewOnScreen 0 " 3 ")

@@ -10,8 +10,8 @@ vim.g.tokyonight_transparent = 1
 vim.g.ayu_italic_comment = 1
 
 -- Set colorscheme
-vim.cmd("colorscheme ayu")
--- require("colorbuddy").colorscheme("gruvbuddy")
+-- vim.cmd("colorscheme habamax")
+require("colorbuddy").colorscheme("gruvbuddy")
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[
@@ -27,5 +27,5 @@ vim.cmd([[
     hi! link NonText Comment
 
     " Needed for palenight and gruvbuddy
-    " hi ColorColumn guibg=#2C323C ctermbg=236
+    hi ColorColumn guibg=#2C323C ctermbg=236
 ]])
