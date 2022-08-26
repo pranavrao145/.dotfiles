@@ -160,6 +160,7 @@ powerline
 powerline-fonts
 prettier
 proxychains-ng
+pycharm-community-edition
 pyright
 python-adblock
 python-debugpy
@@ -180,6 +181,7 @@ rustup
 sassc
 screenkey
 sed
+speedtest-cli
 sqlmap
 stack
 starship

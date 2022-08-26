@@ -26,6 +26,7 @@ nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch
 notion-app
+nvim-packer-git
 nvm
 orchis-theme-git
 papirus-icon-theme-git

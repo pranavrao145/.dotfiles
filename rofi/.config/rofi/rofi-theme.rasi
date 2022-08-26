@@ -15,7 +15,7 @@
   spacing: 10;
   background-color: transparent;
 
-  font: "JetBrainsMonoMedium Nerd Font Mono 15";
+  font: "JetBrainsMono Nerd Font Mono 15";
   text-color: @text;
 }
 

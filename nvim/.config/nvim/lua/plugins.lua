@@ -267,9 +267,9 @@ return require("packer").startup(function()
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
-  -- use("luxed/ayu-vim")
-  use("tjdevries/colorbuddy.vim")
-  use("tjdevries/gruvbuddy.nvim")
+  use("luxed/ayu-vim")
+  -- use("tjdevries/colorbuddy.vim")
+  -- use("tjdevries/gruvbuddy.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

@@ -35,9 +35,9 @@ i3lock \
 --date-str="%A, %m %Y"       \
 --keylayout 1                \
 --radius 250                 \
---time-font "JetBrainsMonoMedium Nerd Font Mono" \
---date-font "JetBrainsMonoMedium Nerd Font Mono" \
---layout-font "JetBrainsMonoMedium Nerd Font Mono" \
---verif-font "JetBrainsMonoMedium Nerd Font Mono" \
---wrong-font "JetBrainsMonoMedium Nerd Font Mono" \
---greeter-font "JetBrainsMonoMedium Nerd Font Mono" \
+--time-font "JetBrainsMono Nerd Font Mono" \
+--date-font "JetBrainsMono Nerd Font Mono" \
+--layout-font "JetBrainsMono Nerd Font Mono" \
+--verif-font "JetBrainsMono Nerd Font Mono" \
+--wrong-font "JetBrainsMono Nerd Font Mono" \
+--greeter-font "JetBrainsMono Nerd Font Mono" \
