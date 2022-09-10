@@ -133,4 +133,5 @@ luasnip.add_snippets("tex", {
   s("lim", { t("\\lim_{"), i(1), t("}"), i(0) }),
   s("text", { t("\\text{"), i(1), t("}"), i(0) }),
   s("b/w", { t("between") }),
+  s("sum", {t("\\displaystyle\\sum_{"), i(1), t("}^"), i(0)})
 })

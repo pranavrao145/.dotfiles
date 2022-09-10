@@ -106,14 +106,10 @@ myKeys =
   , ("M-n", spawn "discord")
   , ("M-z", spawn "notion-app")
   -- , ("M-c", windows (greedyViewOnScreen 0 " 2 ") >> spawn "brave")
-  , ( "M-c"
-    , windows (greedyViewOnScreen 0 " 2 ") >>
-      spawn "qutebrowser-profile --new personal")
-  , ( "M-S-c"
-    , windows (greedyViewOnScreen 0 " 2 ") >>
-      spawn "qutebrowser-profile --new university")
+  , ("M-c", windows (greedyViewOnScreen 0 " 2 ") >> spawn "qutebrowser")
+  , ("M-x", spawn "qutebrowser calendar.google.com")
   , ("M-q", kill)
-  , ("M-f", sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)
+  , ("M-f", sendMessage (Toggle NBFULL))
   , ("M-S-i", spawn "sysinfo")
   , ("C-<Space>", spawn "dunstctl close")
   , ("<Control_L>-`", spawn "dunstctl history-pop")
@@ -162,6 +158,7 @@ myManageHook =
     , className =? "kdenlive" --> doShift " 7 "
     , className =? "Gimp-2.10" --> doShift " 7 "
     , className =? "Eclipse" --> doShift " 8 "
+    , className =? "jetbrains-pycharm-ce" --> doShift " 8 "
     , className =? "notion-app" --> doShift " 9 "
     , className =? "Nitrogen" --> doFloat
     ]
@@ -184,7 +181,10 @@ myStartupHook = do
   spawn "mapwacom -d \"Wacom Intuos S Pen stylus\" -s \"HDMI1\""
   setWMName "LG3D"
   spawn "picom --experimental-backends &"
-  spawnOnce "sysinfo"
+  spawnOnce "nm-applet &"
+  -- spawnOnce "sysinfo"
+
+-- mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 2 2 2 2) True
 
 myLayoutHook =
   lessBorders Screen $
@@ -192,14 +192,13 @@ myLayoutHook =
   smartBorders $
   avoidStruts $
   reflectHoriz $
+  -- mySpacing $
   Tall 1 (3 / 100) (2 / 3) |||
   Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (2 / 100) (1 / 2)
 
--- mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 2 2 2 2) True
-main
-  -- xmproc <- spawnPipe "xmobar -x 0"
-  -- xmproc1 <- spawnPipe "xmobar -x 1"
- = do
+main = do
+  xmproc <- spawnPipe "xmobar -x 0"
+  xmproc1 <- spawnPipe "xmobar -x 1"
   xmonad $
     docks $
     ewmh
@@ -215,9 +214,9 @@ main
         , manageHook = myManageHook
         , handleEventHook = myHandleEventHook
         , startupHook = myStartupHook
-        -- , logHook =
-        --     dynamicLogWithPP
-        --       xmobarPP
-        --         {ppOutput = \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x}
+        , logHook =
+            dynamicLogWithPP
+              xmobarPP
+                {ppOutput = \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x}
         } `additionalKeysP`
     myKeys

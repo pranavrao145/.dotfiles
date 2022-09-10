@@ -33,9 +33,9 @@ papirus-icon-theme-git
 paru-bin
 pfetch
 picom-jonaburg-git
+protonvpn
 pywal-discord-git
 quickemu
-qutebrowser-profile-git
 seclists
 shell-color-scripts
 slack-desktop

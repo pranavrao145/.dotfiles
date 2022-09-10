@@ -1,6 +1,6 @@
 Config { 
     -- appearance
-        font =         "xft:JetBrainsMonoMedium Nerd Font Mono:size=8:antialias=true"
+        font =         "xft:JetBrainsMono Nerd Font Mono:size=9:antialias=true"
         , bgColor =      "#0D0E0C"
         , fgColor =      "#DEE0E2"
         , position =     Top
@@ -39,7 +39,7 @@ Config {
             , Run Cpu ["-H","80","--high","red"] 10
             , Run Memory ["-t","Mem: <usedratio>%"] 10
             , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-            , Run BatteryP ["BAT0"] ["-L", "20", "--low", "red", "-t", "<acstatus>", "--", "--off", "Batt: <left>% remaining / <timeleft>", "--on", "Char: <left>% remaining / <timeleft>"] 10
+            , Run BatteryP ["BAT0"] ["-L", "20", "--low", "red", "-t", "Batt: <left>% remaining / <timeleft>", "--", "--off", "Batt: <left>% remaining / <timeleft>", "--on", "Char: <left>% remaining / <timeleft>"] 10
             , Run Com "/home/cypher/Scripts/audio/get_pulse_volume.sh" [] "volume" 10
             , Run Mpris2 "spotify" ["-t", "Spotify: <artist> - <title>"] 10
         ]

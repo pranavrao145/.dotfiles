@@ -8,5 +8,6 @@ vim.cmd([[
         autocmd FileType java let b:dispatch = "javac %"
         autocmd FileType go let b:dispatch = "go build"
         autocmd FileType typescript let b:dispatch = "yarn build"
+        autocmd FileType python let b:dispatch = "python %"
     augroup end
 ]])

@@ -52,6 +52,7 @@ erlang-nox
 exa
 exploitdb
 fakeroot
+fbreader
 fd
 figlet
 file
@@ -149,6 +150,7 @@ pacman
 pacman-contrib
 patch
 pavucontrol
+perl-yaml
 pinta
 pipewire-alsa
 pipewire-pulse
@@ -158,6 +160,7 @@ postgresql
 postgresql-libs
 powerline
 powerline-fonts
+powertop
 prettier
 proxychains-ng
 pycharm-community-edition
@@ -205,6 +208,7 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
+tlp
 tmux
 tor
 tree

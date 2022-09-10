@@ -55,5 +55,5 @@ require("setup.treehopper")
 require("setup.octo")
 require("setup.gitlinker")
 require("setup.vimtex")
---
+
 -- require('plenary.profile').stop()

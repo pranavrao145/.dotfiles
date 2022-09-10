@@ -6,11 +6,13 @@ vim.g.material_terminal_italics = 1
 vim.g.dracula_italic = 1
 vim.g.nord_italic = 1
 vim.g.onehalf_italic = 1
-vim.g.tokyonight_transparent = 1
 vim.g.ayu_italic_comment = 1
 
+-- set up tokyonight, if necessary
+require("setup.tokyonight")
+
 -- Set colorscheme
-vim.cmd("colorscheme ayu")
+vim.cmd("colorscheme tokyonight")
 -- require("colorbuddy").colorscheme("gruvbuddy")
 
 -- transparent background and get rid of unneccessary fills
