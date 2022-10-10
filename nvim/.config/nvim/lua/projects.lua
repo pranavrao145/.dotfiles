@@ -7,6 +7,7 @@ local projects = {
   ["lanchat"] = "DOCKER",
   ["storybuilder-server"] = "DOCKER",
   ["storybuilder-tui"] = "RUST",
+  ["storybuilder-cli"] = "RUST",
 }
 
 for project, _ in pairs(projects) do

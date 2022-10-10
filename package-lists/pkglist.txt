@@ -34,6 +34,7 @@ cronie
 cups
 cups-pdf
 dart
+debugedit
 delve
 discord
 dmenu
@@ -150,7 +151,9 @@ pacman
 pacman-contrib
 patch
 pavucontrol
+perl-file-homedir
 perl-yaml
+perl-yaml-tiny
 pinta
 pipewire-alsa
 pipewire-pulse
@@ -173,9 +176,11 @@ python-pyaudio
 python-pyserial
 python-pywal
 python-xlib
+qemu-base
 qutebrowser
 ranger
 redis
+refind
 ripgrep
 rofi
 ruby
@@ -183,6 +188,7 @@ rust-analyzer
 rustup
 sassc
 screenkey
+sddm
 sed
 speedtest-cli
 sqlmap
@@ -217,6 +223,7 @@ ttf-dejavu
 ttf-droid
 ttf-fantasque-sans-mono
 ttf-font-awesome
+ttf-hack-nerd
 ttf-jetbrains-mono
 typescript-language-server
 uncrustify

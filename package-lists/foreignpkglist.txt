@@ -1,10 +1,12 @@
 alternating-layouts-git
+ani-cli
 anydesk-bin
 betterdiscord-git
 betterdiscordctl-git
 brave-bin
 burpsuite
 cava
+chili-sddm-theme
 crunch
 docker-credential-secretservice-bin
 downgrade
@@ -21,7 +23,6 @@ inferno
 latex-mk
 lightdm-webkit-theme-aether
 lua-language-server-git
-nerd-fonts-hack
 nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch
@@ -35,11 +36,11 @@ pfetch
 picom-jonaburg-git
 protonvpn
 pywal-discord-git
-quickemu
 seclists
 shell-color-scripts
 slack-desktop
 snapd
+spotify
 tmux-plugin-manager-git
 ttf-font-awesome-4
 ttf-fork-awesome

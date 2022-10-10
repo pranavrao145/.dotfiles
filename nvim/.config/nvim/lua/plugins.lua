@@ -257,16 +257,16 @@ return require("packer").startup(function()
   -- LaTeX support
   use("lervag/vimtex")
 
-  -- use("tjdevries/cyclist.vim")
+  use("tjdevries/cyclist.vim")
 
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
   -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
-  -- use("shaunsingh/nord.nvim")
+  use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
-  use("folke/tokyonight.nvim")
+  -- use("folke/tokyonight.nvim")
   -- use("luxed/ayu-vim")
   -- use("tjdevries/colorbuddy.vim")
   -- use("tjdevries/gruvbuddy.nvim")

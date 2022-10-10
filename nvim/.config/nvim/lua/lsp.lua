@@ -3,7 +3,7 @@ local nvim_lsp = require("lspconfig")
 local lsp_signature = require("lsp_signature")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local jdtls = require("jdtls")
 local jdtls_setup = require("jdtls.setup")
@@ -52,7 +52,7 @@ local on_attach = function(_, bufnr)
   buf_set_keymap("n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
   buf_set_keymap(
     "n",
-    "<leader>gy",
+    "<leader>gh",
     "<cmd>lua vim.lsp.buf.signature_help()<CR>",
     opts
   )

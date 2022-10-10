@@ -25,6 +25,7 @@ dap.configurations.cpp = {
       )
     end,
     cwd = "${workspaceFolder}",
+    args = {"673293248432", "93283479238"},
     stopOnEntry = true,
   },
 }

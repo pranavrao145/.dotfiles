@@ -3,6 +3,6 @@ vim.keymap.set("n", "<leader>fm", ":Neoformat <bar> :w<CR>", { noremap = true })
 vim.keymap.set(
   "n",
   "<leader>fM",
-  ":cfdo :Neoformat <bar> :w<CR>",
+  ":cfdo :Neoformat <bar> :w!<CR>",
   { noremap = true }
 )

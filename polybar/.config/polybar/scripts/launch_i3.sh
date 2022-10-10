@@ -23,4 +23,3 @@ polybar --reload i3barlap & # launching on laptop
 # fi
 
 echo "Bars launched..."
-

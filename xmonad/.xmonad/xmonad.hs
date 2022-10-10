@@ -97,17 +97,16 @@ myKeys =
   , ("M-[", windows $ greedyViewOnScreen 0 " 9 ")
   , ("M-<Tab>", spawn "rofi -show window")
   , ("M-<Return>", windows (greedyViewOnScreen 0 " 1 ") >> spawn "kitty")
-  , ("M-t", windows (greedyViewOnScreen 0 " 1 ") >> spawn "kitty -e ranger")
+  , ("M-S-t", spawn "kitty -e ranger")
   , ("M-S-<Return>", windows W.swapMaster)
   , ("M-<Space>", windows W.focusMaster)
   , ("M-S-<Space>", sendMessage NextLayout)
   , ("M-C-S-<Space>", setLayout $ XMonad.Layout myLayoutHook)
   , ("M-m", spawn "restart_spotify")
+  -- , ("M-m", spawn "brave --start-fullscreen --profile-directory=Default open.spotify.com")
   , ("M-n", spawn "discord")
   , ("M-z", spawn "notion-app")
-  -- , ("M-c", windows (greedyViewOnScreen 0 " 2 ") >> spawn "brave")
-  , ("M-c", windows (greedyViewOnScreen 0 " 2 ") >> spawn "qutebrowser")
-  , ("M-x", spawn "qutebrowser calendar.google.com")
+  , ("M-c", windows (greedyViewOnScreen 0 " 2 ") >> spawn "brave")
   , ("M-q", kill)
   , ("M-f", sendMessage (Toggle NBFULL))
   , ("M-S-i", spawn "sysinfo")
@@ -169,7 +168,7 @@ myDynHook = composeAll [title =? "Spotify" --> doShift " 4 "]
 
 myStartupHook = do
   spawnOnce "nitrogen --restore"
-  spawnOnce "xmodmap -e 'keycode 135 = Super_R' && xset -r 135"
+  spawnOnce "setxkbmap -layout us -option ctrl:nocaps"
   spawn
     "xsetwacom set \"Wacom Intuos S Pad pad\" Button 1 \"key +ctrl z -ctrl\""
   spawn
@@ -182,10 +181,9 @@ myStartupHook = do
   setWMName "LG3D"
   spawn "picom --experimental-backends &"
   spawnOnce "nm-applet &"
-  -- spawnOnce "sysinfo"
+  spawnOnce "sysinfo"
 
 -- mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 2 2 2 2) True
-
 myLayoutHook =
   lessBorders Screen $
   mkToggle (single NBFULL) $
@@ -196,27 +194,27 @@ myLayoutHook =
   Tall 1 (3 / 100) (2 / 3) |||
   Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (2 / 100) (1 / 2)
 
-main = do
-  xmproc <- spawnPipe "xmobar -x 0"
-  xmproc1 <- spawnPipe "xmobar -x 1"
+main
+  -- xmproc <- spawnPipe "xmobar -x 0"
+  -- xmproc1 <- spawnPipe "xmobar -x 1"
+ = do
   xmonad $
     docks $
-    ewmh
-      desktopConfig
-        { terminal = myTerminal
-        , focusFollowsMouse = myFocusFollowsMouse
-        , borderWidth = myBorderWidth
-        , modMask = myModMask
-        , workspaces = myWorkspaces
-        , normalBorderColor = myNormalBorderColor
-        , focusedBorderColor = myFocusedBorderColor
-        , layoutHook = myLayoutHook
-        , manageHook = myManageHook
-        , handleEventHook = myHandleEventHook
-        , startupHook = myStartupHook
-        , logHook =
-            dynamicLogWithPP
-              xmobarPP
-                {ppOutput = \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x}
-        } `additionalKeysP`
+    desktopConfig
+      { terminal = myTerminal
+      , focusFollowsMouse = myFocusFollowsMouse
+      , borderWidth = myBorderWidth
+      , modMask = myModMask
+      , workspaces = myWorkspaces
+      , normalBorderColor = myNormalBorderColor
+      , focusedBorderColor = myFocusedBorderColor
+      , layoutHook = myLayoutHook
+      , manageHook = myManageHook
+      , handleEventHook = myHandleEventHook
+      , startupHook = myStartupHook
+      -- , logHook =
+      --     dynamicLogWithPP
+      --       xmobarPP
+      --         {ppOutput = \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x}
+      } `additionalKeysP`
     myKeys

@@ -253,7 +253,7 @@ c.tabs.show = 'multiple'
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'https://search.brave.com'
+c.url.default_page = 'https://google.ca'
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -274,11 +274,11 @@ c.url.default_page = 'https://search.brave.com'
 # the search engine name to the search term, e.g. `:open google
 # qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://google.ca/search?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'https://search.brave.com/'
+c.url.start_pages = 'https://google.ca'
 
 # Hide the window decoration.  This setting requires a restart on
 # Wayland.
@@ -318,3 +318,5 @@ config.bind(';M', 'hint --rapid links spawn umpv {hint-url}')
 config.bind('<Ctrl+Shift+Tab>', 'tab-prev')
 config.bind('<Ctrl+Tab>', 'tab-next')
 config.bind('W', 'tab-give')
+
+c.auto_save.session = False

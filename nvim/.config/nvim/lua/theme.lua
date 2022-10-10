@@ -8,11 +8,12 @@ vim.g.nord_italic = 1
 vim.g.onehalf_italic = 1
 vim.g.ayu_italic_comment = 1
 
--- set up tokyonight, if necessary
-require("setup.tokyonight")
+-- set up colorscheme, if necessary
+-- require("setup.tokyonight")
+-- require("setup.gruvbox")
 
 -- Set colorscheme
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme nord")
 -- require("colorbuddy").colorscheme("gruvbuddy")
 
 -- transparent background and get rid of unneccessary fills
@@ -25,7 +26,7 @@ vim.cmd([[
     hi CursorLineNr guibg=NONE ctermbg=NONE
     " hi WinSeparator guibg=NONE ctermbg=NONE
 
-    hi TelescopeNormal guibg=NONE ctermbg=NONE
+    " hi TelescopeNormal guibg=NONE ctermbg=NONE
     hi! link NonText Comment
 
     " Needed for palenight and gruvbuddy
