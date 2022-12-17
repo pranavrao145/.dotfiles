@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo web-search copypath copyfile copybuffer dirhistory)
+plugins=(git zsh-nvm zsh-autosuggestions zsh-syntax-highlighting sudo web-search copypath copyfile copybuffer dirhistory)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,9 +102,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # to work when "vi m." is typed
 vi() {
@@ -184,10 +184,12 @@ if [ -f /usr/share/fzf/completion.zsh ]; then
     source /usr/share/fzf/completion.zsh
 fi
 
-# source nvm
-source /usr/share/nvm/init-nvm.sh
+# set up nvm
+# source /usr/share/nvm/init-nvm.sh
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 
 # run startup script on startup
-ruby /home/cypher/Scripts/shell/startup.rb
+# ruby /home/cypher/Scripts/shell/startup.rb
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"

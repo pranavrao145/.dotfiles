@@ -1,9 +1,9 @@
 Config { 
     -- appearance
         font =         "xft:JetBrainsMono Nerd Font Mono:size=9:antialias=true"
-        , bgColor =      "#0D0E0C"
-        , fgColor =      "#DEE0E2"
-        , position =     Top
+        , bgColor =    "#120f16"
+        , fgColor =    "#dde0df"
+        , position =   Top
 
         -- layout
         , sepChar =  "%"   -- delineator between plugin names and straight text

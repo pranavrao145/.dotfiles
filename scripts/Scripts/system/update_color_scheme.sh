@@ -14,4 +14,27 @@ pywal-discord
 # update firefox colour scheme
 # pywalfox update
 
+get_colour() {
+    xrdb -query | grep -m 1 $1 | awk '{print $2}'
+}
+
+echo "Updating zathura colour scheme..."
+
+
+cat > "$HOME/.dotfiles/zathura/.config/zathura/zathurarc" <<- CONF
+set recolor
+set recolor-darkcolor "$(get_colour foreground)"
+set recolor-lightcolor "$(get_colour *.color0:)"
+set default-bg "$(get_colour *.color0:)"
+map i recolor
+set guioptions none
+CONF
+
+echo "Updating xmobar colour scheme..."
+
+sed -i "/bgColor/c\        , bgColor =    \"$(get_colour *.color0:)\"" $HOME/.dotfiles/xmobar/.config/xmobar/xmobarrc
+sed -i "/fgColor/c\        , fgColor =    \"$(get_colour foreground)\"" $HOME/.dotfiles/xmobar/.config/xmobar/xmobarrc
+
+xmonad --restart
+
 echo "System colour scheme updated successfully."

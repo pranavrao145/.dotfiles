@@ -1,8 +1,7 @@
 alternating-layouts-git
 ani-cli
 anydesk-bin
-betterdiscord-git
-betterdiscordctl-git
+betterdiscordctl
 brave-bin
 burpsuite
 cava
@@ -20,6 +19,7 @@ i3-battery-popup
 i3lock-color-git
 imagewriter
 inferno
+julia-bin
 latex-mk
 lightdm-webkit-theme-aether
 lua-language-server-git
@@ -28,13 +28,13 @@ networkmanager-dmenu-git
 noisetorch
 notion-app
 nvim-packer-git
-nvm
 orchis-theme-git
 papirus-icon-theme-git
 paru-bin
 pfetch
 picom-jonaburg-git
 protonvpn
+python311
 pywal-discord-git
 seclists
 shell-color-scripts

@@ -97,7 +97,7 @@ myKeys =
   , ("M-[", windows $ greedyViewOnScreen 0 " 9 ")
   , ("M-<Tab>", spawn "rofi -show window")
   , ("M-<Return>", windows (greedyViewOnScreen 0 " 1 ") >> spawn "kitty")
-  , ("M-S-t", spawn "kitty -e ranger")
+  , ("M-S-f", spawn "kitty ranger")
   , ("M-S-<Return>", windows W.swapMaster)
   , ("M-<Space>", windows W.focusMaster)
   , ("M-S-<Space>", sendMessage NextLayout)
@@ -183,7 +183,8 @@ myStartupHook = do
   spawnOnce "nm-applet &"
   spawnOnce "sysinfo"
 
--- mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 2 2 2 2) True
+mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 2 2 2 2) True
+
 myLayoutHook =
   lessBorders Screen $
   mkToggle (single NBFULL) $

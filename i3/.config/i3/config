@@ -191,7 +191,7 @@ bindsym $mod+u workspace $ws4
 bindsym $mod+y workspace $ws5
 bindcode $mod+34 workspace $ws9
 bindsym $mod+shift+p exec --no-startup-id pavucontrol
-bindsym $mod+t exec --no-startup-id kitty -e ranger
+bindsym $mod+shift+f exec --no-startup-id kitty -e ranger
 bindsym $mod+m exec --no-startup-id restart_spotify
 bindsym $mod+n exec --no-startup-id discord
 # bindsym $mod+n exec --no-startup-id discord-canary
@@ -258,6 +258,9 @@ exec --no-startup-id nitrogen --restore
 
 # fix display (for monitor), laptop done manually
 exec xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+
+# remap control key
+exec setxkbmap -layout us -option ctrl:nocaps
 
 bindsym $mod+ctrl+shift+n exec xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 bindsym $mod+ctrl+shift+m exec xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
@@ -380,7 +383,6 @@ bindsym $mod+minus scratchpad show
 
 for_window[class="Nitrogen"] floating enable
 for_window[class="Nitrogen"] resize set 1700 900, move position center
-for_window[class="App"] floating enable
 
 bar {
     status_command i3status

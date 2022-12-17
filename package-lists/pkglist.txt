@@ -86,7 +86,7 @@ helix
 hindent
 htop
 hydra
-i3-gaps
+i3-wm
 i3blocks
 i3status
 inotify-tools
@@ -140,7 +140,6 @@ noto-fonts
 noto-fonts-emoji
 nss-mdns
 ntfs-3g
-okular
 opendoas
 openssh
 openvpn
@@ -238,6 +237,7 @@ wget
 which
 wireshark-qt
 xclip
+xdotool
 xf86-input-wacom
 xf86-video-intel
 xf86-video-vesa
@@ -296,5 +296,7 @@ xorg-xwud
 yarn
 youtube-dl
 yt-dlp
+zathura
+zathura-pdf-mupdf
 zip
 zsh

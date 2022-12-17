@@ -128,6 +128,12 @@ luasnip.add_snippets("tex", {
     t("}"),
     i(0),
   }),
+  s("overline", {
+    t("\\overline{"),
+    i(1),
+    t("}"),
+    i(0),
+  }),
   s("cmark", { t("\\ding{51}") }),
   s("xmark", { t("\\ding{55}") }),
   s("lim", { t("\\lim_{"), i(1), t("}"), i(0) }),
@@ -150,4 +156,6 @@ luasnip.add_snippets("tex", {
   s("^", { t("^{"), i(1), t("}"), i(0) }),
   s("ln", { t("\\ln{"), i(1), t("}"), i(0) }),
   s("floor", { t("\\lfloor"), i(1), t("\\rfloor"), i(0) }),
+  s("int", { t("\\int_{"), i(1), t("}^{"), i(2), t("}"), i(0) }),
+  s("eval", { t("\\Bigr\\rvert_{"), i(1), t("}^{"), i(2), t("}"), i(0) }),
 })

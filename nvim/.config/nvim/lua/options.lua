@@ -3,9 +3,9 @@
 vim.opt.syntax = "on"
 
 vim.opt.exrc = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = false
@@ -43,7 +43,7 @@ vim.opt.laststatus = 3
 vim.opt.winbar = "%t %m"
 
 vim.cmd([[
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/cpp-extract'
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/single-char-varname'
 ]])
 
 -- Set map leader
