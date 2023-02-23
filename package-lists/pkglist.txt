@@ -36,7 +36,6 @@ cups-pdf
 dart
 debugedit
 delve
-discord
 dmenu
 dmg2img
 docker
@@ -213,6 +212,7 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
+thunar
 tlp
 tmux
 tor

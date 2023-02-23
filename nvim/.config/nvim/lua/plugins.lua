@@ -246,7 +246,7 @@ return require("packer").startup(function()
   })
 
   -- Symbols outline
-  use({ "simrat39/symbols-outline.nvim", cmd = { "SymbolsOutline" } })
+  use({ "stevearc/aerial.nvim" })
 
   -- Git signs
   use({ "lewis6991/gitsigns.nvim" })
@@ -257,19 +257,24 @@ return require("packer").startup(function()
   -- LaTeX support
   use("lervag/vimtex")
 
+  use({
+    "kwkarlwang/bufresize.nvim",
+  })
+
+  -- Line endings
   use("tjdevries/cyclist.vim")
 
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
-  -- use("ellisonleao/gruvbox.nvim")
+  use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
-  -- -- use("shaunsingh/nord.nvim")
+  -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("luxed/ayu-vim")
-  use("tjdevries/colorbuddy.vim")
-  use("tjdevries/gruvbuddy.nvim")
+  -- use("tjdevries/colorbuddy.vim")
+  -- use("tjdevries/gruvbuddy.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

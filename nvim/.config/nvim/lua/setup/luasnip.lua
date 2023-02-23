@@ -1,9 +1,11 @@
-require("luasnip.loaders.from_vscode").lazy_load()
-
 local luasnip = require("luasnip")
 local s = luasnip.snippet
 local t = luasnip.text_node
 local i = luasnip.insert_node
+
+luasnip.setup({ history = false })
+
+require("luasnip.loaders.from_vscode").lazy_load()
 
 luasnip.add_snippets("tex", {
   s("start", {
@@ -25,11 +27,11 @@ luasnip.add_snippets("tex", {
       "\\renewcommand{\\headrulewidth}{0.4pt}",
       "}",
       "",
-      "\\lhead{\\fancyplain{Name}{Name}}",
+      "\\lhead{\\fancyplain{Pranav Rao}{Pranav Rao}}",
       "\\rhead{\\fancyplain{Title}{Title}}",
       "",
       "\\title{Title}",
-      "\\author{Name}",
+      "\\author{Pranav Rao}",
       "\\date{Date}",
       "",
       "\\begin{document}",
@@ -108,11 +110,15 @@ luasnip.add_snippets("tex", {
     i(1),
     t({ "$" }),
     i(0),
-  }),
+  }, {priority = 1200}),
   s("newtheorem", { t("\\newtheorem{theorem}{Theorem}[section]") }),
   s(";", { t("\\;") }),
   s("blacksquare", { t("\\renewcommand\\qedsymbol{$\\blacksquare$}") }),
-  s("frac", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), i(0) }),
+  s(
+    "frac",
+    { t("\\frac{"), i(1), t("}{"), i(2), t("}"), i(0) },
+    { priority = 1100 }
+  ),
   s("sqrt", {
     t({ "\\sqrt{" }),
     i(1),
@@ -153,7 +159,7 @@ luasnip.add_snippets("tex", {
   s("sec", { t("\\sec{"), i(1), t("}"), i(0) }),
   s("cot", { t("\\cot{"), i(1), t("}"), i(0) }),
   s("log", { t("\\log_{"), i(1), t("}"), i(0) }),
-  s("^", { t("^{"), i(1), t("}"), i(0) }),
+  -- s("^", { t("^{"), i(1), t("}"), i(0) }),
   s("ln", { t("\\ln{"), i(1), t("}"), i(0) }),
   s("floor", { t("\\lfloor"), i(1), t("\\rfloor"), i(0) }),
   s("int", { t("\\int_{"), i(1), t("}^{"), i(2), t("}"), i(0) }),

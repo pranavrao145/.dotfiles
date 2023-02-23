@@ -7,6 +7,7 @@ burpsuite
 cava
 chili-sddm-theme
 crunch
+discord-canary
 docker-credential-secretservice-bin
 downgrade
 eclipse-java
@@ -23,7 +24,6 @@ julia-bin
 latex-mk
 lightdm-webkit-theme-aether
 lua-language-server-git
-nerd-fonts-jetbrains-mono
 networkmanager-dmenu-git
 noisetorch
 notion-app

@@ -146,7 +146,7 @@ M.get_jdtls_config = function()
 end
 
 -- Lua
-nvim_lsp.sumneko_lua.setup({
+nvim_lsp.lua_ls.setup({
   cmd = { "/usr/bin/lua-language-server" },
   on_attach = on_attach,
   capabilities = capabilities,
