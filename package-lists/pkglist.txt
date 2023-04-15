@@ -36,6 +36,7 @@ cups-pdf
 dart
 debugedit
 delve
+discord
 dmenu
 dmg2img
 docker
@@ -134,7 +135,6 @@ networkmanager
 ninja
 nitrogen
 nmap
-nomacs
 noto-fonts
 noto-fonts-emoji
 nss-mdns

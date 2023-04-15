@@ -11,6 +11,7 @@ import XMonad.Actions.OnScreen
 
 import qualified XMonad.StackSet as W
 
+import XMonad.Actions.GridSelect
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.DynamicProperty
 import XMonad.Hooks.EwmhDesktops
@@ -56,11 +57,6 @@ getFromXres key =
 fromXres :: String -> String
 fromXres = unsafePerformIO . getFromXres
 
-clickable ws =
-    "<action=xdotool key super+" ++ show i ++ ">" ++ ws ++ "</action>"
-  where
-    i = fromJust $ M.lookup ws myWorkspaceIndices
-
 windowCount :: X (Maybe String)
 windowCount =
     gets $
@@ -73,13 +69,33 @@ myTerminal = "kitty"
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
+myFont :: String
+myFont =
+    "xft:JetBrainsMono Nerd Font Mono:regular:size=10:antialias=true:hinting=true"
+
 myModMask = mod4Mask
 
 myBorderWidth = 1
 
-myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
+-- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
+myWorkspaces =
+    [ " dev "
+    , " www "
+    , " chat "
+    , " mus "
+    , " call "
+    , " obs "
+    , " med "
+    , " misc "
+    , " not "
+    ]
 
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1 ..] -- (,) == \x y -> (x,y)
+
+clickable ws =
+    "<action=xdotool key super+" ++ show i ++ ">" ++ ws ++ "</action>"
+  where
+    i = fromJust $ M.lookup ws myWorkspaceIndices
 
 myNormalBorderColor = fromXres "*color2"
 
@@ -89,14 +105,14 @@ myKeys =
     [ ( "M-d"
       , spawn
             "rofi -show drun -modi drun -location 1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -columns 9 -bw 0 -disable-history -hide-scrollbar -show-icons")
-    , ("M-p", windows $ greedyViewOnScreen 0 " 1 ")
-    , ("M-o", windows $ greedyViewOnScreen 0 " 2 ")
-    , ("M-i", windows $ greedyViewOnScreen 0 " 3 ")
-    , ("M-u", windows $ greedyViewOnScreen 0 " 4 ")
-    , ("M-y", windows $ greedyViewOnScreen 0 " 5 ")
-    , ("M-[", windows $ greedyViewOnScreen 0 " 9 ")
+    , ("M-p", windows $ greedyViewOnScreen 0 " dev ")
+    , ("M-o", windows $ greedyViewOnScreen 0 " www ")
+    , ("M-i", windows $ greedyViewOnScreen 0 " chat ")
+    , ("M-u", windows $ greedyViewOnScreen 0 " mus ")
+    , ("M-y", windows $ greedyViewOnScreen 0 " call ")
+    , ("M-[", windows $ greedyViewOnScreen 0 " not ")
     , ("M-<Tab>", spawn "rofi -show window")
-    , ("M-<Return>", windows (greedyViewOnScreen 0 " 1 ") >> spawn "kitty")
+    , ("M-<Return>", windows (greedyViewOnScreen 0 " dev ") >> spawn "kitty")
     , ("M-S-f", spawn "kitty ranger")
     , ("M-S-<Return>", windows W.swapMaster)
     , ("M-<Space>", windows W.focusMaster)
@@ -104,12 +120,12 @@ myKeys =
     , ("M-C-S-<Space>", setLayout $ XMonad.Layout myLayoutHook)
     , ("M-m", spawn "restart_spotify")
   -- , ("M-m", spawn "brave --start-fullscreen --profile-directory=Default open.spotify.com")
-    , ("M-n", spawn "discord-canary")
+    , ("M-n", spawn "discord")
     , ("M-z", spawn "notion-app")
-    , ("M-c", windows (greedyViewOnScreen 0 " 2 ") >> spawn "brave")
+    , ("M-c", windows (greedyViewOnScreen 0 " www ") >> spawn "brave")
     , ("M-q", kill)
     , ("M-f", sendMessage (Toggle NBFULL))
-    , ("M-S-i", spawn "sysinfo")
+    -- , ("M-S-i", spawn "sysinfo")
     , ("C-<Space>", spawn "dunstctl close")
     , ("<Control_L>-`", spawn "dunstctl history-pop")
     , ("C-S-.", spawn "dunstctl context")
@@ -136,7 +152,7 @@ myKeys =
             "xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off && nitrogen --restore && picom --experimental-backends &")
     , ( "M-C-S-b"
       , spawn
-            "xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --same-as eDP1 --output VIRTUAL1 --off")
+            "xrandr --output HDMI1 --mode 1920x1080 --same-as eDP1 --mode 1280x720 --output VIRTUAL1 --off && nitrogen --restore && picom --experimental-backends &")
     , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
     , ("M-S-p", spawn "pavucontrol")
     , ("M-C-l", shiftNextScreen >> nextScreen)
@@ -144,33 +160,33 @@ myKeys =
     , ("M-C-<Right>", shiftNextScreen >> nextScreen)
     , ("M-C-<Left>", shiftPrevScreen >> prevScreen)
     , ("M-S-l", spawn "lock")
+    , ("M-S-a", spawnSelected' gsGeneral)
     ]
 
 myManageHook =
     composeAll
-        [ className =? "kitty" --> doShift " 1 "
-        , className =? "Code" --> doShift " 1 "
-        , className =? "Brave-browser" --> doShift " 2 "
-        , className =? "qutebrowser" --> doShift " 2 "
-        , className =? "discord" --> doShift " 3 "
-        , className =? "Slack" --> doShift " 3 "
-        , className =? "Chromium" --> doShift " 5 "
-        , className =? "Microsoft Teams - Insiders" --> doShift " 5 "
-        , className =? "zoom" --> doShift " 5 "
-        , className =? "Skype" --> doShift " 5 "
-        , className =? "obs" --> doShift " 6 "
-        , className =? "kdenlive" --> doShift " 7 "
-        , className =? "Gimp-2.10" --> doShift " 7 "
-        , className =? "Eclipse" --> doShift " 8 "
-        , className =? "jetbrains-pycharm-ce" --> doShift " 8 "
-        , className =? "notion-app" --> doShift " 9 "
+        [ className =? "kitty" --> doShift " dev "
+        , className =? "Code" --> doShift " dev "
+        , className =? "Brave-browser" --> doShift " www "
+        , className =? "qutebrowser" --> doShift " www "
+        , className =? "discord" --> doShift " chat "
+        , className =? "Slack" --> doShift " chat "
+        , className =? "Spotify" --> doShift " mus "
+        , className =? "Chromium" --> doShift " call "
+        , className =? "Microsoft Teams - Insiders" --> doShift " call "
+        , className =? "zoom" --> doShift " call "
+        , className =? "Skype" --> doShift " call "
+        , className =? "obs" --> doShift " obs "
+        , className =? "kdenlive" --> doShift " med "
+        , className =? "Gimp-2.10" --> doShift " med "
+        , className =? "Eclipse" --> doShift " misc "
+        , className =? "jetbrains-pycharm-ce" --> doShift " misc "
+        , className =? "notion-app" --> doShift " not "
         , className =? "Nitrogen" --> doFloat
         ]
 
-myHandleEventHook = dynamicPropertyChange "WM_CLASS" myDynHook
-
-myDynHook = composeAll [title =? "Spotify" --> doShift " 4 "]
-
+-- myHandleEventHook = dynamicPropertyChange "WM_CLASS"
+-- myDynHook = composeAll [title =? "spotify" --> doShift " 4 "]
 myStartupHook = do
     spawnOnce "nitrogen --restore"
     spawnOnce "setxkbmap -layout us -option ctrl:nocaps"
@@ -185,25 +201,107 @@ myStartupHook = do
     spawn "mapwacom -d \"Wacom Intuos S Pen stylus\" -s \"HDMI1\""
     setWMName "LG3D"
     spawn "picom --experimental-backends &"
-    spawnOnce "nm-applet &"
-    spawnOnce "sysinfo"
+    spawnOnce "nm-applet &" -- spawnOnce "sysinfo"
 
 mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 2 2 2 2) True
 
-myLayoutHook =
-    lessBorders Screen $
+myLayoutHook
+    -- lessBorders Screen $
+ =
     mkToggle (single NBFULL) $
-    smartBorders $
+    -- smartBorders $
     avoidStruts $
     reflectHoriz $
-  -- mySpacing $
+    mySpacing $
     Tall 1 (3 / 100) (2 / 3) |||
     Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (2 / 100) (1 / 2)
 
-main
-  -- xmproc <- spawnPipe "xmobar -x 0"
-  -- xmproc1 <- spawnPipe "xmobar -x 1"
- = do
+-- Grid Select
+myNavigation :: TwoD a (Maybe a)
+myNavigation = makeXEventhandler $ shadowWithKeymap navKeyMap navDefaultHandler
+  where
+    navKeyMap =
+        M.fromList
+            [ ((0, xK_Escape), cancel)
+            , ((0, xK_Return), select)
+            , ((0, xK_slash), substringSearch myNavigation)
+            , ((0, xK_Left), move (-1, 0) >> myNavigation)
+            , ((0, xK_h), move (-1, 0) >> myNavigation)
+            , ((0, xK_Right), move (1, 0) >> myNavigation)
+            , ((0, xK_l), move (1, 0) >> myNavigation)
+            , ((0, xK_Down), move (0, 1) >> myNavigation)
+            , ((0, xK_j), move (0, 1) >> myNavigation)
+            , ((0, xK_Up), move (0, -1) >> myNavigation)
+            , ((0, xK_k), move (0, -1) >> myNavigation)
+            , ((0, xK_y), move (-1, -1) >> myNavigation)
+            , ((0, xK_i), move (1, -1) >> myNavigation)
+            , ((0, xK_n), move (-1, 1) >> myNavigation)
+            , ((0, xK_m), move (1, -1) >> myNavigation)
+            , ((0, xK_space), setPos (0, 0) >> myNavigation)
+            ]
+    navDefaultHandler = const myNavigation
+
+myColorizer :: Window -> Bool -> X (String, String)
+myColorizer =
+    colorRangeFromClassName
+        (0x28, 0x2c, 0x34) -- lowest inactive bg
+        (0x28, 0x2c, 0x34) -- highest inactive bg
+        (0xc7, 0x92, 0xea) -- active bg
+        (0xc0, 0xa7, 0x9a) -- inactive fg
+        (0x28, 0x2c, 0x34) -- active fg
+
+-- gridSelect menu layout
+mygridConfig :: p -> GSConfig Window
+mygridConfig colorizer =
+    (buildDefaultGSConfig myColorizer)
+        { gs_cellheight = 40
+        , gs_cellwidth = 200
+        , gs_cellpadding = 6
+        , gs_navigate = myNavigation
+        , gs_originFractX = 0.5
+        , gs_originFractY = 0.5
+        , gs_font = myFont
+        }
+
+spawnSelected' :: [(String, String)] -> X ()
+spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
+  where
+    conf =
+        def
+            { gs_cellheight = 40
+            , gs_cellwidth = 180
+            , gs_cellpadding = 6
+            , gs_originFractX = 0.5
+            , gs_originFractY = 0.5
+            , gs_font = myFont
+            }
+
+runSelectedAction' :: GSConfig (X ()) -> [(String, X ())] -> X ()
+runSelectedAction' conf actions = do
+    selectedActionM <- gridselect conf actions
+    case selectedActionM of
+        Just selectedAction -> selectedAction
+        Nothing -> return ()
+
+gsGeneral =
+    [ ( "Quercus"
+      , "brave --new-window --profile-directory=\"University\" q.utoronto.ca")
+    , ( "lofi"
+      , "brave --new-window --profile-directory=\"Default\" https://youtu.be/jfKfPfyJRdk")
+    , ("Google", "brave --new-window --profile-directory=\"Default\" google.ca")
+    , ( "ChatGPT"
+      , "brave --new-window --profile-directory=\"Default\" chat.openai.com")
+    , ( "YouTube"
+      , "brave --new-window --profile-directory=\"Default\" youtube.com")
+    , ( "GitHub"
+      , "brave --new-window --profile-directory=\"Default\" github.com")
+    , ( "Netflix"
+      , "brave --new-window --profile-directory=\"Default\" netflix.com")
+    ]
+
+main = do
+    xmproc <- spawnPipe "xmobar /home/cypher/.config/xmobar/xmobarrc0 -x 0"
+    xmproc1 <- spawnPipe "xmobar /home/cypher/.config/xmobar/xmobarrc1 -x 1"
     xmonad $
         docks $
         desktopConfig
@@ -216,11 +314,26 @@ main
             , focusedBorderColor = myFocusedBorderColor
             , layoutHook = myLayoutHook
             , manageHook = myManageHook
-            , handleEventHook = myHandleEventHook
+            -- , handleEventHook = myHandleEventHook
             , startupHook = myStartupHook
-      -- , logHook =
-      --     dynamicLogWithPP
-      --       xmobarPP
-      --         {ppOutput = \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x}
+            , logHook =
+                  dynamicLogWithPP
+                      xmobarPP
+                          { ppOutput =
+                                \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
+                          , ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
+                          , ppTitle = xmobarColor "#628789" "" . shorten 30
+                          , ppCurrent =
+                                xmobarColor "#628789" "" . -- ppCurrentColorMarker1
+                                wrap
+                                    "<box type=Bottom width=2 mb=2 color=#628789>" -- ppCurrentColorMarker2
+                                    "</box>"
+                          , ppVisible =
+                                wrap
+                                    "<box type=Bottom width=2 mb=2 color=#FFFFFF>"
+                                    "</box>" .
+                                clickable
+                          , ppHidden = clickable
+                          }
             } `additionalKeysP`
         myKeys

@@ -1,0 +1,49 @@
+Config { 
+    -- appearance
+        font =         "JetBrainsMono Nerd Font Mono 10"
+        , additionalFonts = ["Font Awesome 6 Free Solid 10"
+                            , "Font Awesome 6 Brands 10"
+                            ]
+        , bgColor =    "#121515"
+        , fgColor =    "#ffffff"
+        , position =   TopH 30
+
+        -- layout
+        , sepChar =  "%"   -- delineator between plugin names and straight text
+        , alignSep = "}{"  -- separator between left-right alignment
+        , template = " %UnsafeStdinReader%}{<fc=#98FB98>%mpris2%</fc> | %wlan0wi% | %cpu% | %memory% | %battery% | <fn=1></fn> %volume% | %date% "
+
+        -- general behavior
+        , lowerOnStart =     True    -- send to bottom of window stack on start
+        , hideOnStart =      False   -- start with window unmapped (hidden)
+        , allDesktops =      True    -- show on all desktops
+        , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+        , pickBroadest =     False   -- choose widest display (multi-monitor)
+        , persistent =       True    -- enable/disable hiding (True = disabled)
+
+        -- plugins
+        --   Numbers can be automatically colored according to their value. xmobar
+        --   decides color based on a three-tier/two-cutoff system, controlled by
+        --   command options:
+        --     --Low sets the low cutoff
+        --     --High sets the high cutoff
+        --
+        --     --low sets the color below --Low cutoff
+        --     --normal sets the color between --Low and --High cutoffs
+        --     --High sets the color above --High cutoff
+        --
+        --   The --template option controls how the plugin is displayed. Text
+        --   color can be set by enclosing in <fc></fc> tags. For more details
+        --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
+        , commands = 
+        [
+           Run UnsafeStdinReader
+            , Run Wireless "wlan0" ["-t","<fn=1></fn> <quality>% at <essid>", "-L", "50", "--low", "red"] 10
+            , Run Cpu ["-H","80","--high","red"] 10
+            , Run Memory ["-t","Mem: <usedratio>%"] 10
+            , Run Date "<fn=1></fn> %a %b %_d %Y %H:%M:%S" "date" 10
+            , Run BatteryP ["BAT0"] ["-L", "20", "--low", "red", "-t", "<fn=1></fn> <left>% remaining / <timeleft>", "--", "--off", "Batt: <left>% remaining / <timeleft>", "--on", "Char: <left>% remaining / <timeleft>"] 10
+            , Run Com "/home/cypher/Scripts/audio/get_pulse_volume.sh" [] "volume" 10
+            , Run Mpris2 "spotify" ["-t", "<fn=1></fn> <artist> - <title>"] 10
+        ]
+}

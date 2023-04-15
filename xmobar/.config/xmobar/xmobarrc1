@@ -1,14 +1,17 @@
 Config { 
     -- appearance
-        font =         "xft:JetBrainsMono Nerd Font Mono:size=9:antialias=true"
-        , bgColor =    "#151219"
-        , fgColor =    "#c5c3bc"
-        , position =   Top
+        font =         "JetBrainsMono Nerd Font Mono 10"
+        , additionalFonts = ["Font Awesome 6 Free Solid 10"
+                            , "Font Awesome 6 Brands 10"
+                            ]
+        , bgColor =    "#121515"
+        , fgColor =    "#ffffff"
+        , position =   TopH 25
 
         -- layout
         , sepChar =  "%"   -- delineator between plugin names and straight text
         , alignSep = "}{"  -- separator between left-right alignment
-        , template = "%UnsafeStdinReader%}{%mpris2% | %wlan0wi% | %cpu% | %memory% | %battery% | %volume% | %date% "
+        , template = " %UnsafeStdinReader%}{ %wlan0wi% | %battery% | <fn=1></fn> %volume% | %date% "
 
         -- general behavior
         , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -35,12 +38,9 @@ Config {
         , commands = 
         [
            Run UnsafeStdinReader
-            , Run Wireless "wlan0" ["-t","Wireless: <quality>% at <essid>", "-L", "50", "--low", "red"] 10
-            , Run Cpu ["-H","80","--high","red"] 10
-            , Run Memory ["-t","Mem: <usedratio>%"] 10
-            , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-            , Run BatteryP ["BAT0"] ["-L", "20", "--low", "red", "-t", "Batt: <left>% remaining / <timeleft>", "--", "--off", "Batt: <left>% remaining / <timeleft>", "--on", "Char: <left>% remaining / <timeleft>"] 10
+            , Run Wireless "wlan0" ["-t","<fn=1></fn> <quality>% at <essid>", "-L", "50", "--low", "red"] 10
+            , Run Date "<fn=1></fn> %a %b %_d %Y %H:%M:%S" "date" 10
+            , Run BatteryP ["BAT0"] ["-L", "20", "--low", "red", "-t", "<fn=1></fn> <left>% remaining / <timeleft>", "--", "--off", "Batt: <left>% remaining / <timeleft>", "--on", "Char: <left>% remaining / <timeleft>"] 10
             , Run Com "/home/cypher/Scripts/audio/get_pulse_volume.sh" [] "volume" 10
-            , Run Mpris2 "spotify" ["-t", "Spotify: <artist> - <title>"] 10
         ]
 }

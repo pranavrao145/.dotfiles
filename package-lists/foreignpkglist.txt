@@ -7,7 +7,6 @@ burpsuite
 cava
 chili-sddm-theme
 crunch
-discord-canary
 docker-credential-secretservice-bin
 downgrade
 eclipse-java
@@ -26,6 +25,7 @@ lightdm-webkit-theme-aether
 lua-language-server-git
 networkmanager-dmenu-git
 noisetorch
+nomacs
 notion-app
 nvim-packer-git
 orchis-theme-git
@@ -41,7 +41,7 @@ shell-color-scripts
 slack-desktop
 snapd
 spotify
-tmux-plugin-manager-git
+tmux-plugin-manager
 ttf-font-awesome-4
 ttf-fork-awesome
 ttf-icomoon-feather
