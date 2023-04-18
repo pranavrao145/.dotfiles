@@ -1,5 +1,6 @@
 alternating-layouts-git
 ani-cli
+anki-bin
 anydesk-bin
 betterdiscordctl
 brave-bin
@@ -49,3 +50,4 @@ ttf-inconsolata-g
 ttf-ms-fonts
 visual-studio-code-bin
 zoom
+zotero-bin

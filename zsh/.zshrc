@@ -190,6 +190,6 @@ export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 
 # run startup script on startup
-# ruby /home/cypher/Scripts/shell/startup.rb
+ruby /home/cypher/Scripts/shell/startup.rb
 
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"

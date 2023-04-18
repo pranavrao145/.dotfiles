@@ -34,6 +34,7 @@ cronie
 cups
 cups-pdf
 dart
+dart-sass
 debugedit
 delve
 discord
@@ -122,6 +123,7 @@ make
 maven
 mesa-demos
 metasploit
+mixxx
 mlocate
 mono-msbuild
 mono-msbuild-sdkresolver
@@ -153,8 +155,6 @@ perl-file-homedir
 perl-yaml
 perl-yaml-tiny
 pinta
-pipewire-alsa
-pipewire-pulse
 pkgconf
 playerctl
 postgresql
@@ -164,6 +164,9 @@ powerline-fonts
 powertop
 prettier
 proxychains-ng
+pulseaudio
+pulseaudio-alsa
+pulseaudio-bluetooth
 pycharm-community-edition
 pyright
 python-adblock
@@ -202,16 +205,17 @@ terminus-font
 texinfo
 texlab
 texlive-bibtexextra
+texlive-binextra
 texlive-fontsextra
 texlive-formatsextra
 texlive-games
 texlive-humanities
 texlive-latexextra
+texlive-mathscience
 texlive-music
 texlive-pictures
 texlive-pstricks
 texlive-publishers
-texlive-science
 thunar
 tlp
 tmux
@@ -223,7 +227,6 @@ ttf-droid
 ttf-fantasque-sans-mono
 ttf-font-awesome
 ttf-hack-nerd
-ttf-jetbrains-mono
 typescript-language-server
 uncrustify
 unoconv

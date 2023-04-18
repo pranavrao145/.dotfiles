@@ -1,6 +1,6 @@
 local nvim_lsp = require("lspconfig")
 -- local coq = require("coq")
-local lsp_signature = require("lsp_signature")
+-- local lsp_signature = require("lsp_signature")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -16,7 +16,7 @@ local on_attach = function(_, bufnr)
   end
 
   -- Set up LSP signature
-  lsp_signature.on_attach()
+  -- lsp_signature.on_attach()
 
   -- Mappings.
   local opts = { noremap = true, silent = true }

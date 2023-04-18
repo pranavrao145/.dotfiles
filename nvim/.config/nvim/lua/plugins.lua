@@ -25,9 +25,9 @@ return require("packer").startup(function()
   use({
     "neovim/nvim-lspconfig",
     requires = {
-      "ray-x/lsp_signature.nvim",
+      -- "ray-x/lsp_signature.nvim",
       "mfussenegger/nvim-jdtls",
-      "j-hui/fidget.nvim", -- visual loader
+      { "j-hui/fidget.nvim", tag = "legacy" }, -- visual loader
     },
   })
 
@@ -264,17 +264,36 @@ return require("packer").startup(function()
   -- Line endings
   use("tjdevries/cyclist.vim")
 
+  use({
+    "chipsenkbeil/distant.nvim",
+    branch = "v0.2",
+    config = function()
+      require("distant").setup({
+        -- Applies Chip's personal settings to every machine you connect to
+        --
+        -- 1. Ensures that distant servers terminate with no connections
+        -- 2. Provides navigation bindings for remote directories
+        -- 3. Provides keybinding to jump into a remote file's parent directory
+        ["*"] = require("distant.settings").chip_default({
+          ssh = {
+            identity_file = "~/.ssh/id_rsa",
+          },
+        }),
+      })
+    end,
+  })
+
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
   -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
-  -- use("navarasu/onedark.nvim")
+  use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
-  -- use("luxed/ayu-vim")
-  use("tjdevries/colorbuddy.vim")
-  use("tjdevries/gruvbuddy.nvim")
+  -- use("Shatur/neovim-ayu")
+  -- use("tjdevries/colorbuddy.vim")
+  -- use("tjdevries/gruvbuddy.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

@@ -35,7 +35,7 @@ echo "Updating xmobar colour scheme..."
 sed -i "/bgColor/c\        , bgColor =    \"$(get_colour *.color0:)\"" $HOME/.dotfiles/xmobar/.config/xmobar/xmobarrc0
 sed -i "/bgColor/c\        , bgColor =    \"$(get_colour *.color0:)\"" $HOME/.dotfiles/xmobar/.config/xmobar/xmobarrc1
 # sed -i "/fgColor/c\        , fgColor =    \"$(get_colour foreground)\"" $HOME/.dotfiles/xmobar/.config/xmobar/xmobarrc
-sed -i "/ppTitle/c\                          , ppTitle = xmobarColor \"$(get_colour *.color6:)\" \"\" . shorten 60" $HOME/.dotfiles/xmonad/.xmonad/xmonad.hs
+sed -i "/ppTitle/c\                          , ppTitle = xmobarColor \"$(get_colour *.color6:)\" \"\" . shorten 30" $HOME/.dotfiles/xmonad/.xmonad/xmonad.hs
 sed -i "/ppCurrentColorMarker1/c\                                xmobarColor \"$(get_colour *.color6:)\" \"\" . -- ppCurrentColorMarker1" $HOME/.dotfiles/xmonad/.xmonad/xmonad.hs
 sed -i "/ppCurrentColorMarker2/c\                                    \"<box type=Bottom width=2 mb=2 color=$(get_colour *.color6:)>\" -- ppCurrentColorMarker2" $HOME/.dotfiles/xmonad/.xmonad/xmonad.hs
 

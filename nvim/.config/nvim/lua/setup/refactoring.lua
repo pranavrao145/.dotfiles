@@ -64,3 +64,10 @@ vim.keymap.set(
   [[ <Cmd>lua require('refactoring').refactor('Extract Block')<CR>]],
   { noremap = true, silent = true, expr = false }
 )
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ri",
+  [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
+  { noremap = true, silent = true, expr = false }
+)

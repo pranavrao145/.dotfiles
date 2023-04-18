@@ -2,9 +2,9 @@
 
 This repository holds any and all files I use to configure my shell and system.
 
-## Setup
+## Current Configuration
 
-This setup is intended to be used with **Arch Linux and i3 gaps.**
+I am currently using XMonad with xmobar, so this config will be most tuned towards that setup for now.
 
 ## Usage
 

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+query=$(echo "" | rofi -dmenu -p "Enter YouTube Search Query:")
+brave --new-window --incognito "youtube.com/search?q=$query" &

@@ -125,7 +125,7 @@ myKeys =
     , ("M-c", windows (greedyViewOnScreen 0 " www ") >> spawn "brave")
     , ("M-q", kill)
     , ("M-f", sendMessage (Toggle NBFULL))
-    -- , ("M-S-i", spawn "sysinfo")
+    , ("M-S-i", spawn "sysinfo")
     , ("C-<Space>", spawn "dunstctl close")
     , ("<Control_L>-`", spawn "dunstctl history-pop")
     , ("C-S-.", spawn "dunstctl context")
@@ -146,10 +146,10 @@ myKeys =
     , ("M-S-s", spawn "flameshot gui")
     , ( "M-C-S-n"
       , spawn
-            "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off && nitrogen --restore && picom --experimental-backends &")
+            "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off && xmonad --restart && nitrogen --restore && picom --experimental-backends &")
     , ( "M-C-S-m"
       , spawn
-            "xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off && nitrogen --restore && picom --experimental-backends &")
+            "xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off && nitrogen --restore && pkill -i xmobar && sysinfo && picom --experimental-backends &")
     , ( "M-C-S-b"
       , spawn
             "xrandr --output HDMI1 --mode 1920x1080 --same-as eDP1 --mode 1280x720 --output VIRTUAL1 --off && nitrogen --restore && picom --experimental-backends &")
@@ -181,6 +181,7 @@ myManageHook =
         , className =? "Gimp-2.10" --> doShift " med "
         , className =? "Eclipse" --> doShift " misc "
         , className =? "jetbrains-pycharm-ce" --> doShift " misc "
+        , className =? "Anydesk" --> doShift " not "
         , className =? "notion-app" --> doShift " not "
         , className =? "Nitrogen" --> doFloat
         ]
@@ -288,13 +289,21 @@ gsGeneral =
       , "brave --new-window --profile-directory=\"University\" q.utoronto.ca")
     , ( "lofi"
       , "brave --new-window --profile-directory=\"Default\" https://youtu.be/jfKfPfyJRdk")
-    , ("Google", "brave --new-window --profile-directory=\"Default\" google.ca")
+    , ( "UToronto Email"
+      , "brave --new-window --profile-directory=\"University\" mail.utoronto.ca")
+    , ( "Google Calendar"
+      , "brave --new-window --profile-directory=\"Default\" calendar.google.com")
     , ( "ChatGPT"
       , "brave --new-window --profile-directory=\"Default\" chat.openai.com")
+    , ("YouTube Search", "/usr/bin/search_youtube")
+    , ( "Gmail"
+      , "brave --new-window --profile-directory=\"Default\" mail.google.com")
     , ( "YouTube"
       , "brave --new-window --profile-directory=\"Default\" youtube.com")
     , ( "GitHub"
-      , "brave --new-window --profile-directory=\"Default\" github.com")
+      , "brave --new-window --profile-directory=\"Default\" github.com/pranavrao145")
+    , ( "Whatsapp"
+      , "brave --new-window --profile-directory=\"Default\" web.whatsapp.com")
     , ( "Netflix"
       , "brave --new-window --profile-directory=\"Default\" netflix.com")
     ]
@@ -303,6 +312,7 @@ main = do
     xmproc <- spawnPipe "xmobar /home/cypher/.config/xmobar/xmobarrc0 -x 0"
     xmproc1 <- spawnPipe "xmobar /home/cypher/.config/xmobar/xmobarrc1 -x 1"
     xmonad $
+        ewmh $
         docks $
         desktopConfig
             { terminal = myTerminal
@@ -322,11 +332,11 @@ main = do
                           { ppOutput =
                                 \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                           , ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#628789" "" . shorten 30
+                          , ppTitle = xmobarColor "#2FA6A2" "" . shorten 30
                           , ppCurrent =
-                                xmobarColor "#628789" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#2FA6A2" "" . -- ppCurrentColorMarker1
                                 wrap
-                                    "<box type=Bottom width=2 mb=2 color=#628789>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#2FA6A2>" -- ppCurrentColorMarker2
                                     "</box>"
                           , ppVisible =
                                 wrap
