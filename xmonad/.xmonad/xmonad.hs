@@ -168,6 +168,7 @@ myManageHook =
         [ className =? "kitty" --> doShift " dev "
         , className =? "Code" --> doShift " dev "
         , className =? "Brave-browser" --> doShift " www "
+        , className =? "firefox" --> doShift " www "
         , className =? "qutebrowser" --> doShift " www "
         , className =? "discord" --> doShift " chat "
         , className =? "Slack" --> doShift " chat "
@@ -332,11 +333,11 @@ main = do
                           { ppOutput =
                                 \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                           , ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#2FA6A2" "" . shorten 30
+                          , ppTitle = xmobarColor "#FE9187" "" . shorten 30
                           , ppCurrent =
-                                xmobarColor "#2FA6A2" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#FE9187" "" . -- ppCurrentColorMarker1
                                 wrap
-                                    "<box type=Bottom width=2 mb=2 color=#2FA6A2>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#FE9187>" -- ppCurrentColorMarker2
                                     "</box>"
                           , ppVisible =
                                 wrap

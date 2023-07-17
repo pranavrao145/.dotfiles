@@ -163,6 +163,8 @@ alias ff='cd && cd "$(fd -H --type d | fzf)"'
 alias src='exec zsh'
 alias switch-worktree="source switch-worktree"
 alias sa="eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
+alias po="sudo poweroff"
+alias re="sudo reboot"
 
 export PATH=/home/cypher/.local/bin:$PATH
 export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
@@ -190,6 +192,15 @@ export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 
 # run startup script on startup
-ruby /home/cypher/Scripts/shell/startup.rb
 
-eval "$(starship init zsh)"
+#!/bin/bash
+
+if [ "$(tty)" = "/dev/tty1" ];then
+  exec Hyprland
+fi
+
+
+if [ "$(tty)" != "/dev/tty1" ];then
+  ruby /home/cypher/Scripts/shell/startup.rb
+  eval "$(starship init zsh)"
+fi

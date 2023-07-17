@@ -1,6 +1,6 @@
 set recolor
-set recolor-darkcolor "#9fd2c6"
-set recolor-lightcolor "#110d17"
-set default-bg "#110d17"
+set recolor-darkcolor "#f6cbbb"
+set recolor-lightcolor "#2f1427"
+set default-bg "#2f1427"
 map i recolor
 set guioptions none

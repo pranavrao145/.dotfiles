@@ -234,7 +234,12 @@ return require("packer").startup(function()
   -- })
 
   -- Markdown Preview
-  use({ "iamcco/markdown-preview.nvim", run = function() end })
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  })
 
   -- Additional text objects
   use("wellle/targets.vim")
@@ -262,8 +267,9 @@ return require("packer").startup(function()
   })
 
   -- Line endings
-  use("tjdevries/cyclist.vim")
+  -- use("tjdevries/cyclist.vim")
 
+  -- Editing remote machine files
   use({
     "chipsenkbeil/distant.nvim",
     branch = "v0.2",
@@ -284,10 +290,10 @@ return require("packer").startup(function()
   })
 
   -- Themes
-  -- use("kyazdani42/nvim-palenight.lua")
+  use("kyazdani42/nvim-palenight.lua")
   -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
-  use("navarasu/onedark.nvim")
+  -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")

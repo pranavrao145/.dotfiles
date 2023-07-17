@@ -31,7 +31,7 @@ vim.opt.regexpengine = 0
 vim.opt.diffopt = vim.opt.diffopt + "vertical"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
-vim.opt.termencoding = "utf-8"
+-- vim.opt.termencoding = "utf-8"
 vim.opt.showmode = false
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.background = "dark"
@@ -43,7 +43,7 @@ vim.opt.laststatus = 3
 vim.opt.winbar = "%t %m"
 
 vim.cmd([[
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/403'
 ]])
 
 -- Set map leader
