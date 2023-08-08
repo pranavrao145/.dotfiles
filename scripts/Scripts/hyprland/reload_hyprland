@@ -1,0 +1,10 @@
+#/bin/sh
+
+pkill -i hyprpaper
+pkill -i waybar
+
+
+waybar --config ~/.config/waybar/config.json &
+hyprpaper &
+
+disown

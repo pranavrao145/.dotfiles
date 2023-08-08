@@ -94,6 +94,7 @@ return require("packer").startup(function()
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzy-native.nvim" },
     },
+    -- branch = "master",
   })
 
   -- Auto pairs
@@ -290,9 +291,9 @@ return require("packer").startup(function()
   })
 
   -- Themes
-  use("kyazdani42/nvim-palenight.lua")
+  -- use("kyazdani42/nvim-palenight.lua")
   -- use("ellisonleao/gruvbox.nvim")
-  -- use("Mofiqul/dracula.nvim")
+  use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")

@@ -89,6 +89,7 @@ helix
 hindent
 htop
 hydra
+hyprland
 hyprpaper
 i3-wm
 i3blocks
@@ -249,6 +250,8 @@ sassc
 screenkey
 seatd
 sed
+shfmt
+spdlog
 speech-dispatcher
 speedtest-cli
 sqlmap
@@ -295,6 +298,7 @@ valgrind
 virtualbox
 vlc
 vulkan-intel
+waybar
 wget
 which
 wireshark-qt

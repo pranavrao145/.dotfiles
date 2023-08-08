@@ -60,7 +60,6 @@ ttf-icomoon-feather
 ttf-inconsolata-g
 ttf-ms-fonts
 visual-studio-code-bin
-waybar-hyprland-git
 xwaylandvideobridge-cursor-mode-2-git
 zoom
 zotero-bin
