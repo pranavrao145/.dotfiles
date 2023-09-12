@@ -1,7 +1,7 @@
 -- require("plenary.profile").start("/home/cypher/profile.log", { flame = true })
 
 -- Improve startup time
-require("impatient")
+-- require("impatient")
 
 -- load vim options
 require("options")

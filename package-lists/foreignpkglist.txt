@@ -4,8 +4,9 @@ anki-bin
 anydesk-bin
 betterdiscordctl
 brave-bin
+brillo
 burpsuite
-cava
+cava-git
 chili-sddm-theme
 crunch
 docker-credential-secretservice-bin
@@ -21,9 +22,12 @@ i3-battery-popup
 i3lock-color-git
 imagewriter
 inferno
+intellij-idea-ultimate-edition
+jdtls
 julia-bin
 latex-mk
 lightdm-webkit-theme-aether
+logisim-evolution-bin
 lua-language-server-git
 networkmanager-dmenu-git
 noisetorch
@@ -60,6 +64,8 @@ ttf-icomoon-feather
 ttf-inconsolata-g
 ttf-ms-fonts
 visual-studio-code-bin
+webcord-bin
 xwaylandvideobridge-cursor-mode-2-git
+youtube-dl
 zoom
 zotero-bin

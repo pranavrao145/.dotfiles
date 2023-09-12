@@ -79,6 +79,7 @@ local on_attach = function(_, bufnr)
     opts
   )
   -- buf_set_keymap('n', "<leader>fm", '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
 end
 
 -- Typescript and Javascript
@@ -94,9 +95,26 @@ nvim_lsp.clangd.setup({
 })
 
 -- Python
-nvim_lsp.pyright.setup({
+nvim_lsp.pylsp.setup({
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { "E501" },
+        },
+      },
+    },
+  },
+})
+
+nvim_lsp.ruff_lsp.setup({
+  init_options = {
+    settings = {
+      args = { "--ignore", "E501" },
+    },
+  },
 })
 
 -- Ruby
@@ -127,7 +145,7 @@ M.get_jdtls_config = function()
   )
   return {
     cmd = {
-      "/home/cypher/.local/bin/jdtls",
+      "/usr/bin/jdtls",
     },
     root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
     settings = {
@@ -154,6 +172,7 @@ nvim_lsp.lua_ls.setup({
     Lua = {
       diagnostics = {
         globals = { "vim", "use" },
+        telemetry = { enable = false },
       },
     },
   },

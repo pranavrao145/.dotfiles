@@ -19,7 +19,7 @@ return require("packer").startup(function()
   use("wbthomason/packer.nvim")
 
   -- Faster startup time
-  use("lewis6991/impatient.nvim")
+  -- use("lewis6991/impatient.nvim")
 
   -- LSP Config
   use({
@@ -292,8 +292,8 @@ return require("packer").startup(function()
 
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
-  -- use("ellisonleao/gruvbox.nvim")
-  use("Mofiqul/dracula.nvim")
+  use("ellisonleao/gruvbox.nvim")
+  -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")

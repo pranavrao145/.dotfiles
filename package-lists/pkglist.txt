@@ -51,8 +51,8 @@ efibootmgr
 elixir
 encfs
 erlang-nox
-exa
 exploitdb
+eza
 fakeroot
 fbreader
 fd
@@ -98,6 +98,7 @@ inotify-tools
 iw
 iwd
 jack2
+jdk17-openjdk
 john
 jp2a
 kamoso
@@ -179,6 +180,7 @@ pyright
 python-adblock
 python-debugpy
 python-i3ipc
+python-lsp-server
 python-pipenv
 python-pyaudio
 python-pyserial
@@ -244,6 +246,7 @@ refind
 ripgrep
 rofi
 ruby
+ruff-lsp
 rust-analyzer
 rustup
 sassc
@@ -363,7 +366,6 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yarn
-youtube-dl
 yt-dlp
 zathura
 zathura-pdf-mupdf

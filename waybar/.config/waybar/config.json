@@ -5,7 +5,7 @@
   // "width": 1280, // Waybar width
   "spacing": 3, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["wlr/workspaces", "sway/mode", "sway/scratchpad"],
+  "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
     "custom/media",
