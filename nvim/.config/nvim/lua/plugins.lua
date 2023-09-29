@@ -33,12 +33,12 @@ return require("packer").startup(function()
 
   -- -- Auto-complete
   -- use({
-  -- 	"ms-jpq/coq_nvim",
-  -- 	branch = "coq",
-  -- 	requires = {
-  -- 		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
-  -- 		{ "ms-jpq/coq.thirdparty", branch = "3p" },
-  -- 	},
+  --   "ms-jpq/coq_nvim",
+  --   branch = "coq",
+  --   requires = {
+  --     { "ms-jpq/coq.artifacts", branch = "artifacts" },
+  --     { "ms-jpq/coq.thirdparty", branch = "3p" },
+  --   },
   -- })
 
   use({
@@ -54,6 +54,7 @@ return require("packer").startup(function()
       { "saadparwaiz1/cmp_luasnip" },
       { "rafamadriz/friendly-snippets" },
       { "tzachar/cmp-tabnine", run = "./install.sh" },
+      { "windwp/nvim-autopairs" }, -- autopairs
     },
   })
 
@@ -97,13 +98,13 @@ return require("packer").startup(function()
     -- branch = "master",
   })
 
-  -- Auto pairs
-  -- use("jiangmiao/auto-pairs")
-
   -- Git integration
-  use({ "tpope/vim-fugitive", requires = {
-    "tpope/vim-rhubarb",
-  } })
+  use({
+    "tpope/vim-fugitive",
+    requires = {
+      "tpope/vim-rhubarb",
+    },
+  })
 
   -- GitHub integration
   use("pwntester/octo.nvim")
@@ -292,15 +293,15 @@ return require("packer").startup(function()
 
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
-  use("ellisonleao/gruvbox.nvim")
+  -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("Shatur/neovim-ayu")
-  -- use("tjdevries/colorbuddy.vim")
-  -- use("tjdevries/gruvbuddy.nvim")
+  use("tjdevries/colorbuddy.vim")
+  use("tjdevries/gruvbuddy.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

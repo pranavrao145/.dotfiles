@@ -1,4 +1,5 @@
 alternating-layouts-git
+android-studio
 ani-cli
 anki-bin
 anydesk-bin
@@ -32,7 +33,6 @@ lua-language-server-git
 networkmanager-dmenu-git
 noisetorch
 nomacs
-notion-app
 nvim-lazy
 nvim-packer-git
 orchis-theme-git
@@ -45,6 +45,7 @@ protonvpn
 python-pywalfox
 python311
 pywal-discord-git
+quickemu
 sddm-git
 sddm-theme-aerial-git
 seclists
@@ -64,8 +65,8 @@ ttf-icomoon-feather
 ttf-inconsolata-g
 ttf-ms-fonts
 visual-studio-code-bin
+watchman-bin
 webcord-bin
-xwaylandvideobridge-cursor-mode-2-git
 youtube-dl
 zoom
 zotero-bin

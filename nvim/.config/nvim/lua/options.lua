@@ -63,10 +63,13 @@ vim.cmd([[
   augroup end
 ]])
 
+-- Resize
+vim.api.nvim_command('autocmd VimResized * wincmd =')
+
 -- Highlight on yank
 local highlight_group =
   vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
+  vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
   end,

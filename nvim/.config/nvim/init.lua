@@ -57,6 +57,6 @@ require("setup.gitlinker")
 require("setup.vimtex")
 require("setup.bufresize")
 require("setup.aerial")
-require("setup.aerial")
+require("setup.autopairs")
 
 -- require('plenary.profile').stop()

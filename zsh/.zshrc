@@ -2,7 +2,7 @@
 (cat ~/.cache/wal/sequences &)
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/bin:/usr/local/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cypher/.oh-my-zsh"
@@ -11,7 +11,7 @@ export ZSH="/home/cypher/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -123,7 +123,6 @@ v() {
     fi
 }
 
-
 # to reset the origin remote should it stop working
 reset-remote() {
     remote_url=$(git config --get remote.origin.url)
@@ -168,11 +167,14 @@ alias sa="eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
 alias po="sudo poweroff"
 alias re="sudo reboot"
 
-export PATH=/home/cypher/.local/bin:$PATH
-export PATH=/home/cypher/.local/share/gem/ruby/3.0.0/bin:$PATH
-export PATH=$PATH:$HOME/.rvm/bin
+export PATH=$PATH:/home/cypher/.local/bin
+export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$(yarn global bin)
+
+export ANDROID_HOME=/mnt/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty
@@ -193,16 +195,17 @@ fi
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 
+# android env variables
+
 # run startup script on startup
 
 #!/bin/bash
 
-if [ "$(tty)" = "/dev/tty1" ];then
-  exec Hyprland
+if [ "$(tty)" = "/dev/tty1" ]; then
+    exec Hyprland
 fi
 
-
-if [ "$(tty)" != "/dev/tty1" ];then
-  ruby /home/cypher/Scripts/shell/startup.rb
-  eval "$(starship init zsh)"
+if [ "$(tty)" != "/dev/tty1" ]; then
+    ruby /home/cypher/Scripts/shell/startup.rb
+    eval "$(starship init zsh)"
 fi

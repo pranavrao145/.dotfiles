@@ -3,20 +3,21 @@ import XMonad
 import XMonad.Config.Desktop
 
 import XMonad.Util.EZConfig
+import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 
 import XMonad.Actions.CycleWS
+import XMonad.Actions.GridSelect
 import XMonad.Actions.OnScreen
 
 import qualified XMonad.StackSet as W
 
-import XMonad.Actions.GridSelect
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.DynamicProperty
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.ManageHelpers hiding ((~?))
 import XMonad.Hooks.SetWMName
 
 import XMonad.Layout.Fullscreen
@@ -62,6 +63,10 @@ windowCount =
     gets $
     Just .
     show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+
+-- string search operator
+(~?) :: (Eq a, Functor m) => m [a] -> [a] -> m Bool
+q ~? x = fmap (x `isInfixOf`) q
 
 -- Utility functions end
 myTerminal = "kitty"
@@ -121,8 +126,11 @@ myKeys =
     , ("M-m", spawn "restart_spotify")
   -- , ("M-m", spawn "brave --start-fullscreen --profile-directory=Default open.spotify.com")
     , ("M-n", spawn "discord")
-    , ("M-z", spawn "notion-app")
-    , ("M-c", windows (greedyViewOnScreen 0 " www ") >> spawn "brave")
+    , ("M-z", spawn "firefox-developer-edition --new-window notion.so")
+    , ("M-c"
+      , windows (greedyViewOnScreen 0 " www ") >>
+        spawn "firefox-developer-edition")
+    , ("M-S-c", windows (greedyViewOnScreen 0 " www ") >> spawn "brave --password-store=basic")
     , ("M-q", kill)
     , ("M-f", sendMessage (Toggle NBFULL))
     , ("M-S-i", spawn "sysinfo")
@@ -153,12 +161,17 @@ myKeys =
     , ( "M-C-S-b"
       , spawn
             "xrandr --output HDMI1 --mode 1920x1080 --same-as eDP1 --mode 1280x720 --output VIRTUAL1 --off && nitrogen --restore && picom --experimental-backends &")
+    , ( "M-C-S-v"
+      , spawn
+            "xrandr --output eDP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off && xmonad --restart && nitrogen --restore && picom --experimental-backends &")
     , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
     , ("M-S-p", spawn "pavucontrol")
     , ("M-C-l", shiftNextScreen >> nextScreen)
     , ("M-C-h", shiftPrevScreen >> prevScreen)
     , ("M-C-<Right>", shiftNextScreen >> nextScreen)
     , ("M-C-<Left>", shiftPrevScreen >> prevScreen)
+    , ("M-S--", withFocused $ toggleDynamicNSP "scratch")
+    , ("M--", dynamicNSPAction "scratch")
     , ("M-S-l", spawn "lock")
     , ("M-S-a", spawnSelected' gsGeneral)
     ]
@@ -167,8 +180,10 @@ myManageHook =
     composeAll
         [ className =? "kitty" --> doShift " dev "
         , className =? "Code" --> doShift " dev "
+        , className =? "saturn" --> doShift " dev "
         , className =? "Brave-browser" --> doShift " www "
         , className =? "firefox" --> doShift " www "
+        , className =? "firefoxdeveloperedition" --> doShift " www "
         , className =? "qutebrowser" --> doShift " www "
         , className =? "discord" --> doShift " chat "
         , className =? "Slack" --> doShift " chat "
@@ -182,6 +197,9 @@ myManageHook =
         , className =? "Gimp-2.10" --> doShift " med "
         , className =? "Eclipse" --> doShift " misc "
         , className =? "jetbrains-pycharm-ce" --> doShift " misc "
+        , className =? "jetbrains-idea-ce" --> doShift " misc "
+        , className =? "jetbrains-idea" --> doShift " misc "
+        , className =? "jetbrains-studio" --> doShift " misc "
         , className =? "Anydesk" --> doShift " not "
         , className =? "notion-app" --> doShift " not "
         , className =? "Nitrogen" --> doFloat
@@ -203,18 +221,17 @@ myStartupHook = do
     spawn "mapwacom -d \"Wacom Intuos S Pen stylus\" -s \"HDMI1\""
     setWMName "LG3D"
     spawn "picom --experimental-backends &"
-    spawnOnce "nm-applet &" -- spawnOnce "sysinfo"
+    spawnOnce "nm-applet &"
+    spawnOnce "sysinfo"
 
-mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 2 2 2 2) True
-
-myLayoutHook
-    -- lessBorders Screen $
- =
+mySpacing = spacingRaw False (Border 10 10 10 10) True (Border 5 5 5 5) True
+myLayoutHook =
+    lessBorders Screen $
     mkToggle (single NBFULL) $
-    -- smartBorders $
+    smartBorders $
     avoidStruts $
     reflectHoriz $
-    mySpacing $
+    -- mySpacing $
     Tall 1 (3 / 100) (2 / 3) |||
     Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (2 / 100) (1 / 2)
 
@@ -286,32 +303,29 @@ runSelectedAction' conf actions = do
         Nothing -> return ()
 
 gsGeneral =
-    [ ( "Quercus"
-      , "brave --new-window --profile-directory=\"University\" q.utoronto.ca")
+    [ ("Quercus", "firefox-developer-edition --new-window q.utoronto.ca")
     , ( "lofi"
-      , "brave --new-window --profile-directory=\"Default\" https://youtu.be/jfKfPfyJRdk")
+      , "firefox-developer-edition --new-window https://youtu.be/jfKfPfyJRdk")
     , ( "UToronto Email"
-      , "brave --new-window --profile-directory=\"University\" mail.utoronto.ca")
+      , "firefox-developer-edition --new-window mail.utoronto.ca")
     , ( "Google Calendar"
-      , "brave --new-window --profile-directory=\"Default\" calendar.google.com")
-    , ( "ChatGPT"
-      , "brave --new-window --profile-directory=\"Default\" chat.openai.com")
+      , "firefox-developer-edition --new-window calendar.google.com")
+    , ("ChatGPT", "firefox-developer-edition --new-window chat.openai.com")
     , ("YouTube Search", "/usr/bin/search_youtube")
-    , ( "Gmail"
-      , "brave --new-window --profile-directory=\"Default\" mail.google.com")
-    , ( "YouTube"
-      , "brave --new-window --profile-directory=\"Default\" youtube.com")
+    , ("Gmail", "firefox-developer-edition --new-window mail.google.com")
+    , ("YouTube", "firefox-developer-edition --new-window youtube.com")
     , ( "GitHub"
-      , "brave --new-window --profile-directory=\"Default\" github.com/pranavrao145")
-    , ( "Whatsapp"
-      , "brave --new-window --profile-directory=\"Default\" web.whatsapp.com")
-    , ( "Netflix"
-      , "brave --new-window --profile-directory=\"Default\" netflix.com")
+      , "firefox-developer-edition --new-window github.com/pranavrao145")
+    , ("Whatsapp", "firefox-developer-edition --new-window web.whatsapp.com")
+    , ( "Instagram"
+      , "firefox-developer-edition --new-window https://www.instagram.com/direct/inbox/")
+    , ("Netflix", "firefox-developer-edition --new-window netflix.com")
     ]
 
-main = do
-    xmproc <- spawnPipe "xmobar /home/cypher/.config/xmobar/xmobarrc0 -x 0"
-    xmproc1 <- spawnPipe "xmobar /home/cypher/.config/xmobar/xmobarrc1 -x 1"
+main
+    -- xmproc <- spawnPipe "xmobar /home/cypher/.config/xmobar/xmobarrc0 -x 0"
+    -- xmproc1 <- spawnPipe "xmobar /home/cypher/.config/xmobar/xmobarrc1 -x 1"
+ = do
     xmonad $
         ewmh $
         docks $
@@ -328,23 +342,24 @@ main = do
             -- , handleEventHook = myHandleEventHook
             , startupHook = myStartupHook
             , logHook =
-                  dynamicLogWithPP
-                      xmobarPP
-                          { ppOutput =
-                                \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
-                          , ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#E0AD98" "" . shorten 30
-                          , ppCurrent =
-                                xmobarColor "#E0AD98" "" . -- ppCurrentColorMarker1
-                                wrap
-                                    "<box type=Bottom width=2 mb=2 color=#E0AD98>" -- ppCurrentColorMarker2
-                                    "</box>"
-                          , ppVisible =
-                                wrap
-                                    "<box type=Bottom width=2 mb=2 color=#FFFFFF>"
-                                    "</box>" .
-                                clickable
-                          , ppHidden = clickable
-                          }
+                  dynamicLogWithPP $
+                  filterOutWsPP ["scratch"] $
+                  xmobarPP
+                        -- ppOutput =
+                            -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
+                      { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
+                          , ppTitle = xmobarColor "#B1AFAF" "" . shorten 30
+                      , ppCurrent =
+                                xmobarColor "#B1AFAF" "" . -- ppCurrentColorMarker1
+                            wrap
+                                    "<box type=Bottom width=2 mb=2 color=#B1AFAF>" -- ppCurrentColorMarker2
+                                "</box>"
+                      , ppVisible =
+                            wrap
+                                "<box type=Bottom width=2 mb=2 color=#FFFFFF>"
+                                "</box>" .
+                            clickable
+                      , ppHidden = clickable
+                      }
             } `additionalKeysP`
         myKeys

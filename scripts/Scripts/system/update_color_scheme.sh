@@ -4,7 +4,7 @@ echo "Updating system colour scheme..."
 
 echo "Updating Xresources..."
 # update Xresources
-xrdb -query -all > ~/.Xresources
+xrdb -query -all >~/.Xresources
 
 echo "Updating Discord colour scheme..."
 # update discord colour scheme
@@ -24,8 +24,7 @@ get_kitty_colour() {
 
 echo "Updating zathura colour scheme..."
 
-
-cat > "$HOME/.dotfiles/zathura/.config/zathura/zathurarc" <<- CONF
+cat >"$HOME/.dotfiles/zathura/.config/zathura/zathurarc" <<-CONF
 set recolor
 set recolor-darkcolor "$(get_kitty_colour foreground)"
 set recolor-lightcolor "$(get_kitty_colour color0)"
@@ -44,11 +43,15 @@ sed -i "/ppCurrentColorMarker1/c\                                xmobarColor \"$
 sed -i "/ppCurrentColorMarker2/c\                                    \"<box type=Bottom width=2 mb=2 color=$(get_xrdb_colour *.color6:)>\" -- ppCurrentColorMarker2" $HOME/.dotfiles/xmonad/.xmonad/xmonad.hs
 
 # Only to be uncommented if xmonad is in use
-# xmonad --restart
+xmonad --restart
+
+echo "Updating dunst colorscheme..."
+
+sed -i "/NORMAL COLOUR/c\    background = \"$(get_xrdb_colour *.color1:)\" # NORMAL COLOUR" $HOME/.config/dunst/dunstrc && pkill -i dunst
 
 echo "Updating tofi colorscheme..."
 
-sed -i "/selection-color/c\selection-color = $(get_kitty_colour color8)" $HOME/.config/tofi/config
+sed -i "/selection-color/c\selection-color = $(get_kitty_colour *.color8:)" $HOME/.config/tofi/config
 
 echo "Updating cava colorscheme..."
 

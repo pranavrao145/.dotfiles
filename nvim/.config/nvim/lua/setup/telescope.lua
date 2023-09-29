@@ -3,7 +3,7 @@
 require("telescope").setup({
   defaults = {
     file_sorter = require("telescope.sorters").get_fzy_sorter,
-    sorting_strategy = "ascending",
+    -- sorting_strategy = "ascending",
     vimgrep_arguments = {
       "rg",
       "--color=never",
@@ -28,7 +28,7 @@ require("telescope").setup({
     -- only_sort_text = true,
     color_devicons = true,
     layout_config = {
-      prompt_position = "top",
+      prompt_position = "bottom",
     },
   },
 

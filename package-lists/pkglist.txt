@@ -23,6 +23,7 @@ bluez
 bluez-hid2hci
 bluez-utils
 brightnessctl
+byzanz
 calc
 cargo-generate
 chromium
@@ -77,7 +78,6 @@ gnu-netcat
 go
 gobject-introspection
 gopls
-gradle
 grep
 groff
 grub
@@ -102,6 +102,7 @@ jdk17-openjdk
 john
 jp2a
 kamoso
+kdeconnect
 kdenlive
 kitty
 kompose
@@ -113,7 +114,7 @@ libliftoff
 libreoffice-fresh
 libtool
 libva-intel-driver
-libva-mesa-driver
+libvirt
 lightdm
 lightdm-gtk-greeter
 lightdm-webkit-theme-litarvan
@@ -128,6 +129,7 @@ lxqt-policykit
 m4
 make
 maven
+mesa
 mesa-demos
 metasploit
 mixxx
@@ -164,7 +166,6 @@ perl-yaml
 perl-yaml-tiny
 phonon-qt5-gstreamer
 pinta
-pipewire-pulse
 pkgconf
 playerctl
 postgresql
@@ -174,8 +175,9 @@ powerline-fonts
 powertop
 prettier
 proxychains-ng
+pulseaudio
 pulseaudio-alsa
-pycharm-community-edition
+pulseaudio-bluetooth
 pyright
 python-adblock
 python-debugpy
@@ -307,8 +309,6 @@ which
 wireshark-qt
 wl-clipboard
 xclip
-xdg-desktop-portal
-xdg-desktop-portal-hyprland
 xdotool
 xf86-input-wacom
 xf86-video-intel
@@ -368,6 +368,6 @@ xorg-xwud
 yarn
 yt-dlp
 zathura
-zathura-pdf-mupdf
+zathura-pdf-poppler
 zip
 zsh
