@@ -166,6 +166,8 @@ alias switch-worktree="source switch-worktree"
 alias sa="eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
 alias po="sudo poweroff"
 alias re="sudo reboot"
+alias slk="set_laptop_keybinds"
+alias hs="connect_to_hotspot"
 
 export PATH=$PATH:/home/cypher/.local/bin
 export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.0/bin
@@ -175,6 +177,9 @@ export PATH=$PATH:$(yarn global bin)
 export ANDROID_HOME=/mnt/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export PATH=$PATH:/home/cypher/.rbenv/shims
+export PATH=$PATH:/home/cypher/.rbenv/versions
 
 export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty
@@ -206,6 +211,6 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 fi
 
 if [ "$(tty)" != "/dev/tty1" ]; then
-    ruby /home/cypher/Scripts/shell/startup.rb
+    # ruby /home/cypher/Scripts/shell/startup.rb
     eval "$(starship init zsh)"
 fi

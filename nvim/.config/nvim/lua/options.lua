@@ -43,7 +43,7 @@ vim.opt.laststatus = 3
 vim.opt.winbar = "%t %m"
 
 vim.cmd([[
-    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/403'
+    let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'
 ]])
 
 -- Set map leader

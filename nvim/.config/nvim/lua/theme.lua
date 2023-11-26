@@ -13,8 +13,8 @@ vim.g.ayu_italic_comment = 1
 -- require("setup.gruvbox")
 
 -- Set colorscheme
--- vim.cmd("colorscheme gruvbox")
-require("colorbuddy").colorscheme("gruvbuddy")
+vim.cmd("colorscheme gruvbox")
+-- require("colorbuddy").colorscheme("gruvbuddy")
 
 -- transparent background and get rid of unneccessary fills
 vim.cmd([[
@@ -26,10 +26,10 @@ vim.cmd([[
     hi CursorLineNr guibg=NONE ctermbg=NONE
     " hi WinSeparator guibg=NONE ctermbg=NONE
 
-    " needed for palenight
+    " needed for palenight and dracula
     " hi TelescopeNormal guibg=NONE ctermbg=NONE
     " hi! link NonText Comment
 
     " Needed for palenight and gruvbuddy
-    hi ColorColumn guibg=#2C323C ctermbg=236
+    " hi ColorColumn guibg=#2C323C ctermbg=236
 ]])

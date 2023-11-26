@@ -3,11 +3,7 @@ local cwd = vim.loop.cwd()
 
 -- set vim env depending on cwd
 local projects = {
-  ["fulcrum-mk2"] = "DOCKER",
-  ["lanchat"] = "DOCKER",
-  ["storybuilder-server"] = "DOCKER",
-  ["storybuilder-tui"] = "RUST",
-  ["storybuilder-cli"] = "RUST",
+  ["Markus"] = "MARKUS",
 }
 
 for project, _ in pairs(projects) do

@@ -102,7 +102,7 @@ clickable ws =
   where
     i = fromJust $ M.lookup ws myWorkspaceIndices
 
-myNormalBorderColor = fromXres "*color2"
+myNormalBorderColor = "#000000" -- no transparency :(
 
 myFocusedBorderColor = fromXres "*color6"
 
@@ -127,10 +127,12 @@ myKeys =
   -- , ("M-m", spawn "brave --start-fullscreen --profile-directory=Default open.spotify.com")
     , ("M-n", spawn "discord")
     , ("M-z", spawn "firefox-developer-edition --new-window notion.so")
-    , ("M-c"
+    , ( "M-c"
       , windows (greedyViewOnScreen 0 " www ") >>
         spawn "firefox-developer-edition")
-    , ("M-S-c", windows (greedyViewOnScreen 0 " www ") >> spawn "brave --password-store=basic")
+    , ( "M-S-c"
+      , windows (greedyViewOnScreen 0 " www ") >>
+        spawn "brave --password-store=basic")
     , ("M-q", kill)
     , ("M-f", sendMessage (Toggle NBFULL))
     , ("M-S-i", spawn "sysinfo")
@@ -209,7 +211,7 @@ myManageHook =
 -- myDynHook = composeAll [title =? "spotify" --> doShift " 4 "]
 myStartupHook = do
     spawnOnce "nitrogen --restore"
-    spawnOnce "setxkbmap -layout us -option ctrl:nocaps"
+    spawn "setxkbmap -layout us -option ctrl:nocaps -option altwin:swap_alt_win"
     spawn
         "xsetwacom set \"Wacom Intuos S Pad pad\" Button 1 \"key +ctrl z -ctrl\""
     spawn
@@ -223,8 +225,9 @@ myStartupHook = do
     spawn "picom --experimental-backends &"
     spawnOnce "nm-applet &"
     spawnOnce "sysinfo"
+    spawnOnce "xmodmap ~/.Xmodmap"
 
-mySpacing = spacingRaw False (Border 10 10 10 10) True (Border 5 5 5 5) True
+-- mySpacing = spacingRaw False (Border 10 10 10 10) True (Border 5 5 5 5) True
 myLayoutHook =
     lessBorders Screen $
     mkToggle (single NBFULL) $
@@ -348,11 +351,11 @@ main
                         -- ppOutput =
                             -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                       { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#B1AFAF" "" . shorten 30
+                          , ppTitle = xmobarColor "#90A96C" "" . shorten 30
                       , ppCurrent =
-                                xmobarColor "#B1AFAF" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#90A96C" "" . -- ppCurrentColorMarker1
                             wrap
-                                    "<box type=Bottom width=2 mb=2 color=#B1AFAF>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#90A96C>" -- ppCurrentColorMarker2
                                 "</box>"
                       , ppVisible =
                             wrap

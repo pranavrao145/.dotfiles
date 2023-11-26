@@ -3,7 +3,7 @@
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
-    disable = { "latex" }
+    disable = { "latex" },
   },
   incremental_selection = {
     enable = true,
@@ -77,10 +77,10 @@ require("nvim-treesitter.configs").setup({
       },
     },
   },
-  context_commentstring = {
-    enable = true,
-  },
 })
+
+-- Skip backwards compatibility for commentstrings
+vim.g.skip_ts_context_commentstring_module = true
 
 -- Setup playground keybindings
 vim.keymap.set("n", "<leader>pP", ":TSPlaygroundToggle<CR>", { noremap = true })

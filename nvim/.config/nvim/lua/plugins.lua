@@ -293,15 +293,15 @@ return require("packer").startup(function()
 
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
-  -- use("ellisonleao/gruvbox.nvim")
+  use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("Shatur/neovim-ayu")
-  use("tjdevries/colorbuddy.vim")
-  use("tjdevries/gruvbuddy.nvim")
+  -- use("tjdevries/colorbuddy.vim")
+  -- use("tjdevries/gruvbuddy.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

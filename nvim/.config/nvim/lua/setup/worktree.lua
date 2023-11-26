@@ -18,7 +18,7 @@ vim.keymap.set(
 )
 
 local project_commands = {
-  ["DOCKER"] = ":silent !tmux-windowizer %s docker-compose build",
+  ["MARKUS"] = ":silent !tmux-windowizer %s docker-compose build app; docker-compose run rails",
   ["JAVA"] = ":silent !tmux-windowizer %s ant",
   ["RUST"] = ":silent !tmux-windowizer %s cargo build",
 }

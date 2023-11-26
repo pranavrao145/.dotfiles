@@ -8,6 +8,8 @@ xrdb -query -all >~/.Xresources
 
 echo "Updating Discord colour scheme..."
 # update discord colour scheme
+betterdiscordctl uninstall
+betterdiscordctl install
 pywal-discord
 
 # echo "Updating Firefox colour scheme..."
