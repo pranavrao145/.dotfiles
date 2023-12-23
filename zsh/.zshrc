@@ -168,6 +168,7 @@ alias po="sudo poweroff"
 alias re="sudo reboot"
 alias slk="set_laptop_keybinds"
 alias hs="connect_to_hotspot"
+alias nd="nvidia_desktop"
 
 export PATH=$PATH:/home/cypher/.local/bin
 export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.0/bin

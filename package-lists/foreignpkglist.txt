@@ -22,7 +22,6 @@ grimshot
 i3-battery-popup
 i3lock-color-git
 imagewriter
-inferno
 intellij-idea-ultimate-edition
 jdtls
 julia-bin
@@ -47,7 +46,6 @@ pywal-discord-git
 quickemu
 rbenv
 ruby-build
-sddm-git
 sddm-theme-aerial-git
 seclists
 shell-color-scripts
@@ -55,7 +53,6 @@ slack-desktop
 snapd
 spicetify-cli
 spotify
-spotify-player
 spotifywm-git
 swaylock-effects
 tmux-plugin-manager
@@ -63,7 +60,7 @@ tofi
 ttf-font-awesome-4
 ttf-fork-awesome
 ttf-icomoon-feather
-ttf-inconsolata-g
+ttf-ms-fonts
 visual-studio-code-bin
 watchman-bin
 webcord-bin

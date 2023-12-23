@@ -21,3 +21,5 @@ plugin
 plugins
 undodir
 UltiSnips
+build
+build-x86_64-linux

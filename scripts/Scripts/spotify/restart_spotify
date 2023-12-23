@@ -4,6 +4,6 @@ pkill -9 -i spotify
 
 sleep 1
 
-spotify &
+MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json spotify &
 
 disown

@@ -109,7 +109,7 @@ myFocusedBorderColor = fromXres "*color6"
 myKeys =
     [ ( "M-d"
       , spawn
-            "rofi -show drun -modi drun -location 1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -columns 9 -bw 0 -disable-history -hide-scrollbar -show-icons")
+            "rofi -show drun -modi drun -m -1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -columns 9 -bw 0 -disable-history -hide-scrollbar -show-icons")
     , ("M-p", windows $ greedyViewOnScreen 0 " dev ")
     , ("M-o", windows $ greedyViewOnScreen 0 " www ")
     , ("M-i", windows $ greedyViewOnScreen 0 " chat ")
@@ -117,22 +117,22 @@ myKeys =
     , ("M-y", windows $ greedyViewOnScreen 0 " call ")
     , ("M-[", windows $ greedyViewOnScreen 0 " not ")
     , ("M-<Tab>", spawn "rofi -show window")
-    , ("M-<Return>", windows (greedyViewOnScreen 0 " dev ") >> spawn "kitty")
-    , ("M-S-f", spawn "kitty ranger")
+    , ("M-<Return>", windows (greedyViewOnScreen 0 " dev ") >> spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json kitty")
+    , ("M-S-f", spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json kitty ranger")
     , ("M-S-<Return>", windows W.swapMaster)
     , ("M-<Space>", windows W.focusMaster)
     , ("M-S-<Space>", sendMessage NextLayout)
     , ("M-C-S-<Space>", setLayout $ XMonad.Layout myLayoutHook)
     , ("M-m", spawn "restart_spotify")
   -- , ("M-m", spawn "brave --start-fullscreen --profile-directory=Default open.spotify.com")
-    , ("M-n", spawn "discord")
+    , ("M-n", spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json discord")
     , ("M-z", spawn "firefox-developer-edition --new-window notion.so")
     , ( "M-c"
       , windows (greedyViewOnScreen 0 " www ") >>
-        spawn "firefox-developer-edition")
+        spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json firefox-developer-edition")
     , ( "M-S-c"
       , windows (greedyViewOnScreen 0 " www ") >>
-        spawn "brave --password-store=basic")
+        spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json brave --password-store=basic")
     , ("M-q", kill)
     , ("M-f", sendMessage (Toggle NBFULL))
     , ("M-S-i", spawn "sysinfo")
@@ -156,16 +156,16 @@ myKeys =
     , ("M-S-s", spawn "flameshot gui")
     , ( "M-C-S-n"
       , spawn
-            "xrandr --output eDP1 --mode 1280x720 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off && xmonad --restart && nitrogen --restore && picom --experimental-backends &")
+            "nvidia_desktop && xrandr --output VIRTUAL1 --primary --auto --output eDP1 --auto --right-of VIRTUAL1 && nitrogen --restore")
     , ( "M-C-S-m"
       , spawn
-            "xrandr --output eDP1 --primary --mode 1280x720 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off && nitrogen --restore && pkill -i xmobar && sysinfo && picom --experimental-backends &")
+            "pkill virtual && xrandr --output VIRTUAL1 --off --output eDP1 --auto --primary && nitrogen --restore")
     , ( "M-C-S-b"
       , spawn
-            "xrandr --output HDMI1 --mode 1920x1080 --same-as eDP1 --mode 1280x720 --output VIRTUAL1 --off && nitrogen --restore && picom --experimental-backends &")
+            "nvidia_desktop && xrandr --output VIRTUAL1 --same-as eDP1 --auto --output eDP1 --auto --primary && nitrogen --restore")
     , ( "M-C-S-v"
       , spawn
-            "xrandr --output eDP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off && xmonad --restart && nitrogen --restore && picom --experimental-backends &")
+            "nvidia_desktop && xrandr --output VIRTUAL1 --primary --auto --output eDP1 --off && nitrogen --restore")
     , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
     , ("M-S-p", spawn "pavucontrol")
     , ("M-C-l", shiftNextScreen >> nextScreen)
@@ -212,18 +212,19 @@ myManageHook =
 myStartupHook = do
     spawnOnce "nitrogen --restore"
     spawn "setxkbmap -layout us -option ctrl:nocaps -option altwin:swap_alt_win"
-    spawn
-        "xsetwacom set \"Wacom Intuos S Pad pad\" Button 1 \"key +ctrl z -ctrl\""
-    spawn
-        "xsetwacom set \"Wacom Intuos S Pad pad\" Button 2 \"key +ctrl y -ctrl\""
-    spawn "xsetwacom set \"Wacom Intuos S Pad pad\" Button 3 \"key pgup\""
-    spawn "xsetwacom set \"Wacom Intuos S Pad pad\" Button 8 \"key pgdn\""
-    spawn "xsetwacom set \"Wacom Intuos S Pen stylus\" Button 2 3"
-    spawn "xsetwacom set \"Wacom Intuos S Pen stylus\" Button 3 \"key del\""
-    spawn "mapwacom -d \"Wacom Intuos S Pen stylus\" -s \"HDMI1\""
+    -- spawn
+    --     "xsetwacom set \"Wacom Intuos S Pad pad\" Button 1 \"key +ctrl z -ctrl\""
+    -- spawn
+    --     "xsetwacom set \"Wacom Intuos S Pad pad\" Button 2 \"key +ctrl y -ctrl\""
+    -- spawn "xsetwacom set \"Wacom Intuos S Pad pad\" Button 3 \"key pgup\""
+    -- spawn "xsetwacom set \"Wacom Intuos S Pad pad\" Button 8 \"key pgdn\""
+    -- spawn "xsetwacom set \"Wacom Intuos S Pen stylus\" Button 2 3"
+    -- spawn "xsetwacom set \"Wacom Intuos S Pen stylus\" Button 3 \"key del\""
+    -- spawn "mapwacom -d \"Wacom Intuos S Pen stylus\" -s \"HDMI1\""
     setWMName "LG3D"
-    spawn "picom --experimental-backends &"
-    spawnOnce "nm-applet &"
+    -- spawn "picom --experimental-backends &"
+    spawn "picom --config ~/.config/picom/picom.conf"
+    -- spawnOnce "nm-applet &"
     spawnOnce "sysinfo"
     spawnOnce "xmodmap ~/.Xmodmap"
 
