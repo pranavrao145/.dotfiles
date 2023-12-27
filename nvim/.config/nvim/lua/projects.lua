@@ -3,7 +3,7 @@ local cwd = vim.loop.cwd()
 
 -- set vim env depending on cwd
 local projects = {
-  ["Markus"] = "MARKUS",
+  -- ["Markus"] = "MARKUS",
 }
 
 for project, _ in pairs(projects) do

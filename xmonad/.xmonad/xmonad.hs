@@ -1,43 +1,43 @@
-import XMonad
+import           XMonad
 
-import XMonad.Config.Desktop
+import           XMonad.Config.Kde
 
-import XMonad.Util.EZConfig
-import XMonad.Util.NamedScratchpad
-import XMonad.Util.Run
-import XMonad.Util.SpawnOnce
+import           XMonad.Util.EZConfig
+import           XMonad.Util.NamedScratchpad
+import           XMonad.Util.Run
+import           XMonad.Util.SpawnOnce
 
-import XMonad.Actions.CycleWS
-import XMonad.Actions.GridSelect
-import XMonad.Actions.OnScreen
+import           XMonad.Actions.CycleWS
+import           XMonad.Actions.GridSelect
+import           XMonad.Actions.OnScreen
 
-import qualified XMonad.StackSet as W
+import qualified XMonad.StackSet                     as W
 
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.DynamicProperty
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers hiding ((~?))
-import XMonad.Hooks.SetWMName
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.DynamicProperty
+import           XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.ManageHelpers          hiding ((~?))
+import           XMonad.Hooks.SetWMName
 
-import XMonad.Layout.Fullscreen
-import XMonad.Layout.MultiToggle
-import XMonad.Layout.MultiToggle.Instances
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Reflect
-import XMonad.Layout.Spacing
-import XMonad.Layout.Spiral
-import XMonad.Layout.Tabbed
-import XMonad.Layout.ThreeColumns
+import           XMonad.Layout.Fullscreen
+import           XMonad.Layout.MultiToggle
+import           XMonad.Layout.MultiToggle.Instances
+import           XMonad.Layout.NoBorders
+import           XMonad.Layout.Reflect
+import           XMonad.Layout.Spacing
+import           XMonad.Layout.Spiral
+import           XMonad.Layout.Tabbed
+import           XMonad.Layout.ThreeColumns
 
-import Data.Bifunctor
-import Data.Char as DC
-import Data.List as DL
-import qualified Data.Map as M
-import Data.Maybe
+import           Data.Bifunctor
+import           Data.Char                           as DC
+import           Data.List                           as DL
+import qualified Data.Map                            as M
+import           Data.Maybe
 
-import System.IO
-import System.IO.Unsafe
+import           System.IO
+import           System.IO.Unsafe
 
 -- Utility functions begin
 getFromXres :: String -> IO String
@@ -107,9 +107,7 @@ myNormalBorderColor = "#000000" -- no transparency :(
 myFocusedBorderColor = fromXres "*color6"
 
 myKeys =
-    [ ( "M-d"
-      , spawn
-            "rofi -show drun -modi drun -m -1 -width 100 -lines 2 -line-margin 0 -line-padding 1 -separator-style none -columns 9 -bw 0 -disable-history -hide-scrollbar -show-icons")
+    [ ( "M-d" , spawn "krunner --replace")
     , ("M-p", windows $ greedyViewOnScreen 0 " dev ")
     , ("M-o", windows $ greedyViewOnScreen 0 " www ")
     , ("M-i", windows $ greedyViewOnScreen 0 " chat ")
@@ -117,55 +115,55 @@ myKeys =
     , ("M-y", windows $ greedyViewOnScreen 0 " call ")
     , ("M-[", windows $ greedyViewOnScreen 0 " not ")
     , ("M-<Tab>", spawn "rofi -show window")
-    , ("M-<Return>", windows (greedyViewOnScreen 0 " dev ") >> spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json kitty")
-    , ("M-S-f", spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json kitty ranger")
+    , ("M-<Return>", windows (greedyViewOnScreen 0 " dev ") >> spawn "kitty")
+    , ("M-S-f", spawn "kitty ranger")
     , ("M-S-<Return>", windows W.swapMaster)
     , ("M-<Space>", windows W.focusMaster)
     , ("M-S-<Space>", sendMessage NextLayout)
     , ("M-C-S-<Space>", setLayout $ XMonad.Layout myLayoutHook)
     , ("M-m", spawn "restart_spotify")
   -- , ("M-m", spawn "brave --start-fullscreen --profile-directory=Default open.spotify.com")
-    , ("M-n", spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json discord")
+    , ("M-n", spawn "discord")
     , ("M-z", spawn "firefox-developer-edition --new-window notion.so")
     , ( "M-c"
       , windows (greedyViewOnScreen 0 " www ") >>
-        spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json firefox-developer-edition")
+        spawn "firefox-developer-edition")
     , ( "M-S-c"
       , windows (greedyViewOnScreen 0 " www ") >>
-        spawn "MESA_LOADER_DRIVER_OVERRIDE=crocus __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json brave --password-store=basic")
+        spawn "brave --password-store=basic")
     , ("M-q", kill)
     , ("M-f", sendMessage (Toggle NBFULL))
     , ("M-S-i", spawn "sysinfo")
     , ("C-<Space>", spawn "dunstctl close")
     , ("<Control_L>-`", spawn "dunstctl history-pop")
     , ("C-S-.", spawn "dunstctl context")
-    , ( "<XF86AudioRaiseVolume>"
-      , spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-    , ( "<XF86AudioLowerVolume>"
-      , spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-    , ( "<XF86AudioMicMute>"
-      , spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
-    , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 20")
-    , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 20")
-    , ("<XF86AudioPlay>", spawn "playerctl play-pause")
-    , ("<XF86AudioPause>", spawn "playerctl play-pause")
-    , ("<XF86AudioNext>", spawn "playerctl next")
-    , ("<XF86AudioPrev>", spawn "playerctl previous")
-    , ("<XF86AudioStop>", spawn "playerctl stop")
+    -- , ( "<XF86AudioRaiseVolume>"
+    --   , spawn "qdbus org.kde.kglobalaccel /component/kmix invokeShortcut \"increase_volume\"")
+    -- , ( "<XF86AudioLowerVolume>"
+    --   , spawn "qdbus org.kde.kglobalaccel /component/kmix invokeShortcut \"decrease_volume\"")
+    -- , ("<XF86AudioMute>", spawn "qdbus org.kde.kglobalaccel /component/kmix invokeShortcut \"mute\"")
+    -- , ( "<XF86AudioMicMute>"
+    --   , spawn "qdbus org.kde.kglobalaccel /component/kmix invokeShortcut \"mic_mute\"")
+    -- , ("<XF86MonBrightnessUp>", spawn "qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness $(expr $(qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightness) + 500)")
+    -- , ("<XF86MonBrightnessDown>", spawn "qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness $(expr $(qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightness) - 500)")
+    -- , ("<XF86AudioPlay>", spawn "playerctl play-pause")
+    -- , ("<XF86AudioPause>", spawn "playerctl play-pause")
+    -- , ("<XF86AudioNext>", spawn "playerctl next")
+    -- , ("<XF86AudioPrev>", spawn "playerctl previous")
+    -- , ("<XF86AudioStop>", spawn "playerctl stop")
     , ("M-S-s", spawn "flameshot gui")
-    , ( "M-C-S-n"
-      , spawn
-            "nvidia_desktop && xrandr --output VIRTUAL1 --primary --auto --output eDP1 --auto --right-of VIRTUAL1 && nitrogen --restore")
-    , ( "M-C-S-m"
-      , spawn
-            "pkill virtual && xrandr --output VIRTUAL1 --off --output eDP1 --auto --primary && nitrogen --restore")
-    , ( "M-C-S-b"
-      , spawn
-            "nvidia_desktop && xrandr --output VIRTUAL1 --same-as eDP1 --auto --output eDP1 --auto --primary && nitrogen --restore")
-    , ( "M-C-S-v"
-      , spawn
-            "nvidia_desktop && xrandr --output VIRTUAL1 --primary --auto --output eDP1 --off && nitrogen --restore")
+    -- , ( "M-C-S-n"
+    --   , spawn
+    --         "nvidia_desktop && xrandr --output VIRTUAL1 --primary --auto --output eDP1 --auto --right-of VIRTUAL1 && nitrogen --restore")
+    -- , ( "M-C-S-m"
+    --   , spawn
+    --         "pkill virtual && xrandr --output VIRTUAL1 --off --output eDP1 --auto --primary && nitrogen --restore")
+    -- , ( "M-C-S-b"
+    --   , spawn
+    --         "nvidia_desktop && xrandr --output VIRTUAL1 --same-as eDP1 --auto --output eDP1 --auto --primary && nitrogen --restore")
+    -- , ( "M-C-S-v"
+    --   , spawn
+    --         "nvidia_desktop && xrandr --output VIRTUAL1 --primary --auto --output eDP1 --off && nitrogen --restore")
     , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
     , ("M-S-p", spawn "pavucontrol")
     , ("M-C-l", shiftNextScreen >> nextScreen)
@@ -176,6 +174,7 @@ myKeys =
     , ("M--", dynamicNSPAction "scratch")
     , ("M-S-l", spawn "lock")
     , ("M-S-a", spawnSelected' gsGeneral)
+    , ("M-S-q", spawn "qdbus org.kde.ksmserver /KSMServer logout 0 0 0")
     ]
 
 myManageHook =
@@ -205,12 +204,14 @@ myManageHook =
         , className =? "Anydesk" --> doShift " not "
         , className =? "notion-app" --> doShift " not "
         , className =? "Nitrogen" --> doFloat
+        , className =? "plasmashell" --> doFloat
+        , className =? "plasmashell" --> hasBorder False
         ]
 
 -- myHandleEventHook = dynamicPropertyChange "WM_CLASS"
 -- myDynHook = composeAll [title =? "spotify" --> doShift " 4 "]
 myStartupHook = do
-    spawnOnce "nitrogen --restore"
+    -- spawnOnce "nitrogen --restore"
     spawn "setxkbmap -layout us -option ctrl:nocaps -option altwin:swap_alt_win"
     -- spawn
     --     "xsetwacom set \"Wacom Intuos S Pad pad\" Button 1 \"key +ctrl z -ctrl\""
@@ -222,11 +223,12 @@ myStartupHook = do
     -- spawn "xsetwacom set \"Wacom Intuos S Pen stylus\" Button 3 \"key del\""
     -- spawn "mapwacom -d \"Wacom Intuos S Pen stylus\" -s \"HDMI1\""
     setWMName "LG3D"
-    -- spawn "picom --experimental-backends &"
-    spawn "picom --config ~/.config/picom/picom.conf"
+    spawn "picom --experimental-backends &"
+    -- spawn "picom --config ~/.config/picom/picom.conf"
     -- spawnOnce "nm-applet &"
     spawnOnce "sysinfo"
     spawnOnce "xmodmap ~/.Xmodmap"
+    -- spawnOnce "pkill -i picom"
 
 -- mySpacing = spacingRaw False (Border 10 10 10 10) True (Border 5 5 5 5) True
 myLayoutHook =
@@ -304,12 +306,12 @@ runSelectedAction' conf actions = do
     selectedActionM <- gridselect conf actions
     case selectedActionM of
         Just selectedAction -> selectedAction
-        Nothing -> return ()
+        Nothing             -> return ()
 
 gsGeneral =
     [ ("Quercus", "firefox-developer-edition --new-window q.utoronto.ca")
     , ( "lofi"
-      , "firefox-developer-edition --new-window https://youtu.be/jfKfPfyJRdk")
+      , "brave --new-window https://youtu.be/jfKfPfyJRdk")
     , ( "UToronto Email"
       , "firefox-developer-edition --new-window mail.utoronto.ca")
     , ( "Google Calendar"
@@ -333,7 +335,7 @@ main
     xmonad $
         ewmh $
         docks $
-        desktopConfig
+        kdeConfig
             { terminal = myTerminal
             , focusFollowsMouse = myFocusFollowsMouse
             , borderWidth = myBorderWidth
@@ -352,11 +354,11 @@ main
                         -- ppOutput =
                             -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                       { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#90A96C" "" . shorten 30
+                          , ppTitle = xmobarColor "#B795AF" "" . shorten 30
                       , ppCurrent =
-                                xmobarColor "#90A96C" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#B795AF" "" . -- ppCurrentColorMarker1
                             wrap
-                                    "<box type=Bottom width=2 mb=2 color=#90A96C>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#B795AF>" -- ppCurrentColorMarker2
                                 "</box>"
                       , ppVisible =
                             wrap

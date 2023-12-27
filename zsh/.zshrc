@@ -168,10 +168,16 @@ alias po="sudo poweroff"
 alias re="sudo reboot"
 alias slk="set_laptop_keybinds"
 alias hs="connect_to_hotspot"
-alias nd="nvidia_desktop"
+# alias nd="nvidia_desktop"
+alias gotop="/usr/bin/gotop --nvidia"
+alias g="gotop"
+alias c="cava"
 
 export PATH=$PATH:/home/cypher/.local/bin
-export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.0/bin
+export PATH=$PATH:/home/cypher/.rbenv/versions/3.0.2/bin
+export PATH=$PATH:/home/cypher/.rbenv/versions/3.3.0/bin
+export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.3.0/bin/
+export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.2/bin/
 export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$(yarn global bin)
 
@@ -184,6 +190,7 @@ export PATH=$PATH:/home/cypher/.rbenv/versions
 
 export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty
+
 
 # Fallback prompt
 PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
@@ -201,17 +208,18 @@ fi
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 
-# android env variables
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # run startup script on startup
 
-#!/bin/bash
+# #!/bin/bash
 
-if [ "$(tty)" = "/dev/tty1" ]; then
-    exec Hyprland
-fi
+# if [ "$(tty)" = "/dev/tty1" ]; then
+#     exec Hyprland
+# fi
 
-if [ "$(tty)" != "/dev/tty1" ]; then
-    # ruby /home/cypher/Scripts/shell/startup.rb
-    eval "$(starship init zsh)"
-fi
+# if [ "$(tty)" != "/dev/tty1" ]; then
+# ruby /home/cypher/Scripts/shell/startup.rb
+eval "$(starship init zsh)"
+# fi

@@ -183,7 +183,7 @@ bindsym $mod+r mode "resize"
 # custom keybinds
 bindsym $mod+shift+q exec --no-startup-id lock # to lock
 bindsym $mod+shift+x exec --no-startup-id lock && systemctl suspend # to sleep
-bindsym $mod+c exec --no-startup-id brave
+bindsym $mod+c exec --no-startup-id firefox-developer-edition
 bindsym $mod+p workspace $ws1
 bindsym $mod+o workspace $ws2
 bindsym $mod+i workspace $ws3
@@ -318,8 +318,8 @@ exec_always --no-startup-id xsetwacom set "Wacom Intuos S Pen stylus" Button 3 "
 exec_always --no-startup-id mapwacom -d "Wacom Intuos S Pen stylus" -s "eDP1"
 
 # display settings
-set $monitor_one HDMI1
-set $monitor_two eDP1
+set $monitor_one HDMI-1-1
+set $monitor_two eDP-1
 
 # set everything to show up on monitor 1 by default
 workspace $ws1 output $monitor_one

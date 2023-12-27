@@ -227,13 +227,13 @@ return require("packer").startup(function()
   use("folke/lsp-colors.nvim")
 
   -- Refactoring library
-  -- use({
-  -- "ThePrimeagen/refactoring.nvim",
-  -- requires = {
-  -- { "nvim-lua/plenary.nvim" },
-  -- { "nvim-treesitter/nvim-treesitter" },
-  -- },
-  -- })
+  use({
+      "ThePrimeagen/refactoring.nvim",
+      requires = {
+          { "nvim-lua/plenary.nvim" },
+          { "nvim-treesitter/nvim-treesitter" },
+      },
+  })
 
   -- Markdown Preview
   use({
@@ -293,8 +293,8 @@ return require("packer").startup(function()
 
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
-  use("ellisonleao/gruvbox.nvim")
-  -- use("Mofiqul/dracula.nvim")
+  -- use("ellisonleao/gruvbox.nvim")
+  use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")

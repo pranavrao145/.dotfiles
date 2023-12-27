@@ -47,7 +47,7 @@ require("telescope").load_extension("refactoring")
 vim.keymap.set(
   "n",
   "<C-p>",
-  "<cmd>lua require('telescope.builtin').git_files()<CR>",
+  "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>",
   { noremap = true }
 )
 vim.keymap.set(
