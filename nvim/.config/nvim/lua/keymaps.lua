@@ -87,6 +87,8 @@ vim.keymap.set("n", "Y", "y$", { noremap = true })
 vim.keymap.set("n", "n", "nzzzv", { noremap = true })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true })
 vim.keymap.set("n", "J", "mzJ`z", { noremap = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 
 -- Undo breakpoints
 vim.keymap.set("i", ",", ",<c-g>u", { noremap = true })

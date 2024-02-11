@@ -172,12 +172,14 @@ alias hs="connect_to_hotspot"
 alias gotop="/usr/bin/gotop --nvidia"
 alias g="gotop"
 alias c="cava"
+alias s="s-tui"
 
 export PATH=$PATH:/home/cypher/.local/bin
+# export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:/home/cypher/.rbenv/versions/3.0.2/bin
-export PATH=$PATH:/home/cypher/.rbenv/versions/3.3.0/bin
-export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.3.0/bin/
-export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.2/bin/
+# export PATH=$PATH:/home/cypher/.rbenv/versions/3.3.0/bin
+# export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.3.0/bin/
+# export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.2/bin/
 export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$(yarn global bin)
 
@@ -185,8 +187,8 @@ export ANDROID_HOME=/mnt/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-export PATH=$PATH:/home/cypher/.rbenv/shims
-export PATH=$PATH:/home/cypher/.rbenv/versions
+# export PATH=$PATH:/home/cypher/.rbenv/shims
+# export PATH=$PATH:/home/cypher/.rbenv/versions
 
 export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty
@@ -220,6 +222,6 @@ eval "$(rbenv init -)"
 # fi
 
 # if [ "$(tty)" != "/dev/tty1" ]; then
-# ruby /home/cypher/Scripts/shell/startup.rb
+ruby /home/cypher/Scripts/shell/startup.rb
 eval "$(starship init zsh)"
 # fi

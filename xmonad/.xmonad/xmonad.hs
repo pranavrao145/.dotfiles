@@ -124,6 +124,7 @@ myKeys =
     , ("M-m", spawn "restart_spotify")
   -- , ("M-m", spawn "brave --start-fullscreen --profile-directory=Default open.spotify.com")
     , ("M-n", spawn "discord")
+    , ("M-s", spawn "cpupower-gui")
     , ("M-z", spawn "firefox-developer-edition --new-window notion.so")
     , ( "M-c"
       , windows (greedyViewOnScreen 0 " www ") >>
@@ -212,6 +213,7 @@ myManageHook =
 -- myDynHook = composeAll [title =? "spotify" --> doShift " 4 "]
 myStartupHook = do
     -- spawnOnce "nitrogen --restore"
+    spawnOnce "dunst"
     spawn "setxkbmap -layout us -option ctrl:nocaps -option altwin:swap_alt_win"
     -- spawn
     --     "xsetwacom set \"Wacom Intuos S Pad pad\" Button 1 \"key +ctrl z -ctrl\""
@@ -354,11 +356,11 @@ main
                         -- ppOutput =
                             -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                       { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#B795AF" "" . shorten 30
+                          , ppTitle = xmobarColor "#97A4AC" "" . shorten 30
                       , ppCurrent =
-                                xmobarColor "#B795AF" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#97A4AC" "" . -- ppCurrentColorMarker1
                             wrap
-                                    "<box type=Bottom width=2 mb=2 color=#B795AF>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#97A4AC>" -- ppCurrentColorMarker2
                                 "</box>"
                       , ppVisible =
                             wrap

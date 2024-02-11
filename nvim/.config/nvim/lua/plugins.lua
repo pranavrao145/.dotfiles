@@ -111,11 +111,12 @@ return require("packer").startup(function()
   use("ruifm/gitlinker.nvim")
 
   -- Git worktree
-  use("ThePrimeagen/git-worktree.nvim")
+  -- use("ThePrimeagen/git-worktree.nvim")
+  use("~/Programming/git-worktree.nvim")
 
   -- Rails plugins
-  use({ "tpope/vim-rails", ft = { "rb", "erb" } })
-  use({ "tpope/vim-bundler", ft = { "rb", "erb" } })
+  use({ "tpope/vim-rails" })
+  use({ "tpope/vim-bundler" })
 
   -- Commenter
   use("numToStr/Comment.nvim")
@@ -220,19 +221,16 @@ return require("packer").startup(function()
   -- Formatter
   use("sbdchd/neoformat")
 
-  -- Tests
-  -- use("vim-test/vim-test")
-
   -- Colors
   use("folke/lsp-colors.nvim")
 
   -- Refactoring library
   use({
-      "ThePrimeagen/refactoring.nvim",
-      requires = {
-          { "nvim-lua/plenary.nvim" },
-          { "nvim-treesitter/nvim-treesitter" },
-      },
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
   })
 
   -- Markdown Preview
@@ -269,7 +267,7 @@ return require("packer").startup(function()
   })
 
   -- Line endings
-  -- use("tjdevries/cyclist.vim")
+  use("tjdevries/cyclist.vim")
 
   -- Editing remote machine files
   use({
@@ -294,9 +292,9 @@ return require("packer").startup(function()
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
   -- use("ellisonleao/gruvbox.nvim")
-  use("Mofiqul/dracula.nvim")
+  -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
-  -- use("shaunsingh/nord.nvim")
+  use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("Shatur/neovim-ayu")

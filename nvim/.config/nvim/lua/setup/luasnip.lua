@@ -170,4 +170,5 @@ luasnip.add_snippets("tex", {
   s("floor", { t("\\lfloor"), i(1), t("\\rfloor"), i(0) }),
   s("int", { t("\\int_{"), i(1), t("}^{"), i(2), t("}"), i(0) }),
   s("eval", { t("\\Bigr\\rvert_{"), i(1), t("}^{"), i(2), t("}"), i(0) }),
+  s("vec", { t("\\vec{"), i(1), t("}"), i(0) }),
 })

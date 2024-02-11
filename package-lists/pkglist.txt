@@ -19,6 +19,7 @@ brave-browser
 breeze-gtk
 btrfs-progs
 bzip2
+chromium
 cmake
 coreutils
 cpupower
@@ -69,6 +70,7 @@ intel-ucode
 inxi
 jdk-openjdk
 jfsutils
+jq
 kaccounts-providers
 kamera
 kamoso
@@ -101,12 +103,20 @@ kwayland-integration
 kwin
 kwrited
 less
+lib32-alsa-lib
+lib32-libcanberra
+lib32-libva-intel-driver
+lib32-libva-mesa-driver
+lib32-libva-vdpau-driver
+lib32-mesa-utils
+lib32-nvidia-utils
 libcanberra
+libconfig
 libdvdcss
 libev
 libva-intel-driver
 libva-mesa-driver
-libva-vdpau-driver
+libva-nvidia-driver
 libxnvctrl
 linux66
 linux66-nvidia
@@ -156,6 +166,7 @@ ninja
 nitrogen
 noto-fonts
 noto-fonts-emoji
+npm
 nss-mdns
 ntfs-3g
 ntp
@@ -163,12 +174,12 @@ numlockx
 nvidia-prime
 nvidia-settings
 nvidia-utils
+obs-studio
 okular
 openjdk-doc
 openjdk-src
 openresolv
 openssh
-optimus-manager
 os-prober
 otf-font-awesome
 oxygen
@@ -192,6 +203,7 @@ plasma-pa
 plasma-simplemenu
 plasma-systemmonitor
 plasma-thunderbolt
+plasma-wayland-session
 plasma-workspace
 plymouth
 plymouth-kcm
@@ -203,6 +215,7 @@ powerdevil
 powertop
 pre-commit
 prettier
+python-lsp-server
 python-pip
 python-pywal
 qt5-imageformats
@@ -212,6 +225,7 @@ reiserfsprogs
 ripgrep
 rofi
 rsync
+ruff-lsp
 s-nail
 s-tui
 samba
@@ -226,6 +240,7 @@ squashfs-tools
 sshfs
 starship
 stow
+stylua
 sudo
 sysfsutils
 systemd
@@ -256,6 +271,7 @@ texlive-plaingeneric
 texlive-pstricks
 texlive-publishers
 texlive-xetex
+thermald
 tlp
 tmux
 ttf-dejavu
@@ -268,6 +284,8 @@ unzip
 update-grub
 usb_modeswitch
 usbutils
+uthash
+valgrind
 vi
 vim
 vlc
@@ -292,5 +310,6 @@ xorg-twm
 xorg-xinit
 xorg-xkill
 yakuake
+yarn
 zathura
 zathura-pdf-poppler

@@ -13,7 +13,7 @@ vim.g.ayu_italic_comment = 1
 -- require("setup.gruvbox")
 
 -- Set colorscheme
-vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme nord")
 -- require("colorbuddy").colorscheme("gruvbuddy")
 
 -- transparent background and get rid of unneccessary fills

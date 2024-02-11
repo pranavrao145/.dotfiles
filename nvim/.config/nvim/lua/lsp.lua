@@ -119,6 +119,7 @@ nvim_lsp.ruff_lsp.setup({
 
 -- Ruby
 nvim_lsp.solargraph.setup({
+  cmd = { "solargraph", "stdio" },
   on_attach = on_attach,
   capabilities = capabilities,
 })
