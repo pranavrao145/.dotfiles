@@ -61,7 +61,7 @@ local function initialize_tests(ruby_bufnr, command)
 end
 
 local attach_to_buffer = function(ruby_bufnr, command)
-  vim.api.nvim_create_autocmd({ "BufNew", "BufWritePost" }, {
+  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     group = vim.api.nvim_create_augroup(
       string.format("live-tests-%s", ruby_bufnr),
       { clear = true }

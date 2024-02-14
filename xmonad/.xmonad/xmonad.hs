@@ -138,20 +138,20 @@ myKeys =
     , ("C-<Space>", spawn "dunstctl close")
     , ("<Control_L>-`", spawn "dunstctl history-pop")
     , ("C-S-.", spawn "dunstctl context")
-    -- , ( "<XF86AudioRaiseVolume>"
-    --   , spawn "qdbus org.kde.kglobalaccel /component/kmix invokeShortcut \"increase_volume\"")
-    -- , ( "<XF86AudioLowerVolume>"
-    --   , spawn "qdbus org.kde.kglobalaccel /component/kmix invokeShortcut \"decrease_volume\"")
-    -- , ("<XF86AudioMute>", spawn "qdbus org.kde.kglobalaccel /component/kmix invokeShortcut \"mute\"")
-    -- , ( "<XF86AudioMicMute>"
-    --   , spawn "qdbus org.kde.kglobalaccel /component/kmix invokeShortcut \"mic_mute\"")
-    -- , ("<XF86MonBrightnessUp>", spawn "qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness $(expr $(qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightness) + 500)")
-    -- , ("<XF86MonBrightnessDown>", spawn "qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness $(expr $(qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightness) - 500)")
-    -- , ("<XF86AudioPlay>", spawn "playerctl play-pause")
-    -- , ("<XF86AudioPause>", spawn "playerctl play-pause")
-    -- , ("<XF86AudioNext>", spawn "playerctl next")
-    -- , ("<XF86AudioPrev>", spawn "playerctl previous")
-    -- , ("<XF86AudioStop>", spawn "playerctl stop")
+    , ( "<XF86AudioRaiseVolume>"
+      , spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ( "<XF86AudioLowerVolume>"
+      , spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    , ( "<XF86AudioMicMute>"
+      , spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+    , ("<XF86MonBrightnessUp>", spawn "brightnessctl -c backlight set 5%+")
+    , ("<XF86MonBrightnessDown>", spawn "brightnessctl -c backlight set 5%-")
+    , ("<XF86AudioPlay>", spawn "playerctl play-pause")
+    , ("<XF86AudioPause>", spawn "playerctl play-pause")
+    , ("<XF86AudioNext>", spawn "playerctl next")
+    , ("<XF86AudioPrev>", spawn "playerctl previous")
+    , ("<XF86AudioStop>", spawn "playerctl stop")
     , ("M-S-s", spawn "flameshot gui")
     -- , ( "M-C-S-n"
     --   , spawn
@@ -232,14 +232,14 @@ myStartupHook = do
     spawnOnce "xmodmap ~/.Xmodmap"
     -- spawnOnce "pkill -i picom"
 
--- mySpacing = spacingRaw False (Border 10 10 10 10) True (Border 5 5 5 5) True
+mySpacing = spacingRaw False (Border 10 10 10 10) True (Border 5 5 5 5) True
 myLayoutHook =
     lessBorders Screen $
     mkToggle (single NBFULL) $
     smartBorders $
     avoidStruts $
     reflectHoriz $
-    -- mySpacing $
+    mySpacing $
     Tall 1 (3 / 100) (2 / 3) |||
     Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (2 / 100) (1 / 2)
 
@@ -356,11 +356,11 @@ main
                         -- ppOutput =
                             -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                       { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#97A4AC" "" . shorten 30
+                          , ppTitle = xmobarColor "#CCC8A5" "" . shorten 30
                       , ppCurrent =
-                                xmobarColor "#97A4AC" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#CCC8A5" "" . -- ppCurrentColorMarker1
                             wrap
-                                    "<box type=Bottom width=2 mb=2 color=#97A4AC>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#CCC8A5>" -- ppCurrentColorMarker2
                                 "</box>"
                       , ppVisible =
                             wrap

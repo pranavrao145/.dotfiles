@@ -10,10 +10,10 @@ vim.g.ayu_italic_comment = 1
 
 -- set up colorscheme, if necessary
 -- require("setup.tokyonight")
--- require("setup.gruvbox")
+require("setup.gruvbox")
 
 -- Set colorscheme
-vim.cmd("colorscheme nord")
+vim.cmd("colorscheme gruvbox")
 -- require("colorbuddy").colorscheme("gruvbuddy")
 
 -- transparent background and get rid of unneccessary fills

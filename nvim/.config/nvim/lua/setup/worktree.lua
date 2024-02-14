@@ -17,7 +17,7 @@ vim.keymap.set(
   { noremap = true }
 )
 
-local worktree_create_commands = {
+local worktree_switch_commands = {
   ["MARKUS"] = ":silent !tmux-windowizer %s /home/cypher/Programming/Markus/buildMarkus",
 }
 
@@ -42,10 +42,10 @@ worktree.on_tree_change(function(op, metadata)
   -- get the path of the new worktree directory
   local path = metadata["path"]
 
-  if op == worktree.Operations.Create then
-    for project_type, _ in pairs(worktree_create_commands) do
+  if op == worktree.Operations.Switch then
+    for project_type, _ in pairs(worktree_switch_commands) do
       if vim.env[project_type] then
-        vim.cmd(string.format(worktree_create_commands[project_type], path))
+        vim.cmd(string.format(worktree_switch_commands[project_type], path))
       end
     end
   end

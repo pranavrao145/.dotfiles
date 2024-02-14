@@ -58,5 +58,6 @@ require("setup.vimtex")
 require("setup.bufresize")
 require("setup.aerial")
 require("setup.autopairs")
+require("setup.sourcegraph")
 
 -- require('plenary.profile').stop()

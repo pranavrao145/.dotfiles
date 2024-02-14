@@ -109,15 +109,15 @@
 
 [color]
 
-; background = #051E31
-; foreground = #dee1e3
+; background = #0f1318
+; foreground = #e3e3e1
 
 gradient = 1
 gradient_count = 4
-gradient_color_1 = '#396F8E'
-gradient_color_2 = '#3E91A4'
-gradient_color_3 = '#369FD5'
-gradient_color_4 = '#38A2DF'
+gradient_color_1 = '#98764A'
+gradient_color_2 = '#699553'
+gradient_color_3 = '#A39E63'
+gradient_color_4 = '#9C9B96'
 
 
 [smoothing]

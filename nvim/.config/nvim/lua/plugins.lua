@@ -289,12 +289,15 @@ return require("packer").startup(function()
     end,
   })
 
+  -- Sourcegraph
+  use({ "sourcegraph/sg.nvim", run = "nvim -l build/init.lua" })
+
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
-  -- use("ellisonleao/gruvbox.nvim")
+  use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
-  use("shaunsingh/nord.nvim")
+  -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("Shatur/neovim-ayu")

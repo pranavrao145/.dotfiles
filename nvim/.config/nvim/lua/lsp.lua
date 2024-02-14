@@ -82,6 +82,9 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
 end
 
+-- Export on attach
+M.on_attach = on_attach
+
 -- Typescript and Javascript
 nvim_lsp.tsserver.setup({
   on_attach = on_attach,
@@ -229,5 +232,6 @@ nvim_lsp.texlab.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
+
 
 return M

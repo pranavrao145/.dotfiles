@@ -17,6 +17,7 @@ base-devel
 bluedevil
 brave-browser
 breeze-gtk
+brightnessctl
 btrfs-progs
 bzip2
 chromium
