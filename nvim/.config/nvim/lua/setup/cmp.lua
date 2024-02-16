@@ -1,6 +1,6 @@
 -- Setup nvim-cmp for autocompletion
 local cmp = require("cmp")
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+-- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local luasnip = require("luasnip")
 
 local has_words_before = function()
@@ -16,6 +16,7 @@ end
 cmp.setup({
   sources = {
     { name = "nvim_lsp" },
+    { name = "nvim_lsp_signature_help" },
     { name = "cmp_tabnine" },
     -- { name = "nvim_lua" },
     { name = "luasnip" },
@@ -79,7 +80,7 @@ cmp.setup({
 })
 
 -- Integrate cmp with autopairs
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 -- setup cmp theme
 vim.cmd([[

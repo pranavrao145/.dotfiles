@@ -1,13 +1,14 @@
 anydesk-bin
 betterdiscordctl
+brave-bin
 cava
 cpupower-gui
 flyctl-bin
 gotop-bin
-gwe
-logisim-evolution-bin
+lib32-nvidia-utils
 paru-bin
-presenterm-git
+paru-bin-debug
+paru-debug
 proton-vpn-gtk-app
 python-pywalfox
 python2-bin

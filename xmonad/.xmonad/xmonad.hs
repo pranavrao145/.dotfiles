@@ -14,7 +14,6 @@ import           XMonad.Actions.OnScreen
 import qualified XMonad.StackSet                     as W
 
 import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.DynamicProperty
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers          hiding ((~?))
@@ -145,8 +144,8 @@ myKeys =
     , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
     , ( "<XF86AudioMicMute>"
       , spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
-    , ("<XF86MonBrightnessUp>", spawn "brightnessctl -c backlight set 5%+")
-    , ("<XF86MonBrightnessDown>", spawn "brightnessctl -c backlight set 5%-")
+    , ("<XF86MonBrightnessUp>", spawn "brightnessctl -c backlight set 10%+")
+    , ("<XF86MonBrightnessDown>", spawn "brightnessctl -c backlight set 10%-")
     , ("<XF86AudioPlay>", spawn "playerctl play-pause")
     , ("<XF86AudioPause>", spawn "playerctl play-pause")
     , ("<XF86AudioNext>", spawn "playerctl next")
@@ -356,11 +355,11 @@ main
                         -- ppOutput =
                             -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                       { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#CCC8A5" "" . shorten 30
+                          , ppTitle = xmobarColor "#2AA8A3" "" . shorten 30
                       , ppCurrent =
-                                xmobarColor "#CCC8A5" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#2AA8A3" "" . -- ppCurrentColorMarker1
                             wrap
-                                    "<box type=Bottom width=2 mb=2 color=#CCC8A5>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#2AA8A3>" -- ppCurrentColorMarker2
                                 "</box>"
                       , ppVisible =
                             wrap

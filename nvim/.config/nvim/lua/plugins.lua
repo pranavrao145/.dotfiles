@@ -49,12 +49,13 @@ return require("packer").startup(function()
       { "hrsh7th/cmp-calc" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-nvim-lua" },
+      { "hrsh7th/cmp-nvim-lsp-signature-help" },
       { "onsails/lspkind-nvim" },
       { "L3MON4D3/LuaSnip" },
       { "saadparwaiz1/cmp_luasnip" },
       { "rafamadriz/friendly-snippets" },
-      { "tzachar/cmp-tabnine", run = "./install.sh" },
-      { "windwp/nvim-autopairs" }, -- autopairs
+      -- { "tzachar/cmp-tabnine", run = "./install.sh" },
+      -- { "windwp/nvim-autopairs" }, -- autopairs
     },
   })
 
@@ -292,12 +293,15 @@ return require("packer").startup(function()
   -- Sourcegraph
   use({ "sourcegraph/sg.nvim", run = "nvim -l build/init.lua" })
 
+  -- Indentiation lines
+  use("lukas-reineke/indent-blankline.nvim")
+
   -- Themes
   -- use("kyazdani42/nvim-palenight.lua")
-  use("ellisonleao/gruvbox.nvim")
+  -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
-  -- use("shaunsingh/nord.nvim")
+  use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("Shatur/neovim-ayu")

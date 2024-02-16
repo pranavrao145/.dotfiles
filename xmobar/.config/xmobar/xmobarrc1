@@ -4,7 +4,7 @@ Config {
         , additionalFonts = ["Font Awesome 6 Free Solid 10"
                             , "Font Awesome 6 Brands 10"
                             ]
-        , bgColor =    "#0f1318"
+        , bgColor =    "#09040d"
         , fgColor =    "#ffffff"
         , position =   TopH 25
 

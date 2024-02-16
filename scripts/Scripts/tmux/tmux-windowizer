@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 branch_name=$(basename $1)
+echo branch_name
 session_name=$(tmux display-message -p "#S")
 clean_name=$(echo $branch_name | tr "./" "__")
 target="$session_name:$clean_name"
