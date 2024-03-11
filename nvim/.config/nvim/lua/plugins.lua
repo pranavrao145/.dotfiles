@@ -166,11 +166,9 @@ return require("packer").startup(function()
       "nvim-treesitter/nvim-treesitter-textobjects",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "mfussenegger/nvim-treehopper",
+      -- "romgrk/nvim-treesitter-context"
     },
   })
-
-  -- Context
-  use({ "romgrk/nvim-treesitter-context" })
 
   -- Display colors for color codes
   use({ "norcalli/nvim-colorizer.lua", cmd = "ColorizerAttachToBuffer" })
@@ -301,12 +299,12 @@ return require("packer").startup(function()
   -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
-  use("shaunsingh/nord.nvim")
+  -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("Shatur/neovim-ayu")
-  -- use("tjdevries/colorbuddy.vim")
-  -- use("tjdevries/gruvbuddy.nvim")
+  use("tjdevries/gruvbuddy.nvim")
+  use("tjdevries/colorbuddy.vim")
 
   if packer_bootstrap then
     require("packer").sync()

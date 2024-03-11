@@ -1,3 +1,9 @@
+require("colorbuddy").setup()
+
+local Color = require("colorbuddy").Color
+local Group = require("colorbuddy").Group
+local colors = require("colorbuddy").colors
+
 -- Set italics
 vim.g.palenight_terminal_italics = 1
 vim.g.gruvbox_italic = 1
@@ -13,7 +19,7 @@ vim.g.ayu_italic_comment = 1
 -- require("setup.gruvbox")
 
 -- Set colorscheme
-vim.cmd("colorscheme nord")
+-- vim.cmd("colorscheme onedark")
 -- require("colorbuddy").colorscheme("gruvbuddy")
 
 -- transparent background and get rid of unneccessary fills
@@ -32,4 +38,23 @@ vim.cmd([[
 
     " Needed for palenight and gruvbuddy
     " hi ColorColumn guibg=#2C323C ctermbg=236
+
+    " needed for gruvbuddy
+    " hi IblIndent guifg=#373e4b
+    " hi IblScope guifg=#8e6fbd
 ]])
+
+Color.new("color14", "#C9BAAD")
+Color.new("color2", "#C39175")
+Color.new("foreground", "#e1e2e6")
+
+assert(colors ~= nil)
+
+Group.new("Special", colors.color14)
+Group.new("Directory", colors.color14)
+Group.new("QuickfixLine", colors.color2)
+Group.new("Function", colors.color2)
+Group.new("Identifier", colors.color2)
+Group.new("DiffAdd", colors.foreground, colors.color2:dark():dark())
+Group.new("PreProc", colors.color14)
+Group.new("Type", colors.color14)

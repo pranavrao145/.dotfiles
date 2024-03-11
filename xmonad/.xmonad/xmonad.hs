@@ -79,7 +79,7 @@ myFont =
 
 myModMask = mod4Mask
 
-myBorderWidth = 1
+myBorderWidth = 3
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 myWorkspaces =
@@ -115,7 +115,7 @@ myKeys =
     , ("M-[", windows $ greedyViewOnScreen 0 " not ")
     , ("M-<Tab>", spawn "rofi -show window")
     , ("M-<Return>", windows (greedyViewOnScreen 0 " dev ") >> spawn "kitty")
-    , ("M-S-f", spawn "kitty ranger")
+    , ("M-S-f", spawn "kitty zsh -c '(cat ~/.cache/wal/sequences &) && ranger'")
     , ("M-S-<Return>", windows W.swapMaster)
     , ("M-<Space>", windows W.focusMaster)
     , ("M-S-<Space>", sendMessage NextLayout)
@@ -174,7 +174,7 @@ myKeys =
     , ("M--", dynamicNSPAction "scratch")
     , ("M-S-l", spawn "lock")
     , ("M-S-a", spawnSelected' gsGeneral)
-    , ("M-S-q", spawn "qdbus org.kde.ksmserver /KSMServer logout 0 0 0")
+    , ("M-S-q", spawn "sudo restart-sddm")
     ]
 
 myManageHook =
@@ -205,7 +205,9 @@ myManageHook =
         , className =? "notion-app" --> doShift " not "
         , className =? "Nitrogen" --> doFloat
         , className =? "plasmashell" --> doFloat
+        , className =? "krunner" --> doFloat
         , className =? "plasmashell" --> hasBorder False
+        , className =? "screenkey" --> doFloat
         ]
 
 -- myHandleEventHook = dynamicPropertyChange "WM_CLASS"
@@ -233,9 +235,9 @@ myStartupHook = do
 
 mySpacing = spacingRaw False (Border 10 10 10 10) True (Border 5 5 5 5) True
 myLayoutHook =
-    lessBorders Screen $
+    -- lessBorders Screen $
     mkToggle (single NBFULL) $
-    smartBorders $
+    -- smartBorders $
     avoidStruts $
     reflectHoriz $
     mySpacing $
@@ -355,11 +357,11 @@ main
                         -- ppOutput =
                             -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                       { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#2AA8A3" "" . shorten 30
+                          , ppTitle = xmobarColor "#C9BAAD" "" . shorten 30
                       , ppCurrent =
-                                xmobarColor "#2AA8A3" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#C9BAAD" "" . -- ppCurrentColorMarker1
                             wrap
-                                    "<box type=Bottom width=2 mb=2 color=#2AA8A3>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#C9BAAD>" -- ppCurrentColorMarker2
                                 "</box>"
                       , ppVisible =
                             wrap

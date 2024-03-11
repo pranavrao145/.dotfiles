@@ -18,7 +18,7 @@ vim.keymap.set(
 )
 
 local worktree_create_commands = {
-  ["MARKUS"] = ":silent !tmux-windowizer %s /home/cypher/Programming/Markus/buildMarkus",
+  -- ["MARKUS"] = ":silent !tmux-windowizer %s /home/cypher/Programming/Markus/buildMarkus",
 }
 
 local worktree_cleanup_commands = {

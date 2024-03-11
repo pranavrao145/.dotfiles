@@ -60,7 +60,7 @@ local function initialize_tests(ruby_bufnr, command)
   })
 end
 
-local attach_to_buffer = function(ruby_bufnr, command)
+local _attach_to_buffer = function(ruby_bufnr, command)
   vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     group = vim.api.nvim_create_augroup(
       string.format("live-tests-%s", ruby_bufnr),
@@ -73,11 +73,11 @@ local attach_to_buffer = function(ruby_bufnr, command)
   })
 end
 
-if string.find(current_buffer_filename, "spec") then
-  attach_to_buffer(vim.fn.bufnr(), {
-    "/home/cypher/Scripts/nvim/ruby_autotest.sh",
-    current_buffer_filename,
-  })
-
-  print("Ruby autotest attached to buffer")
-end
+-- if string.find(current_buffer_filename, "spec") then
+--   attach_to_buffer(vim.fn.bufnr(), {
+--     "/home/cypher/Scripts/nvim/ruby_autotest.sh",
+--     current_buffer_filename,
+--   })
+--
+--   print("Ruby autotest attached to buffer")
+-- end

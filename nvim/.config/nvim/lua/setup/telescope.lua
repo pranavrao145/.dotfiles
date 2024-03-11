@@ -29,6 +29,7 @@ require("telescope").setup({
     color_devicons = true,
     layout_config = {
       prompt_position = "bottom",
+      width = { padding = 6.5 },
     },
   },
 

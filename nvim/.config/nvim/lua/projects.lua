@@ -2,9 +2,7 @@
 local cwd = vim.loop.cwd()
 
 -- set vim env depending on cwd
-local projects = {
-  ["Markus"] = "MARKUS",
-}
+local projects = {}
 
 for project, _ in pairs(projects) do
   if string.find(cwd, project, 0, true) then

@@ -159,17 +159,18 @@ alias gw="source switch-worktree"
 alias lg="lazygit"
 alias f='fg'
 alias ff='cd && cd "$(fd -H --type d | fzf)"'
-alias spt="spotify_player"
-alias spot="spotify_player"
+# alias spt="spotify_player"
+alias spot="spt"
 alias src='exec zsh'
 alias switch-worktree="source switch-worktree"
 alias sa="eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
-alias po="sudo poweroff"
-alias re="sudo reboot"
+alias po="sudo systemctl poweroff"
+alias re="sudo systemctl reboot"
 alias slk="set_laptop_keybinds"
 alias hs="connect_to_hotspot"
 # alias nd="nvidia_desktop"
 alias gotop="/usr/bin/gotop --nvidia"
+alias h="htop"
 alias g="gotop"
 alias c="cava"
 alias s="s-tui"
@@ -222,6 +223,8 @@ eval "$(rbenv init -)"
 # fi
 
 # if [ "$(tty)" != "/dev/tty1" ]; then
-ruby /home/cypher/Scripts/shell/startup.rb
+# ruby /home/cypher/Scripts/shell/startup.rb
+colorscript -r
+eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 # fi

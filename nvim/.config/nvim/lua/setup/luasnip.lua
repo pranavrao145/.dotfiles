@@ -171,4 +171,7 @@ luasnip.add_snippets("tex", {
   s("int", { t("\\int_{"), i(1), t("}^{"), i(2), t("}"), i(0) }),
   s("eval", { t("\\Bigr\\rvert_{"), i(1), t("}^{"), i(2), t("}"), i(0) }),
   s("vec", { t("\\vec{"), i(1), t("}"), i(0) }),
+  s("adt", { t("\\ADT{"), i(1), t("}"), i(0) }),
+  s("proc", { t("\\proc{"), i(1), t("}"), i(0) }),
+  s("bigOh", { t("\\bigOh("), i(1), t(")"), i(0) }),
 })

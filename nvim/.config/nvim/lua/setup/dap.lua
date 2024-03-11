@@ -5,33 +5,40 @@ require("setup.nvim-dap.go")
 require("setup.nvim-dap.java")
 
 -- Maps
+
 vim.keymap.set(
   "n",
-  "<leader>dc",
+  "<F10>",
   ":lua require('dap').continue()<CR>",
   { noremap = true }
 )
 vim.keymap.set(
   "n",
-  "<leader>do",
+  "<F10>",
+  ":lua require('dap').continue()<CR>",
+  { noremap = true }
+)
+vim.keymap.set(
+  "n",
+  "<F8>",
   ":lua require('dap').step_over()<CR>",
   { noremap = true }
 )
 vim.keymap.set(
   "n",
-  "<leader>di",
+  "<F7>",
   ":lua require('dap').step_into()<CR>",
   { noremap = true }
 )
 vim.keymap.set(
   "n",
-  "<leader>dO",
+  "<F6>",
   ":lua require('dap').step_out()<CR>",
   { noremap = true }
 )
 vim.keymap.set(
   "n",
-  "<leader>db",
+  "<F5>",
   ":lua require('dap').toggle_breakpoint()<CR>",
   { noremap = true }
 )
@@ -61,7 +68,7 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
-  "<leader>de",
+  "<F11>",
   ":lua require('dap').terminate()<CR>",
   { noremap = true }
 )
