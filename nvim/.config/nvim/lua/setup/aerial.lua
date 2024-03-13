@@ -1,3 +1,7 @@
-require("aerial").setup()
+local outline = require("outline")
 
-vim.keymap.set("n", "<leader>os", "<cmd>AerialToggle<CR>", { noremap = true })
+outline.setup()
+
+vim.keymap.set("n", "<leader>os", function ()
+    outline.toggle()
+end, { noremap = true })

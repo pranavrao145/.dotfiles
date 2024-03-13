@@ -8,9 +8,11 @@ xrdb -query -all >~/.Xresources
 
 echo "Updating Discord colour scheme..."
 # update discord colour scheme
-betterdiscordctl uninstall
-betterdiscordctl install
+# betterdiscordctl --d-install flatpak uninstall
+# betterdiscordctl --d-install flatpak install
 pywal-discord
+
+cp /home/cypher/.config/BetterDiscord/themes/pywal-discord-default.theme.css /home/cypher/.var/app/com.discordapp.Discord/config/BetterDiscord/themes/pywal-discord-default.theme.css
 
 # echo "Updating Firefox colour scheme..."
 # update firefox colour scheme
@@ -45,7 +47,7 @@ sed -i "/ppCurrentColorMarker1/c\                                xmobarColor \"$
 sed -i "/ppCurrentColorMarker2/c\                                    \"<box type=Bottom width=2 mb=2 color=$(get_xrdb_colour *.color6:)>\" -- ppCurrentColorMarker2" $HOME/.dotfiles/xmonad/.xmonad/xmonad.hs
 
 # Only to be uncommented if xmonad is in use
-xmonad --restart
+# xmonad --restart
 
 echo "Updating dunst colorscheme..."
 
@@ -63,12 +65,13 @@ echo "Updating spicetify colorscheme..."
 
 mkdir -p ~/.config/spicetify/Themes/Pywal
 cp ~/.cache/wal/colors-spicetify.ini ~/.config/spicetify/Themes/Pywal/color.ini
-spicetify apply
+spicetify restore backup apply
 
 echo "Updating nvim colour scheme..."
 
-sed -i "/\"color14\"/c\Color.new(\"color14\", \"$(get_xrdb_colour *.color14:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/theme.lua
-sed -i "/\"color2\"/c\Color.new(\"color2\", \"$(get_xrdb_colour *.color2:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/theme.lua
-sed -i "/\"foreground\"/c\Color.new(\"foreground\", \"$(get_xrdb_colour *.foreground:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/theme.lua
+sed -i "/\"color14\"/c\Color.new(\"color14\", \"$(get_xrdb_colour *.color14:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/setup/wal_theme.lua
+sed -i "/\"color2\"/c\Color.new(\"color2\", \"$(get_xrdb_colour *.color2:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/setup/wal_theme.lua
+sed -i "/\"color11\"/c\Color.new(\"color11\", \"$(get_xrdb_colour *.color11:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/setup/wal_theme.lua
+sed -i "/\"foreground\"/c\Color.new(\"foreground\", \"$(get_xrdb_colour *.foreground:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/setup/wal_theme.lua
 
 echo "System colour scheme updated successfully."

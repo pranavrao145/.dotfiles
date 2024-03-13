@@ -96,7 +96,7 @@ return require("packer").startup(function()
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzy-native.nvim" },
     },
-    -- branch = "master",
+    branch = "master",
   })
 
   -- Git integration
@@ -142,8 +142,9 @@ return require("packer").startup(function()
       "theHamsta/nvim-dap-virtual-text",
       "mfussenegger/nvim-dap-python",
       "leoluz/nvim-dap-go",
+      "nvim-neotest/nvim-nio",
     },
-    opt = true,
+    -- opt = true,
   })
 
   -- Discord presence
@@ -166,7 +167,7 @@ return require("packer").startup(function()
       "nvim-treesitter/nvim-treesitter-textobjects",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "mfussenegger/nvim-treehopper",
-      -- "romgrk/nvim-treesitter-context"
+      "romgrk/nvim-treesitter-context",
     },
   })
 
@@ -250,7 +251,7 @@ return require("packer").startup(function()
   })
 
   -- Symbols outline
-  use({ "stevearc/aerial.nvim" })
+  use({ "hedyhli/outline.nvim" })
 
   -- Git signs
   use({ "lewis6991/gitsigns.nvim" })
@@ -271,31 +272,20 @@ return require("packer").startup(function()
   -- Editing remote machine files
   use({
     "chipsenkbeil/distant.nvim",
-    branch = "v0.2",
+    branch = "v0.3",
     config = function()
-      require("distant").setup({
-        -- Applies Chip's personal settings to every machine you connect to
-        --
-        -- 1. Ensures that distant servers terminate with no connections
-        -- 2. Provides navigation bindings for remote directories
-        -- 3. Provides keybinding to jump into a remote file's parent directory
-        ["*"] = require("distant.settings").chip_default({
-          ssh = {
-            identity_file = "~/.ssh/id_rsa",
-          },
-        }),
-      })
+      require("distant"):setup()
     end,
   })
 
   -- Sourcegraph
-  use({ "sourcegraph/sg.nvim", run = "nvim -l build/init.lua" })
+  -- use({ "sourcegraph/sg.nvim", run = "nvim -l build/init.lua" })
 
   -- Indentiation lines
   use("lukas-reineke/indent-blankline.nvim")
 
   -- Themes
-  -- use("kyazdani42/nvim-palenight.lua")
+  -- use("wilmanbarrios/palenight.nvim")
   -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
@@ -303,8 +293,8 @@ return require("packer").startup(function()
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("Shatur/neovim-ayu")
-  use("tjdevries/gruvbuddy.nvim")
-  use("tjdevries/colorbuddy.vim")
+  -- use("tjdevries/gruvbuddy.nvim")
+  use("tjdevries/colorbuddy.vim", { tag = "dev" })
 
   if packer_bootstrap then
     require("packer").sync()

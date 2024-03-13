@@ -165,28 +165,39 @@ alias src='exec zsh'
 alias switch-worktree="source switch-worktree"
 alias sa="eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
 alias po="sudo systemctl poweroff"
+alias sl="sudo systemctl suspend"
+alias sus="sudo systemctl suspend"
 alias re="sudo systemctl reboot"
 alias slk="set_laptop_keybinds"
 alias hs="connect_to_hotspot"
 # alias nd="nvidia_desktop"
-alias gotop="/usr/bin/gotop --nvidia"
-alias h="htop"
+alias gotop="gotop --nvidia"
 alias g="gotop"
+alias h="htop"
 alias c="cava"
 alias s="s-tui"
+alias si="sysinfo"
+alias ff="fastfetch"
+alias bl="bluetoothctl"
+alias b0="brightnessctl -c backlight set 0"
+alias docker-compose="docker compose"
 
 export PATH=$PATH:/home/cypher/.local/bin
-# export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.0/bin
+export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:/home/cypher/.rbenv/versions/3.0.2/bin
+export PATH=$PATH:/home/cypher/go/bin
 # export PATH=$PATH:/home/cypher/.rbenv/versions/3.3.0/bin
 # export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.3.0/bin/
 # export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.2/bin/
 export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$(yarn global bin)
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 
 export ANDROID_HOME=/mnt/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:/home/cypher/.spicetify
 
 # export PATH=$PATH:/home/cypher/.rbenv/shims
 # export PATH=$PATH:/home/cypher/.rbenv/versions
@@ -194,17 +205,17 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty
 
-
 # Fallback prompt
 PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
 
-if [ -f /usr/share/fzf/key-bindings.zsh ]; then
-    source /usr/share/fzf/key-bindings.zsh
-fi
-
-if [ -f /usr/share/fzf/completion.zsh ]; then
-    source /usr/share/fzf/completion.zsh
-fi
+# if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+#     source /usr/share/fzf/key-bindings.zsh
+# fi
+# 
+# if [ -f /usr/share/fzf/completion.zsh ]; then
+#     source /usr/share/fzf/completion.zsh
+# fi
+eval "$(fzf --zsh)"
 
 # set up nvm
 # source /usr/share/nvm/init-nvm.sh
@@ -213,6 +224,7 @@ export NVM_COMPLETION=true
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
 
 # run startup script on startup
 

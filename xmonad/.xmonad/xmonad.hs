@@ -106,7 +106,7 @@ myNormalBorderColor = "#000000" -- no transparency :(
 myFocusedBorderColor = fromXres "*color6"
 
 myKeys =
-    [ ( "M-d" , spawn "krunner --replace")
+    [ ( "M-d" , spawn "rofi -show drun")
     , ("M-p", windows $ greedyViewOnScreen 0 " dev ")
     , ("M-o", windows $ greedyViewOnScreen 0 " www ")
     , ("M-i", windows $ greedyViewOnScreen 0 " chat ")
@@ -133,7 +133,7 @@ myKeys =
         spawn "brave --password-store=basic")
     , ("M-q", kill)
     , ("M-f", sendMessage (Toggle NBFULL))
-    , ("M-S-i", spawn "sysinfo")
+    -- , ("M-S-i", spawn "sysinfo")
     , ("C-<Space>", spawn "dunstctl close")
     , ("<Control_L>-`", spawn "dunstctl history-pop")
     , ("C-S-.", spawn "dunstctl context")
@@ -155,6 +155,9 @@ myKeys =
     -- , ( "M-C-S-n"
     --   , spawn
     --         "nvidia_desktop && xrandr --output VIRTUAL1 --primary --auto --output eDP1 --auto --right-of VIRTUAL1 && nitrogen --restore")
+    , ( "M-C-S-b"
+      , spawn
+            "xrandr --output HDMI-1-0 --same-as eDP-2 --auto --output eDP-2 --auto --primary")
     -- , ( "M-C-S-m"
     --   , spawn
     --         "pkill virtual && xrandr --output VIRTUAL1 --off --output eDP1 --auto --primary && nitrogen --restore")
@@ -172,9 +175,9 @@ myKeys =
     , ("M-C-<Left>", shiftPrevScreen >> prevScreen)
     , ("M-S--", withFocused $ toggleDynamicNSP "scratch")
     , ("M--", dynamicNSPAction "scratch")
-    , ("M-S-l", spawn "lock")
+    -- , ("M-S-l", spawn "loginctl lock-session")
     , ("M-S-a", spawnSelected' gsGeneral)
-    , ("M-S-q", spawn "sudo restart-sddm")
+    , ("M-S-q", spawn "sudo /usr/bin/restart-sddm") -- figure out what's going on here, this is garbage
     ]
 
 myManageHook =
@@ -204,10 +207,14 @@ myManageHook =
         , className =? "Anydesk" --> doShift " not "
         , className =? "notion-app" --> doShift " not "
         , className =? "Nitrogen" --> doFloat
-        , className =? "plasmashell" --> doFloat
         , className =? "krunner" --> doFloat
         , className =? "plasmashell" --> hasBorder False
+        , className =? "plasmashell" --> doFloat
+        , className =? "krunner" --> hasBorder False
+        , className =? "krunner" -->  doFloat
         , className =? "screenkey" --> doFloat
+        , className =? "kdeconnect.daemon" --> doFloat
+        , className =? "kdeconnect.daemon" --> hasBorder False
         ]
 
 -- myHandleEventHook = dynamicPropertyChange "WM_CLASS"
@@ -229,20 +236,21 @@ myStartupHook = do
     spawn "picom --experimental-backends &"
     -- spawn "picom --config ~/.config/picom/picom.conf"
     -- spawnOnce "nm-applet &"
-    spawnOnce "sysinfo"
     spawnOnce "xmodmap ~/.Xmodmap"
+    spawnOnce "notify-send \"Notification daemon started\""
     -- spawnOnce "pkill -i picom"
 
-mySpacing = spacingRaw False (Border 10 10 10 10) True (Border 5 5 5 5) True
+mySpacing = spacingRaw False (Border 5 5 5 5) True (Border 5 5 5 5) True
 myLayoutHook =
-    -- lessBorders Screen $
+    lessBorders Screen $
     mkToggle (single NBFULL) $
-    -- smartBorders $
+    smartBorders $
     avoidStruts $
     reflectHoriz $
     mySpacing $
     Tall 1 (3 / 100) (2 / 3) |||
-    Tall 1 (3 / 100) (1 / 2) ||| ThreeColMid 1 (2 / 100) (1 / 2)
+    Tall 1 (3 / 100) (1 / 2) |||
+    ThreeColMid 1 (2 / 100) (1 / 2)
 
 -- Grid Select
 myNavigation :: TwoD a (Maybe a)
@@ -357,11 +365,11 @@ main
                         -- ppOutput =
                             -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                       { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#C9BAAD" "" . shorten 30
+                          , ppTitle = xmobarColor "#DA6D4C" "" . shorten 30
                       , ppCurrent =
-                                xmobarColor "#C9BAAD" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#DA6D4C" "" . -- ppCurrentColorMarker1
                             wrap
-                                    "<box type=Bottom width=2 mb=2 color=#C9BAAD>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#DA6D4C>" -- ppCurrentColorMarker2
                                 "</box>"
                       , ppVisible =
                             wrap
