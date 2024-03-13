@@ -143,7 +143,7 @@ return require("packer").startup(function()
       "mfussenegger/nvim-dap-python",
       "leoluz/nvim-dap-go",
     },
-    opt = true,
+    -- opt = true,
   })
 
   -- Discord presence
@@ -166,7 +166,7 @@ return require("packer").startup(function()
       "nvim-treesitter/nvim-treesitter-textobjects",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "mfussenegger/nvim-treehopper",
-      -- "romgrk/nvim-treesitter-context"
+      "romgrk/nvim-treesitter-context"
     },
   })
 

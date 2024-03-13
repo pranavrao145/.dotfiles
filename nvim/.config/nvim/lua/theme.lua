@@ -3,6 +3,7 @@ require("colorbuddy").setup()
 local Color = require("colorbuddy").Color
 local Group = require("colorbuddy").Group
 local colors = require("colorbuddy").colors
+local styles = require("colorbuddy").styles
 
 -- Set italics
 vim.g.palenight_terminal_italics = 1
@@ -44,17 +45,22 @@ vim.cmd([[
     " hi IblScope guifg=#8e6fbd
 ]])
 
-Color.new("color14", "#C9BAAD")
-Color.new("color2", "#C39175")
-Color.new("foreground", "#e1e2e6")
+Color.new("color14", "#6A7686")
+Color.new("color2", "#9D5C59")
+Color.new("color11", "#BF5A53")
+Color.new("foreground", "#b2bac0")
+Color.new("comment_grey", "#A9A9A9")
 
 assert(colors ~= nil)
 
 Group.new("Special", colors.color14)
 Group.new("Directory", colors.color14)
 Group.new("QuickfixLine", colors.color2)
-Group.new("Function", colors.color2)
+Group.new("Function", colors.color2, nil)
 Group.new("Identifier", colors.color2)
 Group.new("DiffAdd", colors.foreground, colors.color2:dark():dark())
 Group.new("PreProc", colors.color14)
 Group.new("Type", colors.color14)
+Group.new("Keyword", colors.color11, nil, styles.bold)
+Group.new("Comment", colors.comment_grey, nil, styles.italic)
+vim.api.nvim_set_hl(0, "Character", { link = "String" })

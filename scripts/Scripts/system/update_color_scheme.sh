@@ -69,6 +69,7 @@ echo "Updating nvim colour scheme..."
 
 sed -i "/\"color14\"/c\Color.new(\"color14\", \"$(get_xrdb_colour *.color14:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/theme.lua
 sed -i "/\"color2\"/c\Color.new(\"color2\", \"$(get_xrdb_colour *.color2:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/theme.lua
+sed -i "/\"color11\"/c\Color.new(\"color11\", \"$(get_xrdb_colour *.color11:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/theme.lua
 sed -i "/\"foreground\"/c\Color.new(\"foreground\", \"$(get_xrdb_colour *.foreground:)\")" $HOME/.dotfiles/nvim/.config/nvim/lua/theme.lua
 
 echo "System colour scheme updated successfully."

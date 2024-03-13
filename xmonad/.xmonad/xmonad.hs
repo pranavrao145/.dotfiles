@@ -133,7 +133,7 @@ myKeys =
         spawn "brave --password-store=basic")
     , ("M-q", kill)
     , ("M-f", sendMessage (Toggle NBFULL))
-    , ("M-S-i", spawn "sysinfo")
+    -- , ("M-S-i", spawn "sysinfo")
     , ("C-<Space>", spawn "dunstctl close")
     , ("<Control_L>-`", spawn "dunstctl history-pop")
     , ("C-S-.", spawn "dunstctl context")
@@ -172,9 +172,9 @@ myKeys =
     , ("M-C-<Left>", shiftPrevScreen >> prevScreen)
     , ("M-S--", withFocused $ toggleDynamicNSP "scratch")
     , ("M--", dynamicNSPAction "scratch")
-    , ("M-S-l", spawn "lock")
+    , ("M-S-l", spawn "loginctl lock-session")
     , ("M-S-a", spawnSelected' gsGeneral)
-    , ("M-S-q", spawn "sudo restart-sddm")
+    , ("M-S-q", spawn "loginctl terminate-user cypher")
     ]
 
 myManageHook =
@@ -229,8 +229,8 @@ myStartupHook = do
     spawn "picom --experimental-backends &"
     -- spawn "picom --config ~/.config/picom/picom.conf"
     -- spawnOnce "nm-applet &"
-    spawnOnce "sysinfo"
     spawnOnce "xmodmap ~/.Xmodmap"
+    spawnOnce "notify-send \"Notification daemon started\""
     -- spawnOnce "pkill -i picom"
 
 mySpacing = spacingRaw False (Border 10 10 10 10) True (Border 5 5 5 5) True
@@ -357,11 +357,11 @@ main
                         -- ppOutput =
                             -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                       { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#C9BAAD" "" . shorten 30
+                          , ppTitle = xmobarColor "#6A7686" "" . shorten 30
                       , ppCurrent =
-                                xmobarColor "#C9BAAD" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#6A7686" "" . -- ppCurrentColorMarker1
                             wrap
-                                    "<box type=Bottom width=2 mb=2 color=#C9BAAD>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#6A7686>" -- ppCurrentColorMarker2
                                 "</box>"
                       , ppVisible =
                             wrap

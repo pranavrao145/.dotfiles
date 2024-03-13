@@ -25,7 +25,7 @@ dap.configurations.cpp = {
       )
     end,
     cwd = "${workspaceFolder}",
-    args = {"./maps/uoft.txt"},
+    args = {},
     stopOnEntry = true,
   },
 }
