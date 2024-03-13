@@ -59,3 +59,10 @@ vim.keymap.set(
   ':lua require("harpoon.tmux").sendCommand(2, 2)<CR>',
   { noremap = true }
 )
+
+vim.keymap.set(
+  "n",
+  "<leader>]",
+  ':lua require("harpoon.tmux").sendCommand(3, 3)<CR>',
+  { noremap = true }
+)

@@ -2,8 +2,8 @@
 
 # frozen_string_literal: true
 
-def neofetch
-  system('neofetch')
+def fastfetch
+  system('fastfetch')
 end
 
 def pfetch
@@ -23,7 +23,7 @@ def cypher_art
 end
 
 # array of functions available
-choices = [method(:pfetch), method(:color_script)]
+choices = [method(:fastfetch), method(:color_script)]
 
 # call a a random function
 func = choices.sample

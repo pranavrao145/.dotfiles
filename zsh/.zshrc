@@ -165,15 +165,20 @@ alias src='exec zsh'
 alias switch-worktree="source switch-worktree"
 alias sa="eval \$(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
 alias po="sudo systemctl poweroff"
+alias sl="sudo systemctl suspend"
+alias sus="sudo systemctl suspend"
 alias re="sudo systemctl reboot"
 alias slk="set_laptop_keybinds"
 alias hs="connect_to_hotspot"
 # alias nd="nvidia_desktop"
 alias gotop="/usr/bin/gotop --nvidia"
-alias h="htop"
 alias g="gotop"
+alias h="htop"
 alias c="cava"
 alias s="s-tui"
+alias si="sysinfo"
+alias ff="fastfetch"
+alias bl="bluetoothctl"
 
 export PATH=$PATH:/home/cypher/.local/bin
 # export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.0/bin
@@ -183,6 +188,7 @@ export PATH=$PATH:/home/cypher/.rbenv/versions/3.0.2/bin
 # export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.2/bin/
 export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$(yarn global bin)
+export PATH=$PATH:$HOME/.cargo/bin
 
 export ANDROID_HOME=/mnt/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -213,6 +219,7 @@ export NVM_COMPLETION=true
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
 
 # run startup script on startup
 

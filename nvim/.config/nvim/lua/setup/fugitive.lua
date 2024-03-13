@@ -1,7 +1,7 @@
 -- Setup vim fugitive for git integration
 
 vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>gP", ":Git push --force<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gP", ":Git push --force-with-lease<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gu", ":Git pull<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gU", ":Git pull --rebase<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gs", ":G<CR>", { noremap = true })
