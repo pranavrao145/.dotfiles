@@ -10,10 +10,10 @@ local setup_debugger = function()
 end
 
 -- ENABLE FOR MANUAL LOAD
--- vim.keymap.set("n", "<leader>dl", function()
---   vim.cmd("PackerLoad nvim-dap")
---   setup_debugger()
--- end, { noremap = true })
+vim.keymap.set("n", "<leader>dl", function()
+  vim.cmd("PackerLoad nvim-dap")
+  setup_debugger()
+end, { noremap = true })
 
 -- ENABLE FOR AUTO LOAD
 local debugger_group =

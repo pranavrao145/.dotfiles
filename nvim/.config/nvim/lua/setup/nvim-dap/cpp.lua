@@ -17,7 +17,7 @@ dap.configurations.cpp = {
     name = "Launch file",
     type = "codelldb",
     request = "launch",
-    program = "/home/cypher/Programming/csc209-submission/A4/as_client",
+    program = "/home/cypher/Documents/university/csc369-submission/A1/main",
     -- program = function()
     --   return vim.fn.input(
     --     "Path to executable: ",

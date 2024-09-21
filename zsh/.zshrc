@@ -183,8 +183,8 @@ alias b0="brightnessctl -c backlight set 0"
 alias docker-compose="docker compose"
 
 export PATH=$PATH:/home/cypher/.local/bin
-export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.0.0/bin
-export PATH=$PATH:/home/cypher/.rbenv/versions/3.0.2/bin
+export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.1.0/bin
+# export PATH=$PATH:/home/cypher/.rbenv/versions/3.1.0/bin
 export PATH=$PATH:/home/cypher/go/bin
 # export PATH=$PATH:/home/cypher/.rbenv/versions/3.3.0/bin
 # export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.3.0/bin/
@@ -199,11 +199,14 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:/home/cypher/.spicetify
 
-# export PATH=$PATH:/home/cypher/.rbenv/shims
-# export PATH=$PATH:/home/cypher/.rbenv/versions
 
 export EDITOR=nvim
 export TERMINAL=/usr/bin/alacritty
+
+export PATH=/home/cypher/.rbenv/versions:$PATH
+export PATH=/home/cypher/.rbenv/shims:$PATH
+
+eval "$(rbenv init -)"
 
 # Fallback prompt
 PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
@@ -221,9 +224,6 @@ eval "$(fzf --zsh)"
 # source /usr/share/nvm/init-nvm.sh
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 
 # run startup script on startup

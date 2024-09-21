@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 # update packages
-sudo dnf update -y
+# sudo dnf update -y
+sudo apt update -y && sudo apt upgrade -y
 brew upgrade
-flatpak update
+flatpak update -y
 
 # update neovim
 cd /home/cypher/Programming/neovim/ && git pull --rebase origin master && sudo make distclean && sudo make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install

@@ -3,11 +3,11 @@ local Group = require("colorbuddy").Group
 local colors = require("colorbuddy").colors
 local styles = require("colorbuddy").styles
 
-Color.new("color14", "#DA6D4C")
-Color.new("color2", "#50476F")
-Color.new("color11", "#6F4C6A")
-Color.new("foreground", "#deaba0")
-Color.new("comment_grey", "#A9A9A9")
+Color.new("color14", "#577888")
+Color.new("color2", "#A45325")
+Color.new("color11", "#D88F4C")
+Color.new("foreground", "#cbd2db")
+Color.new("comment_grey", "#797979")
 
 assert(colors ~= nil)
 
@@ -16,6 +16,8 @@ Group.new("Directory", colors.color14)
 Group.new("QuickfixLine", colors.color2)
 Group.new("Function", colors.color2, nil)
 Group.new("Identifier", colors.color2)
+Group.new("Operator", colors.color2)
+Group.new("Delimiter", colors.color2)
 -- Group.new("DiffAdd", colors.foreground, colors.color2:dark():dark())
 Group.new("PreProc", colors.color14)
 Group.new("Type", colors.color14)

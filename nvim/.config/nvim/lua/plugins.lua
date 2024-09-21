@@ -19,7 +19,7 @@ return require("packer").startup(function()
   use("wbthomason/packer.nvim")
 
   -- Faster startup time
-  -- use("lewis6991/impatient.nvim")
+  use("lewis6991/impatient.nvim")
 
   -- LSP Config
   use({
@@ -283,6 +283,9 @@ return require("packer").startup(function()
 
   -- Indentiation lines
   use("lukas-reineke/indent-blankline.nvim")
+
+  -- Quick scope jumps
+  use("jinh0/eyeliner.nvim")
 
   -- Themes
   -- use("wilmanbarrios/palenight.nvim")

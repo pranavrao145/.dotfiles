@@ -86,7 +86,7 @@ end
 M.on_attach = on_attach
 
 -- Typescript and Javascript
-nvim_lsp.tsserver.setup({
+nvim_lsp.ts_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
@@ -169,7 +169,7 @@ end
 
 -- Lua
 nvim_lsp.lua_ls.setup({
-  cmd = { "/usr/bin/lua-language-server" },
+  cmd = { "lua-language-server" },
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
