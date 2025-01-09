@@ -72,7 +72,7 @@ export ZSH="/home/cypher/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-nvm zsh-autosuggestions zsh-syntax-highlighting sudo web-search copypath copyfile copybuffer dirhistory)
+plugins=(git zsh-nvm zsh-autosuggestions zsh-syntax-highlighting sudo dirhistory copypath copyfile copybuffer)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,13 +123,6 @@ v() {
     fi
 }
 
-# to reset the origin remote should it stop working
-reset-remote() {
-    remote_url=$(git config --get remote.origin.url)
-    git remote remove origin
-    git remote add origin $remote_url
-}
-
 alias vim="nvim"
 alias vmi="nvim"
 alias ivm="nvim"
@@ -175,12 +168,17 @@ alias gotop="gotop --nvidia"
 alias g="gotop"
 alias h="htop"
 alias c="cava"
-alias s="s-tui"
-alias si="sysinfo"
+alias s="tmux-sessionizer"
+#alias s="s-tui"
+#alias si="sysinfo"
 alias ff="fastfetch"
 alias bl="bluetoothctl"
-alias b0="brightnessctl -c backlight set 0"
+#alias b0="brightnessctl -c backlight set 0"
 alias docker-compose="docker compose"
+
+if [ -e $HOME/.zsh_aliases ]; then
+    source $HOME/.zsh_aliases
+fi
 
 export PATH=$PATH:/home/cypher/.local/bin
 export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.1.0/bin
@@ -193,23 +191,24 @@ export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:$(yarn global bin)
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
-
-export ANDROID_HOME=/mnt/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+#export PATH=$PATH:$ANDROID_HOME/emulator
+#export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:/home/cypher/.spicetify
-
-
-export EDITOR=nvim
-export TERMINAL=/usr/bin/alacritty
+export PATH=$PATH:/usr/local/go/bin
+# export ANDROID_HOME=/mnt/Android/Sdk
 
 export PATH=/home/cypher/.rbenv/versions:$PATH
 export PATH=/home/cypher/.rbenv/shims:$PATH
+
+export EDITOR=nvim
+export TERMINAL=/usr/bin/alacritty
 
 eval "$(rbenv init -)"
 
 # Fallback prompt
 PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m ${PROMPT}"
+PROMPT="%{$fg[cyan]%}$USER@%{$fg[blue]%}%m %{$fg[green]%}%~ %{$reset_color%}"
+
 
 # if [ -f /usr/share/fzf/key-bindings.zsh ]; then
 #     source /usr/share/fzf/key-bindings.zsh
@@ -236,7 +235,15 @@ export NVM_COMPLETION=true
 
 # if [ "$(tty)" != "/dev/tty1" ]; then
 # ruby /home/cypher/Scripts/shell/startup.rb
-colorscript -r
+
+# Get the power profile
+profile=$(system76-power profile | grep 'Power Profile:' | awk '{print $3}')
+
+# Check if the profile is "Performance"
+if [[ "$profile" == "Performance" ]]; then
+    colorscript -r
+    eval "$(starship init zsh)"
+fi
+
 eval "$(direnv hook zsh)"
-eval "$(starship init zsh)"
 # fi

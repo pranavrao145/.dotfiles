@@ -1,7 +1,9 @@
-local outline = require("outline")
+require("aerial").setup({
+  layout = {
+    min_width = 30,
+  },
+  -- open_automatic = true,
+  attach_mode = "global",
+})
 
-outline.setup()
-
-vim.keymap.set("n", "<leader>os", function ()
-    outline.toggle()
-end, { noremap = true })
+vim.keymap.set("n", "<leader>os", "<cmd>AerialToggle<CR>", { noremap = true })

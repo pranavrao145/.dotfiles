@@ -47,8 +47,8 @@ vim.keymap.set("v", ";", ":", { noremap = true })
 vim.keymap.set("v", ":", ";", { noremap = true })
 
 -- Escape remaps
-vim.keymap.set("i", "kj", "<Esc>", { noremap = true })
-vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
+-- vim.keymap.set("i", "kj", "<Esc>", { noremap = true })
+-- vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
 
 -- Void paste remap
 vim.keymap.set("v", "<leader>p", '"_dP', { noremap = true })

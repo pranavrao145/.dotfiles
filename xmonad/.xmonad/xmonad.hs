@@ -365,11 +365,11 @@ main
                         -- ppOutput =
                             -- \x -> hPutStrLn xmproc x >> hPutStrLn xmproc1 x
                       { ppOrder = \(ws:l:t:ex) -> [ws, t] ++ ex
-                          , ppTitle = xmobarColor "#A1A3A7" "" . shorten 30
+                          , ppTitle = xmobarColor "#E95D54" "" . shorten 30
                       , ppCurrent =
-                                xmobarColor "#A1A3A7" "" . -- ppCurrentColorMarker1
+                                xmobarColor "#E95D54" "" . -- ppCurrentColorMarker1
                             wrap
-                                    "<box type=Bottom width=2 mb=2 color=#A1A3A7>" -- ppCurrentColorMarker2
+                                    "<box type=Bottom width=2 mb=2 color=#E95D54>" -- ppCurrentColorMarker2
                                 "</box>"
                       , ppVisible =
                             wrap

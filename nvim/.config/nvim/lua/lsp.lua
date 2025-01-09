@@ -98,27 +98,27 @@ nvim_lsp.clangd.setup({
 })
 
 -- Python
-nvim_lsp.pylsp.setup({
+-- nvim_lsp.pylsp.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         pycodestyle = {
+--           ignore = { "E501" },
+--         },
+--       },
+--     },
+--   },
+-- })
+--
+-- nvim_lsp.ruff.setup({ on_attach = on_attach, capabilities = capabilities })
+
+nvim_lsp.pyright.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = { "E501" },
-        },
-      },
-    },
-  },
 })
 
-nvim_lsp.ruff_lsp.setup({
-  init_options = {
-    settings = {
-      args = { "--ignore", "E501" },
-    },
-  },
-})
 
 -- Ruby
 nvim_lsp.solargraph.setup({
@@ -233,5 +233,16 @@ nvim_lsp.texlab.setup({
   capabilities = capabilities,
 })
 
+-- SQL
+nvim_lsp.sqlls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- GLSL
+nvim_lsp.glsl_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
 
 return M

@@ -54,8 +54,8 @@ return require("packer").startup(function()
       { "L3MON4D3/LuaSnip" },
       { "saadparwaiz1/cmp_luasnip" },
       { "rafamadriz/friendly-snippets" },
-      -- { "tzachar/cmp-tabnine", run = "./install.sh" },
-      -- { "windwp/nvim-autopairs" }, -- autopairs
+      { "tzachar/cmp-tabnine", run = "./install.sh" },
+      { "windwp/nvim-autopairs" }, -- autopairs
     },
   })
 
@@ -167,7 +167,10 @@ return require("packer").startup(function()
       "nvim-treesitter/nvim-treesitter-textobjects",
       "JoosepAlviste/nvim-ts-context-commentstring",
       "mfussenegger/nvim-treehopper",
-      "romgrk/nvim-treesitter-context",
+      {
+        "romgrk/nvim-treesitter-context",
+        commit = "0dd00bb6423b4c655e6a0f9dd2f5332167bb6d33", -- TODO: remove once bug is fixed
+      },
     },
   })
 
@@ -251,7 +254,7 @@ return require("packer").startup(function()
   })
 
   -- Symbols outline
-  use({ "hedyhli/outline.nvim" })
+  use({ "stevearc/aerial.nvim" })
 
   -- Git signs
   use({ "lewis6991/gitsigns.nvim" })
@@ -285,19 +288,27 @@ return require("packer").startup(function()
   use("lukas-reineke/indent-blankline.nvim")
 
   -- Quick scope jumps
-  use("jinh0/eyeliner.nvim")
+  -- use("jinh0/eyeliner.nvim")
+
+  -- for highlighting TODOs
+  use({
+    "folke/todo-comments.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+  })
+
+  use("stevearc/oil.nvim")
 
   -- Themes
   -- use("wilmanbarrios/palenight.nvim")
   -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
-  -- use("shaunsingh/nord.nvim")
+  use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("Shatur/neovim-ayu")
   -- use("tjdevries/gruvbuddy.nvim")
-  use("tjdevries/colorbuddy.vim", { tag = "dev" })
+  -- use("tjdevries/colorbuddy.vim", { tag = "dev" })
 
   if packer_bootstrap then
     require("packer").sync()

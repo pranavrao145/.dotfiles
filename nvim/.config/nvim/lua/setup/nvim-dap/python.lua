@@ -1,1 +1,1 @@
-require("dap-python").setup("/usr/bin/python")
+require("dap-python").setup("/usr/bin/python3")

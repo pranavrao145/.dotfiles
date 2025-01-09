@@ -33,18 +33,18 @@ vim.keymap.set(
   { noremap = true }
 )
 
-vim.keymap.set(
-  "n",
-  "<leader>T",
-  ':lua require("harpoon.tmux").gotoTerminal(3)<CR>',
-  { noremap = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>t",
-  ':lua require("harpoon.tmux").gotoTerminal(2)<CR>',
-  { noremap = true }
-)
+-- vim.keymap.set(
+--   "n",
+--   "<leader>T",
+--   ':lua require("harpoon.tmux").gotoTerminal(3)<CR>',
+--   { noremap = true }
+-- )
+-- vim.keymap.set(
+--   "n",
+--   "<leader>t",
+--   ':lua require("harpoon.tmux").gotoTerminal(2)<CR>',
+--   { noremap = true }
+-- )
 
 vim.keymap.set(
   "n",
