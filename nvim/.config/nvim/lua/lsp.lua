@@ -119,7 +119,6 @@ nvim_lsp.pyright.setup({
   capabilities = capabilities,
 })
 
-
 -- Ruby
 nvim_lsp.solargraph.setup({
   cmd = { "solargraph", "stdio" },
@@ -234,10 +233,10 @@ nvim_lsp.texlab.setup({
 })
 
 -- SQL
-nvim_lsp.sqlls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+-- nvim_lsp.sqlls.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- })
 
 -- GLSL
 nvim_lsp.glsl_analyzer.setup({

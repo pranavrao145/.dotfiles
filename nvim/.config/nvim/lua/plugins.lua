@@ -28,6 +28,7 @@ return require("packer").startup(function()
       -- "ray-x/lsp_signature.nvim",
       "mfussenegger/nvim-jdtls",
       { "j-hui/fidget.nvim", tag = "legacy" }, -- visual loader
+      "nvimdev/lspsaga.nvim",
     },
   })
 
@@ -60,22 +61,22 @@ return require("packer").startup(function()
   })
 
   -- Status line
-  -- use({
-  -- "hoob3rt/lualine.nvim",
-  -- requires = {
-  -- { "kyazdani42/nvim-web-devicons" },
-  -- { "ryanoasis/vim-devicons" },
-  -- },
-  -- })
-
   use({
-    "tjdevries/express_line.nvim",
+    "hoob3rt/lualine.nvim",
     requires = {
       { "kyazdani42/nvim-web-devicons" },
       { "ryanoasis/vim-devicons" },
-      { "nvim-lua/plenary.nvim" },
     },
   })
+
+  -- use({
+  --   "tjdevries/express_line.nvim",
+  --   requires = {
+  --     { "kyazdani42/nvim-web-devicons" },
+  --     { "ryanoasis/vim-devicons" },
+  --     { "nvim-lua/plenary.nvim" },
+  --   },
+  -- })
 
   -- Bufferline
   -- use({
@@ -296,19 +297,25 @@ return require("packer").startup(function()
     requires = { "nvim-lua/plenary.nvim" },
   })
 
+  -- file manager
   use("stevearc/oil.nvim")
+
+  -- vim.ui
+  use("stevearc/dressing.nvim")
 
   -- Themes
   -- use("wilmanbarrios/palenight.nvim")
   -- use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
-  use("shaunsingh/nord.nvim")
+  -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
   -- use("folke/tokyonight.nvim")
   -- use("Shatur/neovim-ayu")
   -- use("tjdevries/gruvbuddy.nvim")
   -- use("tjdevries/colorbuddy.vim", { tag = "dev" })
+  use({ "catppuccin/nvim", as = "catppuccin" })
+  -- use({ "vague2k/vague.nvim" })
 
   if packer_bootstrap then
     require("packer").sync()

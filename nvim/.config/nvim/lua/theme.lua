@@ -13,9 +13,11 @@ vim.g.ayu_italic_comment = 1
 -- set up colorscheme, if necessary
 -- require("setup.tokyonight")
 -- require("setup.gruvbox")
+require("setup.catppuccin")
+-- require("setup.vague")
 
 -- Set colorscheme
-vim.cmd("colorscheme nord")
+vim.cmd("colorscheme catppuccin")
 -- require("colorbuddy").colorscheme("colorbuddy")
 
 -- transparent background and get rid of unneccessary fills
@@ -29,8 +31,8 @@ vim.cmd([[
     " hi WinSeparator guibg=NONE ctermbg=NONE
 
     " needed for dracula
-    " hi TelescopeNormal guibg=NONE ctermbg=NONE
-    " hi! link NonText Comment
+    hi TelescopeNormal guibg=NONE ctermbg=NONE
+    hi! link NonText Comment
 
     " Needed for gruvbuddy
     " hi ColorColumn guibg=#2C323C ctermbg=236
