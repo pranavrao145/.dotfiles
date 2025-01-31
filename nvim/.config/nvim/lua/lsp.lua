@@ -119,7 +119,6 @@ nvim_lsp.pyright.setup({
   capabilities = capabilities,
 })
 
-
 -- Ruby
 nvim_lsp.solargraph.setup({
   cmd = { "solargraph", "stdio" },
