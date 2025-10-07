@@ -181,7 +181,7 @@ if [ -e $HOME/.zsh_aliases ]; then
 fi
 
 export PATH=$PATH:/home/cypher/.local/bin
-export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.1.0/bin
+export PATH=$PATH:/home/cypher/.local/share/gem/ruby/3.4.0/bin
 # export PATH=$PATH:/home/cypher/.rbenv/versions/3.1.0/bin
 export PATH=$PATH:/home/cypher/go/bin
 # export PATH=$PATH:/home/cypher/.rbenv/versions/3.3.0/bin

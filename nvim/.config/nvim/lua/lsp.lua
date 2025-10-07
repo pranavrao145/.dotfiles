@@ -86,13 +86,13 @@ end
 M.on_attach = on_attach
 
 -- Typescript and Javascript
-nvim_lsp.ts_ls.setup({
+vim.lsp.config("ts_ls", {
   on_attach = on_attach,
   capabilities = capabilities,
 })
 
 -- C and C++
-nvim_lsp.clangd.setup({
+vim.lsp.config("clangd", {
   on_attach = on_attach,
   capabilities = capabilities,
 })
@@ -114,20 +114,20 @@ nvim_lsp.clangd.setup({
 --
 -- nvim_lsp.ruff.setup({ on_attach = on_attach, capabilities = capabilities })
 
-nvim_lsp.pyright.setup({
+vim.lsp.config("pyright", {
   on_attach = on_attach,
   capabilities = capabilities,
 })
 
 -- Ruby
-nvim_lsp.solargraph.setup({
+vim.lsp.config("solargraph", {
   cmd = { "solargraph", "stdio" },
   on_attach = on_attach,
   capabilities = capabilities,
 })
 
 -- Golang
-nvim_lsp.gopls.setup({
+vim.lsp.config("gopls", {
   on_attach = on_attach,
   capabilities = capabilities,
 })
@@ -167,7 +167,7 @@ M.get_jdtls_config = function()
 end
 
 -- Lua
-nvim_lsp.lua_ls.setup({
+vim.lsp.config("lua_ls", {
   cmd = { "lua-language-server" },
   on_attach = on_attach,
   capabilities = capabilities,
@@ -182,7 +182,7 @@ nvim_lsp.lua_ls.setup({
 })
 
 -- Haskell
-nvim_lsp.hls.setup({
+vim.lsp.config("hls", {
   on_attach = on_attach,
   capabilities = capabilities,
   root_dir = nvim_lsp.util.root_pattern(
@@ -196,7 +196,7 @@ nvim_lsp.hls.setup({
 })
 
 -- C#
-nvim_lsp.omnisharp.setup({
+vim.lsp.config("omnisharp", {
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = {
@@ -209,7 +209,7 @@ nvim_lsp.omnisharp.setup({
 })
 
 -- Rust
-nvim_lsp.rust_analyzer.setup({
+vim.lsp.config("rust_analyzer", {
   on_attach = on_attach,
   capabilities = capabilities,
   root_dir = nvim_lsp.util.root_pattern(
@@ -220,14 +220,14 @@ nvim_lsp.rust_analyzer.setup({
 })
 
 -- Elixir/Erlang
-nvim_lsp.elixirls.setup({
+vim.lsp.config("elixirls", {
   cmd = { "/usr/bin/elixir-ls" },
   on_attach = on_attach,
   capabilities = capabilities,
 })
 
 -- LaTeX
-nvim_lsp.texlab.setup({
+vim.lsp.config("texlab", {
   on_attach = on_attach,
   capabilities = capabilities,
 })
@@ -239,9 +239,22 @@ nvim_lsp.texlab.setup({
 -- })
 
 -- GLSL
-nvim_lsp.glsl_analyzer.setup({
+vim.lsp.config("glsl_analyzer", {
   on_attach = on_attach,
   capabilities = capabilities,
+})
+
+-- TODO : add Java back
+vim.lsp.enable({
+  "ts_ls",
+  "clangd",
+  "pyright",
+  "solargraph",
+  "gopls",
+  "lua_ls",
+  "rust_analyzer",
+  "elixirls",
+  "glsl_analyzer",
 })
 
 return M
