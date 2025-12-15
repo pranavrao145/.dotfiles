@@ -66,5 +66,6 @@ require("setup.todo-comments")
 require("setup.oil")
 require("setup.lspsaga")
 require("setup.dressing")
+require("setup.copilot")
 
 -- require('plenary.profile').stop()

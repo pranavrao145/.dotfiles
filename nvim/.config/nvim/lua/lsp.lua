@@ -126,6 +126,11 @@ vim.lsp.config("solargraph", {
   capabilities = capabilities,
 })
 
+vim.lsp.config("ruby_lsp", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
 -- Golang
 vim.lsp.config("gopls", {
   on_attach = on_attach,
@@ -249,7 +254,8 @@ vim.lsp.enable({
   "ts_ls",
   "clangd",
   "pyright",
-  "solargraph",
+  -- "solargraph",
+  "ruby_lsp",
   "gopls",
   "lua_ls",
   "rust_analyzer",

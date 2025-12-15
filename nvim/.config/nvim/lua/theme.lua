@@ -13,11 +13,11 @@ vim.g.ayu_italic_comment = 1
 -- set up colorscheme, if necessary
 -- require("setup.tokyonight")
 -- require("setup.gruvbox")
-require("setup.catppuccin")
+-- require("setup.catppuccin")
 -- require("setup.vague")
 
 -- Set colorscheme
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme dracula")
 -- require("colorbuddy").colorscheme("colorbuddy")
 
 -- transparent background and get rid of unneccessary fills

@@ -3,10 +3,10 @@ local Group = require("colorbuddy").Group
 local colors = require("colorbuddy").colors
 local styles = require("colorbuddy").styles
 
-Color.new("color14", "#E95D54")
-Color.new("color2", "#565858")
-Color.new("color11", "#9B2932")
-Color.new("foreground", "#f1c8a8")
+Color.new("color14", "#9C9786")
+Color.new("color2", "#9F415F")
+Color.new("color11", "#3C638B")
+Color.new("foreground", "#e2c8cc")
 Color.new("comment_grey", "#797979")
 
 assert(colors ~= nil)

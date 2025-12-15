@@ -303,10 +303,34 @@ return require("packer").startup(function()
   -- vim.ui
   use("stevearc/dressing.nvim")
 
+  -- GitHub Copilot
+  use({
+    "zbirenbaum/copilot.lua",
+    requires = {
+      "copilotlsp-nvim/copilot-lsp",
+    },
+  })
+
+  use({
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  })
+
+  use({
+    "olimorris/codecompanion.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    tag = "v17.33.0",
+  })
+
   -- Themes
   -- use("wilmanbarrios/palenight.nvim")
   -- use("ellisonleao/gruvbox.nvim")
-  -- use("Mofiqul/dracula.nvim")
+  use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
@@ -314,7 +338,7 @@ return require("packer").startup(function()
   -- use("Shatur/neovim-ayu")
   -- use("tjdevries/gruvbuddy.nvim")
   -- use("tjdevries/colorbuddy.vim", { tag = "dev" })
-  use({ "catppuccin/nvim", as = "catppuccin" })
+  -- use({ "catppuccin/nvim", as = "catppuccin" })
   -- use({ "vague2k/vague.nvim" })
 
   if packer_bootstrap then
