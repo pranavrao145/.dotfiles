@@ -162,16 +162,14 @@ return require("packer").startup(function()
   -- Treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     run = ":TSUpdate",
     requires = {
-      "nvim-treesitter/playground",
-      "nvim-treesitter/nvim-treesitter-textobjects",
+      -- "nvim-treesitter/playground",
+      { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
       "JoosepAlviste/nvim-ts-context-commentstring",
       "mfussenegger/nvim-treehopper",
-      {
-        "romgrk/nvim-treesitter-context",
-        commit = "0dd00bb6423b4c655e6a0f9dd2f5332167bb6d33", -- TODO: remove once bug is fixed
-      },
+      "romgrk/nvim-treesitter-context",
     },
   })
 
@@ -306,6 +304,7 @@ return require("packer").startup(function()
   -- GitHub Copilot
   use({
     "zbirenbaum/copilot.lua",
+    commit = "746cc7aed285cc5fb99034b9c79fd06c56da388d",
     requires = {
       "copilotlsp-nvim/copilot-lsp",
     },
@@ -330,7 +329,7 @@ return require("packer").startup(function()
   -- Themes
   -- use("wilmanbarrios/palenight.nvim")
   -- use("ellisonleao/gruvbox.nvim")
-  use("Mofiqul/dracula.nvim")
+  -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
   -- use("sonph/onehalf")
@@ -340,6 +339,7 @@ return require("packer").startup(function()
   -- use("tjdevries/colorbuddy.vim", { tag = "dev" })
   -- use({ "catppuccin/nvim", as = "catppuccin" })
   -- use({ "vague2k/vague.nvim" })
+  use({ "maxmx03/solarized.nvim" })
 
   if packer_bootstrap then
     require("packer").sync()

@@ -6,3 +6,5 @@ vim.keymap.set(
   ":cfdo :Neoformat <bar> :w!<CR>",
   { noremap = true }
 )
+
+vim.g.neoformat_enabled_ruby = { "rubocop" }

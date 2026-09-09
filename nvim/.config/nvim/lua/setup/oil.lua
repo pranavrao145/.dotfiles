@@ -2,6 +2,7 @@ require("oil").setup({
   keymaps = {
     ["<C-p>"] = false,
     ["<C-v>"] = "actions.preview",
+    ["<C-c>"] = false,
   },
   view_options = {
     show_hidden = true

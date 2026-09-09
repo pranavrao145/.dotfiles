@@ -17,7 +17,7 @@ vim.g.ayu_italic_comment = 1
 -- require("setup.vague")
 
 -- Set colorscheme
-vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme solarized")
 -- require("colorbuddy").colorscheme("colorbuddy")
 
 -- transparent background and get rid of unneccessary fills

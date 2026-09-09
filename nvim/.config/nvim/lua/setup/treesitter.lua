@@ -1,28 +1,33 @@
--- Setup treesitter for better syntax highlighting
+-- ====================================================================
+-- 1. NVIM-TREESITTER (Main Branch Parser Management & Highlighting)
+-- ====================================================================
 
-require("nvim-treesitter.configs").setup({
-  highlight = {
-    enable = true,
-    disable = { "latex" },
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "gni",
-      node_decremental = "gnd",
-      scope_incremental = "gsi",
-    },
-  },
-  indent = {
-    enable = false,
-  },
-  textobjects = {
+-- Start native Treesitter highlighting on buffer load
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    if vim.bo[args.buf].filetype == "latex" then
+      return
+    end
+    pcall(vim.treesitter.start)
+  end,
+})
+
+-- Native Incremental Selection Keymaps
+vim.keymap.set("n", "gnn", function() vim.treesitter.incremental_selection.init_selection() end, { desc = "Init selection" })
+vim.keymap.set("x", "gni", function() vim.treesitter.incremental_selection.node_incremental() end, { desc = "Increment node" })
+vim.keymap.set("x", "gsi", function() vim.treesitter.incremental_selection.scope_incremental() end, { desc = "Increment scope" })
+vim.keymap.set("x", "gnd", function() vim.treesitter.incremental_selection.node_decremental() end, { desc = "Decrement node" })
+
+-- ====================================================================
+-- 2. TEXTOBJECTS SETUP
+-- ====================================================================
+local status, textobjects = pcall(require, "nvim-treesitter-textobjects")
+if status then
+  textobjects.setup({
     select = {
       enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
@@ -31,7 +36,7 @@ require("nvim-treesitter.configs").setup({
     },
     move = {
       enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
+      set_jumps = true,
       goto_next_start = {
         ["]m"] = "@function.outer",
         ["]]"] = "@class.outer",
@@ -58,29 +63,14 @@ require("nvim-treesitter.configs").setup({
         ["<leader>pp"] = "@parameter.inner",
       },
     },
-    playground = {
-      enable = true,
-      disable = {},
-      updatetime = 100, -- Debounced time for highlighting nodes in the playground from source code
-      persist_queries = false, -- Whether the query persists across vim sessions
-      keybindings = {
-        toggle_query_editor = "o",
-        toggle_hl_groups = "i",
-        toggle_injected_languages = "t",
-        toggle_anonymous_nodes = "a",
-        toggle_language_display = "I",
-        focus_language = "f",
-        unfocus_language = "F",
-        update = "R",
-        goto_node = "<cr>",
-        show_help = "?",
-      },
-    },
-  },
-})
+  })
+end
 
--- Skip backwards compatibility for commentstrings
+-- ====================================================================
+-- 3. UTILITIES & INSPECTOR
+-- ====================================================================
+
 vim.g.skip_ts_context_commentstring_module = true
 
--- Setup playground keybindings
-vim.keymap.set("n", "<leader>pP", ":TSPlaygroundToggle<CR>", { noremap = true })
+-- Replaces TSPlaygroundToggle with Neovim's built-in AST Inspector
+vim.keymap.set("n", "<leader>pP", "<cmd>InspectTree<CR>", { desc = "Toggle Treesitter AST Inspector" })

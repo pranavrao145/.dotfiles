@@ -196,6 +196,7 @@ export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 export PATH=$PATH:/home/cypher/.spicetify
 export PATH=$PATH:/usr/local/go/bin
 # export ANDROID_HOME=/mnt/Android/Sdk
+export PATH=$PATH:/home/cypher/.lmstudio/bin
 
 export PATH=/home/cypher/.rbenv/versions:$PATH
 export PATH=/home/cypher/.rbenv/shims:$PATH
@@ -247,3 +248,7 @@ fi
 
 eval "$(direnv hook zsh)"
 # fi
+
+# Added by LM Studio CLI (lms)
+# End of LM Studio CLI section
+
