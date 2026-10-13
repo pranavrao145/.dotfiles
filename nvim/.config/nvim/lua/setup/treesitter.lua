@@ -1,3 +1,9 @@
+require("nvim-treesitter").setup({
+  highlight = {
+    enable = true,
+  },
+})
+
 -- ====================================================================
 -- 1. NVIM-TREESITTER (Main Branch Parser Management & Highlighting)
 -- ====================================================================
@@ -13,10 +19,18 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Native Incremental Selection Keymaps
-vim.keymap.set("n", "gnn", function() vim.treesitter.incremental_selection.init_selection() end, { desc = "Init selection" })
-vim.keymap.set("x", "gni", function() vim.treesitter.incremental_selection.node_incremental() end, { desc = "Increment node" })
-vim.keymap.set("x", "gsi", function() vim.treesitter.incremental_selection.scope_incremental() end, { desc = "Increment scope" })
-vim.keymap.set("x", "gnd", function() vim.treesitter.incremental_selection.node_decremental() end, { desc = "Decrement node" })
+vim.keymap.set("n", "gnn", function()
+  vim.treesitter.incremental_selection.init_selection()
+end, { desc = "Init selection" })
+vim.keymap.set("x", "gni", function()
+  vim.treesitter.incremental_selection.node_incremental()
+end, { desc = "Increment node" })
+vim.keymap.set("x", "gsi", function()
+  vim.treesitter.incremental_selection.scope_incremental()
+end, { desc = "Increment scope" })
+vim.keymap.set("x", "gnd", function()
+  vim.treesitter.incremental_selection.node_decremental()
+end, { desc = "Decrement node" })
 
 -- ====================================================================
 -- 2. TEXTOBJECTS SETUP
@@ -73,4 +87,9 @@ end
 vim.g.skip_ts_context_commentstring_module = true
 
 -- Replaces TSPlaygroundToggle with Neovim's built-in AST Inspector
-vim.keymap.set("n", "<leader>pP", "<cmd>InspectTree<CR>", { desc = "Toggle Treesitter AST Inspector" })
+vim.keymap.set(
+  "n",
+  "<leader>pP",
+  "<cmd>InspectTree<CR>",
+  { desc = "Toggle Treesitter AST Inspector" }
+)

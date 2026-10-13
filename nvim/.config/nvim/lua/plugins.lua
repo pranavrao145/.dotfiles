@@ -328,7 +328,7 @@ return require("packer").startup(function()
 
   -- Themes
   -- use("wilmanbarrios/palenight.nvim")
-  -- use("ellisonleao/gruvbox.nvim")
+  use("ellisonleao/gruvbox.nvim")
   -- use("Mofiqul/dracula.nvim")
   -- use("navarasu/onedark.nvim")
   -- use("shaunsingh/nord.nvim")
@@ -339,7 +339,10 @@ return require("packer").startup(function()
   -- use("tjdevries/colorbuddy.vim", { tag = "dev" })
   -- use({ "catppuccin/nvim", as = "catppuccin" })
   -- use({ "vague2k/vague.nvim" })
-  use({ "maxmx03/solarized.nvim" })
+  -- use({ "maxmx03/solarized.nvim" })
+
+  -- Mason for managing LSP servers
+  use("mason-org/mason.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

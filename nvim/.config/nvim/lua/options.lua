@@ -41,6 +41,7 @@ vim.opt.pumblend = 16
 vim.opt.path = vim.o.path .. ",**"
 vim.opt.laststatus = 3
 vim.opt.winbar = "%t %m"
+vim.g.deprecation_warnings = false
 
 vim.cmd([[
     let &runtimepath.=',' . expand("$HOME") . '/Programming/refactoring.nvim/master'

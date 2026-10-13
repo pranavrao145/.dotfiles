@@ -151,11 +151,30 @@ M.get_jdtls_config = function()
       "\n"
     )
   )
+
+  -- 1. Dynamically resolve Mason paths
+  local mason_bin = vim.fn.stdpath("data") .. "/mason/bin/jdtls"
+  local mason_share = vim.fn.stdpath("data") .. "/mason/share/jdtls"
+
+  -- 2. Define the project root directory
+  local root_dir =
+    require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" })
+  local project_name = root_dir and vim.fn.fnamemodify(root_dir, ":p:h:t")
+    or "default-project"
+
+  -- 3. Set up isolated workspace caching for this specific project
+  local workspace_dir = vim.fn.stdpath("cache")
+    .. "/jdtls/workspace/"
+    .. project_name
+
   return {
     cmd = {
-      "/usr/bin/jdtls",
+      mason_bin, -- Points to Mason jdtls executable
+      "--jvm-arg=-javaagent:" .. mason_share .. "/lombok.jar", -- Attaches Mason's bundled Lombok jar
+      "-data",
+      workspace_dir, -- Isolates workspace caches
     },
-    root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
+    root_dir = root_dir,
     settings = {
       java = {},
     },

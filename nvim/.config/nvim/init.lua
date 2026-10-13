@@ -67,5 +67,6 @@ require("setup.oil")
 require("setup.lspsaga")
 require("setup.dressing")
 require("setup.copilot")
+require("setup.mason")
 
 -- require('plenary.profile').stop()
